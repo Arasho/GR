@@ -1,0 +1,14 @@
+D:\Pliki\XNA\Chapter 09\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\Trees.xnb
+D:\Pliki\XNA\Chapter 09\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.exe
+D:\Pliki\XNA\Chapter 09\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.pdb
+D:\Pliki\XNA\Chapter 09\3D Madness\3D Madness\3D Madness\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Pliki\XNA\Chapter 09\3D Madness\3D Madness\3D Madness\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Pliki\XNA\Chapter 09\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.exe
+D:\Pliki\XNA\Chapter 09\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.pdb
+C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\Trees.xnb
+C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.exe
+C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.pdb
+C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.exe
+C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.pdb
