@@ -123,6 +123,7 @@ namespace _3D_Madness
                 this.Exit();
 
             // Translation
+            //Sterowanie kamer¹
             KeyboardState keyboardState = Keyboard.GetState();
             MouseState mouseState = Mouse.GetState();
             if (keyboardState.IsKeyDown(Keys.A))
