@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Input;
 namespace _3D_Madness
 {
     /// <summary>
-    /// This is the main type for your game
+    /// This is the main type for your game 
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {

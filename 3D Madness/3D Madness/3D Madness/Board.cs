@@ -4,6 +4,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace _3D_Madness
 {
+    /// <summary>
+    ///  
+    /// </summary>
     public class Board
     {
         #region Constants

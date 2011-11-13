@@ -2,6 +2,9 @@
 
 namespace _3D_Madness
 {
+    /// <summary>
+    ///  
+    /// </summary>
     public class Element
     {
         #region Properties

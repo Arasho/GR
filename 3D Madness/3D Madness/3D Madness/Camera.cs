@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 namespace _3D_Madness
 {
     /// <summary>
-    /// This is a game component that implements IUpdateable.
+    /// This is a game component that implements IUpdateable. 
     /// </summary>
     public class Camera : Microsoft.Xna.Framework.GameComponent
     {
