@@ -12,3 +12,11 @@ C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\obj\x86\Debug
 C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.exe
 C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.pdb
+C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\Trees.xnb
+C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\empty.xnb
+C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.exe
+C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.pdb
+C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.exe
+C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.pdb

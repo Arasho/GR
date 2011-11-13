@@ -22,7 +22,7 @@ namespace _3D_Madness
 
         public Camera(Game game, Vector3 pos, Vector3 target, Vector3 up)
             : base(game)
-        {
+        { 
             // Initialize view matrix
             view = Matrix.CreateLookAt(pos, target, up);
 

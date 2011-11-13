@@ -7,8 +7,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\Trees.xnb</Output>
-      <Time>2010-08-03T13:16:04+02:00</Time>
+      <Output>C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\Trees.xnb</Output>
+      <Time>2011-11-12T21:48:43.216374+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\empty.png</Source>
+      <Name>Textures\empty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\empty.xnb</Output>
+      <Time>2011-11-13T17:56:44.805411+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -16,10 +25,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D MadnessContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D MadnessContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -48,7 +57,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-10-22T17:27:20.1005342+02:00</Value>
+        <Value>2011-10-05T16:00:55.4051667+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
