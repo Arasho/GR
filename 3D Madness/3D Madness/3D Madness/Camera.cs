@@ -1,14 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 
 namespace _3D_Madness
 {
@@ -17,12 +7,19 @@ namespace _3D_Madness
     /// </summary>
     public class Camera : Microsoft.Xna.Framework.GameComponent
     {
+        #region Properties
+
         public Matrix view { get; set; }
+
         public Matrix projection { get; set; }
+
+        #endregion Properties
+
+        #region Constructors
 
         public Camera(Game game, Vector3 pos, Vector3 target, Vector3 up)
             : base(game)
-        { 
+        {
             // Initialize view matrix
             view = Matrix.CreateLookAt(pos, target, up);
 
@@ -33,6 +30,10 @@ namespace _3D_Madness
                 (float)Game.Window.ClientBounds.Height,
                 1, 100);
         }
+
+        #endregion Constructors
+
+        #region Methods
 
         /// <summary>
         /// Allows the game component to perform any initialization it needs to before starting
@@ -55,5 +56,7 @@ namespace _3D_Madness
 
             base.Update(gameTime);
         }
+
+        #endregion Methods
     }
 }

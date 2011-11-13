@@ -1,19 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace _3D_Madness
 {
     public class Element
     {
+        #region Properties
+
         public VertexPositionTexture[] verts { get; set; }
 
-        public Element(VertexPositionTexture [] x)
+        public Texture2D Texture { get; set; }
+
+        #endregion Properties
+
+        #region Constructors
+
+        public Element(VertexPositionTexture[] x, Texture2D texture)
         {
-            verts = x; 
+            verts = x;
+            Texture = texture;
         }
+
+        #endregion Constructors
     }
 }
