@@ -9,9 +9,8 @@ namespace _3D_Madness
         const float speed = 0.1f;
 
         // Movement and rotation stuff
-
-        Matrix worldTranslation = Matrix.Add(Matrix.Identity, Matrix.CreateTranslation(new Vector3(-20, -20, -50)));
-        Matrix worldRotation = Matrix.Identity;
+        Matrix worldTranslation = Matrix.Identity;
+        Matrix worldRotationX = Matrix.Identity;
         
         
         // Texture info
@@ -42,6 +41,8 @@ namespace _3D_Madness
         {
             // Initialize camera
             camera = new Camera(this, Vector3.Zero, Vector3.Zero, Vector3.Up);
+            // ustawienie pozycji poczatkowej swiata
+            worldTranslation = Matrix.Add(worldTranslation, Matrix.CreateTranslation(new Vector3(-20, -20, -50)));
             Components.Add(camera);
 
             base.Initialize();
@@ -93,10 +94,9 @@ namespace _3D_Madness
             if (keyboardState.IsKeyDown(Keys.E))
                 worldTranslation *= Matrix.CreateTranslation(0, 0, speed);
             if (keyboardState.IsKeyDown(Keys.Z))
-                
-                worldRotation *= Matrix.CreateRotationX(MathHelper.PiOver4 / 60);
+                worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / 60);
             if (keyboardState.IsKeyDown(Keys.X))
-                worldRotation *= Matrix.CreateRotationX(MathHelper.PiOver4 / -60);
+                worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / -60);
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
@@ -138,7 +138,7 @@ namespace _3D_Madness
 
             // po co ten pierwszy worldRotation?
             //camera.view = worldRotation * worldTranslation * worldRotation;
-            camera.view = worldTranslation * worldRotation;
+            camera.view = worldTranslation * worldRotationX;
 
             effect.View = camera.view;
             effect.Projection = camera.projection;
