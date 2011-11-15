@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3D Madness", "3D Madness\3D Madness\3D Madness.csproj", "{AF045AD3-0B2C-4593-943D-0707CC48C7FB}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "3D MadnessContent", "3D Madness\3D MadnessContent\3D MadnessContent.contentproj", "{DD9CFA6E-A137-4088-B7AE-55FE4ABE2E84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF045AD3-0B2C-4593-943D-0707CC48C7FB}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{AF045AD3-0B2C-4593-943D-0707CC48C7FB}.Debug|x86.ActiveCfg = Debug|x86
+		{AF045AD3-0B2C-4593-943D-0707CC48C7FB}.Debug|x86.Build.0 = Debug|x86
+		{AF045AD3-0B2C-4593-943D-0707CC48C7FB}.Release|Any CPU.ActiveCfg = Release|x86
+		{AF045AD3-0B2C-4593-943D-0707CC48C7FB}.Release|x86.ActiveCfg = Release|x86
+		{AF045AD3-0B2C-4593-943D-0707CC48C7FB}.Release|x86.Build.0 = Release|x86
+		{DD9CFA6E-A137-4088-B7AE-55FE4ABE2E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9CFA6E-A137-4088-B7AE-55FE4ABE2E84}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DD9CFA6E-A137-4088-B7AE-55FE4ABE2E84}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9CFA6E-A137-4088-B7AE-55FE4ABE2E84}.Release|x86.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
