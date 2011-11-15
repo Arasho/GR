@@ -50,6 +50,8 @@ namespace _3D_Madness
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            Window.AllowUserResizing = true;
+            graphics.ToggleFullScreen();
         }
 
         #endregion Constructors
@@ -103,6 +105,9 @@ namespace _3D_Madness
         {
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                this.Exit();
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
             // Translation
@@ -174,6 +179,8 @@ namespace _3D_Madness
                 {
                     pass.Apply();
                     effect.Texture = item.Texture;
+
+                    GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
                     GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
                    (PrimitiveType.TriangleStrip, item.verts, 0, 2);
                 }

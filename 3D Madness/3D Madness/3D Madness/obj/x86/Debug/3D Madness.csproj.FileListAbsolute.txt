@@ -20,3 +20,11 @@ C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness
 C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.exe
 C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.pdb
+D:\Repo\3D Madness\3D Madness\3D Madness\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Repo\3D Madness\3D Madness\3D Madness\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Repo\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.exe
+D:\Repo\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.pdb
+D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\Trees.xnb
+D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\empty.xnb
+D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.exe
+D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.pdb
