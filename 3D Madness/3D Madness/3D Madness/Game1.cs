@@ -4,25 +4,17 @@ using Microsoft.Xna.Framework.Input;
 
 namespace _3D_Madness
 {
-    /// <summary>
-    /// This is the main type for your game 
-    /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        #region Constants
-
-        const float speed = .1f;
-
-        #endregion Constants
-
-        #region Fields
+        const float speed = 0.1f;
 
         // Movement and rotation stuff
-        Matrix worldTranslation = Matrix.Identity;
-        Matrix worldRotation = Matrix.Identity;
 
+        Matrix worldTranslation = Matrix.Add(Matrix.Identity, Matrix.CreateTranslation(new Vector3(-20, -20, -50)));
+        Matrix worldRotation = Matrix.Identity;
+        
+        
         // Texture info
-        Texture2D texture;
         Texture2D txt1;
         Texture2D txt2;
         VertexBuffer vertexBuffer;
@@ -34,16 +26,8 @@ namespace _3D_Madness
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        #endregion Fields
-
-        #region Properties
-
         // Game camera
         public Camera camera { get; set; }
-
-        #endregion Properties
-
-        #region Constructors
 
         public Game1()
         {
@@ -51,18 +35,13 @@ namespace _3D_Madness
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             Window.AllowUserResizing = true;
-            graphics.ToggleFullScreen();
+            //graphics.ToggleFullScreen();
         }
-
-        #endregion Constructors
-
-        #region Methods
 
         protected override void Initialize()
         {
             // Initialize camera
-            camera = new Camera(this, new Vector3(0, 0, 5),
-                Vector3.Zero, Vector3.Up);
+            camera = new Camera(this, Vector3.Zero, Vector3.Zero, Vector3.Up);
             Components.Add(camera);
 
             base.Initialize();
@@ -70,11 +49,11 @@ namespace _3D_Madness
 
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            txt2 = Content.Load<Texture2D>(@"Textures\Trees");
             txt1 = Content.Load<Texture2D>(@"Textures\empty");
+            txt2 = Content.Load<Texture2D>(@"Textures\Trees");
+            
             // Set vertex data in VertexBuffer
             //vertexBuffer = new VertexBuffer(GraphicsDevice, typeof(VertexPositionTexture), verts.Length, BufferUsage.None);
             //vertexBuffer.SetData(verts);
@@ -82,25 +61,11 @@ namespace _3D_Madness
             // Initialize the BasicEffect
             effect = new BasicEffect(GraphicsDevice);
 
-            // Load texture
-            texture = Content.Load<Texture2D>(@"Textures\empty");
             test = new Board(this, txt1, txt2);
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
-        protected override void UnloadContent()
-        {
-            // TODO: Unload any non ContentManager content here
-        }
+        protected override void UnloadContent() { }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
@@ -111,9 +76,10 @@ namespace _3D_Madness
                 this.Exit();
 
             // Translation
-            //Sterowanie kamer¹
+            //Sterowanie kamera
             KeyboardState keyboardState = Keyboard.GetState();
             MouseState mouseState = Mouse.GetState();
+
             if (keyboardState.IsKeyDown(Keys.D))
                 worldTranslation *= Matrix.CreateTranslation(-1 * speed, 0, 0);
             if (keyboardState.IsKeyDown(Keys.A))
@@ -127,6 +93,7 @@ namespace _3D_Madness
             if (keyboardState.IsKeyDown(Keys.E))
                 worldTranslation *= Matrix.CreateTranslation(0, 0, speed);
             if (keyboardState.IsKeyDown(Keys.Z))
+                
                 worldRotation *= Matrix.CreateRotationX(MathHelper.PiOver4 / 60);
             if (keyboardState.IsKeyDown(Keys.X))
                 worldRotation *= Matrix.CreateRotationX(MathHelper.PiOver4 / -60);
@@ -149,6 +116,8 @@ namespace _3D_Madness
                 //Window.Title = xRay.Intersects(new BoundingSphere(new Vector3(0,0,0), 1f)).ToString();
             }
 
+
+            // Wazne do obracania klocka 
             // Rotation
             //worldRotation *= Matrix.CreateFromYawPitchRoll(
             //    MathHelper.PiOver4 / 60,
@@ -166,7 +135,11 @@ namespace _3D_Madness
             GraphicsDevice.SetVertexBuffer(vertexBuffer);
 
             //Set object and camera info
-            camera.view = worldRotation * worldTranslation * worldRotation;
+
+            // po co ten pierwszy worldRotation?
+            //camera.view = worldRotation * worldTranslation * worldRotation;
+            camera.view = worldTranslation * worldRotation;
+
             effect.View = camera.view;
             effect.Projection = camera.projection;
 
@@ -187,7 +160,5 @@ namespace _3D_Madness
             }
             base.Draw(gameTime);
         }
-
-        #endregion Methods
     }
 }

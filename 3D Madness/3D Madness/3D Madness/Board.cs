@@ -9,38 +9,20 @@ namespace _3D_Madness
     /// </summary>
     public class Board
     {
-        #region Constants
-
         const int sizeX = 20;
         const int sizeY = 20;
-
-        #endregion Constants
-
-        #region Properties
 
         public List<Element> element = new List<Element>();
 
         public VertexPositionTexture[][][] x { get; set; }
-
         public VertexPositionTexture[] x1 { get; set; }
-
         public VertexPositionTexture[] x2 { get; set; }
-
         public VertexPositionTexture[] x3 { get; set; }
-
         public VertexPositionTexture[] x4 { get; set; }
-
-        #endregion Properties
-
-        #region Fields
 
         private int size = 1;
         private Texture2D txt1;
         private Texture2D txt2;
-
-        #endregion Fields
-
-        #region Constructors
 
         public Board(Game g, Texture2D _txt1, Texture2D _txt2)
         {
@@ -59,10 +41,6 @@ namespace _3D_Madness
             }
             GenerateBoard();
         }
-
-        #endregion Constructors
-
-        #region Methods
 
         public void GenerateBoard()
         {
@@ -89,9 +67,6 @@ namespace _3D_Madness
                     }
                 }
             }
-
-        #endregion Methods
-
         }
     }
 }
