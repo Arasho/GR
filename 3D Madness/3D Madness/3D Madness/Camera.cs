@@ -6,6 +6,9 @@ namespace _3D_Madness
     {
         public Matrix view { get; set; }
         public Matrix projection { get; set; }
+        public double rotationAngleX { get; set; } 
+        public double rotationAngleY { get; set; }
+        public double rotationAngleZ { get; set; }
 
         public Camera(Game game, Vector3 pos, Vector3 target, Vector3 up)
             : base(game)

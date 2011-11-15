@@ -1,7 +1,8 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
+using System.Diagnostics;
 namespace _3D_Madness
 {
     public class Game1 : Microsoft.Xna.Framework.Game
@@ -12,11 +13,9 @@ namespace _3D_Madness
         Matrix worldTranslation = Matrix.Identity;
         Matrix worldRotationX = Matrix.Identity;
         
-        
         // Texture info
         Texture2D txt1;
         Texture2D txt2;
-        VertexBuffer vertexBuffer;
 
         // Effect
         BasicEffect effect;
@@ -54,11 +53,7 @@ namespace _3D_Madness
 
             txt1 = Content.Load<Texture2D>(@"Textures\empty");
             txt2 = Content.Load<Texture2D>(@"Textures\Trees");
-            
-            // Set vertex data in VertexBuffer
-            //vertexBuffer = new VertexBuffer(GraphicsDevice, typeof(VertexPositionTexture), verts.Length, BufferUsage.None);
-            //vertexBuffer.SetData(verts);
-
+    
             // Initialize the BasicEffect
             effect = new BasicEffect(GraphicsDevice);
 
@@ -75,6 +70,14 @@ namespace _3D_Madness
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
+
+            // katy rotacji kamery z macierzy rotacji, w tej chwili posiadamy rotacje wzgledem X, ale na przyszlosc gdybysmy potrzebowali
+            // to sa tez wzgledem Y i Z
+            // camera.rotationAngleY = (-1) * Math.Asin(worldRotationY.M31);
+            // camera.rotationAngleZ = Math.Atan2(worldRotationZ.M21, worldRotationZ.M11);
+            // wg. strony -> http://www.codeguru.com/forum/archive/index.php/t-329530.html
+
+            camera.rotationAngleX = Math.Atan2(worldRotationX.M32, worldRotationX.M33);
 
             // Translation
             //Sterowanie kamera
@@ -93,10 +96,28 @@ namespace _3D_Madness
                 worldTranslation *= Matrix.CreateTranslation(0, 0, -1 * speed);
             if (keyboardState.IsKeyDown(Keys.E))
                 worldTranslation *= Matrix.CreateTranslation(0, 0, speed);
-            if (keyboardState.IsKeyDown(Keys.Z))
-                worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / 60);
-            if (keyboardState.IsKeyDown(Keys.X))
-                worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / -60);
+
+            
+            
+            if (camera.rotationAngleX >= 0.0f && camera.rotationAngleX <= 0.6f)
+            {
+                if (keyboardState.IsKeyDown(Keys.Z))
+                {
+                    worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / 60);
+                    Debug.WriteLine(camera.rotationAngleX);
+                }
+                if (keyboardState.IsKeyDown(Keys.X))
+                {
+                    worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / -60);
+                    Debug.WriteLine(camera.rotationAngleX);
+                }
+            }
+            else if (camera.rotationAngleX < 0.0f)
+                worldRotationX = Matrix.CreateRotationX(0.0f);
+            else if (camera.rotationAngleX > 0.6f)
+                worldRotationX = Matrix.CreateRotationX(-0.6f);
+            
+
 
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
@@ -130,11 +151,6 @@ namespace _3D_Madness
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // Set the vertex buffer on the GraphicsDevice
-            GraphicsDevice.SetVertexBuffer(vertexBuffer);
-
-            //Set object and camera info
 
             // po co ten pierwszy worldRotation?
             //camera.view = worldRotation * worldTranslation * worldRotation;
