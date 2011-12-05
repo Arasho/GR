@@ -130,7 +130,7 @@ namespace _3D_Madness
                 direction.Normalize();
 
                 Ray xRay = new Ray(nearPoint, direction);
-                Window.Title = xRay.Intersects(new BoundingSphere(new Vector3(0.5f, 0.5f, 0.5f), 0.5f)).ToString();
+                Window.Title = xRay.Intersects(new BoundingSphere(new Vector3(0.5f, 2.5f, 0.5f), 0.5f)).ToString();
 
                 //Window.Title = xRay.Intersects(new BoundingSphere(new Vector3(0,0,0), 1f)).ToString();
             }
