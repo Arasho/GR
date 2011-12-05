@@ -2,3 +2,4 @@ D:\Pliki\XNA\Chapter 09\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\Re
 C:\Users\Arek\Desktop\3D1 Madness\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Repo\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Projekt\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\ResolveAssemblyReference.cache

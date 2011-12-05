@@ -28,3 +28,11 @@ D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\Trees.xn
 D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\empty.xnb
 D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.exe
 D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.pdb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\Trees.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\empty.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.exe
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.pdb
+C:\Projekt\3D Madness\3D Madness\3D Madness\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Projekt\3D Madness\3D Madness\3D Madness\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Projekt\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.exe
+C:\Projekt\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.pdb

@@ -13,7 +13,7 @@ namespace _3D_Madness
         const int sizeY = 20;
 
         public List<Element> element = new List<Element>();
-
+ 
         public VertexPositionTexture[][][] x { get; set; }
         public VertexPositionTexture[] x1 { get; set; }
         public VertexPositionTexture[] x2 { get; set; }
@@ -63,7 +63,7 @@ namespace _3D_Madness
                     }
                     else
                     {
-                        element.Add(new Element(x[i][j], txt2));
+                        element.Add(new Element(x[i][j], txt1));
                     }
                 }
             }
