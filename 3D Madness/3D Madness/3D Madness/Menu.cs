@@ -25,7 +25,7 @@ namespace _3D_Madness
             spriteBatch = new SpriteBatch(Game.GraphicsDevice);
 
             tMenuBackground = mainWindow.Content.Load<Texture2D>("tlo");
-            tNewGame = mainWindow.Content.Load<Texture2D>("testnowagra");
+            tNewGame = mainWindow.Content.Load<Texture2D>("nowagra");
         }
 
         public override void Initialize()
@@ -37,7 +37,7 @@ namespace _3D_Madness
         public override void Update(GameTime gameTime)
         {
             ms = Mouse.GetState();
-            rNewGame = new Rectangle(mainWindow.GraphicsDevice.Viewport.Width / 2 - 50, 200, tNewGame.Width, tNewGame.Height);
+            rNewGame = new Rectangle(mainWindow.GraphicsDevice.Viewport.Width / 2 - 180, mainWindow.GraphicsDevice.Viewport.Height/2-130, tNewGame.Width, tNewGame.Height);
             rMouse = new Rectangle(ms.X,ms.Y,1,1);
             
 
