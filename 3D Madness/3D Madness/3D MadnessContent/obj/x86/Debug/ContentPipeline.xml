@@ -674,7 +674,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\testnowagra.xnb</Output>
-      <Time>2011-12-06T23:21:31.6785686+01:00</Time>
+      <Time>2011-12-07T00:26:16.5352264+01:00</Time>
     </Item>
     <Item>
       <Source>tlo.jpg</Source>
@@ -683,7 +683,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\tlo.xnb</Output>
-      <Time>2011-12-07T00:07:43.5207251+01:00</Time>
+      <Time>2011-12-07T00:26:16.5412264+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
