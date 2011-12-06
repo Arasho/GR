@@ -118,9 +118,15 @@ namespace _3D_Madness
             if (keyboardState.IsKeyDown(Keys.W))
                 worldTranslation *= Matrix.CreateTranslation(0, -1 * speed, 0);
             if (keyboardState.IsKeyDown(Keys.Q))
-                worldTranslation *= Matrix.CreateTranslation(0, 0, -1 * speed);
+            {
+                if((camera.view.Translation.Z > (-35.0f)))
+                     worldTranslation *= Matrix.CreateTranslation(0, 0, -1 * speed);
+            }
             if (keyboardState.IsKeyDown(Keys.E))
-                worldTranslation *= Matrix.CreateTranslation(0, 0, speed);
+            {
+                if ((camera.view.Translation.Z < (-5.0f)))
+                    worldTranslation *= Matrix.CreateTranslation(0, 0, speed);
+            }
             if (keyboardState.IsKeyDown(Keys.Z))
                 worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / 60);
             if (keyboardState.IsKeyDown(Keys.X))
@@ -132,10 +138,10 @@ namespace _3D_Madness
 
             //nie dziala
             //ograniczenie wysokosci kamery (swiata?)
-            if (worldTranslation.Translation.Z > -5.0f)
-                worldTranslation = Matrix.CreateTranslation(new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -5.0f));
-            else if(worldTranslation.Translation.Z < -35.0f)
-                worldTranslation = Matrix.CreateTranslation(new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -35.0f));
+            //if (worldTranslation.Translation.Z > -5.0f)
+            //    worldTranslation = Matrix.CreateTranslation(new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -5.0f));
+            //else if (worldTranslation.Translation.Z < -35.0f)
+            //    worldTranslation = Matrix.CreateTranslation(new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -35.0f));
 
 
             //dziala
