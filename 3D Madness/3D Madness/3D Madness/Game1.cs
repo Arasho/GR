@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
+using System.Collections.Generic;
 namespace _3D_Madness
 {
     public class Game1 : Microsoft.Xna.Framework.Game
@@ -20,7 +21,8 @@ namespace _3D_Madness
         // Effect
         BasicEffect effect;
 
-        //Board
+        Texture2D[] blocks;
+        public List<Element> elements { get; set; }       //Board
         Board board;
 
         // Generate element
@@ -51,6 +53,7 @@ namespace _3D_Madness
             // ustawienie pozycji poczatkowej swiata
             worldTranslation = Matrix.Add(worldTranslation, Matrix.CreateTranslation(new Vector3(-20, -20, -50)));
 
+            blocks = new Texture2D[73];
             Components.Add(camera);
 
             base.Initialize();
@@ -68,10 +71,19 @@ namespace _3D_Madness
 
             // Za³adowanie pustej planszy
             board = new Board(this, txt1, txt2);
-
+            
             // Za³adowanie parsera 
             rand_element = new XML_Parser();
-            rand_element.XDocParse();
+            elements = rand_element.XDocParse();
+
+            for (int i = 0; i < 72; i++)
+            {
+                blocks[i] = Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName);
+            }
+
+
+
+
 
         }
 
@@ -146,6 +158,7 @@ namespace _3D_Madness
 
                 Ray xRay = new Ray(nearPoint, direction);
 
+                Random rand = new Random();
                 float help = .0f;
                 for (float i = 0; i < 20; i = i + 1.0f)
                 {
@@ -155,9 +168,9 @@ namespace _3D_Madness
                         {
                             Window.Title = "x: " + i + "     y " + j;
 
-                            
-                            
-                             board.janek[(int)i][(int)j].Texture = txt2;
+
+
+                            board.janek[(int)i][(int)j].Texture = blocks[5];
                         }
                     }
                  

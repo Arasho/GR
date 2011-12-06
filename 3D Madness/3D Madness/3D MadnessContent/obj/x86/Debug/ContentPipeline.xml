@@ -19,6 +19,654 @@
       <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\empty.xnb</Output>
       <Time>2011-12-05T21:50:43.0724372+01:00</Time>
     </Item>
+    <Item>
+      <Source>Blocks\block0.jpg</Source>
+      <Name>Blocks\block0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block0.xnb</Output>
+      <Time>2011-12-06T17:26:35.5183684+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block1.jpg</Source>
+      <Name>Blocks\block1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block1.xnb</Output>
+      <Time>2011-12-06T17:26:35.5339685+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block10.jpg</Source>
+      <Name>Blocks\block10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block10.xnb</Output>
+      <Time>2011-12-06T17:26:37.000371+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block11.jpg</Source>
+      <Name>Blocks\block11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block11.xnb</Output>
+      <Time>2011-12-06T17:26:37.0315711+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block12.jpg</Source>
+      <Name>Blocks\block12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block12.xnb</Output>
+      <Time>2011-12-06T17:26:37.0471711+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block13.jpg</Source>
+      <Name>Blocks\block13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block13.xnb</Output>
+      <Time>2011-12-06T17:26:37.0471711+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block14.jpg</Source>
+      <Name>Blocks\block14</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block14.xnb</Output>
+      <Time>2011-12-06T17:26:37.0783712+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block15.jpg</Source>
+      <Name>Blocks\block15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block15.xnb</Output>
+      <Time>2011-12-06T17:26:37.0783712+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block16.jpg</Source>
+      <Name>Blocks\block16</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block16.xnb</Output>
+      <Time>2011-12-06T17:26:37.0939712+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block17.jpg</Source>
+      <Name>Blocks\block17</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block17.xnb</Output>
+      <Time>2011-12-06T17:26:37.1095712+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block18.jpg</Source>
+      <Name>Blocks\block18</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block18.xnb</Output>
+      <Time>2011-12-06T17:26:37.1251713+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block19.jpg</Source>
+      <Name>Blocks\block19</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block19.xnb</Output>
+      <Time>2011-12-06T17:26:37.1251713+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block2.jpg</Source>
+      <Name>Blocks\block2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block2.xnb</Output>
+      <Time>2011-12-06T17:26:35.5651685+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block20.jpg</Source>
+      <Name>Blocks\block20</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block20.xnb</Output>
+      <Time>2011-12-06T17:26:37.2811715+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block21.jpg</Source>
+      <Name>Blocks\block21</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block21.xnb</Output>
+      <Time>2011-12-06T17:26:37.2967716+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block22.jpg</Source>
+      <Name>Blocks\block22</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block22.xnb</Output>
+      <Time>2011-12-06T17:26:37.2967716+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block23.jpg</Source>
+      <Name>Blocks\block23</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block23.xnb</Output>
+      <Time>2011-12-06T17:26:37.3279716+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block24.jpg</Source>
+      <Name>Blocks\block24</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block24.xnb</Output>
+      <Time>2011-12-06T17:26:37.3279716+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block25.jpg</Source>
+      <Name>Blocks\block25</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block25.xnb</Output>
+      <Time>2011-12-06T17:26:37.3435716+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block26.jpg</Source>
+      <Name>Blocks\block26</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block26.xnb</Output>
+      <Time>2011-12-06T17:26:37.3591717+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block27.jpg</Source>
+      <Name>Blocks\block27</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block27.xnb</Output>
+      <Time>2011-12-06T17:26:37.3591717+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block28.jpg</Source>
+      <Name>Blocks\block28</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block28.xnb</Output>
+      <Time>2011-12-06T17:26:37.3747717+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block29.jpg</Source>
+      <Name>Blocks\block29</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block29.xnb</Output>
+      <Time>2011-12-06T17:26:37.3903717+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block3.jpg</Source>
+      <Name>Blocks\block3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block3.xnb</Output>
+      <Time>2011-12-06T17:26:35.5651685+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block30.jpg</Source>
+      <Name>Blocks\block30</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block30.xnb</Output>
+      <Time>2011-12-06T17:26:37.4059717+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block31.jpg</Source>
+      <Name>Blocks\block31</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block31.xnb</Output>
+      <Time>2011-12-06T17:26:37.4371718+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block32.jpg</Source>
+      <Name>Blocks\block32</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block32.xnb</Output>
+      <Time>2011-12-06T17:26:37.4527718+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block33.jpg</Source>
+      <Name>Blocks\block33</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block33.xnb</Output>
+      <Time>2011-12-06T17:26:37.4683719+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block34.jpg</Source>
+      <Name>Blocks\block34</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block34.xnb</Output>
+      <Time>2011-12-06T17:26:37.4683719+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block35.jpg</Source>
+      <Name>Blocks\block35</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block35.xnb</Output>
+      <Time>2011-12-06T17:26:37.4839719+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block36.jpg</Source>
+      <Name>Blocks\block36</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block36.xnb</Output>
+      <Time>2011-12-06T17:26:37.4995719+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block37.jpg</Source>
+      <Name>Blocks\block37</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block37.xnb</Output>
+      <Time>2011-12-06T17:26:37.5151719+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block38.jpg</Source>
+      <Name>Blocks\block38</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block38.xnb</Output>
+      <Time>2011-12-06T17:26:37.5151719+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block39.jpg</Source>
+      <Name>Blocks\block39</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block39.xnb</Output>
+      <Time>2011-12-06T17:26:37.561972+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block4.jpg</Source>
+      <Name>Blocks\block4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block4.xnb</Output>
+      <Time>2011-12-06T17:26:35.5963686+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block40.jpg</Source>
+      <Name>Blocks\block40</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block40.xnb</Output>
+      <Time>2011-12-06T17:26:37.577572+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block41.jpg</Source>
+      <Name>Blocks\block41</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block41.xnb</Output>
+      <Time>2011-12-06T17:26:37.5931721+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block42.jpg</Source>
+      <Name>Blocks\block42</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block42.xnb</Output>
+      <Time>2011-12-06T17:26:37.7335723+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block43.jpg</Source>
+      <Name>Blocks\block43</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block43.xnb</Output>
+      <Time>2011-12-06T17:26:37.7491723+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block44.jpg</Source>
+      <Name>Blocks\block44</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block44.xnb</Output>
+      <Time>2011-12-06T17:26:37.8115725+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block45.jpg</Source>
+      <Name>Blocks\block45</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block45.xnb</Output>
+      <Time>2011-12-06T17:26:37.8895726+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block46.jpg</Source>
+      <Name>Blocks\block46</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block46.xnb</Output>
+      <Time>2011-12-06T17:26:37.9207726+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block47.jpg</Source>
+      <Name>Blocks\block47</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block47.xnb</Output>
+      <Time>2011-12-06T17:26:37.9363727+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block48.jpg</Source>
+      <Name>Blocks\block48</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block48.xnb</Output>
+      <Time>2011-12-06T17:26:37.9363727+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block49.jpg</Source>
+      <Name>Blocks\block49</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block49.xnb</Output>
+      <Time>2011-12-06T17:26:37.9519727+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block5.jpg</Source>
+      <Name>Blocks\block5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block5.xnb</Output>
+      <Time>2011-12-06T17:26:36.8755708+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block50.jpg</Source>
+      <Name>Blocks\block50</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block50.xnb</Output>
+      <Time>2011-12-06T17:26:37.9675727+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block51.jpg</Source>
+      <Name>Blocks\block51</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block51.xnb</Output>
+      <Time>2011-12-06T17:26:37.9831728+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block52.jpg</Source>
+      <Name>Blocks\block52</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block52.xnb</Output>
+      <Time>2011-12-06T17:26:37.9987728+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block53.jpg</Source>
+      <Name>Blocks\block53</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block53.xnb</Output>
+      <Time>2011-12-06T17:26:38.0143728+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block54.jpg</Source>
+      <Name>Blocks\block54</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block54.xnb</Output>
+      <Time>2011-12-06T17:26:38.0143728+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block55.jpg</Source>
+      <Name>Blocks\block55</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block55.xnb</Output>
+      <Time>2011-12-06T17:26:38.0299728+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block56.jpg</Source>
+      <Name>Blocks\block56</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block56.xnb</Output>
+      <Time>2011-12-06T17:26:38.0455729+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block57.jpg</Source>
+      <Name>Blocks\block57</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block57.xnb</Output>
+      <Time>2011-12-06T17:26:38.0455729+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block58.jpg</Source>
+      <Name>Blocks\block58</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block58.xnb</Output>
+      <Time>2011-12-06T17:26:38.0611729+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block59.jpg</Source>
+      <Name>Blocks\block59</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block59.xnb</Output>
+      <Time>2011-12-06T17:26:38.0767729+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block6.jpg</Source>
+      <Name>Blocks\block6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block6.xnb</Output>
+      <Time>2011-12-06T17:26:36.953571+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block60.jpg</Source>
+      <Name>Blocks\block60</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block60.xnb</Output>
+      <Time>2011-12-06T17:26:38.0767729+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block61.jpg</Source>
+      <Name>Blocks\block61</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block61.xnb</Output>
+      <Time>2011-12-06T17:26:38.092373+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block62.jpg</Source>
+      <Name>Blocks\block62</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block62.xnb</Output>
+      <Time>2011-12-06T17:26:38.107973+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block63.jpg</Source>
+      <Name>Blocks\block63</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block63.xnb</Output>
+      <Time>2011-12-06T17:26:38.123573+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block64.jpg</Source>
+      <Name>Blocks\block64</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block64.xnb</Output>
+      <Time>2011-12-06T17:26:38.1547731+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block65.jpg</Source>
+      <Name>Blocks\block65</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block65.xnb</Output>
+      <Time>2011-12-06T17:26:38.1703731+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block66.jpg</Source>
+      <Name>Blocks\block66</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block66.xnb</Output>
+      <Time>2011-12-06T17:26:38.1859731+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block67.jpg</Source>
+      <Name>Blocks\block67</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block67.xnb</Output>
+      <Time>2011-12-06T17:26:38.2015731+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block68.jpg</Source>
+      <Name>Blocks\block68</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block68.xnb</Output>
+      <Time>2011-12-06T17:26:38.2171732+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block69.jpg</Source>
+      <Name>Blocks\block69</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block69.xnb</Output>
+      <Time>2011-12-06T17:26:38.2327732+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block7.jpg</Source>
+      <Name>Blocks\block7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block7.xnb</Output>
+      <Time>2011-12-06T17:26:36.984771+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block70.jpg</Source>
+      <Name>Blocks\block70</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block70.xnb</Output>
+      <Time>2011-12-06T17:26:38.2639733+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block71.jpg</Source>
+      <Name>Blocks\block71</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block71.xnb</Output>
+      <Time>2011-12-06T17:26:38.2795733+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block8.jpg</Source>
+      <Name>Blocks\block8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block8.xnb</Output>
+      <Time>2011-12-06T17:26:36.984771+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Blocks\block9.jpg</Source>
+      <Name>Blocks\block9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block9.xnb</Output>
+      <Time>2011-12-06T17:26:36.984771+01:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
