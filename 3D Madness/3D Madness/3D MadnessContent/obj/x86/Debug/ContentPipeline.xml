@@ -668,13 +668,22 @@
       <Time>2011-12-06T17:41:26.6354144+01:00</Time>
     </Item>
     <Item>
-      <Source>menutlo.JPG</Source>
-      <Name>menutlo</Name>
+      <Source>testnowagra.jpg</Source>
+      <Name>testnowagra</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\menutlo.xnb</Output>
-      <Time>2011-12-06T20:52:46.0526741+01:00</Time>
+      <Output>D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\testnowagra.xnb</Output>
+      <Time>2011-12-06T23:21:31.6785686+01:00</Time>
+    </Item>
+    <Item>
+      <Source>tlo.jpg</Source>
+      <Name>tlo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\tlo.xnb</Output>
+      <Time>2011-12-07T00:07:43.5207251+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

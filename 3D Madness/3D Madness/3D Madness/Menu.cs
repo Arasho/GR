@@ -15,14 +15,17 @@ namespace _3D_Madness
     public class Menu : Microsoft.Xna.Framework.DrawableGameComponent
     {
         SpriteBatch spriteBatch;
-        Texture2D menutlo;
-        Game oknoGlowne { set; get; }
+        Texture2D tMenuBackground, tNewGame, tScores, tKoniec;
+        Game mainWindow { set; get; }
+        Rectangle rNewGame, rScores, rEnd, rMouse;
+        MouseState ms;
         public Menu(Game game): base(game)
         {
-            oknoGlowne = game;
-            spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
-            menutlo = oknoGlowne.Content.Load<Texture2D>("menutlo");
+            mainWindow = game;
+            spriteBatch = new SpriteBatch(Game.GraphicsDevice);
 
+            tMenuBackground = mainWindow.Content.Load<Texture2D>("tlo");
+            tNewGame = mainWindow.Content.Load<Texture2D>("testnowagra");
         }
 
         public override void Initialize()
@@ -33,16 +36,28 @@ namespace _3D_Madness
 
         public override void Update(GameTime gameTime)
         {
+            ms = Mouse.GetState();
+            rNewGame = new Rectangle(mainWindow.GraphicsDevice.Viewport.Width / 2 - 50, 200, tNewGame.Width, tNewGame.Height);
+            rMouse = new Rectangle(ms.X,ms.Y,1,1);
+            
+
+            if (ms.LeftButton == ButtonState.Pressed)
+            {
+                if (rNewGame.Intersects(rMouse))
+                    ((Game1)Game).pressedNewGame = true;
+            }
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            base.Draw(gameTime);
-            //spriteBatch.Begin();
-            //spriteBatch.Draw(menutlo, oknoGlowne.GraphicsDevice.Viewport.Bounds,Color.White);
-            //spriteBatch.End();
             
+            //spriteBatch.Begin();
+            spriteBatch.Begin();
+            spriteBatch.Draw(tMenuBackground, mainWindow.GraphicsDevice.Viewport.Bounds, Color.White);
+            spriteBatch.Draw(tNewGame, rNewGame, Color.White);
+            spriteBatch.End();
+            base.Draw(gameTime);
         }
     }
 }
