@@ -164,13 +164,13 @@ namespace _3D_Madness
                 {
                     for (float j = 0; j < 20; j = j + 1.0f)
                     {
-                        if (xRay.Intersects(new BoundingBox(new Vector3(i, j, 0), new Vector3(i+1, j+1, 0))) > 0f)
+                        if (board.janek[(int)i][(int)j].Texture == txt1)
                         {
-                            Window.Title = "x: " + i + "     y " + j;
-
-
-
-                            board.janek[(int)i][(int)j].Texture = blocks[rand.Next(1,72)];
+                            if (xRay.Intersects(new BoundingBox(new Vector3(i, j, 0), new Vector3(i + 1, j + 1, 0))) > 0f)
+                            {
+                                Window.Title = "x: " + i + "     y " + j;
+                                board.janek[(int)i][(int)j].Texture = blocks[rand.Next(1, 72)];
+                            }
                         }
                     }
                  
