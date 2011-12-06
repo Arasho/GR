@@ -23,6 +23,11 @@ namespace _3D_Madness
             spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
             menutlo = oknoGlowne.Content.Load<Texture2D>("menutlo");
 
+<<<<<<< HEAD
+=======
+            tMenuBackground = mainWindow.Content.Load<Texture2D>("tlo");
+            tNewGame = mainWindow.Content.Load<Texture2D>("nowagra");
+>>>>>>> origin/HEAD
         }
 
         public override void Initialize()
@@ -33,6 +38,19 @@ namespace _3D_Madness
 
         public override void Update(GameTime gameTime)
         {
+<<<<<<< HEAD
+=======
+            ms = Mouse.GetState();
+            rNewGame = new Rectangle(mainWindow.GraphicsDevice.Viewport.Width / 2 - 180, mainWindow.GraphicsDevice.Viewport.Height/2-130, tNewGame.Width, tNewGame.Height);
+            rMouse = new Rectangle(ms.X,ms.Y,1,1);
+            
+
+            if (ms.LeftButton == ButtonState.Pressed)
+            {
+                if (rNewGame.Intersects(rMouse))
+                    ((Game1)Game).pressedNewGame = true;
+            }
+>>>>>>> origin/HEAD
             base.Update(gameTime);
         }
 
