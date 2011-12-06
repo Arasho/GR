@@ -18,14 +18,14 @@ namespace _3D_Madness
         // Texture info
         Texture2D txt1;
         Texture2D txt2;
-
+        
         // Effect
         BasicEffect effect;
 
         Texture2D[] blocks;
         public List<Element> elements { get; set; }       //Board
         Board board;
-
+        Menu menu;
         // Generate element
         XML_Parser rand_element;
 
@@ -34,10 +34,8 @@ namespace _3D_Madness
 
         // Game camera
         public Camera camera { get; set; }
-
-        Vector3 wtmp = Vector3.Zero;
-        // Menu
-        public bool menu;
+        
+       
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -56,6 +54,7 @@ namespace _3D_Madness
 
             blocks = new Texture2D[72];
             Components.Add(camera);
+            
 
             base.Initialize();
         }
@@ -66,9 +65,11 @@ namespace _3D_Madness
 
             txt1 = Content.Load<Texture2D>(@"Textures\empty");
             txt2 = Content.Load<Texture2D>(@"Textures\Trees");
-    
+            
             // Initialize the BasicEffect
             effect = new BasicEffect(GraphicsDevice);
+
+            menu = new Menu(this);
 
             // Za³adowanie pustej planszy
             board = new Board(this, txt1, txt2);
@@ -81,6 +82,7 @@ namespace _3D_Madness
             {
                 blocks[i] = Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName);
             }
+            Components.Add(menu);
   }
 
         protected override void UnloadContent() { }
@@ -132,18 +134,6 @@ namespace _3D_Madness
             if (keyboardState.IsKeyDown(Keys.X))
                 worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / -60);
 
-
-            Debug.WriteLine("Swiat - X: " + worldTranslation.Translation.X + " Y: " + worldTranslation.Translation.Y + " Z: " + worldTranslation.Translation.Z);
-            Debug.WriteLine("Kamera - X: " + camera.view.Translation.X + " Y: " + camera.view.Translation.Y + " Z: " + camera.view.Translation.Z);
-
-            //nie dziala
-            //ograniczenie wysokosci kamery (swiata?)
-            //if (worldTranslation.Translation.Z > -5.0f)
-            //    worldTranslation = Matrix.CreateTranslation(new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -5.0f));
-            //else if (worldTranslation.Translation.Z < -35.0f)
-            //    worldTranslation = Matrix.CreateTranslation(new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -35.0f));
-
-
             //dziala
             //ograniczenie zmiany nachylenia kamery (swiata?) 
             if (camera.rotationAngleX < 0.0f)
@@ -151,8 +141,6 @@ namespace _3D_Madness
             else if (camera.rotationAngleX > 0.6f)
                 worldRotationX = Matrix.CreateRotationX(-0.6f);
             
-
-
             if (mouseState.LeftButton == ButtonState.Pressed)
             {
                 Vector3 nearSource = new Vector3(new Vector2(Mouse.GetState().X, Mouse.GetState().Y), 0f);
@@ -207,39 +195,37 @@ namespace _3D_Madness
             // po co ten pierwszy worldRotation?
             //camera.view = worldRotation * worldTranslation * worldRotation;
             camera.view = worldTranslation * worldRotationX;
-
             effect.View = camera.view;
             effect.Projection = camera.projection;
-
             effect.TextureEnabled = true;
 
             // Begin effect and draw for each pass
-            foreach (EffectPass pass in effect.CurrentTechnique.Passes)
-            {
-                //foreach (var item in test.element)
-                //{
-                //    pass.Apply();
-                //    effect.Texture = item.Texture;
+            //foreach (EffectPass pass in effect.CurrentTechnique.Passes)
+            //{
+            //    //foreach (var item in test.element)
+            //    //{
+            //    //    pass.Apply();
+            //    //    effect.Texture = item.Texture;
 
-                //    //   GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
-                //    GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
-                //   (PrimitiveType.TriangleStrip, item.verts, 0, 2);
-                //}
+            //    //    //   GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
+            //    //    GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
+            //    //   (PrimitiveType.TriangleStrip, item.verts, 0, 2);
+            //    //}
 
 
-                for (int i = 0; i < 20; i++)
-                {
-                    for (int j = 0; j < 20; j++)
-                    {
-                        pass.Apply();
-                        effect.Texture = board.janek[i][j].Texture;
+            //    for (int i = 0; i < 20; i++)
+            //    {
+            //        for (int j = 0; j < 20; j++)
+            //        {
+            //            pass.Apply();
+            //            effect.Texture = board.janek[i][j].Texture;
 
-                           GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
-                        GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
-                       (PrimitiveType.TriangleStrip, board.janek[i][j].verts, 0, 2);
-                    }
-                }
-            }  
+            //               GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
+            //            GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
+            //           (PrimitiveType.TriangleStrip, board.janek[i][j].verts, 0, 2);
+            //        }
+            //    }
+            //}  
             
             base.Draw(gameTime);
         }

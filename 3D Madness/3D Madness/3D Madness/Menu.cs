@@ -12,37 +12,40 @@ using Microsoft.Xna.Framework.Media;
 
 namespace _3D_Madness
 {
-    /// <summary>
-    /// This is a game component that implements IUpdateable.
-    /// </summary>
-    public class Menu : Microsoft.Xna.Framework.GameComponent
+    public class Menu : Microsoft.Xna.Framework.DrawableGameComponent
     {
-        public Menu(Game game)
-            : base(game)
+        SpriteBatch spriteBatch;
+        Texture2D menutlo;
+        Game oknoGlowne { set; get; }
+        public Menu(Game game): base(game)
         {
-            // TODO: Construct any child components here
+            oknoGlowne = game;
         }
 
-        /// <summary>
-        /// Allows the game component to perform any initialization it needs to before starting
-        /// to run.  This is where it can query for any required services and load content.
-        /// </summary>
         public override void Initialize()
         {
-            // TODO: Add your initialization code here
-
             base.Initialize();
         }
 
-        /// <summary>
-        /// Allows the game component to update itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            // TODO: Add your update code here
-
             base.Update(gameTime);
+        }
+
+        protected override void LoadContent()
+        {
+            spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
+            menutlo = oknoGlowne.Content.Load<Texture2D>("menutlo");
+            base.LoadContent();
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            base.Draw(gameTime);
+            spriteBatch.Begin();
+            spriteBatch.Draw(menutlo, GraphicsDevice.Viewport.Bounds,Color.White);
+            spriteBatch.End();
+            
         }
     }
 }
