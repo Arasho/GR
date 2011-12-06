@@ -20,13 +20,21 @@ namespace _3D_Madness
         // Effect
         BasicEffect effect;
 
-        Board test;
+        //Board
+        Board board;
+
+        // Generate element
+        XML_Parser rand_element;
+
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         // Game camera
         public Camera camera { get; set; }
 
+
+        // Menu
+        public bool menu;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -42,6 +50,7 @@ namespace _3D_Madness
             camera = new Camera(this, Vector3.Zero, Vector3.Zero, Vector3.Up);
             // ustawienie pozycji poczatkowej swiata
             worldTranslation = Matrix.Add(worldTranslation, Matrix.CreateTranslation(new Vector3(-20, -20, -50)));
+
             Components.Add(camera);
 
             base.Initialize();
@@ -57,7 +66,13 @@ namespace _3D_Madness
             // Initialize the BasicEffect
             effect = new BasicEffect(GraphicsDevice);
 
-            test = new Board(this, txt1, txt2);
+            // Za³adowanie pustej planszy
+            board = new Board(this, txt1, txt2);
+
+            // Za³adowanie parsera 
+            rand_element = new XML_Parser();
+            rand_element.XDocParse();
+
         }
 
         protected override void UnloadContent() { }
@@ -130,15 +145,32 @@ namespace _3D_Madness
                 direction.Normalize();
 
                 Ray xRay = new Ray(nearPoint, direction);
-                Window.Title = xRay.Intersects(new BoundingSphere(new Vector3(0.5f, 2.5f, 0.5f), 0.5f)).ToString();
 
+                float help = .0f;
+                for (float i = 0; i < 20; i = i + 1.0f)
+                {
+                    for (float j = 0; j < 20; j = j + 1.0f)
+                    {
+                        if (xRay.Intersects(new BoundingBox(new Vector3(i, j, 0), new Vector3(i+1, j+1, 0))) > 0f)
+                        {
+                            Window.Title = "x: " + i + "     y " + j;
+
+                            
+                            
+                             board.janek[(int)i][(int)j].Texture = txt2;
+                        }
+                    }
+                 
+                }
+                 
+                // patrz dokladnie ale to akurat mankament nie o to chodzi ale odrazu poka¿e
                 //Window.Title = xRay.Intersects(new BoundingSphere(new Vector3(0,0,0), 1f)).ToString();
             }
 
 
             // Wazne do obracania klocka 
             // Rotation
-            //worldRotation *= Matrix.CreateFromYawPitchRoll(
+            //worldRotation *= Matrix.CreateFromYawPitchRoll(0
             //    MathHelper.PiOver4 / 60,
             //    0,
             //    0);
@@ -162,16 +194,31 @@ namespace _3D_Madness
             // Begin effect and draw for each pass
             foreach (EffectPass pass in effect.CurrentTechnique.Passes)
             {
-                foreach (var item in test.element)
-                {
-                    pass.Apply();
-                    effect.Texture = item.Texture;
+                //foreach (var item in test.element)
+                //{
+                //    pass.Apply();
+                //    effect.Texture = item.Texture;
 
-                    GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
-                    GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
-                   (PrimitiveType.TriangleStrip, item.verts, 0, 2);
+                //    //   GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
+                //    GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
+                //   (PrimitiveType.TriangleStrip, item.verts, 0, 2);
+                //}
+
+
+                for (int i = 0; i < 20; i++)
+                {
+                    for (int j = 0; j < 20; j++)
+                    {
+                        pass.Apply();
+                        effect.Texture = board.janek[i][j].Texture;
+
+                        //   GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
+                        GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
+                       (PrimitiveType.TriangleStrip, board.janek[i][j].verts, 0, 2);
+                    }
                 }
-            }
+            }  
+            
             base.Draw(gameTime);
         }
     }

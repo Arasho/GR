@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace _3D_Madness
 {
-    class XML_Parser
+    public class XML_Parser
     {
         private XmlDocument xDoc {get; set;}
         private XmlNodeList xNode {get; set;}

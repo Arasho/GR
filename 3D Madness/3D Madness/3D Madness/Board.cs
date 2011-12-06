@@ -13,12 +13,14 @@ namespace _3D_Madness
         const int sizeY = 20;
 
         public List<Element> element = new List<Element>();
- 
+
+        public Element [][] janek;
         public VertexPositionTexture[][][] x { get; set; }
         public VertexPositionTexture[] x1 { get; set; }
         public VertexPositionTexture[] x2 { get; set; }
         public VertexPositionTexture[] x3 { get; set; }
         public VertexPositionTexture[] x4 { get; set; }
+
 
         private int size = 1;
         private Texture2D txt1;
@@ -29,10 +31,13 @@ namespace _3D_Madness
             txt1 = _txt1;
             txt2 = _txt2;
 
+            janek = new Element[20][];
+
             x = new VertexPositionTexture[sizeX][][];
             for (int i = 0; i < sizeX; i++)
             {
                 x[i] = new VertexPositionTexture[sizeY][];
+                janek[i] = new Element[20];
 
                 for (int j = 0; j < sizeY; j++)
                 {
@@ -60,10 +65,12 @@ namespace _3D_Madness
                     if (j % 2 == 0 || i % 2 == 0)
                     {
                         element.Add(new Element(x[i][j], txt1));
+                        janek[i][j] = new Element(x[i][j], txt1);
                     }
                     else
                     {
                         element.Add(new Element(x[i][j], txt1));
+                        janek[i][j] = new Element(x[i][j], txt1);
                     }
                 }
             }

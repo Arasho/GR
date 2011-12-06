@@ -17,12 +17,12 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\empty.xnb</Output>
-      <Time>2011-12-05T18:46:47.7834981+01:00</Time>
+      <Time>2011-12-05T21:50:43.0724372+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
-      <TargetProfile>Reach</TargetProfile>
+      <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
       <RootDirectory>C:\Projekt\3D Madness\3D Madness\3D MadnessContent\</RootDirectory>
