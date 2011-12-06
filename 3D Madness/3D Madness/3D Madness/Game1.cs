@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
 using System.Collections.Generic;
+
 namespace _3D_Madness
 {
     public class Game1 : Microsoft.Xna.Framework.Game
@@ -34,7 +35,7 @@ namespace _3D_Madness
         // Game camera
         public Camera camera { get; set; }
 
-
+        Vector3 wtmp = Vector3.Zero;
         // Menu
         public bool menu;
         public Game1()
@@ -51,7 +52,7 @@ namespace _3D_Madness
             // Initialize camera
             camera = new Camera(this, Vector3.Zero, Vector3.Zero, Vector3.Up);
             // ustawienie pozycji poczatkowej swiata
-            worldTranslation = Matrix.Add(worldTranslation, Matrix.CreateTranslation(new Vector3(-20, -20, -50)));
+            worldTranslation = Matrix.Add(worldTranslation, Matrix.CreateTranslation(new Vector3(-20, -20, -22)));
 
             blocks = new Texture2D[72];
             Components.Add(camera);
@@ -80,12 +81,7 @@ namespace _3D_Madness
             {
                 blocks[i] = Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName);
             }
-
-
-
-
-
-        }
+  }
 
         protected override void UnloadContent() { }
 
@@ -125,19 +121,26 @@ namespace _3D_Madness
                 worldTranslation *= Matrix.CreateTranslation(0, 0, -1 * speed);
             if (keyboardState.IsKeyDown(Keys.E))
                 worldTranslation *= Matrix.CreateTranslation(0, 0, speed);
-            
-            if (camera.rotationAngleX >= 0.0f && camera.rotationAngleX <= 0.6f)
-            {
-                if (keyboardState.IsKeyDown(Keys.Z))
-                {
-                    worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / 60);
-                }
-                if (keyboardState.IsKeyDown(Keys.X))
-                {
-                    worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / -60);
-                }
-            }
-            else if (camera.rotationAngleX < 0.0f)
+            if (keyboardState.IsKeyDown(Keys.Z))
+                worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / 60);
+            if (keyboardState.IsKeyDown(Keys.X))
+                worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / -60);
+
+
+            Debug.WriteLine("Swiat - X: " + worldTranslation.Translation.X + " Y: " + worldTranslation.Translation.Y + " Z: " + worldTranslation.Translation.Z);
+            Debug.WriteLine("Kamera - X: " + camera.view.Translation.X + " Y: " + camera.view.Translation.Y + " Z: " + camera.view.Translation.Z);
+
+            //nie dziala
+            //ograniczenie wysokosci kamery (swiata?)
+            if (worldTranslation.Translation.Z > -5.0f)
+                worldTranslation = Matrix.CreateTranslation(new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -5.0f));
+            else if(worldTranslation.Translation.Z < -35.0f)
+                worldTranslation = Matrix.CreateTranslation(new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -35.0f));
+
+
+            //dziala
+            //ograniczenie zmiany nachylenia kamery (swiata?) 
+            if (camera.rotationAngleX < 0.0f)
                 worldRotationX = Matrix.CreateRotationX(0.0f);
             else if (camera.rotationAngleX > 0.6f)
                 worldRotationX = Matrix.CreateRotationX(-0.6f);
@@ -225,7 +228,7 @@ namespace _3D_Madness
                         pass.Apply();
                         effect.Texture = board.janek[i][j].Texture;
 
-                        //   GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
+                           GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
                         GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
                        (PrimitiveType.TriangleStrip, board.janek[i][j].verts, 0, 2);
                     }
