@@ -96,6 +96,7 @@
     <Compile Include="XML_Parser.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Elements.xml" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
