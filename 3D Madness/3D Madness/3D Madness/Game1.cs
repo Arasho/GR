@@ -53,7 +53,7 @@ namespace _3D_Madness
             // ustawienie pozycji poczatkowej swiata
             worldTranslation = Matrix.Add(worldTranslation, Matrix.CreateTranslation(new Vector3(-20, -20, -50)));
 
-            blocks = new Texture2D[73];
+            blocks = new Texture2D[72];
             Components.Add(camera);
 
             base.Initialize();
@@ -170,7 +170,7 @@ namespace _3D_Madness
 
 
 
-                            board.janek[(int)i][(int)j].Texture = blocks[5];
+                            board.janek[(int)i][(int)j].Texture = blocks[rand.Next(1,72)];
                         }
                     }
                  
