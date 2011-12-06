@@ -20,11 +20,15 @@ namespace _3D_Madness
         public Menu(Game game): base(game)
         {
             oknoGlowne = game;
+            spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
+            menutlo = oknoGlowne.Content.Load<Texture2D>("menutlo");
+
         }
 
         public override void Initialize()
         {
             base.Initialize();
+
         }
 
         public override void Update(GameTime gameTime)
@@ -32,18 +36,11 @@ namespace _3D_Madness
             base.Update(gameTime);
         }
 
-        protected override void LoadContent()
-        {
-            spriteBatch = new SpriteBatch(this.Game.GraphicsDevice);
-            menutlo = oknoGlowne.Content.Load<Texture2D>("menutlo");
-            base.LoadContent();
-        }
-
         public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
             spriteBatch.Begin();
-            spriteBatch.Draw(menutlo, GraphicsDevice.Viewport.Bounds,Color.White);
+            spriteBatch.Draw(menutlo, oknoGlowne.GraphicsDevice.Viewport.Bounds,Color.White);
             spriteBatch.End();
             
         }
