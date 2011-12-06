@@ -39,9 +39,9 @@ namespace _3D_Madness
         public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
-            spriteBatch.Begin();
-            spriteBatch.Draw(menutlo, oknoGlowne.GraphicsDevice.Viewport.Bounds,Color.White);
-            spriteBatch.End();
+            //spriteBatch.Begin();
+            //spriteBatch.Draw(menutlo, oknoGlowne.GraphicsDevice.Viewport.Bounds,Color.White);
+            //spriteBatch.End();
             
         }
     }
