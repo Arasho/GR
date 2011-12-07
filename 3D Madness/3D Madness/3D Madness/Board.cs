@@ -21,7 +21,7 @@ namespace _3D_Madness
 
         public List<Element> element = new List<Element>();
 
-        public Element[][] janek;
+        public Element[][] _board;
 
         public VertexPositionTexture[][][] x { get; set; }
 
@@ -62,13 +62,13 @@ namespace _3D_Madness
             txt1 = _txt1;
             txt2 = _txt2;
 
-            janek = new Element[20][];
+            _board = new Element[20][];
 
             x = new VertexPositionTexture[sizeX][][];
             for (int i = 0; i < sizeX; i++)
             {
                 x[i] = new VertexPositionTexture[sizeY][];
-                janek[i] = new Element[20];
+                _board[i] = new Element[20];
 
                 for (int j = 0; j < sizeY; j++)
                 {
@@ -76,12 +76,12 @@ namespace _3D_Madness
                 }
             }
             GenerateBoard();
-            this.janek[10][10].Texture = elements[0].Texture;
-            janek[10][10].leftEdge = elements[textureIndex].leftEdge;
-            janek[10][10].rightEdge = elements[textureIndex].rightEdge;
-            janek[10][10].upEdge = elements[textureIndex].upEdge;
-            janek[10][10].bottomEdge = elements[textureIndex].bottomEdge;
-            janek[10][10].additional = elements[textureIndex].additional;
+            this._board[10][10].Texture = elements[0].Texture;
+            _board[10][10].leftEdge = elements[textureIndex].leftEdge;
+            _board[10][10].rightEdge = elements[textureIndex].rightEdge;
+            _board[10][10].upEdge = elements[textureIndex].upEdge;
+            _board[10][10].bottomEdge = elements[textureIndex].bottomEdge;
+            _board[10][10].additional = elements[textureIndex].additional;
             elements.RemoveAt(textureIndex);
             rand = new Random();
             textureIndex = rand.Next(0, elements.Count);
@@ -103,7 +103,7 @@ namespace _3D_Madness
                     x[i][j][3] = new VertexPositionTexture(
                         new Vector3(i + size, j, 0), new Vector2(1, 1));
 
-                    janek[i][j] = new Element(x[i][j], txt1);
+                    _board[i][j] = new Element(x[i][j], txt1);
                 }
             }
         }
@@ -113,12 +113,12 @@ namespace _3D_Madness
             Element next = elements[textInd];
             if (x > 1 && x < 19 && y > 1 && y < 19)
             {
-                if (janek[x - 1][y].Texture == txt1 && janek[x + 1][y].Texture == txt1 && janek[x][y - 1].Texture == txt1 && janek[x][y + 1].Texture == txt1)
+                if (_board[x - 1][y].Texture == txt1 && _board[x + 1][y].Texture == txt1 && _board[x][y - 1].Texture == txt1 && _board[x][y + 1].Texture == txt1)
                     return false;
-                if ((next.leftEdge == janek[x - 1][y].rightEdge || janek[x - 1][y].Texture == txt1 || (next.leftEdge == janek[x - 1][y].rightEdge + 1) || (next.leftEdge == janek[x - 1][y].rightEdge - 1)) &&
-                    (next.rightEdge == janek[x + 1][y].leftEdge || janek[x + 1][y].Texture == txt1 || next.rightEdge == janek[x + 1][y].leftEdge +1 || next.rightEdge == janek[x + 1][y].leftEdge -1) &&
-                    (next.upEdge == janek[x][y + 1].bottomEdge || janek[x][y + 1].Texture == txt1 || next.upEdge == janek[x][y + 1].bottomEdge+1 || next.upEdge == janek[x][y + 1].bottomEdge-1) &&
-                    (next.bottomEdge == janek[x][y - 1].upEdge || janek[x][y - 1].Texture == txt1 || next.bottomEdge == janek[x][y - 1].upEdge+1 || next.bottomEdge == janek[x][y - 1].upEdge-1))
+                if ((next.leftEdge == _board[x - 1][y].rightEdge || _board[x - 1][y].Texture == txt1 || (next.leftEdge == _board[x - 1][y].rightEdge + 1) || (next.leftEdge == _board[x - 1][y].rightEdge - 1)) &&
+                    (next.rightEdge == _board[x + 1][y].leftEdge || _board[x + 1][y].Texture == txt1 || next.rightEdge == _board[x + 1][y].leftEdge +1 || next.rightEdge == _board[x + 1][y].leftEdge -1) &&
+                    (next.upEdge == _board[x][y + 1].bottomEdge || _board[x][y + 1].Texture == txt1 || next.upEdge == _board[x][y + 1].bottomEdge+1 || next.upEdge == _board[x][y + 1].bottomEdge-1) &&
+                    (next.bottomEdge == _board[x][y - 1].upEdge || _board[x][y - 1].Texture == txt1 || next.bottomEdge == _board[x][y - 1].upEdge+1 || next.bottomEdge == _board[x][y - 1].upEdge-1))
                     return true;
                 else
                     return false;
@@ -145,7 +145,7 @@ namespace _3D_Madness
             {
                 for (int j = 0; j < sizeY; j++)
                 {
-                    if (this.janek[i][j].Texture == txt1)
+                    if (this._board[i][j].Texture == txt1)
                     {
                         if (xRay.Intersects(new BoundingBox(new Vector3((float)i, (float)j, 0), new Vector3((float)i + 1, (float)j + 1, 0))) > 0f)
                         {
@@ -155,18 +155,24 @@ namespace _3D_Madness
                             //{
                             //    Console.WriteLine(string.Format("X{0} : {1}, Y{0} : {2}",w, janek[i][j].verts[w].Position.X, janek[i][j].verts[w].Position.Y));
                             //}
-                            if (elements.Count >= 1 && CheckBounds(i, j, textureIndex))
+                            if (elements.Count >= 1)
                             {
-                                this.janek[i][j].Texture = elements[textureIndex].Texture;
-                                janek[i][j].leftEdge = elements[textureIndex].leftEdge;
-                                janek[i][j].rightEdge = elements[textureIndex].rightEdge;
-                                janek[i][j].upEdge = elements[textureIndex].upEdge;
-                                janek[i][j].bottomEdge = elements[textureIndex].bottomEdge;
-                                janek[i][j].additional = elements[textureIndex].additional;
-                                elements.RemoveAt(textureIndex);
-                                textureIndex = rand.Next(0, elements.Count);
-                                NextBlock = elements[textureIndex].Texture;
-
+                                if (CheckBounds(i, j, textureIndex))
+                                {
+                                    this._board[i][j].Texture = elements[textureIndex].Texture;
+                                    _board[i][j].leftEdge = elements[textureIndex].leftEdge;
+                                    _board[i][j].rightEdge = elements[textureIndex].rightEdge;
+                                    _board[i][j].upEdge = elements[textureIndex].upEdge;
+                                    _board[i][j].bottomEdge = elements[textureIndex].bottomEdge;
+                                    _board[i][j].additional = elements[textureIndex].additional;
+                                    elements.RemoveAt(textureIndex);
+                                    textureIndex = rand.Next(0, elements.Count);
+                                    NextBlock = elements[textureIndex].Texture;
+                                }
+                            }
+                            else
+                            {
+                                NextBlock = txt1;
                             }
 
                         }
@@ -187,20 +193,20 @@ namespace _3D_Madness
                 {
                     for (int j = 0; j < 20; j++)
                     {
-                        Effect.Texture = janek[i][j].Texture;
+                        Effect.Texture = _board[i][j].Texture;
                         pass.Apply();
 
                         GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
                         GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
-                       (PrimitiveType.TriangleStrip, janek[i][j].verts, 0, 2);
+                       (PrimitiveType.TriangleStrip, _board[i][j].verts, 0, 2);
                     }
                 }
             }
-            spriteBatch.Begin();
-            if (elements.Count >= 1)
-                spriteBatch.Draw(elements[textureIndex].Texture, new Rectangle(0, 0, 150, 150), Color.White);
-            spriteBatch.End();
-            base.Draw(gameTime);
+            //spriteBatch.Begin();
+            //if (elements.Count >= 1)
+            //    spriteBatch.Draw(elements[textureIndex].Texture, new Rectangle(0, 0, 150, 150), Color.White);
+            //spriteBatch.End();
+            //base.Draw(gameTime);
         }
     }
 }
