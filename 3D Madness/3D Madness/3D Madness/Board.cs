@@ -83,13 +83,13 @@ namespace _3D_Madness
                 for (int j = 0; j < sizeY; j++)
                 {
                     x[i][j][0] = new VertexPositionTexture(
-                  new Vector3(i, j + size, 0), new Vector2(0, 1));
+                  new Vector3(i, j + size, 0), new Vector2(0, 0));
                     x[i][j][1] = new VertexPositionTexture(
-                        new Vector3(i + size, j + size, 0), new Vector2(1, 1));
+                        new Vector3(i + size, j + size, 0), new Vector2(1, 0));
                     x[i][j][2] = new VertexPositionTexture(
-                        new Vector3(i, j, 0), new Vector2(0, 0));
+                        new Vector3(i, j, 0), new Vector2(0, 1));
                     x[i][j][3] = new VertexPositionTexture(
-                        new Vector3(i + size, j, 0), new Vector2(1, 0));
+                        new Vector3(i + size, j, 0), new Vector2(1, 1));
 
                     janek[i][j] = new Element(x[i][j], txt1);
                 }
