@@ -254,8 +254,8 @@ C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness
 C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block71.xnb
 C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block8.xnb
 C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block9.xnb
+C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Elements.xml
 C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\tlo.xnb
 C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\nowagra.xnb
 C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\koniec.xnb
 C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\wyniki.xnb
-C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Elements.xml

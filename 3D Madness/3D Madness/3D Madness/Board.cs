@@ -123,9 +123,12 @@ namespace _3D_Madness
                             //{
                             //    Console.WriteLine(string.Format("X{0} : {1}, Y{0} : {2}",w, janek[i][j].verts[w].Position.X, janek[i][j].verts[w].Position.Y));
                             //}
-                            this.janek[i][j].Texture = blocks[textureIndex];
-                            blocks.RemoveAt(textureIndex);
-                            textureIndex = rand.Next(0, blocks.Count);
+                            if (blocks.Count >= 1)
+                            {
+                                this.janek[i][j].Texture = blocks[textureIndex];
+                                blocks.RemoveAt(textureIndex);
+                                textureIndex = rand.Next(0, blocks.Count);
+                            }
 
                         }
                     }
@@ -156,6 +159,7 @@ namespace _3D_Madness
             }
 
             spriteBatch.Begin();
+            if(blocks.Count >=1)
             spriteBatch.Draw(blocks[textureIndex], new Rectangle(0, 0, 200, 200), Color.White);
             spriteBatch.End();
             base.Draw(gameTime);

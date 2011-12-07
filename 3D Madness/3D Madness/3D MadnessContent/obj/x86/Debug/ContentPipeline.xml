@@ -668,13 +668,40 @@
       <Time>2011-12-06T19:50:12.9275191+01:00</Time>
     </Item>
     <Item>
-      <Source>menutlo.JPG</Source>
-      <Name>menutlo</Name>
+      <Source>tlo.jpg</Source>
+      <Name>tlo</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\menutlo.xnb</Output>
-      <Time>2011-12-06T21:49:58.2114938+01:00</Time>
+      <Output>C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\tlo.xnb</Output>
+      <Time>2011-12-07T17:00:29.0526968+01:00</Time>
+    </Item>
+    <Item>
+      <Source>nowagra.png</Source>
+      <Name>nowagra</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\nowagra.xnb</Output>
+      <Time>2011-12-07T17:00:28.9736968+01:00</Time>
+    </Item>
+    <Item>
+      <Source>koniec.png</Source>
+      <Name>koniec</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\koniec.xnb</Output>
+      <Time>2011-12-07T17:00:28.9716968+01:00</Time>
+    </Item>
+    <Item>
+      <Source>wyniki.png</Source>
+      <Name>wyniki</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\wyniki.xnb</Output>
+      <Time>2011-12-07T17:00:29.0546968+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
