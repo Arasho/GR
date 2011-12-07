@@ -19,6 +19,7 @@ namespace _3D_Madness
         Game mainWindow { set; get; }
         Rectangle rNewGame, rScores, rEnd, rMouse;
         MouseState ms;
+
         public Menu(Game game): base(game)
         {
             mainWindow = game;
