@@ -44,6 +44,7 @@ namespace _3D_Madness
         private Texture2D txt2;
         private int textureIndex = 0;
         private SpriteBatch spriteBatch;
+        Random rand;
 
         public Board(Game g, Texture2D _txt1, Texture2D _txt2)
             : base(g)
@@ -75,6 +76,16 @@ namespace _3D_Madness
                 }
             }
             GenerateBoard();
+            this.janek[10][10].Texture = elements[0].Texture;
+            janek[10][10].leftEdge = elements[textureIndex].leftEdge;
+            janek[10][10].rightEdge = elements[textureIndex].rightEdge;
+            janek[10][10].upEdge = elements[textureIndex].upEdge;
+            janek[10][10].bottomEdge = elements[textureIndex].bottomEdge;
+            janek[10][10].additional = elements[textureIndex].additional;
+            elements.RemoveAt(textureIndex);
+            rand = new Random();
+            textureIndex = rand.Next(0, elements.Count);
+            NextBlock = elements[textureIndex].Texture;
         }
 
         public void GenerateBoard()
@@ -97,6 +108,27 @@ namespace _3D_Madness
             }
         }
 
+        private bool CheckBounds(int x, int y, int textInd)
+        {
+            Element next = elements[textInd];
+            if (x > 1 && x < 19 && y > 1 && y < 19)
+            {
+                if (janek[x - 1][y].Texture == txt1 && janek[x + 1][y].Texture == txt1 && janek[x][y - 1].Texture == txt1 && janek[x][y + 1].Texture == txt1)
+                    return false;
+                if ((next.leftEdge == janek[x - 1][y].rightEdge || janek[x - 1][y].Texture == txt1 || (next.leftEdge == janek[x - 1][y].rightEdge + 1) || (next.leftEdge == janek[x - 1][y].rightEdge - 1)) &&
+                    (next.rightEdge == janek[x + 1][y].leftEdge || janek[x + 1][y].Texture == txt1 || next.rightEdge == janek[x + 1][y].leftEdge +1 || next.rightEdge == janek[x + 1][y].leftEdge -1) &&
+                    (next.upEdge == janek[x][y + 1].bottomEdge || janek[x][y + 1].Texture == txt1 || next.upEdge == janek[x][y + 1].bottomEdge+1 || next.upEdge == janek[x][y + 1].bottomEdge-1) &&
+                    (next.bottomEdge == janek[x][y - 1].upEdge || janek[x][y - 1].Texture == txt1 || next.bottomEdge == janek[x][y - 1].upEdge+1 || next.bottomEdge == janek[x][y - 1].upEdge-1))
+                    return true;
+                else
+                    return false;
+
+            }
+            else 
+
+            return true;    
+        }
+
         public void MapMouseAndRandNewBlock(GraphicsDevice g, BasicEffect effect, Camera camera)
         {
             Vector3 nearSource = new Vector3(Mouse.GetState().X, Mouse.GetState().Y, 0f);
@@ -108,7 +140,6 @@ namespace _3D_Madness
 
 
             Ray xRay = new Ray(nearPoint, direction);
-            Random rand = new Random();
 
             for (int i = 0; i < sizeX; i++)
             {
@@ -124,9 +155,14 @@ namespace _3D_Madness
                             //{
                             //    Console.WriteLine(string.Format("X{0} : {1}, Y{0} : {2}",w, janek[i][j].verts[w].Position.X, janek[i][j].verts[w].Position.Y));
                             //}
-                            if (elements.Count >= 1)
+                            if (elements.Count >= 1 && CheckBounds(i, j, textureIndex))
                             {
                                 this.janek[i][j].Texture = elements[textureIndex].Texture;
+                                janek[i][j].leftEdge = elements[textureIndex].leftEdge;
+                                janek[i][j].rightEdge = elements[textureIndex].rightEdge;
+                                janek[i][j].upEdge = elements[textureIndex].upEdge;
+                                janek[i][j].bottomEdge = elements[textureIndex].bottomEdge;
+                                janek[i][j].additional = elements[textureIndex].additional;
                                 elements.RemoveAt(textureIndex);
                                 textureIndex = rand.Next(0, elements.Count);
                                 NextBlock = elements[textureIndex].Texture;
@@ -160,10 +196,10 @@ namespace _3D_Madness
                     }
                 }
             }
-            //spriteBatch.Begin();
-            //if(blocks.Count >=1)
-            //spriteBatch.Draw(blocks[textureIndex], new Rectangle(0, 0, 200, 200), Color.White);
-            //spriteBatch.End();
+            spriteBatch.Begin();
+            if (elements.Count >= 1)
+                spriteBatch.Draw(elements[textureIndex].Texture, new Rectangle(0, 0, 150, 150), Color.White);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }
