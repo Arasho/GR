@@ -35,24 +35,26 @@ namespace _3D_Madness
 
         public BasicEffect Effect { get; set; }
 
-        public Game mainGameClass { get; set; }
+        public Game1 mainGameClass { get; set; }
 
         public Texture2D NextBlock { get; set; }
 
         private int size = 1;
-        private Texture2D txt1;
+        public Texture2D txt1 { get; set; }
         private Texture2D txt2;
         private int textureIndex = 0;
         private SpriteBatch spriteBatch;
+        private Rectangle wholeBar;
 
         public Board(Game g, Texture2D _txt1, Texture2D _txt2)
             : base(g)
         {
-            mainGameClass = g;
+            mainGameClass = (Game1)g;
             Effect = new BasicEffect(g.GraphicsDevice);
             rand_element = new XML_Parser();
             elements = rand_element.XDocParse();
             spriteBatch = new SpriteBatch(g.GraphicsDevice);
+            
 
             for (int i = 0; i < 72; i++)
             {
@@ -75,6 +77,16 @@ namespace _3D_Madness
                 }
             }
             GenerateBoard();
+            this.janek[10][10].Texture = elements[0].Texture;
+            janek[10][10].leftEdge = elements[textureIndex].leftEdge;
+            janek[10][10].rightEdge = elements[textureIndex].rightEdge;
+            janek[10][10].upEdge = elements[textureIndex].upEdge;
+            janek[10][10].bottomEdge = elements[textureIndex].bottomEdge;
+            janek[10][10].additional = elements[textureIndex].additional;
+            elements.RemoveAt(textureIndex);
+            Random rand = new Random();
+            textureIndex = rand.Next(0, elements.Count);
+            NextBlock = elements[textureIndex].Texture;
         }
 
         public void GenerateBoard()
@@ -109,42 +121,51 @@ namespace _3D_Madness
 
             Ray xRay = new Ray(nearPoint, direction);
             Random rand = new Random();
-
-            for (int i = 0; i < sizeX; i++)
+            if (!wholeBar.Contains(Mouse.GetState().X,Mouse.GetState().Y))
             {
-                for (int j = 0; j < sizeY; j++)
+                for (int i = 0; i < sizeX; i++)
                 {
-                    if (this.janek[i][j].Texture == txt1)
+                    for (int j = 0; j < sizeY; j++)
                     {
-                        if (xRay.Intersects(new BoundingBox(new Vector3((float)i, (float)j, 0), new Vector3((float)i + 1, (float)j + 1, 0))) > 0f)
+                        if (this.janek[i][j].Texture == txt1)
                         {
-                            //Console.WriteLine("x: " + i + "     y " + j);
-                            //Console.WriteLine("WIERZCHOLKI");
-                            //for (int w = 0; w < 4; w++)
-                            //{
-                            //    Console.WriteLine(string.Format("X{0} : {1}, Y{0} : {2}",w, janek[i][j].verts[w].Position.X, janek[i][j].verts[w].Position.Y));
-                            //}
-                            if (elements.Count >= 1)
+                            if (xRay.Intersects(new BoundingBox(new Vector3((float)i, (float)j, 0), new Vector3((float)i + 1, (float)j + 1, 0))) > 0f)
                             {
-                                this.janek[i][j].Texture = elements[textureIndex].Texture;
-                                elements.RemoveAt(textureIndex);
-                                textureIndex = rand.Next(0, elements.Count);
-                                NextBlock = elements[textureIndex].Texture;
+                                //Console.WriteLine("x: " + i + "     y " + j);
+                                //Console.WriteLine("WIERZCHOLKI");
+                                //for (int w = 0; w < 4; w++)
+                                //{
+                                //    Console.WriteLine(string.Format("X{0} : {1}, Y{0} : {2}",w, janek[i][j].verts[w].Position.X, janek[i][j].verts[w].Position.Y));
+                                //}
+                                if (elements.Count >= 1)
+                                {
+                                    this.janek[i][j].Texture = elements[textureIndex].Texture;
+                                    elements.RemoveAt(textureIndex);
+                                    textureIndex = rand.Next(0, elements.Count);
+                                    NextBlock = elements[textureIndex].Texture;
+
+                                }
 
                             }
-
                         }
                     }
                 }
             }
-
             // patrz dokladnie ale to akurat mankament nie o to chodzi ale odrazu poka¿e
             //Window.Title = xRay.Intersects(new BoundingSphere(new Vector3(0,0,0), 1f)).ToString();
         }
 
+        public override void Update(GameTime gameTime)
+        {
+            if(mainGameClass.graphics.IsFullScreen)
+                wholeBar = new Rectangle(0, 0, (int)(mainGameClass.GraphicsDevice.Viewport.Width * 0.14f), mainGameClass.GraphicsDevice.Viewport.Height);
+            else
+                wholeBar = new Rectangle(0, 0, (int)(mainGameClass.GraphicsDevice.Viewport.Width * 0.22f), mainGameClass.GraphicsDevice.Viewport.Height);
+            base.Update(gameTime);
+        }
         public override void Draw(GameTime gameTime)
         {
-
+            
             foreach (EffectPass pass in Effect.CurrentTechnique.Passes)
             {
                 for (int i = 0; i < 20; i++)
@@ -161,8 +182,9 @@ namespace _3D_Madness
                 }
             }
             //spriteBatch.Begin();
-            //if(blocks.Count >=1)
-            //spriteBatch.Draw(blocks[textureIndex], new Rectangle(0, 0, 200, 200), Color.White);
+            ////if (blocks.Count >= 1)
+            //  //  spriteBatch.Draw(blocks[textureIndex], new Rectangle(0, 0, 200, 200), Color.White);
+            //spriteBatch.Draw(mainGameClass.Content.Load<Texture2D>("belkagracza"), new Rectangle(0, 300, mainGameClass.Content.Load<Texture2D>("belkagracza").Width, mainGameClass.Content.Load<Texture2D>("belkagracza").Height), Color.White);
             //spriteBatch.End();
             base.Draw(gameTime);
         }

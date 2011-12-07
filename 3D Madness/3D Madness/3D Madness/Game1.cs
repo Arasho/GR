@@ -14,7 +14,7 @@ namespace _3D_Madness
 
         Texture2D txt1;
         Texture2D txt2;
-        GraphicsDeviceManager graphics;
+        public GraphicsDeviceManager graphics { get; set; }
         SpriteBatch spriteBatch;
         MouseState current, previous;
 
@@ -26,7 +26,8 @@ namespace _3D_Madness
         public Camera camera { get; set; }
 
         public Board board {get; set;}
-        Menu menu;
+        private Menu menu;
+        private Bar infoBar;
 
         public Game1()
         {
@@ -36,6 +37,7 @@ namespace _3D_Madness
             Window.AllowUserResizing = true;
             pressedNewGame = false;
             pressedTheEnd = false;
+            //graphics.IsFullScreen = true;
         }
 
         protected override void Initialize()
@@ -59,6 +61,7 @@ namespace _3D_Madness
 
             // Zaladowanie pustej planszy
             board = new Board(this, txt1, txt2);
+            infoBar = new Bar(this);
 
             Components.Add(menu);
         }
@@ -102,7 +105,7 @@ namespace _3D_Madness
             if (keyboardState.IsKeyDown(Keys.A))
                 worldTranslation *= Matrix.CreateTranslation(speed, 0, 0);
             if (keyboardState.IsKeyDown(Keys.S))
-                worldTranslation *= Matrix.CreateTranslation(0, speed, 0);
+                worldTranslation *= Matrix.CreateTranslation(0, speed, 0);  
             if (keyboardState.IsKeyDown(Keys.W))
                 worldTranslation *= Matrix.CreateTranslation(0, -1 * speed, 0);
             // ograniczenie zoomu, zeby nie przejsc przez plansze
@@ -144,6 +147,7 @@ namespace _3D_Madness
             {
                 Components.Remove(menu);
                 Components.Add(board);
+                Components.Add(infoBar);
                 pressedNewGame = false;
             }
 
