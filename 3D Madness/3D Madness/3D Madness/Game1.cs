@@ -2,8 +2,6 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Diagnostics;
-using System.Collections.Generic;
 
 namespace _3D_Madness
 {
@@ -11,51 +9,42 @@ namespace _3D_Madness
     {
         const float speed = 0.1f;
 
-        // Movement and rotation stuff
         Matrix worldTranslation = Matrix.Identity;
         Matrix worldRotationX = Matrix.Identity;
-        
-        // Texture info
+
         Texture2D txt1;
         Texture2D txt2;
-        
-        // Effect
-        BasicEffect effect;
-
-        Texture2D[] blocks;
-        public List<Element> elements { get; set; }       //Board
-        Board board;
-        Menu menu;
-        // Generate element
-        XML_Parser rand_element;
-
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        MouseState current, previous;
+
+        public bool pressedNewGame { get; set; }
+
+        public bool pressedTheEnd { get; set; }
 
         // Game camera
         public Camera camera { get; set; }
-        
-       
+
+        Board board;
+        Menu menu;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             Window.AllowUserResizing = true;
-            //graphics.ToggleFullScreen();
+            pressedNewGame = false;
+            pressedTheEnd = false;
         }
 
         protected override void Initialize()
         {
-            // Initialize camera
             camera = new Camera(this, Vector3.Zero, Vector3.Zero, Vector3.Up);
             // ustawienie pozycji poczatkowej swiata
             worldTranslation = Matrix.Add(worldTranslation, Matrix.CreateTranslation(new Vector3(-20, -20, -22)));
 
-            blocks = new Texture2D[72];
             Components.Add(camera);
-            
-
             base.Initialize();
         }
 
@@ -65,36 +54,35 @@ namespace _3D_Madness
 
             txt1 = Content.Load<Texture2D>(@"Textures\empty");
             txt2 = Content.Load<Texture2D>(@"Textures\Trees");
-            
-            // Initialize the BasicEffect
-            effect = new BasicEffect(GraphicsDevice);
 
             menu = new Menu(this);
 
-            // Za³adowanie pustej planszy
+            // Zaladowanie pustej planszy
             board = new Board(this, txt1, txt2);
-            
-            // Za³adowanie parsera 
-            rand_element = new XML_Parser();
-            elements = rand_element.XDocParse();
 
-            for (int i = 0; i < 72; i++)
-            {
-                blocks[i] = Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName);
-            }
             Components.Add(menu);
-  }
+        }
 
         protected override void UnloadContent() { }
 
         protected override void Update(GameTime gameTime)
         {
+            current = Mouse.GetState();
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
+            if (pressedTheEnd)
+                this.Exit();
+
+            // po co ten pierwszy worldRotation?
+            //camera.view = worldRotation * worldTranslation * worldRotation;
+            camera.view = worldTranslation * worldRotationX;
+            board.Effect.View = camera.view;
+            board.Effect.Projection = camera.projection;
+            board.Effect.TextureEnabled = true;
 
             // katy rotacji swiata z macierzy rotacji, w tej chwili posiadamy rotacje wzgledem X, ale na przyszlosc gdybysmy potrzebowali
             // to sa tez wzgledem Y i Z
@@ -102,14 +90,12 @@ namespace _3D_Madness
 
             // camera.rotationAngleY = (-1) * Math.Asin(worldRotationY.M31);
             // camera.rotationAngleZ = Math.Atan2(worldRotationZ.M21, worldRotationZ.M11);
-            
 
             camera.rotationAngleX = Math.Atan2(worldRotationX.M32, worldRotationX.M33);
 
             // Translation
             //Sterowanie kamera
             KeyboardState keyboardState = Keyboard.GetState();
-            MouseState mouseState = Mouse.GetState();
 
             if (keyboardState.IsKeyDown(Keys.D))
                 worldTranslation *= Matrix.CreateTranslation(-1 * speed, 0, 0);
@@ -119,10 +105,11 @@ namespace _3D_Madness
                 worldTranslation *= Matrix.CreateTranslation(0, speed, 0);
             if (keyboardState.IsKeyDown(Keys.W))
                 worldTranslation *= Matrix.CreateTranslation(0, -1 * speed, 0);
+            // ograniczenie zoomu, zeby nie przejsc przez plansze
             if (keyboardState.IsKeyDown(Keys.Q))
             {
-                if((camera.view.Translation.Z > (-35.0f)))
-                     worldTranslation *= Matrix.CreateTranslation(0, 0, -1 * speed);
+                if ((camera.view.Translation.Z > (-35.0f)))
+                    worldTranslation *= Matrix.CreateTranslation(0, 0, -1 * speed);
             }
             if (keyboardState.IsKeyDown(Keys.E))
             {
@@ -134,99 +121,32 @@ namespace _3D_Madness
             if (keyboardState.IsKeyDown(Keys.X))
                 worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / -60);
 
-            //dziala
-            //ograniczenie zmiany nachylenia kamery (swiata?) 
+            //ograniczenie zmiany nachylenia kamery (swiata?)
             if (camera.rotationAngleX < 0.0f)
                 worldRotationX = Matrix.CreateRotationX(0.0f);
             else if (camera.rotationAngleX > 0.6f)
                 worldRotationX = Matrix.CreateRotationX(-0.6f);
-            
-            if (mouseState.LeftButton == ButtonState.Pressed)
+
+            //reakcja na klikniêcie myszy
+            if (current.LeftButton == ButtonState.Pressed && previous.LeftButton == ButtonState.Released)
             {
-                Vector3 nearSource = new Vector3(new Vector2(Mouse.GetState().X, Mouse.GetState().Y), 0f);
-                Vector3 farSource = new Vector3(new Vector2(Mouse.GetState().X, Mouse.GetState().Y), 1f);
-                Vector3 nearPoint = GraphicsDevice.Viewport.Unproject(nearSource,
-               effect.Projection, effect.View, Matrix.Identity);
-
-                Vector3 farPoint = GraphicsDevice.Viewport.Unproject(farSource,
-                     camera.projection, camera.view, Matrix.Identity);
-                Vector3 direction = farPoint - nearPoint;
-                direction.Normalize();
-
-                Ray xRay = new Ray(nearPoint, direction);
-
-                Random rand = new Random();
-                float help = .0f;
-                for (float i = 0; i < 20; i = i + 1.0f)
-                {
-                    for (float j = 0; j < 20; j = j + 1.0f)
-                    {
-                        if (board.janek[(int)i][(int)j].Texture == txt1)
-                        {
-                            if (xRay.Intersects(new BoundingBox(new Vector3(i, j, 0), new Vector3(i + 1, j + 1, 0))) > 0f)
-                            {
-                                Window.Title = "x: " + i + "     y " + j;
-                                board.janek[(int)i][(int)j].Texture = blocks[rand.Next(1, 72)];
-                            }
-                        }
-                    }
-                 
-                }
-                 
-                // patrz dokladnie ale to akurat mankament nie o to chodzi ale odrazu poka¿e
-                //Window.Title = xRay.Intersects(new BoundingSphere(new Vector3(0,0,0), 1f)).ToString();
+                if (Components.Contains(board))
+                    board.MapMouseAndRandNewBlock(GraphicsDevice, board.Effect, camera);
             }
 
-
-            // Wazne do obracania klocka 
-            // Rotation
-            //worldRotation *= Matrix.CreateFromYawPitchRoll(0
-            //    MathHelper.PiOver4 / 60,
-            //    0,
-            //    0);
-
+            previous = current;
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            if (pressedNewGame)
+            {
+                Components.Remove(menu);
+                Components.Add(board);
+                pressedNewGame = false;
+            }
 
-            // po co ten pierwszy worldRotation?
-            //camera.view = worldRotation * worldTranslation * worldRotation;
-            camera.view = worldTranslation * worldRotationX;
-            effect.View = camera.view;
-            effect.Projection = camera.projection;
-            effect.TextureEnabled = true;
-
-            // Begin effect and draw for each pass
-            //foreach (EffectPass pass in effect.CurrentTechnique.Passes)
-            //{
-            //    //foreach (var item in test.element)
-            //    //{
-            //    //    pass.Apply();
-            //    //    effect.Texture = item.Texture;
-
-            //    //    //   GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
-            //    //    GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
-            //    //   (PrimitiveType.TriangleStrip, item.verts, 0, 2);
-            //    //}
-
-
-            //    for (int i = 0; i < 20; i++)
-            //    {
-            //        for (int j = 0; j < 20; j++)
-            //        {
-            //            pass.Apply();
-            //            effect.Texture = board.janek[i][j].Texture;
-
-            //               GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp; 
-            //            GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
-            //           (PrimitiveType.TriangleStrip, board.janek[i][j].verts, 0, 2);
-            //        }
-            //    }
-            //}  
-            
             base.Draw(gameTime);
         }
     }

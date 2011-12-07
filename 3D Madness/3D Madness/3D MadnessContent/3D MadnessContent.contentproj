@@ -400,8 +400,27 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="menutlo.JPG">
-      <Name>menutlo</Name>
+    <Compile Include="tlo.jpg">
+      <Name>tlo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="nowagra.png">
+      <Name>nowagra</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="koniec.png">
+      <Name>koniec</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="wyniki.png">
+      <Name>wyniki</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

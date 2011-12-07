@@ -96,7 +96,9 @@
     <Compile Include="XML_Parser.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Elements.xml" />
+    <Content Include="Elements.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
