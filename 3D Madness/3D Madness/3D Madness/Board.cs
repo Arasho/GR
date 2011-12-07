@@ -11,7 +11,6 @@ namespace _3D_Madness
     /// </summary>
     public class Board : Microsoft.Xna.Framework.DrawableGameComponent
     {
-        List<Texture2D> blocks = new List<Texture2D>();
 
         public List<Element> elements { get; set; }       //Board
 
@@ -38,6 +37,8 @@ namespace _3D_Madness
 
         public Game mainGameClass { get; set; }
 
+        public Texture2D NextBlock { get; set; }
+
         private int size = 1;
         private Texture2D txt1;
         private Texture2D txt2;
@@ -55,7 +56,7 @@ namespace _3D_Madness
 
             for (int i = 0; i < 72; i++)
             {
-                blocks.Add(mainGameClass.Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName));
+                elements[i].Texture = (mainGameClass.Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName));
             }
             txt1 = _txt1;
             txt2 = _txt2;
@@ -123,11 +124,13 @@ namespace _3D_Madness
                             //{
                             //    Console.WriteLine(string.Format("X{0} : {1}, Y{0} : {2}",w, janek[i][j].verts[w].Position.X, janek[i][j].verts[w].Position.Y));
                             //}
-                            if (blocks.Count >= 1)
+                            if (elements.Count >= 1)
                             {
-                                this.janek[i][j].Texture = blocks[textureIndex];
-                                blocks.RemoveAt(textureIndex);
-                                textureIndex = rand.Next(0, blocks.Count);
+                                this.janek[i][j].Texture = elements[textureIndex].Texture;
+                                elements.RemoveAt(textureIndex);
+                                textureIndex = rand.Next(0, elements.Count);
+                                NextBlock = elements[textureIndex].Texture;
+
                             }
 
                         }
@@ -157,11 +160,10 @@ namespace _3D_Madness
                     }
                 }
             }
-
-            spriteBatch.Begin();
-            if(blocks.Count >=1)
-            spriteBatch.Draw(blocks[textureIndex], new Rectangle(0, 0, 200, 200), Color.White);
-            spriteBatch.End();
+            //spriteBatch.Begin();
+            //if(blocks.Count >=1)
+            //spriteBatch.Draw(blocks[textureIndex], new Rectangle(0, 0, 200, 200), Color.White);
+            //spriteBatch.End();
             base.Draw(gameTime);
         }
     }

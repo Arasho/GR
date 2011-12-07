@@ -25,7 +25,7 @@ namespace _3D_Madness
         // Game camera
         public Camera camera { get; set; }
 
-        Board board;
+        public Board board {get; set;}
         Menu menu;
 
         public Game1()
