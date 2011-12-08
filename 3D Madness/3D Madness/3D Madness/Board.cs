@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+
 namespace _3D_Madness
 {
     /// <summary>
@@ -44,6 +45,11 @@ namespace _3D_Madness
         private Texture2D txt2;
         private int textureIndex = 0;
         private SpriteBatch spriteBatch;
+
+        private int numberOfRotation = 0;
+        private int tempRotation;
+
+
         Random rand;
 
         public Board(Game g, Texture2D _txt1, Texture2D _txt2)
@@ -94,14 +100,11 @@ namespace _3D_Madness
             {
                 for (int j = 0; j < sizeY; j++)
                 {
-                    x[i][j][0] = new VertexPositionTexture(
-                  new Vector3(i, j + size, 0), new Vector2(0, 0));
-                    x[i][j][1] = new VertexPositionTexture(
-                        new Vector3(i + size, j + size, 0), new Vector2(1, 0));
-                    x[i][j][2] = new VertexPositionTexture(
-                        new Vector3(i, j, 0), new Vector2(0, 1));
-                    x[i][j][3] = new VertexPositionTexture(
-                        new Vector3(i + size, j, 0), new Vector2(1, 1));
+                    x[i][j][0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(0, 0));
+                    x[i][j][1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(1, 0));
+                    x[i][j][2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 1));
+                    x[i][j][3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 1));
+
 
                     _board[i][j] = new Element(x[i][j], txt1);
                 }
@@ -165,9 +168,35 @@ namespace _3D_Madness
                                     _board[i][j].upEdge = elements[textureIndex].upEdge;
                                     _board[i][j].bottomEdge = elements[textureIndex].bottomEdge;
                                     _board[i][j].additional = elements[textureIndex].additional;
+
+                                    // ROTACJA TEKSTURY KLOCKA RYSOWANEGO NA PLANSZY 
+                                    if(numberOfRotation % 4 == 1)
+                                    {
+                                        _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 0));
+                                        _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(1, 1));
+                                        _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 0));
+                                        _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 1));
+                                    }
+                                    
+                                    if (numberOfRotation % 4 == 2)
+                                    {
+                                        _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 1));
+                                        _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 1));
+                                        _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 0));
+                                        _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 0));
+                                    }
+                                    if (numberOfRotation % 4 == 3)
+                                    {
+                                        _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(0, 1));
+                                        _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 0));
+                                        _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 1));
+                                        _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 0));
+                                    }
+
                                     elements.RemoveAt(textureIndex);
                                     textureIndex = rand.Next(0, elements.Count);
                                     NextBlock = elements[textureIndex].Texture;
+                                    numberOfRotation = 0;
                                 }
                             }
                             else
@@ -184,11 +213,23 @@ namespace _3D_Madness
             //Window.Title = xRay.Intersects(new BoundingSphere(new Vector3(0,0,0), 1f)).ToString();
         }
 
+        public void RotationBlock()
+        {
+            numberOfRotation++;
+            tempRotation = elements[textureIndex].upEdge;
+            elements[textureIndex].upEdge = elements[textureIndex].rightEdge;
+            elements[textureIndex].rightEdge = elements[textureIndex].bottomEdge;
+            elements[textureIndex].bottomEdge = elements[textureIndex].leftEdge;
+            elements[textureIndex].leftEdge = tempRotation; 
+         }
+
+
         public override void Draw(GameTime gameTime)
         {
 
             foreach (EffectPass pass in Effect.CurrentTechnique.Passes)
             {
+                
                 for (int i = 0; i < 20; i++)
                 {
                     for (int j = 0; j < 20; j++)
@@ -202,11 +243,12 @@ namespace _3D_Madness
                     }
                 }
             }
-            //spriteBatch.Begin();
-            //if (elements.Count >= 1)
-            //    spriteBatch.Draw(elements[textureIndex].Texture, new Rectangle(0, 0, 150, 150), Color.White);
-            //spriteBatch.End();
-            //base.Draw(gameTime);
+
+            spriteBatch.Begin();
+            if (elements.Count >= 1)
+                spriteBatch.Draw(elements[textureIndex].Texture, new Rectangle(100, 100, 50, 50),null, Color.White,numberOfRotation * -90 * (MathHelper.Pi/180), Vector2.Zero,SpriteEffects.None,0);
+            spriteBatch.End();
+            base.Draw(gameTime);
         }
     }
 }

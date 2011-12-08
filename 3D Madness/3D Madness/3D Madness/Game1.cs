@@ -134,6 +134,12 @@ namespace _3D_Madness
                     board.MapMouseAndRandNewBlock(GraphicsDevice, board.Effect, camera);
             }
 
+            if (current.RightButton == ButtonState.Pressed && previous.RightButton == ButtonState.Released)
+            {
+                board.RotationBlock(); 
+            }
+
+
             previous = current;
             base.Update(gameTime);
         }
