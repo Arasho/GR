@@ -19,9 +19,9 @@ namespace _3D_Madness
         {
             Road = 0,
             EndRoad = 1,
-            Town = 2,
-            EndTown = 3,
-            Field = 4,
+            Town = 3,
+            EndTown = 4,
+            Field = 6,
         };
 
         public int leftEdge { get; set; }
@@ -51,13 +51,13 @@ namespace _3D_Madness
                     leftEdge = 1;
                     break;
                 case "Town":
-                    leftEdge = 2;
-                    break;
-                case "EndTown":
                     leftEdge = 3;
                     break;
-                case "Field":
+                case "EndTown":
                     leftEdge = 4;
+                    break;
+                case "Field":
+                    leftEdge = 6;
                     break;
                 default:
                     break;
@@ -72,13 +72,13 @@ namespace _3D_Madness
                     rightEdge = 1;
                     break;
                 case "Town":
-                    rightEdge = 2;
-                    break;
-                case "EndTown":
                     rightEdge = 3;
                     break;
-                case "Field":
+                case "EndTown":
                     rightEdge = 4;
+                    break;
+                case "Field":
+                    rightEdge = 6;
                     break;
                 default:
                     break;
@@ -93,13 +93,13 @@ namespace _3D_Madness
                     bottomEdge = 1;
                     break;
                 case "Town":
-                    bottomEdge = 2;
-                    break;
-                case "EndTown":
                     bottomEdge = 3;
                     break;
-                case "Field":
+                case "EndTown":
                     bottomEdge = 4;
+                    break;
+                case "Field":
+                    bottomEdge = 6;
                     break;
                 default:
                     break;
@@ -114,13 +114,13 @@ namespace _3D_Madness
                     upEdge = 1;
                     break;
                 case "Town":
-                    upEdge = 2;
-                    break;
-                case "EndTown":
                     upEdge = 3;
                     break;
-                case "Field":
+                case "EndTown":
                     upEdge = 4;
+                    break;
+                case "Field":
+                    upEdge = 6;
                     break;
                 default:
                     break;
