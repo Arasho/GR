@@ -1,14 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 
 namespace _3D_Madness
 {
@@ -21,9 +12,12 @@ namespace _3D_Madness
 
         private SpriteBatch spritebatch;
         private SpriteFont font;
-        private Texture2D [] playerName = new Texture2D[temporaryPlayerQuantity];
+        private Texture2D[] playerName = new Texture2D[temporaryPlayerQuantity];
+
         private Game1 mainGameClass { get; set; }
-        private Rectangle wholeBar;
+
+        public Rectangle wholeBar { get; set; }
+
         private Vector2 origin = new Vector2();
 
         public Bar(Game game)
@@ -54,25 +48,24 @@ namespace _3D_Madness
         public override void Draw(GameTime gameTime)
         {
             spritebatch.Begin();
-                spritebatch.Draw(playerName[0], wholeBar, Color.White);
+            spritebatch.Draw(playerName[0], wholeBar, Color.White);
 
+            if (mainGameClass.board.NextBlock != mainGameClass.board.txt1)
+            {
+                origin.X = mainGameClass.board.NextBlock.Width / 2;
+                origin.Y = mainGameClass.board.NextBlock.Height / 2;
 
-                if (mainGameClass.board.NextBlock != mainGameClass.board.txt1)
-                {
-                    origin.X = mainGameClass.board.NextBlock.Width/2;
-                    origin.Y = mainGameClass.board.NextBlock.Height/2;
+                spritebatch.Draw(mainGameClass.board.NextBlock, new Rectangle(80, 80, wholeBar.Width, wholeBar.Width),
+                                    null, Color.White, mainGameClass.board.numberOfRotation % 4 * -90 * (MathHelper.Pi / 180),
+                                    origin, SpriteEffects.None, 0
+                                );
+            }
 
-                    spritebatch.Draw(mainGameClass.board.NextBlock, new Rectangle(80,80, wholeBar.Width, wholeBar.Width),
-                                        null, Color.White, mainGameClass.board.numberOfRotation % 4 * -90 * (MathHelper.Pi / 180),
-                                        origin, SpriteEffects.None,0
-                                    );
-                }
-
-                for (int i = 0; i < temporaryPlayerQuantity; i++)
-                {
-                    spritebatch.Draw(playerName[i], new Rectangle(10, 100 * (i + 1) + 100, wholeBar.Width - 20, playerName[i].Height), Color.White);
-                    spritebatch.DrawString(font, "Gracz " + (i + 1), new Vector2(15, 100 * (i + 1) + 105), Color.Black);
-                }
+            for (int i = 0; i < temporaryPlayerQuantity; i++)
+            {
+                spritebatch.Draw(playerName[i], new Rectangle(10, 100 * (i + 1) + 100, wholeBar.Width - 20, playerName[i].Height), Color.White);
+                spritebatch.DrawString(font, "Gracz " + (i + 1), new Vector2(15, 100 * (i + 1) + 105), Color.Black);
+            }
 
             spritebatch.End();
             base.Draw(gameTime);

@@ -14,7 +14,9 @@ namespace _3D_Madness
 
         Texture2D txt1;
         Texture2D txt2;
+
         public GraphicsDeviceManager graphics { get; set; }
+
         SpriteBatch spriteBatch;
         MouseState current, previous;
 
@@ -25,9 +27,11 @@ namespace _3D_Madness
         // Game camera
         public Camera camera { get; set; }
 
-        public Board board {get; set;}
+        public Board board { get; set; }
+
         private Menu menu;
-        private Bar infoBar;
+
+        public Bar infoBar { get; set; }
 
         public Game1()
         {
@@ -105,7 +109,7 @@ namespace _3D_Madness
             if (keyboardState.IsKeyDown(Keys.A))
                 worldTranslation *= Matrix.CreateTranslation(speed, 0, 0);
             if (keyboardState.IsKeyDown(Keys.S))
-                worldTranslation *= Matrix.CreateTranslation(0, speed, 0);  
+                worldTranslation *= Matrix.CreateTranslation(0, speed, 0);
             if (keyboardState.IsKeyDown(Keys.W))
                 worldTranslation *= Matrix.CreateTranslation(0, -1 * speed, 0);
             // ograniczenie zoomu, zeby nie przejsc przez plansze
@@ -139,9 +143,8 @@ namespace _3D_Madness
 
             if (current.RightButton == ButtonState.Pressed && previous.RightButton == ButtonState.Released)
             {
-                board.RotationBlock(); 
+                board.RotationBlock();
             }
-
 
             previous = current;
             base.Update(gameTime);

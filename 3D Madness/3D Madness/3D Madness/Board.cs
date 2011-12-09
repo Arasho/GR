@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-
 namespace _3D_Madness
 {
     /// <summary>
@@ -12,7 +11,6 @@ namespace _3D_Madness
     /// </summary>
     public class Board : Microsoft.Xna.Framework.DrawableGameComponent
     {
-
         public List<Element> elements { get; set; }       //Board
 
         XML_Parser rand_element;
@@ -41,14 +39,16 @@ namespace _3D_Madness
         public Texture2D NextBlock { get; set; }
 
         private int size = 1;
+
         public Texture2D txt1 { get; set; }
+
         private Texture2D txt2;
         private int textureIndex = 0;
         private SpriteBatch spriteBatch;
 
-        public int numberOfRotation{get;set;}
-        private int tempRotation;
+        public int numberOfRotation { get; set; }
 
+        private int tempRotation;
 
         Random rand;
 
@@ -106,7 +106,6 @@ namespace _3D_Madness
                     x[i][j][2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 1));
                     x[i][j][3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 1));
 
-
                     _board[i][j] = new Element(x[i][j], txt1);
                 }
             }
@@ -120,17 +119,15 @@ namespace _3D_Madness
                 if (_board[x - 1][y].Texture == txt1 && _board[x + 1][y].Texture == txt1 && _board[x][y - 1].Texture == txt1 && _board[x][y + 1].Texture == txt1)
                     return false;
                 if ((next.leftEdge == _board[x - 1][y].rightEdge || _board[x - 1][y].Texture == txt1 || (next.leftEdge == _board[x - 1][y].rightEdge + 1) || (next.leftEdge == _board[x - 1][y].rightEdge - 1)) &&
-                    (next.rightEdge == _board[x + 1][y].leftEdge || _board[x + 1][y].Texture == txt1 || next.rightEdge == _board[x + 1][y].leftEdge +1 || next.rightEdge == _board[x + 1][y].leftEdge -1) &&
-                    (next.upEdge == _board[x][y + 1].bottomEdge || _board[x][y + 1].Texture == txt1 || next.upEdge == _board[x][y + 1].bottomEdge+1 || next.upEdge == _board[x][y + 1].bottomEdge-1) &&
-                    (next.bottomEdge == _board[x][y - 1].upEdge || _board[x][y - 1].Texture == txt1 || next.bottomEdge == _board[x][y - 1].upEdge+1 || next.bottomEdge == _board[x][y - 1].upEdge-1))
+                    (next.rightEdge == _board[x + 1][y].leftEdge || _board[x + 1][y].Texture == txt1 || next.rightEdge == _board[x + 1][y].leftEdge + 1 || next.rightEdge == _board[x + 1][y].leftEdge - 1) &&
+                    (next.upEdge == _board[x][y + 1].bottomEdge || _board[x][y + 1].Texture == txt1 || next.upEdge == _board[x][y + 1].bottomEdge + 1 || next.upEdge == _board[x][y + 1].bottomEdge - 1) &&
+                    (next.bottomEdge == _board[x][y - 1].upEdge || _board[x][y - 1].Texture == txt1 || next.bottomEdge == _board[x][y - 1].upEdge + 1 || next.bottomEdge == _board[x][y - 1].upEdge - 1))
                     return true;
                 else
                     return false;
-
             }
-            else 
-
-            return true;    
+            else
+                return true;
         }
 
         public void MapMouseAndRandNewBlock(GraphicsDevice g, BasicEffect effect, Camera camera)
@@ -142,15 +139,14 @@ namespace _3D_Madness
             Vector3 direction = farPoint - nearPoint;
             direction.Normalize();
 
-
             Ray xRay = new Ray(nearPoint, direction);
-            if (!wholeBar.Contains(Mouse.GetState().X,Mouse.GetState().Y))
+            if (!mainGameClass.infoBar.wholeBar.Contains(Mouse.GetState().X, Mouse.GetState().Y))
             {
                 for (int i = 0; i < sizeX; i++)
                 {
                     for (int j = 0; j < sizeY; j++)
                     {
-                    if (this._board[i][j].Texture == txt1)
+                        if (this._board[i][j].Texture == txt1)
                         {
                             if (xRay.Intersects(new BoundingBox(new Vector3((float)i, (float)j, 0), new Vector3((float)i + 1, (float)j + 1, 0))) > 0f)
                             {
@@ -171,15 +167,15 @@ namespace _3D_Madness
                                         _board[i][j].bottomEdge = elements[textureIndex].bottomEdge;
                                         _board[i][j].additional = elements[textureIndex].additional;
 
-                                        // ROTACJA TEKSTURY KLOCKA RYSOWANEGO NA PLANSZY 
-                                        if(numberOfRotation % 4 == 1)
+                                        // ROTACJA TEKSTURY KLOCKA RYSOWANEGO NA PLANSZY
+                                        if (numberOfRotation % 4 == 1)
                                         {
                                             _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 0));
                                             _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(1, 1));
                                             _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 0));
                                             _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 1));
                                         }
-                                    
+
                                         if (numberOfRotation % 4 == 2)
                                         {
                                             _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 1));
@@ -216,13 +212,9 @@ namespace _3D_Madness
 
         public override void Update(GameTime gameTime)
         {
-            if(mainGameClass.graphics.IsFullScreen)
-                wholeBar = new Rectangle(0, 0, (int)(mainGameClass.GraphicsDevice.Viewport.Width * 0.14f), mainGameClass.GraphicsDevice.Viewport.Height);
-            else
-                wholeBar = new Rectangle(0, 0, (int)(mainGameClass.GraphicsDevice.Viewport.Width * 0.22f), mainGameClass.GraphicsDevice.Viewport.Height);
             base.Update(gameTime);
         }
-        
+
         public void RotationBlock()
         {
             numberOfRotation++;
@@ -230,17 +222,13 @@ namespace _3D_Madness
             elements[textureIndex].upEdge = elements[textureIndex].rightEdge;
             elements[textureIndex].rightEdge = elements[textureIndex].bottomEdge;
             elements[textureIndex].bottomEdge = elements[textureIndex].leftEdge;
-            elements[textureIndex].leftEdge = tempRotation; 
-         }
-
-
+            elements[textureIndex].leftEdge = tempRotation;
+        }
 
         public override void Draw(GameTime gameTime)
         {
-            
             foreach (EffectPass pass in Effect.CurrentTechnique.Passes)
             {
-                
                 for (int i = 0; i < 20; i++)
                 {
                     for (int j = 0; j < 20; j++)
