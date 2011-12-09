@@ -33,7 +33,6 @@ namespace _3D_Madness
         public override void Initialize()
         {
             base.Initialize();
-
         }
 
         public override void Update(GameTime gameTime)
@@ -42,24 +41,20 @@ namespace _3D_Madness
             rNewGame = new Rectangle(mainGameClass.GraphicsDevice.Viewport.Width / 2 - 180, mainGameClass.GraphicsDevice.Viewport.Height / 2 - 130, tNewGame.Width, tNewGame.Height);
             rScores = new Rectangle(mainGameClass.GraphicsDevice.Viewport.Width / 2 - 180, mainGameClass.GraphicsDevice.Viewport.Height / 2 - 30, tScores.Width, tScores.Height);
             rEnd = new Rectangle(mainGameClass.GraphicsDevice.Viewport.Width / 2 - 180, mainGameClass.GraphicsDevice.Viewport.Height / 2 + 70, tEnd.Width, tEnd.Height);
-            rMouse = new Rectangle(ms.X,ms.Y,1,1);
-            
+            rMouse = new Rectangle(ms.X,ms.Y,1,1);  
 
             if (ms.LeftButton == ButtonState.Pressed)
             {
                 if (rNewGame.Intersects(rMouse))
                     mainGameClass.pressedNewGame = true;
                 if (rEnd.Intersects(rMouse))
-                    mainGameClass.pressedTheEnd = true;
-                    
+                    mainGameClass.pressedTheEnd = true;     
             }
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            
-            //spriteBatch.Begin();
             spriteBatch.Begin();
             spriteBatch.Draw(tMenuBackground, mainGameClass.GraphicsDevice.Viewport.Bounds, Color.White);
             spriteBatch.Draw(tNewGame, rNewGame, Color.White);

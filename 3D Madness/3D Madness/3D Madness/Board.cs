@@ -45,7 +45,6 @@ namespace _3D_Madness
         private Texture2D txt2;
         private int textureIndex = 0;
         private SpriteBatch spriteBatch;
-        private Rectangle wholeBar;
 
         public int numberOfRotation{get;set;}
         private int tempRotation;
@@ -163,50 +162,49 @@ namespace _3D_Madness
                                 //}
                                 if (elements.Count >= 1)
                                 {
-                                if (CheckBounds(i, j, textureIndex))
-                                {
-                                    this._board[i][j].Texture = elements[textureIndex].Texture;
-                                    _board[i][j].leftEdge = elements[textureIndex].leftEdge;
-                                    _board[i][j].rightEdge = elements[textureIndex].rightEdge;
-                                    _board[i][j].upEdge = elements[textureIndex].upEdge;
-                                    _board[i][j].bottomEdge = elements[textureIndex].bottomEdge;
-                                    _board[i][j].additional = elements[textureIndex].additional;
-
-                                    // ROTACJA TEKSTURY KLOCKA RYSOWANEGO NA PLANSZY 
-                                    if(numberOfRotation % 4 == 1)
+                                    if (CheckBounds(i, j, textureIndex))
                                     {
-                                        _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 0));
-                                        _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(1, 1));
-                                        _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 0));
-                                        _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 1));
-                                    }
+                                        this._board[i][j].Texture = elements[textureIndex].Texture;
+                                        _board[i][j].leftEdge = elements[textureIndex].leftEdge;
+                                        _board[i][j].rightEdge = elements[textureIndex].rightEdge;
+                                        _board[i][j].upEdge = elements[textureIndex].upEdge;
+                                        _board[i][j].bottomEdge = elements[textureIndex].bottomEdge;
+                                        _board[i][j].additional = elements[textureIndex].additional;
+
+                                        // ROTACJA TEKSTURY KLOCKA RYSOWANEGO NA PLANSZY 
+                                        if(numberOfRotation % 4 == 1)
+                                        {
+                                            _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 0));
+                                            _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(1, 1));
+                                            _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 0));
+                                            _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 1));
+                                        }
                                     
-                                    if (numberOfRotation % 4 == 2)
-                                    {
-                                        _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 1));
-                                        _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 1));
-                                        _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 0));
-                                        _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 0));
-                                    }
-                                    if (numberOfRotation % 4 == 3)
-                                    {
-                                        _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(0, 1));
-                                        _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 0));
-                                        _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 1));
-                                        _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 0));
-                                    }
+                                        if (numberOfRotation % 4 == 2)
+                                        {
+                                            _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 1));
+                                            _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 1));
+                                            _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 0));
+                                            _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 0));
+                                        }
+                                        if (numberOfRotation % 4 == 3)
+                                        {
+                                            _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(0, 1));
+                                            _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 0));
+                                            _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 1));
+                                            _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 0));
+                                        }
 
-                                    elements.RemoveAt(textureIndex);
-                                    textureIndex = rand.Next(0, elements.Count);
-                                    NextBlock = elements[textureIndex].Texture;
-                                    numberOfRotation = 0;
+                                        elements.RemoveAt(textureIndex);
+                                        textureIndex = rand.Next(0, elements.Count);
+                                        NextBlock = elements[textureIndex].Texture;
+                                        numberOfRotation = 0;
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                NextBlock = txt1;
+                                else
+                                {
+                                    NextBlock = txt1;
                                 }
-
                             }
                         }
                     }
