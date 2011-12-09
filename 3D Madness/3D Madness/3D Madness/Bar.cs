@@ -12,7 +12,7 @@ namespace _3D_Madness
 
         private SpriteBatch spritebatch;
         private SpriteFont font;
-        private Texture2D[] playerName = new Texture2D[temporaryPlayerQuantity];
+        public Texture2D[] playerName = new Texture2D[temporaryPlayerQuantity];
 
         private Game1 mainGameClass { get; set; }
 
@@ -55,6 +55,7 @@ namespace _3D_Madness
                 origin.X = mainGameClass.board.NextBlock.Width / 2;
                 origin.Y = mainGameClass.board.NextBlock.Height / 2;
 
+                // bloczek
                 spritebatch.Draw(mainGameClass.board.NextBlock, new Rectangle(80, 80, wholeBar.Width, wholeBar.Width),
                                     null, Color.White, mainGameClass.board.numberOfRotation % 4 * -90 * (MathHelper.Pi / 180),
                                     origin, SpriteEffects.None, 0
@@ -63,7 +64,9 @@ namespace _3D_Madness
 
             for (int i = 0; i < temporaryPlayerQuantity; i++)
             {
+                // userbar
                 spritebatch.Draw(playerName[i], new Rectangle(10, 100 * (i + 1) + 100, wholeBar.Width - 20, playerName[i].Height), Color.White);
+                // nick
                 spritebatch.DrawString(font, "Gracz " + (i + 1), new Vector2(15, 100 * (i + 1) + 105), Color.Black);
             }
 

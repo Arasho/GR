@@ -8,7 +8,8 @@ namespace _3D_Madness
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         const float speed = 0.1f;
-
+        double time;
+        private Rectangle camByExit;
         Matrix worldTranslation = Matrix.Identity;
         Matrix worldRotationX = Matrix.Identity;
 
@@ -41,6 +42,7 @@ namespace _3D_Madness
             Window.AllowUserResizing = true;
             pressedNewGame = false;
             pressedTheEnd = false;
+            time = 0;
             //graphics.IsFullScreen = true;
         }
 
@@ -74,6 +76,8 @@ namespace _3D_Madness
 
         protected override void Update(GameTime gameTime)
         {
+            time += gameTime.ElapsedGameTime.TotalMilliseconds;
+            camByExit = new Rectangle(GraphicsDevice.Viewport.Width - 110, -22, GraphicsDevice.Viewport.Width, 30);
             current = Mouse.GetState();
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
@@ -146,7 +150,36 @@ namespace _3D_Madness
                 board.RotationBlock();
             }
 
+            // przesuwanie kamery wzgledem myszy
+
+            if (camByExit.Intersects(new Rectangle(current.X, current.Y, 1, 1))) // wylacza przesuwanie, wokol przyciskow okna, X, maksym, minim
+            {
+                // nic nie rob
+            }
+            else if (current.X + 5 >= GraphicsDevice.Viewport.Width) //prawa
+            {
+                if (time > 300)
+                    worldTranslation *= Matrix.CreateTranslation(-1 * speed, 0, 0);
+            }
+            else if (current.X <= 0) //lewa
+            {
+                if (time > 300)
+                    worldTranslation *= Matrix.CreateTranslation(speed, 0, 0);
+            }
+            else if (current.Y + 5 >= GraphicsDevice.Viewport.Height) //dolna
+            {
+                if (time > 300)
+                    worldTranslation *= Matrix.CreateTranslation(0, speed, 0);
+            }
+            else if (current.Y <= 0) //gorna
+            {
+                if (time > 300)
+                    worldTranslation *= Matrix.CreateTranslation(0, -1 * speed, 0);
+            }
+            else time = 0;
+
             previous = current;
+            Window.Title = "X: " + current.X + " Y: " + current.Y;
             base.Update(gameTime);
         }
 
@@ -158,6 +191,9 @@ namespace _3D_Madness
                 Components.Add(board);
                 Components.Add(infoBar);
                 pressedNewGame = false;
+                //spriteBatch.Begin();
+                //spriteBatch.Draw(infoBar.playerName[0], camByExit, Color.Orange);
+                //spriteBatch.End();
             }
 
             base.Draw(gameTime);
