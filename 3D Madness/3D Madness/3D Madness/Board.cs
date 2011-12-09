@@ -47,7 +47,7 @@ namespace _3D_Madness
         private SpriteBatch spriteBatch;
         private Rectangle wholeBar;
 
-        private int numberOfRotation = 0;
+        public int numberOfRotation{get;set;}
         private int tempRotation;
 
 
@@ -61,7 +61,7 @@ namespace _3D_Madness
             rand_element = new XML_Parser();
             elements = rand_element.XDocParse();
             spriteBatch = new SpriteBatch(g.GraphicsDevice);
-            
+            numberOfRotation = 0;
 
             for (int i = 0; i < 72; i++)
             {
@@ -257,10 +257,10 @@ namespace _3D_Madness
                 }
             }
 
-            spriteBatch.Begin();
-            if (elements.Count >= 1)
-                spriteBatch.Draw(elements[textureIndex].Texture, new Rectangle(100, 100, 50, 50),null, Color.White,numberOfRotation * -90 * (MathHelper.Pi/180), Vector2.Zero,SpriteEffects.None,0);
-            spriteBatch.End();
+            //spriteBatch.Begin();
+            //if (elements.Count >= 1)
+            //    spriteBatch.Draw(elements[textureIndex].Texture, new Rectangle(200, 200, 50, 50),null, Color.White,numberOfRotation * -90 * (MathHelper.Pi/180), Vector2.Zero,SpriteEffects.None,0);
+            //spriteBatch.End();
             base.Draw(gameTime);
         }
     }

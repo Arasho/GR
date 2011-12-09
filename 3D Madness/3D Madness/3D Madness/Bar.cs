@@ -24,6 +24,7 @@ namespace _3D_Madness
         private Texture2D [] playerName = new Texture2D[temporaryPlayerQuantity];
         private Game1 mainGameClass { get; set; }
         private Rectangle wholeBar;
+        private Vector2 origin = new Vector2();
 
         public Bar(Game game)
             : base(game)
@@ -46,24 +47,31 @@ namespace _3D_Madness
             if (mainGameClass.graphics.IsFullScreen)
                 wholeBar = new Rectangle(0, 0, (int)(mainGameClass.GraphicsDevice.Viewport.Width * 0.14f), mainGameClass.GraphicsDevice.Viewport.Height);
             else
-                wholeBar = new Rectangle(0, 0, (int)(mainGameClass.GraphicsDevice.Viewport.Width * 0.22f), mainGameClass.GraphicsDevice.Viewport.Height);
+                wholeBar = new Rectangle(0, 0, 160, mainGameClass.GraphicsDevice.Viewport.Height);
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
             spritebatch.Begin();
-                spritebatch.Draw(playerName[0], wholeBar, Color.Blue);
+                spritebatch.Draw(playerName[0], wholeBar, Color.White);
+
 
                 if (mainGameClass.board.NextBlock != mainGameClass.board.txt1)
-                    spritebatch.Draw(((Game1)mainGameClass).board.NextBlock, new Rectangle(10, 10, 160, 160), Color.White);
+                {
+                    origin.X = mainGameClass.board.NextBlock.Width/2;
+                    origin.Y = mainGameClass.board.NextBlock.Height/2;
 
-                
+                    spritebatch.Draw(mainGameClass.board.NextBlock, new Rectangle(80,80, wholeBar.Width, wholeBar.Width),
+                                        null, Color.White, mainGameClass.board.numberOfRotation % 4 * -90 * (MathHelper.Pi / 180),
+                                        origin, SpriteEffects.None,0
+                                    );
+                }
 
                 for (int i = 0; i < temporaryPlayerQuantity; i++)
                 {
-                    spritebatch.Draw(playerName[i], new Vector2(10, 100 * (i+1) + 90), Color.White);
-                    spritebatch.DrawString(font, "Gracz " + (i + 1), new Vector2(15, 100 * (i+1) + 95), Color.Black);
+                    spritebatch.Draw(playerName[i], new Rectangle(10, 100 * (i + 1) + 100, wholeBar.Width - 20, playerName[i].Height), Color.White);
+                    spritebatch.DrawString(font, "Gracz " + (i + 1), new Vector2(15, 100 * (i + 1) + 105), Color.Black);
                 }
 
             spritebatch.End();
