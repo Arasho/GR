@@ -12,7 +12,7 @@ namespace _3D_Madness
 
         private SpriteBatch spritebatch;
         private SpriteFont font;
-        public Texture2D[] playerName = new Texture2D[temporaryPlayerQuantity];
+        private Texture2D[] playerName = new Texture2D[temporaryPlayerQuantity];
 
         private Game1 mainGameClass { get; set; }
 

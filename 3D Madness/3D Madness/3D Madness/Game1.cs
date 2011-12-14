@@ -117,15 +117,31 @@ namespace _3D_Madness
             if (keyboardState.IsKeyDown(Keys.W))
                 worldTranslation *= Matrix.CreateTranslation(0, -1 * speed, 0);
             // ograniczenie zoomu, zeby nie przejsc przez plansze
+            //Debug.WriteLine("Swiat: " + worldTranslation.Translation.ToString());
+            //Debug.WriteLine("Kamera: " + camera.view.Translation.ToString());
             if (keyboardState.IsKeyDown(Keys.Q))
             {
-                if ((camera.view.Translation.Z > (-35.0f)))
+                if ((worldTranslation.Translation.Z <= -5.0f) && (worldTranslation.Translation.Z >= (-35.0f)))
                     worldTranslation *= Matrix.CreateTranslation(0, 0, -1 * speed);
+                else
+                {
+                    if (worldTranslation.Translation.Z > -5.0f)
+                        worldTranslation.Translation = new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -5);
+                    else if (worldTranslation.Translation.Z < -35.0f)
+                        worldTranslation.Translation = new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -35);
+                }
             }
             if (keyboardState.IsKeyDown(Keys.E))
             {
-                if ((camera.view.Translation.Z < (-5.0f)))
+                if ((worldTranslation.Translation.Z <= -5.0f) && (worldTranslation.Translation.Z >= (-35.0f)))
                     worldTranslation *= Matrix.CreateTranslation(0, 0, speed);
+                else
+                {
+                    if (worldTranslation.Translation.Z > -5.0f)
+                        worldTranslation.Translation = new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -5);
+                    else if (worldTranslation.Translation.Z < -35.0f)
+                        worldTranslation.Translation = new Vector3(worldTranslation.Translation.X, worldTranslation.Translation.Y, -35);
+                }
             }
             if (keyboardState.IsKeyDown(Keys.Z))
                 worldRotationX *= Matrix.CreateRotationX(MathHelper.PiOver4 / 60);
@@ -151,35 +167,48 @@ namespace _3D_Madness
             }
 
             // przesuwanie kamery wzgledem myszy
-
-            if (camByExit.Intersects(new Rectangle(current.X, current.Y, 1, 1))) // wylacza przesuwanie, wokol przyciskow okna, X, maksym, minim
+            if (worldTranslation.Translation.X <= -1 && worldTranslation.Translation.X >= -37 && worldTranslation.Translation.Y <= 10 && worldTranslation.Translation.Y >= -38)
             {
-                // nic nie rob
+                if (camByExit.Intersects(new Rectangle(current.X, current.Y, 1, 1))) // wylacza przesuwanie, wokol przyciskow okna, X, maksym, minim
+                {
+                    // nic nie rob
+                }
+                else if (current.X + 5 >= GraphicsDevice.Viewport.Width) //prawa
+                {
+                    if (time > 300)
+                        worldTranslation *= Matrix.CreateTranslation(-1 * speed, 0, 0);
+                }
+                else if (current.X <= 0) //lewa
+                {
+                    if (time > 300)
+                        worldTranslation *= Matrix.CreateTranslation(speed, 0, 0);
+                }
+                else if (current.Y + 5 >= GraphicsDevice.Viewport.Height) //dolna
+                {
+                    if (time > 300)
+                        worldTranslation *= Matrix.CreateTranslation(0, speed, 0);
+                }
+                else if (current.Y <= 0) //gorna
+                {
+                    if (time > 300)
+                        worldTranslation *= Matrix.CreateTranslation(0, -1 * speed, 0);
+                }
+                else time = 0;
             }
-            else if (current.X + 5 >= GraphicsDevice.Viewport.Width) //prawa
+            else
             {
-                if (time > 300)
-                    worldTranslation *= Matrix.CreateTranslation(-1 * speed, 0, 0);
+                if (worldTranslation.Translation.X > -1)
+                    worldTranslation.Translation = new Vector3(-1, worldTranslation.Translation.Y, worldTranslation.Translation.Z);
+                else if (worldTranslation.Translation.X < -37)
+                    worldTranslation.Translation = new Vector3(-37, worldTranslation.Translation.Y, worldTranslation.Translation.Z);
+                else if (worldTranslation.Translation.Y > 10)
+                    worldTranslation.Translation = new Vector3(worldTranslation.Translation.X, 10, worldTranslation.Translation.Z);
+                else if (worldTranslation.Translation.Y < -38)
+                    worldTranslation.Translation = new Vector3(worldTranslation.Translation.X, -38, worldTranslation.Translation.Z);
             }
-            else if (current.X <= 0) //lewa
-            {
-                if (time > 300)
-                    worldTranslation *= Matrix.CreateTranslation(speed, 0, 0);
-            }
-            else if (current.Y + 5 >= GraphicsDevice.Viewport.Height) //dolna
-            {
-                if (time > 300)
-                    worldTranslation *= Matrix.CreateTranslation(0, speed, 0);
-            }
-            else if (current.Y <= 0) //gorna
-            {
-                if (time > 300)
-                    worldTranslation *= Matrix.CreateTranslation(0, -1 * speed, 0);
-            }
-            else time = 0;
 
             previous = current;
-            Window.Title = "X: " + current.X + " Y: " + current.Y;
+            //Window.Title = "x: " + worldTranslation.Translation.X + " y: " + worldTranslation.Translation.Y + " z: " + worldTranslation.Translation.Z;
             base.Update(gameTime);
         }
 
@@ -191,9 +220,6 @@ namespace _3D_Madness
                 Components.Add(board);
                 Components.Add(infoBar);
                 pressedNewGame = false;
-                //spriteBatch.Begin();
-                //spriteBatch.Draw(infoBar.playerName[0], camByExit, Color.Orange);
-                //spriteBatch.End();
             }
 
             base.Draw(gameTime);
