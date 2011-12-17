@@ -2,11 +2,14 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
+
 
 namespace _3D_Madness
 {
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        FormPlayers NewGameForm = new FormPlayers();
         const float speed = 0.1f;
         double time;
         private Rectangle camByExit;
@@ -17,9 +20,15 @@ namespace _3D_Madness
         Texture2D txt2;
 
         public GraphicsDeviceManager graphics { get; set; }
+        public List<Player> listOfPlayers = new List<Player>();
+
 
         SpriteBatch spriteBatch;
         MouseState current, previous;
+
+        public bool startNewGame {get; set;}
+
+        public bool playersSetings { get; set; }
 
         public bool pressedNewGame { get; set; }
 
@@ -42,7 +51,10 @@ namespace _3D_Madness
             Window.AllowUserResizing = true;
             pressedNewGame = false;
             pressedTheEnd = false;
+            startNewGame = false;
+            playersSetings = false;
             time = 0;
+
             //graphics.IsFullScreen = true;
         }
 
@@ -216,10 +228,24 @@ namespace _3D_Madness
         {
             if (pressedNewGame)
             {
-                Components.Remove(menu);
-                Components.Add(board);
-                Components.Add(infoBar);
-                pressedNewGame = false;
+                if (playersSetings == false)
+                {
+                    NewGameForm.Show();
+                    playersSetings = true;
+                }
+                if (NewGameForm.formClose == true)
+                {
+                    for (int i = 0; i < NewGameForm.numberOfPlayers; i++)
+                    {
+                        listOfPlayers.Add(new Player(NewGameForm.namesOfPlayers[i],NewGameForm.colorsOfPlayers[i]));
+                    }
+                    NewGameForm.Close();
+                    Components.Remove(menu);
+                    Components.Add(board);
+                    Components.Add(infoBar);
+                    pressedNewGame = false;
+                    
+                }
             }
 
             base.Draw(gameTime);
