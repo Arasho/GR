@@ -12,7 +12,7 @@ namespace _3D_Madness
     public partial class FormPlayers : Form
     {
         public bool formClose = false;
-        public int numberOfPlayers = 0;
+        public int numberOfPlayers = 2;
         public int[] colorsOfPlayers = new int[5];
         public string[] namesOfPlayers = new string[5];
 
@@ -26,7 +26,6 @@ namespace _3D_Madness
             groupBox4.Controls.AddRange(new System.Windows.Forms.Control[] { radio_p4_yellow, radio_p4_red, radio_p4_green, radio_p4_blue, radio_p4_black });
             groupBox5.Controls.AddRange(new System.Windows.Forms.Control[] { radio_p5_yellow, radio_p5_red, radio_p5_green, radio_p5_blue, radio_p5_black });
 
-            groupBox2.Visible = false;
             groupBox3.Visible = false;
             groupBox4.Visible = false;
             groupBox5.Visible = false;
@@ -41,42 +40,6 @@ namespace _3D_Madness
 
             switch (numberOfPlayers)
             {
-                case 1:
-                    groupBox1.Visible = true;
-                    
-                    groupBox2.Visible = false;
-                    radio_p2_black.Checked = false;
-                    radio_p2_green.Checked = false;
-                    radio_p2_blue.Checked = false;
-                    radio_p2_red.Checked = false;
-                    radio_p2_yellow.Checked = false;
-                    
-                    groupBox3.Visible = false;
-                    radio_p3_black.Checked = false;
-                    radio_p3_green.Checked = false;
-                    radio_p3_blue.Checked = false;
-                    radio_p3_red.Checked = false;
-                    radio_p3_yellow.Checked = false;
-
-                    groupBox4.Visible = false;
-                    radio_p4_black.Checked = false;
-                    radio_p4_green.Checked = false;
-                    radio_p4_blue.Checked = false;
-                    radio_p4_red.Checked = false;
-                    radio_p4_yellow.Checked = false;
-
-                    groupBox5.Visible = false;
-                    radio_p5_black.Checked = false;
-                    radio_p5_green.Checked = false;
-                    radio_p5_blue.Checked = false;
-                    radio_p5_red.Checked = false;
-                    radio_p5_yellow.Checked = false;
-
-                    colorsOfPlayers[1] = 0;
-                    colorsOfPlayers[2] = 0;
-                    colorsOfPlayers[3] = 0;
-                    colorsOfPlayers[4] = 0;
-                    break;
                 case 2:
                     groupBox1.Visible = true;
                     groupBox2.Visible = true;

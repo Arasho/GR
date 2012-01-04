@@ -62,12 +62,12 @@ namespace _3D_Madness
                                 );
             }
 
-            for (int i = 0; i < mainGameClass.listOfPlayers.Count; i++)
+            for (int i = 0; i < Game1.listOfPlayers.Count; i++)
             {
                 // userbar
                 spritebatch.Draw(playerName[i], new Rectangle(10, 100 * (i + 1) + 100, wholeBar.Width - 20, playerName[i].Height), Color.White);
                 // nick
-                spritebatch.DrawString(font, mainGameClass.listOfPlayers[i].PlayerName, new Vector2(15, 100 * (i + 1) + 105), Color.Black);
+                spritebatch.DrawString(font, Game1.listOfPlayers[i].PlayerName, new Vector2(15, 100 * (i + 1) + 105), Color.Black);
             }
 
             spritebatch.End();

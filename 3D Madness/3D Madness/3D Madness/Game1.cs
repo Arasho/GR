@@ -20,7 +20,7 @@ namespace _3D_Madness
         Texture2D txt2;
 
         public GraphicsDeviceManager graphics { get; set; }
-        public List<Player> listOfPlayers = new List<Player>();
+        public static List<Player> listOfPlayers = new List<Player>();
 
 
         SpriteBatch spriteBatch;
@@ -82,6 +82,9 @@ namespace _3D_Madness
             infoBar = new Bar(this);
 
             Components.Add(menu);
+
+
+
         }
 
         protected override void UnloadContent() { }
@@ -92,8 +95,34 @@ namespace _3D_Madness
             camByExit = new Rectangle(GraphicsDevice.Viewport.Width - 110, -22, GraphicsDevice.Viewport.Width, 30);
             current = Mouse.GetState();
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+
+            #region START GRY
+            // START GRY //
+            if (pressedNewGame)
+            {
+                if (playersSetings == false)
+                {
+                    NewGameForm.Show();
+                    playersSetings = true;
+                }
+                if (NewGameForm.formClose == true)
+                {
+                    for (int i = 0; i < NewGameForm.numberOfPlayers; i++)
+                    {
+                        listOfPlayers.Add(new Player(NewGameForm.namesOfPlayers[i], NewGameForm.colorsOfPlayers[i]));
+                    }
+                    NewGameForm.Close();
+                    Components.Remove(menu);
+                    Components.Add(board);
+                    Components.Add(infoBar);
+                    pressedNewGame = false;
+
+                    Round.NumberOfPlayers = listOfPlayers.Count;
+                    Round.NumberOfActivePlayer = 1;
+                }
+            }
+            ///////////////
+            #endregion
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
@@ -116,6 +145,7 @@ namespace _3D_Madness
 
             camera.rotationAngleX = Math.Atan2(worldRotationX.M32, worldRotationX.M33);
 
+            #region Sterowanie kamera
             // Translation
             //Sterowanie kamera
             KeyboardState keyboardState = Keyboard.GetState();
@@ -165,19 +195,39 @@ namespace _3D_Madness
                 worldRotationX = Matrix.CreateRotationX(0.0f);
             else if (camera.rotationAngleX > 0.6f)
                 worldRotationX = Matrix.CreateRotationX(-0.6f);
+            #endregion
 
             //reakcja na klikniêcie myszy
             if (current.LeftButton == ButtonState.Pressed && previous.LeftButton == ButtonState.Released)
             {
-                if (Components.Contains(board))
-                    board.MapMouseAndRandNewBlock(GraphicsDevice, board.Effect, camera);
+                if (Round.PutElement == false)
+                {
+                    if (Components.Contains(board))
+                    {
+                        board.MapMouseAndRandNewBlock(GraphicsDevice, board.Effect, camera);
+                        Round.PuttingElement();
+                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        // tutaj warto by bylo jeszcze wyswietlic zamias nastepnego wylosowanego klocka rewers, a dopiero po rozpoczeciu tury przez nastepnego gracza wyswietlic nastepny klocek
+                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    }
+                }
+                else
+                {
+                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+                    // tutaj trzeba dolozyc obsluge umieszczania pionka na planszy//
+                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+                }
             }
 
             if (current.RightButton == ButtonState.Pressed && previous.RightButton == ButtonState.Released)
             {
-                board.RotationBlock();
+                if (Round.PutElement == false)
+                {
+                    board.RotationBlock();
+                }
             }
 
+            #region Przesuwanie kamery wzgledem myszy
             // przesuwanie kamery wzgledem myszy
             if (worldTranslation.Translation.X <= -1 && worldTranslation.Translation.X >= -37 && worldTranslation.Translation.Y <= 10 && worldTranslation.Translation.Y >= -38)
             {
@@ -221,33 +271,23 @@ namespace _3D_Madness
 
             previous = current;
             //Window.Title = "x: " + worldTranslation.Translation.X + " y: " + worldTranslation.Translation.Y + " z: " + worldTranslation.Translation.Z;
+            #endregion
+
+            // OBSLUGA TUR //
+            if (keyboardState.IsKeyDown(Keys.Enter) == true)
+            {
+                if (Round.EndRound() == true)
+                {
+                    Round.NextTurn();
+                }
+            }
+            /////////////////
             base.Update(gameTime);
         }
 
+
         protected override void Draw(GameTime gameTime)
         {
-            if (pressedNewGame)
-            {
-                if (playersSetings == false)
-                {
-                    NewGameForm.Show();
-                    playersSetings = true;
-                }
-                if (NewGameForm.formClose == true)
-                {
-                    for (int i = 0; i < NewGameForm.numberOfPlayers; i++)
-                    {
-                        listOfPlayers.Add(new Player(NewGameForm.namesOfPlayers[i],NewGameForm.colorsOfPlayers[i]));
-                    }
-                    NewGameForm.Close();
-                    Components.Remove(menu);
-                    Components.Add(board);
-                    Components.Add(infoBar);
-                    pressedNewGame = false;
-                    
-                }
-            }
-
             base.Draw(gameTime);
         }
     }

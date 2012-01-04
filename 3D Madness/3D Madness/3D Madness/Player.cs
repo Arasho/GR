@@ -9,6 +9,9 @@ namespace _3D_Madness
     {
 
         #region Properties & arguments
+
+
+
         private string playerName;
         public string PlayerName
         {
@@ -38,7 +41,22 @@ namespace _3D_Madness
             get { return playerColor; }
             set { playerColor = value; }
         }
-        
+
+
+        private int numberOfLittlePowns;
+        public int NumberOfLittlePowns
+        {
+            get { return numberOfLittlePowns; }
+            set { numberOfLittlePowns = value; }
+        }
+
+        private int bigPown;
+        public int BigPown
+        {
+            get { return bigPown; }
+            set { bigPown = value; }
+        }
+
 
 
         // arek cos mowil ze pisze ustawianie pionkow na planszy, to pewnie tutaj bedzie trzeba stworzyc jakas zmienna jego klasy odpowiadajaca za ilosc pionkow kazdego gracza
@@ -52,6 +70,8 @@ namespace _3D_Madness
             playerName = _playerName;
             playerPoints = 0;
             playerColor = _color;
+            numberOfLittlePowns = 7;
+            bigPown = 1;
         }
 
         #endregion
