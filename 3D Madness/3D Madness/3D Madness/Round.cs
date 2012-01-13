@@ -60,6 +60,7 @@ namespace _3D_Madness
             putPown = false;
             counfOfTurn++;
             numberOfActivePlayer = (counfOfTurn % numberOfPlayers) + 1;
+
         }
 
         public static void PuttingPowl()

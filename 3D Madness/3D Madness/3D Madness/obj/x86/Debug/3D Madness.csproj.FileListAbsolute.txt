@@ -349,3 +349,13 @@ D:\Politechnika\VII semestr\Grafika ruchoma\Projekt\ProjektGrafika + grafiki i X
 D:\Politechnika\VII semestr\Grafika ruchoma\Projekt\ProjektGrafika + grafiki i XML\ProjektGrafika\eCarcassone\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\_3D_Madness.FormPlayers.resources
 D:\Politechnika\VII semestr\Grafika ruchoma\Projekt\ProjektGrafika + grafiki i XML\ProjektGrafika\eCarcassone\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\Politechnika\VII semestr\Grafika ruchoma\Projekt\ProjektGrafika + grafiki i XML\ProjektGrafika\eCarcassone\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Elements.xml
+C:\Projekt\3D Madness\3D Madness\3D Madness\obj\x86\Debug\_3D_Madness.FormPlayers.resources
+C:\Projekt\3D Madness\3D Madness\3D Madness\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Projekt\3D Madness\3D Madness\3D Madness\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\tlo.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\nowagra.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\koniec.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\wyniki.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\belkagracza.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\font.xnb

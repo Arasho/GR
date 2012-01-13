@@ -25,7 +25,7 @@ namespace _3D_Madness
 
         public Rectangle[] stoneArea { get; set; }
 
-        public int[] numberOfStone { get; set; }
+        public int [] numberOfStone { get; set; }
 
         public Bar(Game game)
             : base(game)
@@ -37,18 +37,24 @@ namespace _3D_Madness
             for (int i = 0; i < temporaryPlayerQuantity; i++)
                 playerName[i] = game.Content.Load<Texture2D>("belkagracza");
 
-
             stoneArea = new Rectangle[temporaryPlayerQuantity];
             numberOfStone = new int[temporaryPlayerQuantity];
+            
         }
 
         public override void Initialize()
         {
+            for (int i = 0; i < temporaryPlayerQuantity; i++)
+            {
+                numberOfStone[i] = 5;
+            }
             base.Initialize();
         }
 
         public override void Update(GameTime gameTime)
         {
+            ms = new MouseState();      
+
             for (int i = 0; i < stoneArea.Length; i++)
             {
                 stoneArea[i] = new Rectangle(10, 100 * (i + 1) + 150, 20, 20);
@@ -83,11 +89,18 @@ namespace _3D_Madness
                 // userbar
                 spritebatch.Draw(playerName[i], new Rectangle(10, 100 * (i + 1) + 100, wholeBar.Width - 20, playerName[i].Height), Color.White);
                 // nick
-                spritebatch.DrawString(font, Game1.listOfPlayers[i].PlayerName, new Vector2(15, 100 * (i + 1) + 105), Color.Black);
-                // pionki
-                spritebatch.DrawString(font, Game1.listOfPlayers[i].NumberOfLittlePowns.ToString(), new Vector2(15, 100 * (i + 1) + 135), Color.Black);
-            }
+<<<<<<< HEAD
+                spritebatch.DrawString(font, "Gracz " + (i + 1), new Vector2(15, 100 * (i + 1) + 105), Color.Black);
+                //pionek
+                spritebatch.Draw(mainGameClass.txt2, stoneArea[i], Color.White);
+                // liczba pionkow
+                spritebatch.DrawString(font, " x " + numberOfStone[i], new Vector2(30, 100 * (i + 1) + 145), Color.Black);
 
+
+=======
+                spritebatch.DrawString(font, Game1.listOfPlayers[i].PlayerName, new Vector2(15, 100 * (i + 1) + 105), Color.Black);
+>>>>>>> origin/master
+            }
 
             spritebatch.End();
             base.Draw(gameTime);

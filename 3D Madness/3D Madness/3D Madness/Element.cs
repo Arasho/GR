@@ -24,6 +24,16 @@ namespace _3D_Madness
             Field = 6,
         };
 
+        #region Pomoc do pionka 
+
+        public int stoneLeftEdge = 0;
+        public int stoneRightEdge = 0;
+        public int stoneBottomEdge = 0;
+        public int stoneUpEdge = 0;
+        public int player { get; set; }
+
+        #endregion 
+
         public int leftEdge { get; set; }
         public int rightEdge { get; set; }
         public int bottomEdge { get; set; }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace _3D_Madness
 {
@@ -21,6 +23,11 @@ namespace _3D_Madness
         public List<Element> element = new List<Element>();
 
         public Element[][] _board;
+        public Element[][] _stones;
+
+        public List<Element> element1 = new List<Element>();
+
+        float test = 0f;
 
         public VertexPositionTexture[][][] x { get; set; }
 
@@ -50,6 +57,10 @@ namespace _3D_Madness
 
         private int tempRotation;
 
+
+        int X = 0;
+        int Y = 0;
+
         Random rand;
 
         public Board(Game g, Texture2D _txt1, Texture2D _txt2)
@@ -70,12 +81,14 @@ namespace _3D_Madness
             txt2 = _txt2;
 
             _board = new Element[20][];
+            _stones = new Element[20][];
 
             x = new VertexPositionTexture[sizeX][][];
             for (int i = 0; i < sizeX; i++)
             {
                 x[i] = new VertexPositionTexture[sizeY][];
                 _board[i] = new Element[20];
+                _stones[i] = new Element[20];
 
                 for (int j = 0; j < sizeY; j++)
                 {
@@ -83,6 +96,8 @@ namespace _3D_Madness
                 }
             }
             GenerateBoard();
+            SetUpVertices();
+
             this._board[10][10].Texture = elements[0].Texture;
             _board[10][10].leftEdge = elements[textureIndex].leftEdge;
             _board[10][10].rightEdge = elements[textureIndex].rightEdge;
@@ -109,6 +124,16 @@ namespace _3D_Madness
                     _board[i][j] = new Element(x[i][j], txt1);
                 }
             }
+        }
+
+        public void SetUpVertices()
+        {
+            VertexPositionTexture[] vertices = new VertexPositionTexture[4];
+            vertices[0] = new VertexPositionTexture(new Vector3(0 + (float)X + 0.3f, 0.3f + Y + 0.5f - 0.25f, 0), new Vector2(0, 0));
+            vertices[1] = new VertexPositionTexture(new Vector3(0.3f + X + 0.3f, 0.3f + Y + 0.5f - 0.25f, 0), new Vector2(0.5f, 0));
+            vertices[2] = new VertexPositionTexture(new Vector3(0 + X + 0.3f, 0 + Y + 0.5f - 0.25f, 0), new Vector2(0, 0.5f));
+            vertices[3] = new VertexPositionTexture(new Vector3(0.3f + X + 0.3f, 0 + Y + 0.5f - 0.25f, 0), new Vector2(0.5f, 0.5f));
+            element1.Add(new Element(vertices, txt2));
         }
 
         private bool CheckBounds(int x, int y, int textInd)
@@ -140,68 +165,213 @@ namespace _3D_Madness
             direction.Normalize();
 
             Ray xRay = new Ray(nearPoint, direction);
-            if (!mainGameClass.infoBar.wholeBar.Contains(Mouse.GetState().X, Mouse.GetState().Y))
+
+            if (mainGameClass.CheckStone)
             {
-                for (int i = 0; i < sizeX; i++)
+                mainGameClass.CheckStone = false;
+                if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f , 0), new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f)
                 {
-                    for (int j = 0; j < sizeY; j++)
+                    SetUpVertices();
+                    mainGameClass.CanStone = true;
+                    mainGameClass.CheckStone = false;
+
+                    mainGameClass.model3D.X = this.X + (xRay.Direction.X * 10);
+                    mainGameClass.model3D.Y = this.Y + (xRay.Direction.Y * 10);
+
+
+                    Game1.listOfPlayers[Round.NumberOfActivePlayer].NumberOfLittlePowns--;
+                    mainGameClass.Window.Title = "Lewa";
+                    _board[X][Y].stoneLeftEdge = 1;
+                    _board[X][Y].player = Round.NumberOfActivePlayer;
+
+                    Round.NextTurn();
+                }
+                else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0), new Vector3((float)X + 1, (float)Y + 0.75f, 0))) > 0f)
+                {
+                    mainGameClass.Window.Title = "Prawa";
+                    Game1.listOfPlayers[Round.NumberOfActivePlayer].NumberOfLittlePowns--;
+                    _board[X][Y].stoneRightEdge = 1;
+                    _board[X][Y].player = Round.NumberOfActivePlayer;
+                    Round.NextTurn();
+                 
+                }
+
+                else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0), new Vector3((float)X + 0.75f, (float)Y + 1, 0))) > 0f)
+                {
+                    mainGameClass.Window.Title = "Gora";
+
+                    Game1.listOfPlayers[Round.NumberOfActivePlayer].NumberOfLittlePowns--;
+                    _board[X][Y].stoneUpEdge = 1;
+                    _board[X][Y].player = Round.NumberOfActivePlayer;
+                    Round.NextTurn();
+              
+                }
+
+                else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y, 0), new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0))) > 0f)
+                {
+                    mainGameClass.Window.Title = "Dol";
+                    Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                    _board[X][Y].stoneBottomEdge = 1;
+                    _board[X][Y].player = Round.NumberOfActivePlayer;
+                    Round.NextTurn();                 
+                }
+
+                else
+                {
+                    MessageBox.Show("Nie klikaj w srodek ! Spróbuj położyc pionka bliżej którejś z krawędzi");
+                    mainGameClass.CheckStone = true;
+                }
+            }
+            else
+            {
+                if (!mainGameClass.infoBar.wholeBar.Contains(Mouse.GetState().X, Mouse.GetState().Y))
+                {
+                    for (int i = 0; i < sizeX; i++)
                     {
-                        if (this._board[i][j].Texture == txt1)
+                        for (int j = 0; j < sizeY; j++)
                         {
-                            if (xRay.Intersects(new BoundingBox(new Vector3((float)i, (float)j, 0), new Vector3((float)i + 1, (float)j + 1, 0))) > 0f)
+                            if (this._board[i][j].Texture == txt1)
                             {
-                                //Console.WriteLine("x: " + i + "     y " + j);
-                                //Console.WriteLine("WIERZCHOLKI");
-                                //for (int w = 0; w < 4; w++)
-                                //{
-                                //    Console.WriteLine(string.Format("X{0} : {1}, Y{0} : {2}",w, janek[i][j].verts[w].Position.X, janek[i][j].verts[w].Position.Y));
-                                //}
-                                if (elements.Count >= 1)
+                                if (xRay.Intersects(new BoundingBox(new Vector3((float)i, (float)j, 0), new Vector3((float)i + 1, (float)j + 1, 0))) > 0f)
                                 {
-                                    if (CheckBounds(i, j, textureIndex))
+                                    //Console.WriteLine("x: " + i + "     y " + j);
+                                    //Console.WriteLine("WIERZCHOLKI");
+                                    //for (int w = 0; w < 4; w++)
+                                    //{
+                                    //    Console.WriteLine(string.Format("X{0} : {1}, Y{0} : {2}",w, janek[i][j].verts[w].Position.X, janek[i][j].verts[w].Position.Y));
+                                    //}
+                                    if (elements.Count >= 1)
                                     {
-                                        this._board[i][j].Texture = elements[textureIndex].Texture;
-                                        _board[i][j].leftEdge = elements[textureIndex].leftEdge;
-                                        _board[i][j].rightEdge = elements[textureIndex].rightEdge;
-                                        _board[i][j].upEdge = elements[textureIndex].upEdge;
-                                        _board[i][j].bottomEdge = elements[textureIndex].bottomEdge;
-                                        _board[i][j].additional = elements[textureIndex].additional;
-
-                                        // ROTACJA TEKSTURY KLOCKA RYSOWANEGO NA PLANSZY
-                                        if (numberOfRotation % 4 == 1)
+                                        if (CheckBounds(i, j, textureIndex))
                                         {
-                                            _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 0));
-                                            _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(1, 1));
-                                            _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 0));
-                                            _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 1));
-                                        }
+                                            
+                                            mainGameClass.CanStone = false;
+                                            this.X = i;
+                                            this.Y = j;
+                                            // SetUpVertices();
 
-                                        if (numberOfRotation % 4 == 2)
-                                        {
-                                            _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 1));
-                                            _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 1));
-                                            _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 0));
-                                            _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 0));
-                                        }
-                                        if (numberOfRotation % 4 == 3)
-                                        {
-                                            _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(0, 1));
-                                            _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 0));
-                                            _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 1));
-                                            _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 0));
-                                        }
+                                            if (this.X >= 10)
+                                            {
+                                                //float test1 = (1 / ((i - 9) * 0.09f));
+                                                //float c = ((xRay.Direction.X - ((i - 9) * 0.09f)) * test1) + i;
 
-                                        elements.RemoveAt(textureIndex);
-                                        textureIndex = rand.Next(0, elements.Count);
-                                        NextBlock = elements[textureIndex].Texture;
-                                        numberOfRotation = 0;
+                                                float test1 = (1 / ((i - 9) * (2f / Math.Abs(mainGameClass.camera.view.Translation.X))));
+                                                float d = (xRay.Direction.X * test1 - ((i - 10) * (2f / Math.Abs(mainGameClass.camera.view.Translation.Z)))) + i;
+                                                //  float d = (xRay.Direction.X * test1 - (2f / Math.Abs(mainGameClass.camera.view.Translation.Z))) + i;
+                                                // float c = d * test1 + i;
+
+                                                //float d = xRay.Direction.X + mainGameClass.worldTranslation.Translation.X;// +(i - 10) * 0.08f;
+
+
+                                                //float roznica = (i - 10) * 0.085f;
+
+                                                //if (d - roznica > (roznica + 0.085f) - d)
+                                                //{
+                                                //    _board[i][j].rEdge = 1;
+                                                //} 
+                                                //else if (d - roznica < (roznica + 0.085f) - d)
+                                                //{
+                                                //    _board[i][j].lEdge = 1;
+                                                //}
+
+                                                ////if(_board[i][j].rEdge = 
+                                          //      mainGameClass.Window.Title = xRay.Direction.X.ToString();
+
+                                            }
+
+                                            else if (this.X < 10)
+                                            {
+                                                //float test1 = (1 / ((i-9) * 0.09f));
+                                                //float c = ((xRay.Direction.X - ((i - 9) * 0.09f)) * test1) + i;
+
+                                                //float test1 = (1 / (((i-9)) * (2f / Math.Abs(mainGameClass.camera.view.Translation.Z))));
+                                                //float d = (xRay.Direction.X * test1 - (((i-10)) * (2f / Math.Abs(mainGameClass.camera.view.Translation.Z)))) - i;
+                                                ////  float d = (xRay.Direction.X * test1 - (2f / Math.Abs(mainGameClass.camera.view.Translation.Z))) + i;
+                                                //// float c = d * test1 + i;
+                                                //  mainGameClass.Window.Title = xRay.Direction.X.ToString();
+
+
+                                                //float d = Math.Abs(xRay.Direction.X);// +(i - 10) * 0.08f;
+                                                
+
+
+                                                //float roznica = (10 - i) * 0.085f;
+
+                                                //float cc = d - roznica;
+                                                //if (d + roznica > (roznica + 0.085f) - d)
+                                                //{
+                                                //    _board[i][j].rEdge = 1;
+                                                //}
+                                                //else if (d + roznica < (roznica + 0.085f) - d)
+                                                //{
+                                                //    _board[i][j].lEdge = 1;
+                                                //}
+                                             //   mainGameClass.Window.Title = xRay.Position.X.ToString();
+
+                                            }
+                                            else
+                                            {
+                                                mainGameClass.Window.Title = "puste";
+                                            }
+
+                                            // potem zm * xRay.Direction X - powinno przesunac do odpowiedniej wspolrzednej
+
+                                            this._board[i][j].Texture = elements[textureIndex].Texture;
+                                            _board[i][j].leftEdge = elements[textureIndex].leftEdge;
+                                            _board[i][j].rightEdge = elements[textureIndex].rightEdge;
+                                            _board[i][j].upEdge = elements[textureIndex].upEdge;
+                                            _board[i][j].bottomEdge = elements[textureIndex].bottomEdge;
+                                            _board[i][j].additional = elements[textureIndex].additional;
+
+                                            // ROTACJA TEKSTURY KLOCKA RYSOWANEGO NA PLANSZY
+                                            if (numberOfRotation % 4 == 1)
+                                            {
+                                                _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 0));
+                                                _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(1, 1));
+                                                _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 0));
+                                                _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 1));
+                                            }
+
+                                            if (numberOfRotation % 4 == 2)
+                                            {
+                                                _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 1));
+                                                _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 1));
+                                                _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 0));
+                                                _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 0));
+                                            }
+                                            if (numberOfRotation % 4 == 3)
+                                            {
+                                                _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(0, 1));
+                                                _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 0));
+                                                _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 1));
+                                                _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 0));
+                                            }
+
+                                            elements.RemoveAt(textureIndex);
+                                            textureIndex = rand.Next(0, elements.Count);
+                                            NextBlock = elements[textureIndex].Texture;
+                                            numberOfRotation = 0;
+                                            //mainGameClass.CheckStone = true;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        NextBlock = txt1;
                                     }
                                 }
-                                else
-                                {
-                                    NextBlock = txt1;
-                                }
                             }
+                        }
+                    }
+                }
+                else
+                {
+                   for (int i = 0; i < mainGameClass.infoBar.stoneArea.Length; i++)
+                    {
+                        if (mainGameClass.infoBar.stoneArea[i].Contains(Mouse.GetState().X, Mouse.GetState().Y))
+                        {
+                            mainGameClass.CheckStone = false;
+                            mainGameClass.infoBar.numberOfStone[i] -= 1;
+                            break;
                         }
                     }
                 }
@@ -209,6 +379,7 @@ namespace _3D_Madness
             // patrz dokladnie ale to akurat mankament nie o to chodzi ale odrazu poka¿e
             //Window.Title = xRay.Intersects(new BoundingSphere(new Vector3(0,0,0), 1f)).ToString();
         }
+    
 
         public override void Update(GameTime gameTime)
         {
@@ -241,8 +412,19 @@ namespace _3D_Madness
                        (PrimitiveType.TriangleStrip, _board[i][j].verts, 0, 2);
                     }
                 }
+
+            foreach (var item in element1)
+                {
+                    GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
+                    Effect.Texture = txt2;
+                    pass.Apply();
+                    GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
+                   (PrimitiveType.TriangleStrip, item.verts, 0, 2);
+                }
             }
 
+            mainGameClass.model3D.Draw(gameTime);
+            mainGameClass.infoBar.Draw(gameTime);
             //spriteBatch.Begin();
             //if (elements.Count >= 1)
             //    spriteBatch.Draw(elements[textureIndex].Texture, new Rectangle(200, 200, 50, 50),null, Color.White,numberOfRotation * -90 * (MathHelper.Pi/180), Vector2.Zero,SpriteEffects.None,0);

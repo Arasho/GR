@@ -13,12 +13,13 @@ namespace _3D_Madness
         const float speed = 0.1f;
         double time;
         private Rectangle camByExit;
-        Matrix worldTranslation = Matrix.Identity;
-        Matrix worldRotationX = Matrix.Identity;
+        public Matrix worldTranslation = Matrix.Identity;
+        public Matrix worldRotationX = Matrix.Identity;
 
         Texture2D txt1;
         Texture2D txt2;
 
+        public float whereIam = 0.0f;
         public GraphicsDeviceManager graphics { get; set; }
         public static List<Player> listOfPlayers = new List<Player>();
 
@@ -42,6 +43,11 @@ namespace _3D_Madness
         private Menu menu;
 
         public Bar infoBar { get; set; }
+
+        public Model3D model3D { get; set; }
+        public bool CheckStone = false;
+
+        public bool CanStone = false;
 
         public Game1()
         {
@@ -80,6 +86,7 @@ namespace _3D_Madness
             // Zaladowanie pustej planszy
             board = new Board(this, txt1, txt2);
             infoBar = new Bar(this);
+            model3D = new Model3D(this);
 
             Components.Add(menu);
 
@@ -115,6 +122,7 @@ namespace _3D_Madness
                     Components.Remove(menu);
                     Components.Add(board);
                     Components.Add(infoBar);
+                    Components.Add(model3D);
                     pressedNewGame = false;
 
                     Round.NumberOfPlayers = listOfPlayers.Count;
@@ -132,6 +140,7 @@ namespace _3D_Madness
             // po co ten pierwszy worldRotation?
             //camera.view = worldRotation * worldTranslation * worldRotation;
             camera.view = worldTranslation * worldRotationX;
+            
             board.Effect.View = camera.view;
             board.Effect.Projection = camera.projection;
             board.Effect.TextureEnabled = true;
@@ -151,9 +160,15 @@ namespace _3D_Madness
             KeyboardState keyboardState = Keyboard.GetState();
 
             if (keyboardState.IsKeyDown(Keys.D))
+            {
                 worldTranslation *= Matrix.CreateTranslation(-1 * speed, 0, 0);
+                whereIam += -1 * speed;
+            }
             if (keyboardState.IsKeyDown(Keys.A))
+            {
                 worldTranslation *= Matrix.CreateTranslation(speed, 0, 0);
+                whereIam += speed;
+            }
             if (keyboardState.IsKeyDown(Keys.S))
                 worldTranslation *= Matrix.CreateTranslation(0, speed, 0);
             if (keyboardState.IsKeyDown(Keys.W))
@@ -216,6 +231,9 @@ namespace _3D_Madness
                     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
                     // tutaj trzeba dolozyc obsluge umieszczania pionka na planszy//
                     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+                    CheckStone = true;
+                    board.MapMouseAndRandNewBlock(GraphicsDevice, board.Effect, camera);
+
                 }
             }
 
@@ -238,12 +256,18 @@ namespace _3D_Madness
                 else if (current.X + 5 >= GraphicsDevice.Viewport.Width) //prawa
                 {
                     if (time > 300)
+                    {
                         worldTranslation *= Matrix.CreateTranslation(-1 * speed, 0, 0);
+                        whereIam += -1 * speed;
+                    }
                 }
                 else if (current.X <= 0) //lewa
                 {
                     if (time > 300)
+                    {
                         worldTranslation *= Matrix.CreateTranslation(speed, 0, 0);
+                        whereIam +=  speed;
+                    }
                 }
                 else if (current.Y + 5 >= GraphicsDevice.Viewport.Height) //dolna
                 {
