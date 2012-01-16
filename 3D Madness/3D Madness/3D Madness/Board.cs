@@ -411,7 +411,7 @@ namespace _3D_Madness
             }
 
             mainGameClass.model3D.Draw(gameTime);
-            mainGameClass.infoBar.Draw(gameTime);
+          //  mainGameClass.infoBar.Draw(gameTime);
             //spriteBatch.Begin();
             //if (elements.Count >= 1)
             //    spriteBatch.Draw(elements[textureIndex].Texture, new Rectangle(200, 200, 50, 50),null, Color.White,numberOfRotation * -90 * (MathHelper.Pi/180), Vector2.Zero,SpriteEffects.None,0);

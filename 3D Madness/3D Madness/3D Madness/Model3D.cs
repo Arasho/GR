@@ -24,8 +24,8 @@ namespace _3D_Madness
 
         public float moveMouseY { get; set; }
 
-        float x = .0f;
-        float y = .0f;
+        float x = 20.0f;
+        float y = 20.0f;
         float z = .0f;
         public Vector3 modelPosition;
         float modelRotation = 10.0f;
@@ -60,8 +60,8 @@ namespace _3D_Madness
             effect.View = mainGameClass.camera.view;
             effect.Projection = mainGameClass.camera.projection;
 
-            modelPosition.X = X;
-            modelPosition.Y = Y;
+            //modelPosition.X = X;
+            //modelPosition.Y = Y;
 
             //     Matrix.CreateScale(0.2f);
             base.Update(gameTime);
@@ -69,6 +69,9 @@ namespace _3D_Madness
 
         public override void Draw(GameTime gameTime)
         {
+
+            //modelPosition.X = X;
+            //modelPosition.Y = Y;
             // Copy any parent transforms.
             Matrix[] transforms = new Matrix[myModel.Bones.Count];
             myModel.CopyAbsoluteBoneTransformsTo(transforms);
@@ -80,9 +83,9 @@ namespace _3D_Madness
                 // as our camera and projection.
                 foreach (BasicEffect effect in mesh.Effects)
                 {
-                    GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
+                    //GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
                     effect.EnableDefaultLighting();
-                    effect.World = transforms[mesh.ParentBone.Index] * mainGameClass.worldTranslation * Matrix.CreateScale(0.001f) * Matrix.CreateTranslation(modelPosition);
+                    effect.World = transforms[mesh.ParentBone.Index] * mainGameClass.worldTranslation * Matrix.CreateTranslation(modelPosition) *  Matrix.CreateRotationX(1.0f) ;
                     effect.View = mainGameClass.board.Effect.View;
                     effect.Projection = mainGameClass.camera.projection;
 

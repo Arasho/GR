@@ -391,3 +391,27 @@ D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.exe
 D:\Repo\3D Madness\3D Madness\3D Madness\bin\x86\Debug\3D Madness.pdb
 D:\Repo\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.exe
 D:\Repo\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.pdb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldMixedSize0012_3_S[1].xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0028_5_S[1].xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0032_5_S[1].xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0046_12_S[1].xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0048_2_S[1].xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Concrete_Aggregate_Stained.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Aluminum_Anodized.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Corrogated_Shiny.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RoofingInside0017_2_S[1].xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RooftilesSlate0051_3_S[1].xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\flag.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Pionek.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\tree.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Wieza.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Corrogated_Shiny_0.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Aluminum_Anodized_0.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Concrete_Aggregate_Stained_0.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldMixedSize0012_3_S[1]_0.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0032_5_S[1]_0.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RoofingInside0017_2_S[1]_0.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RooftilesSlate0051_3_S[1]_0.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0028_5_S[1]_0.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0046_12_S[1]_0.xnb
+C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0048_2_S[1]_0.xnb
