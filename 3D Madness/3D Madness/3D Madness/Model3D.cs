@@ -1,107 +1,97 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-
 
 namespace _3D_Madness
 {
-   /// <summary>
-   /// This is a game component that implements IUpdateable.
-   /// </summary>
-   public class Model3D : Microsoft.Xna.Framework.DrawableGameComponent
-   {
-       Model myModel;
-       const float speed = 0.1f;
-       // The aspect ratio determines how to scale 3d to 2d projection.
-       float aspectRatio;
-       private SpriteBatch spritebatch;
+    /// <summary>
+    /// This is a game component that implements IUpdateable.
+    /// </summary>
+    public class Model3D : Microsoft.Xna.Framework.DrawableGameComponent
+    {
+        Model myModel;
+        const float speed = 0.1f;
+        // The aspect ratio determines how to scale 3d to 2d projection.
+        float aspectRatio;
+        private SpriteBatch spritebatch;
 
-       private Game1 mainGameClass { get; set; }
+        private Game1 mainGameClass { get; set; }
 
-       public float X { get; set; }
-       public float Y { get; set; }
+        public float X { get; set; }
 
+        public float Y { get; set; }
 
-       public float moveMouseX { get; set; }
-       public float moveMouseY { get; set; }
+        public float moveMouseX { get; set; }
 
-       float x = .0f;
-       float y = .0f;
-       float z = .0f;
-       public Vector3 modelPosition;
-       float modelRotation = 10.0f;
+        public float moveMouseY { get; set; }
 
-       public BasicEffect effect { get; set; }
+        float x = .0f;
+        float y = .0f;
+        float z = .0f;
+        public Vector3 modelPosition;
+        float modelRotation = 10.0f;
 
-       Matrix worldMatrix = Matrix.Identity;
+        public BasicEffect effect { get; set; }
 
-       // Set the position of the camera in world space, for our view matrix.
-       Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 5000.0f);
+        Matrix worldMatrix = Matrix.Identity;
 
+        // Set the position of the camera in world space, for our view matrix.
+        Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 5000.0f);
 
-       public Model3D(Game game) : base(game)
-       {
-           mainGameClass = (Game1)game;
-           spritebatch = new SpriteBatch(game.GraphicsDevice);
-           myModel = mainGameClass.Content.Load<Model>("Models\\p1_wedge");
-           aspectRatio = mainGameClass.GraphicsDevice.Viewport.AspectRatio;
-           modelPosition = new Vector3(x,y,z);
+        public Model3D(Game game)
+            : base(game)
+        {
+            mainGameClass = (Game1)game;
+            spritebatch = new SpriteBatch(game.GraphicsDevice);
+            myModel = mainGameClass.Content.Load<Model>(@"Models\Wieza");
+            aspectRatio = mainGameClass.GraphicsDevice.Viewport.AspectRatio;
+            modelPosition = new Vector3(x, y, z);
 
-           effect = new BasicEffect(mainGameClass.GraphicsDevice);
+            effect = new BasicEffect(mainGameClass.GraphicsDevice);
+        }
 
-       }
+        public override void Initialize()
+        {
+            base.Initialize();
+        }
 
-       public override void Initialize()
-       {
-           base.Initialize();
-       }
+        public override void Update(GameTime gameTime)
+        {
+            mainGameClass.camera.view = worldMatrix * mainGameClass.worldRotationX;
+            effect.View = mainGameClass.camera.view;
+            effect.Projection = mainGameClass.camera.projection;
 
-       public override void Update(GameTime gameTime)
-       {
-           mainGameClass.camera.view = worldMatrix * mainGameClass.worldRotationX;
-           effect.View = mainGameClass.camera.view;
-           effect.Projection = mainGameClass.camera.projection;
+            modelPosition.X = X;
+            modelPosition.Y = Y;
 
-           modelPosition.X = X;
-           modelPosition.Y = Y;
-           
+            //     Matrix.CreateScale(0.2f);
+            base.Update(gameTime);
+        }
 
-      //     Matrix.CreateScale(0.2f);
-           base.Update(gameTime);
-       }
+        public override void Draw(GameTime gameTime)
+        {
+            // Copy any parent transforms.
+            Matrix[] transforms = new Matrix[myModel.Bones.Count];
+            myModel.CopyAbsoluteBoneTransformsTo(transforms);
 
-       public override void Draw(GameTime gameTime)
-       {
-           // Copy any parent transforms.
-           Matrix[] transforms = new Matrix[myModel.Bones.Count];
-           myModel.CopyAbsoluteBoneTransformsTo(transforms);
+            // Draw the model. A model can have multiple meshes, so loop.
+            foreach (ModelMesh mesh in myModel.Meshes)
+            {
+                // This is where the mesh orientation is set, as well
+                // as our camera and projection.
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
+                    effect.EnableDefaultLighting();
+                    effect.World = transforms[mesh.ParentBone.Index] * mainGameClass.worldTranslation * Matrix.CreateScale(0.001f) * Matrix.CreateTranslation(modelPosition);
+                    effect.View = mainGameClass.board.Effect.View;
+                    effect.Projection = mainGameClass.camera.projection;
 
-           // Draw the model. A model can have multiple meshes, so loop.
-           foreach (ModelMesh mesh in myModel.Meshes)
-           {
-               // This is where the mesh orientation is set, as well 
-               // as our camera and projection.
-               foreach (BasicEffect effect in mesh.Effects)
-               {
-                   effect.EnableDefaultLighting();
-                   effect.World = transforms[mesh.ParentBone.Index] * mainGameClass.worldTranslation * Matrix.CreateScale(0.001f) * Matrix.CreateTranslation(modelPosition);
-                   effect.View = mainGameClass.board.Effect.View;
-                   effect.Projection = mainGameClass.camera.projection;
-
-                 //  effect.Projection = mainGameClass.board.Effect.Projection;
-               }
-               // Draw the mesh, using the effects set above.
-               mesh.Draw();
-           }
-           base.Draw(gameTime);
-       }
-   }
+                    //  effect.Projection = mainGameClass.board.Effect.Projection;
+                }
+                // Draw the mesh, using the effects set above.
+                mesh.Draw();
+            }
+            base.Draw(gameTime);
+        }
+    }
 }
-

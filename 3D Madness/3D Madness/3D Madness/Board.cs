@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Diagnostics;
-using System.Windows.Forms;
 
 namespace _3D_Madness
 {
@@ -56,7 +55,6 @@ namespace _3D_Madness
         public int numberOfRotation { get; set; }
 
         private int tempRotation;
-
 
         int X = 0;
         int Y = 0;
@@ -169,7 +167,7 @@ namespace _3D_Madness
             if (mainGameClass.CheckStone)
             {
                 mainGameClass.CheckStone = false;
-                if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f , 0), new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f)
+                if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f, 0), new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f)
                 {
                     SetUpVertices();
                     mainGameClass.CanStone = true;
@@ -178,8 +176,7 @@ namespace _3D_Madness
                     mainGameClass.model3D.X = this.X + (xRay.Direction.X * 10);
                     mainGameClass.model3D.Y = this.Y + (xRay.Direction.Y * 10);
 
-
-                    Game1.listOfPlayers[Round.NumberOfActivePlayer].NumberOfLittlePowns--;
+                    Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     mainGameClass.Window.Title = "Lewa";
                     _board[X][Y].stoneLeftEdge = 1;
                     _board[X][Y].player = Round.NumberOfActivePlayer;
@@ -189,22 +186,20 @@ namespace _3D_Madness
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0), new Vector3((float)X + 1, (float)Y + 0.75f, 0))) > 0f)
                 {
                     mainGameClass.Window.Title = "Prawa";
-                    Game1.listOfPlayers[Round.NumberOfActivePlayer].NumberOfLittlePowns--;
+                    Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneRightEdge = 1;
                     _board[X][Y].player = Round.NumberOfActivePlayer;
                     Round.NextTurn();
-                 
                 }
 
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0), new Vector3((float)X + 0.75f, (float)Y + 1, 0))) > 0f)
                 {
                     mainGameClass.Window.Title = "Gora";
 
-                    Game1.listOfPlayers[Round.NumberOfActivePlayer].NumberOfLittlePowns--;
+                    Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneUpEdge = 1;
                     _board[X][Y].player = Round.NumberOfActivePlayer;
                     Round.NextTurn();
-              
                 }
 
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y, 0), new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0))) > 0f)
@@ -213,7 +208,7 @@ namespace _3D_Madness
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneBottomEdge = 1;
                     _board[X][Y].player = Round.NumberOfActivePlayer;
-                    Round.NextTurn();                 
+                    Round.NextTurn();
                 }
 
                 else
@@ -244,7 +239,6 @@ namespace _3D_Madness
                                     {
                                         if (CheckBounds(i, j, textureIndex))
                                         {
-                                            
                                             mainGameClass.CanStone = false;
                                             this.X = i;
                                             this.Y = j;
@@ -262,21 +256,19 @@ namespace _3D_Madness
 
                                                 //float d = xRay.Direction.X + mainGameClass.worldTranslation.Translation.X;// +(i - 10) * 0.08f;
 
-
                                                 //float roznica = (i - 10) * 0.085f;
 
                                                 //if (d - roznica > (roznica + 0.085f) - d)
                                                 //{
                                                 //    _board[i][j].rEdge = 1;
-                                                //} 
+                                                //}
                                                 //else if (d - roznica < (roznica + 0.085f) - d)
                                                 //{
                                                 //    _board[i][j].lEdge = 1;
                                                 //}
 
-                                                ////if(_board[i][j].rEdge = 
-                                          //      mainGameClass.Window.Title = xRay.Direction.X.ToString();
-
+                                                ////if(_board[i][j].rEdge =
+                                                //      mainGameClass.Window.Title = xRay.Direction.X.ToString();
                                             }
 
                                             else if (this.X < 10)
@@ -290,10 +282,7 @@ namespace _3D_Madness
                                                 //// float c = d * test1 + i;
                                                 //  mainGameClass.Window.Title = xRay.Direction.X.ToString();
 
-
                                                 //float d = Math.Abs(xRay.Direction.X);// +(i - 10) * 0.08f;
-                                                
-
 
                                                 //float roznica = (10 - i) * 0.085f;
 
@@ -306,8 +295,7 @@ namespace _3D_Madness
                                                 //{
                                                 //    _board[i][j].lEdge = 1;
                                                 //}
-                                             //   mainGameClass.Window.Title = xRay.Position.X.ToString();
-
+                                                //   mainGameClass.Window.Title = xRay.Position.X.ToString();
                                             }
                                             else
                                             {
@@ -365,7 +353,7 @@ namespace _3D_Madness
                 }
                 else
                 {
-                   for (int i = 0; i < mainGameClass.infoBar.stoneArea.Length; i++)
+                    for (int i = 0; i < mainGameClass.infoBar.stoneArea.Length; i++)
                     {
                         if (mainGameClass.infoBar.stoneArea[i].Contains(Mouse.GetState().X, Mouse.GetState().Y))
                         {
@@ -379,7 +367,6 @@ namespace _3D_Madness
             // patrz dokladnie ale to akurat mankament nie o to chodzi ale odrazu poka¿e
             //Window.Title = xRay.Intersects(new BoundingSphere(new Vector3(0,0,0), 1f)).ToString();
         }
-    
 
         public override void Update(GameTime gameTime)
         {
@@ -413,7 +400,7 @@ namespace _3D_Madness
                     }
                 }
 
-            foreach (var item in element1)
+                foreach (var item in element1)
                 {
                     GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
                     Effect.Texture = txt2;

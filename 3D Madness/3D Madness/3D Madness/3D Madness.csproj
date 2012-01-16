@@ -91,7 +91,6 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="Camera.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="FormPlayers.cs">
       <SubType>Form</SubType>
