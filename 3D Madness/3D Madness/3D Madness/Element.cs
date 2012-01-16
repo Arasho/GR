@@ -32,6 +32,8 @@ namespace _3D_Madness
         public int stoneUpEdge = 0;
         public int player { get; set; }
 
+        public float whereX { get; set; }
+        public float whereY { get; set; }
         #endregion 
 
         public int leftEdge { get; set; }

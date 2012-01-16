@@ -42,7 +42,7 @@ namespace _3D_Madness
         {
             mainGameClass = (Game1)game;
             spritebatch = new SpriteBatch(game.GraphicsDevice);
-            myModel = mainGameClass.Content.Load<Model>(@"Models\Wieza");
+            myModel = mainGameClass.Content.Load<Model>(@"Models\Pionek");
             aspectRatio = mainGameClass.GraphicsDevice.Viewport.AspectRatio;
             modelPosition = new Vector3(x, y, z);
 
@@ -60,8 +60,8 @@ namespace _3D_Madness
             effect.View = mainGameClass.camera.view;
             effect.Projection = mainGameClass.camera.projection;
 
-            //modelPosition.X = X;
-            //modelPosition.Y = Y;
+            modelPosition.X = X;
+            modelPosition.Y = Y;
 
             //     Matrix.CreateScale(0.2f);
             base.Update(gameTime);
@@ -76,22 +76,36 @@ namespace _3D_Madness
             myModel.CopyAbsoluteBoneTransformsTo(transforms);
 
             // Draw the model. A model can have multiple meshes, so loop.
-            foreach (ModelMesh mesh in myModel.Meshes)
+            for (int i = 0; i < 20; i++)
             {
-                // This is where the mesh orientation is set, as well
-                // as our camera and projection.
-                foreach (BasicEffect effect in mesh.Effects)
+                for (int j = 0; j < 20; j++)
                 {
-                    //GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
-                    effect.EnableDefaultLighting();
-                    effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateRotationX(1.5f) * mainGameClass.worldTranslation * Matrix.CreateTranslation(modelPosition);
-                    effect.View = mainGameClass.board.Effect.View;
-                    effect.Projection = mainGameClass.camera.projection;
+                    if (mainGameClass.board._board[i][j].stoneLeftEdge == 1)
+                    {
+                        modelPosition.X = 10 + i;
+                        modelPosition.Y = 10 + j;
+                        foreach (ModelMesh mesh in myModel.Meshes)
+                        {
+                            // This is where the mesh orientation is set, as well
+                            // as our camera and projection.
+                            foreach (BasicEffect effect in mesh.Effects)
+                            {
+                                //GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
+                                effect.EnableDefaultLighting();
+                                effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateRotationX(1.5f) * Matrix.CreateScale(4f) * mainGameClass.worldTranslation * Matrix.CreateTranslation(modelPosition);
+                                effect.View = mainGameClass.board.Effect.View;
+                                effect.Projection = mainGameClass.camera.projection;
 
-                    //  effect.Projection = mainGameClass.board.Effect.Projection;
+                                //  effect.Projection = mainGameClass.board.Effect.Projection;
+                            }
+                            mesh.Draw();
+                        }
+                    }
                 }
+             
+        
                 // Draw the mesh, using the effects set above.
-                mesh.Draw();
+           
             }
             base.Draw(gameTime);
         }

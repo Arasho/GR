@@ -176,8 +176,11 @@ namespace _3D_Madness
                     mainGameClass.CanStone = false;
                     mainGameClass.CheckStone = false;
 
-                    mainGameClass.model3D.X = this.X + (xRay.Direction.X * 10);
-                    mainGameClass.model3D.Y = this.Y + (xRay.Direction.Y * 10);
+                    mainGameClass.model3D.X = 10 + this.X + (xRay.Direction.X * 10);
+                    mainGameClass.model3D.Y = 10 + this.Y + (xRay.Direction.Y * 10);
+
+                    //_board[X][Y].whereX = X;
+                    //_board[X][Y].whereY = Y;
 
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     mainGameClass.Window.Title = "Lewa";
@@ -417,14 +420,6 @@ namespace _3D_Madness
                     }
                 }
 
-                foreach (var item in element1)
-                {
-                    GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
-                    Effect.Texture = txt2;
-                    pass.Apply();
-                    GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
-                   (PrimitiveType.TriangleStrip, item.verts, 0, 2);
-                }
             }
 
             mainGameClass.model3D.Draw(gameTime);
