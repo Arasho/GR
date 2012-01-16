@@ -69,7 +69,6 @@ namespace _3D_Madness
 
         public override void Draw(GameTime gameTime)
         {
-
             //modelPosition.X = X;
             //modelPosition.Y = Y;
             // Copy any parent transforms.
@@ -85,7 +84,7 @@ namespace _3D_Madness
                 {
                     //GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
                     effect.EnableDefaultLighting();
-                    effect.World = transforms[mesh.ParentBone.Index] * mainGameClass.worldTranslation * Matrix.CreateTranslation(modelPosition) *  Matrix.CreateRotationX(1.0f) ;
+                    effect.World = transforms[mesh.ParentBone.Index] * Matrix.CreateRotationX(1.5f) * mainGameClass.worldTranslation * Matrix.CreateTranslation(modelPosition);
                     effect.View = mainGameClass.board.Effect.View;
                     effect.Projection = mainGameClass.camera.projection;
 
