@@ -83,15 +83,15 @@ namespace _3D_Madness
                 // userbar
                 if (Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName == Game1.listOfPlayers[i].PlayerName)
                 {
-                    spritebatch.Draw(playerName[i], new Rectangle(10, 100 * (i + 1) + 100, wholeBar.Width - 20, playerName[i].Height), Color.Black);
+                    spritebatch.Draw(playerName[i], new Rectangle(10, 100 * (i + 1) + 100, wholeBar.Width - 20, playerName[i].Height), Color.Brown);
+                    spritebatch.DrawString(font, Game1.listOfPlayers[i].PlayerName, new Vector2(15, 100 * (i + 1) + 105), Color.White);
                 }
                 else
                 {
                     spritebatch.Draw(playerName[i], new Rectangle(10, 100 * (i + 1) + 100, wholeBar.Width - 20, playerName[i].Height), Color.White);
+                    spritebatch.DrawString(font, Game1.listOfPlayers[i].PlayerName, new Vector2(15, 100 * (i + 1) + 105), Color.Black);
                 }
-             
-                // nick
-                spritebatch.DrawString(font, Game1.listOfPlayers[i].PlayerName, new Vector2(15, 100 * (i + 1) + 105), Color.Black);
+                   
                 // pionki
                 spritebatch.DrawString(font, Game1.listOfPlayers[i].NumberOfLittlePowns.ToString(), new Vector2(15, 100 * (i + 1) + 135), Color.Black);
             }
