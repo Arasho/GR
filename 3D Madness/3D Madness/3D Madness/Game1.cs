@@ -19,6 +19,8 @@ namespace _3D_Madness
         Texture2D txt1;
         Texture2D txt2;
 
+        public bool putElement = false;
+
         public float whereIam = 0.0f;
         public GraphicsDeviceManager graphics { get; set; }
         public static List<Player> listOfPlayers = new List<Player>();
@@ -299,6 +301,8 @@ namespace _3D_Madness
             // OBSLUGA TUR //
             if (keyboardState.IsKeyDown(Keys.Enter) == true)
             {
+
+                putElement = false;
                 if (Round.EndRound() == true)
                 {
                     Round.NextTurn();

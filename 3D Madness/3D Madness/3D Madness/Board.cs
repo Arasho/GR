@@ -56,6 +56,8 @@ namespace _3D_Madness
 
         private int tempRotation;
 
+       
+
         int X = 0;
         int Y = 0;
 
@@ -96,6 +98,7 @@ namespace _3D_Madness
             GenerateBoard();
             SetUpVertices();
 
+    
             this._board[10][10].Texture = elements[0].Texture;
             _board[10][10].leftEdge = elements[textureIndex].leftEdge;
             _board[10][10].rightEdge = elements[textureIndex].rightEdge;
@@ -250,6 +253,7 @@ namespace _3D_Madness
                                     {
                                         if (CheckBounds(i, j, textureIndex))
                                         {
+                                            if (mainGameClass.putElement == true) Round.NextTurn();
                                             mainGameClass.CanStone = false;
                                             this.X = i;
                                             this.Y = j;
@@ -350,6 +354,8 @@ namespace _3D_Madness
                                             textureIndex = rand.Next(0, elements.Count);
                                             NextBlock = elements[textureIndex].Texture;
                                             numberOfRotation = 0;
+
+                                            mainGameClass.putElement = true;
                                             //mainGameClass.CheckStone = true;
                                         }
                                     }
@@ -422,7 +428,7 @@ namespace _3D_Madness
             }
 
             mainGameClass.model3D.Draw(gameTime);
-          //  mainGameClass.infoBar.Draw(gameTime);
+            mainGameClass.infoBar.Draw(gameTime);
             //spriteBatch.Begin();
             //if (elements.Count >= 1)
             //    spriteBatch.Draw(elements[textureIndex].Texture, new Rectangle(200, 200, 50, 50),null, Color.White,numberOfRotation * -90 * (MathHelper.Pi/180), Vector2.Zero,SpriteEffects.None,0);
