@@ -166,11 +166,11 @@ namespace _3D_Madness
 
             if (mainGameClass.CheckStone)
             {
-                mainGameClass.CheckStone = false;
+              //  mainGameClass.CheckStone = false;
                 if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f, 0), new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f)
                 {
                     SetUpVertices();
-                    mainGameClass.CanStone = true;
+                    mainGameClass.CanStone = false;
                     mainGameClass.CheckStone = false;
 
                     mainGameClass.model3D.X = this.X + (xRay.Direction.X * 10);
@@ -189,6 +189,8 @@ namespace _3D_Madness
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneRightEdge = 1;
                     _board[X][Y].player = Round.NumberOfActivePlayer;
+                    mainGameClass.CanStone = false;
+                    mainGameClass.CheckStone = false;
                     Round.NextTurn();
                 }
 
@@ -199,6 +201,8 @@ namespace _3D_Madness
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneUpEdge = 1;
                     _board[X][Y].player = Round.NumberOfActivePlayer;
+                    mainGameClass.CanStone = false;
+                    mainGameClass.CheckStone = false;
                     Round.NextTurn();
                 }
 
@@ -208,13 +212,20 @@ namespace _3D_Madness
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneBottomEdge = 1;
                     _board[X][Y].player = Round.NumberOfActivePlayer;
+                    mainGameClass.CanStone = false;
+                    mainGameClass.CheckStone = false;
                     Round.NextTurn();
                 }
 
-                else
+                else if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y, 0), new Vector3((float)X + 1, (float)Y + 1, 0))) > 0f)
                 {
                     MessageBox.Show("Nie klikaj w srodek ! Spróbuj położyc pionka bliżej którejś z krawędzi");
-                    mainGameClass.CheckStone = true;
+       
+                }
+                else
+                {
+                    MessageBox.Show("Chcesz postawic pionka i kliknales po za krawedzia ? ;p");
+         
                 }
             }
             else

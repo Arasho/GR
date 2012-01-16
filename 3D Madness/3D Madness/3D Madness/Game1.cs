@@ -231,7 +231,7 @@ namespace _3D_Madness
                     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
                     // tutaj trzeba dolozyc obsluge umieszczania pionka na planszy//
                     //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
-                    CheckStone = true;
+                   if(CanStone)    CheckStone = true;
                     board.MapMouseAndRandNewBlock(GraphicsDevice, board.Effect, camera);
 
                 }
@@ -239,10 +239,9 @@ namespace _3D_Madness
 
             if (current.RightButton == ButtonState.Pressed && previous.RightButton == ButtonState.Released)
             {
-                if (Round.PutElement == false)
-                {
+                if(CanStone == false)
                     board.RotationBlock();
-                }
+                
             }
 
             #region Przesuwanie kamery wzgledem myszy
@@ -303,6 +302,10 @@ namespace _3D_Madness
                 if (Round.EndRound() == true)
                 {
                     Round.NextTurn();
+                }
+                else
+                {
+                    this.CanStone = true;
                 }
             }
             /////////////////
