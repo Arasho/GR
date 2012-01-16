@@ -82,8 +82,10 @@ namespace _3D_Madness
                 {
                     if (mainGameClass.board._board[i][j].stoneLeftEdge == 1)
                     {
-                        modelPosition.X = 10 + i;
-                        modelPosition.Y = 10 + j;
+                        modelPosition.X = mainGameClass.board._board[i][j].whereX;
+                        modelPosition.Y = mainGameClass.board._board[i][j].whereY;
+       
+
                         foreach (ModelMesh mesh in myModel.Meshes)
                         {
                             // This is where the mesh orientation is set, as well
@@ -102,6 +104,7 @@ namespace _3D_Madness
                         }
                     }
                 }
+                //}
              
         
                 // Draw the mesh, using the effects set above.

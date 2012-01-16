@@ -179,8 +179,8 @@ namespace _3D_Madness
                     mainGameClass.model3D.X = 10 + this.X + (xRay.Direction.X * 10);
                     mainGameClass.model3D.Y = 10 + this.Y + (xRay.Direction.Y * 10);
 
-                    //_board[X][Y].whereX = X;
-                    //_board[X][Y].whereY = Y;
+                    _board[X][Y].whereX = 10 + this.X + (xRay.Direction.X * 10);
+                    _board[X][Y].whereY = 10 + this.Y + (xRay.Direction.Y * 10);
 
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     mainGameClass.Window.Title = "Lewa";
@@ -194,6 +194,8 @@ namespace _3D_Madness
                     mainGameClass.Window.Title = "Prawa";
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneRightEdge = 1;
+                    mainGameClass.model3D.X = 10 + this.X + (xRay.Direction.X * 10);
+                    mainGameClass.model3D.Y = 10 + this.Y + (xRay.Direction.Y * 10);
                     _board[X][Y].player = Round.NumberOfActivePlayer;
                     mainGameClass.CanStone = false;
                     mainGameClass.CheckStone = false;
@@ -206,6 +208,8 @@ namespace _3D_Madness
 
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneUpEdge = 1;
+                    mainGameClass.model3D.X = 10 + this.X + (xRay.Direction.X * 10);
+                    mainGameClass.model3D.Y = 10 + this.Y + (xRay.Direction.Y * 10);
                     _board[X][Y].player = Round.NumberOfActivePlayer;
                     mainGameClass.CanStone = false;
                     mainGameClass.CheckStone = false;
@@ -217,6 +221,8 @@ namespace _3D_Madness
                     mainGameClass.Window.Title = "Dol";
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneBottomEdge = 1;
+                    mainGameClass.model3D.X = 10 + this.X + (xRay.Direction.X * 10);
+                    mainGameClass.model3D.Y = 10 + this.Y + (xRay.Direction.Y * 10);
                     _board[X][Y].player = Round.NumberOfActivePlayer;
                     mainGameClass.CanStone = false;
                     mainGameClass.CheckStone = false;
