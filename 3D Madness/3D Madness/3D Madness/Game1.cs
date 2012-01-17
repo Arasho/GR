@@ -93,7 +93,7 @@ namespace _3D_Madness
             // Zaladowanie pustej planszy
             board = new Board(this, txt1, txt2);
             infoBar = new Bar(this);
-            model3D = new Model3D(this);
+            //model3D = new Model3D(this);
 
             Components.Add(menu);
         }
@@ -129,7 +129,7 @@ namespace _3D_Madness
                         Components.Remove(menu);
                         Components.Add(board);
                         Components.Add(infoBar);
-                        Components.Add(model3D);
+                        //Components.Add(model3D);
                         pressedNewGame = false;
 
                         Round.NumberOfPlayers = listOfPlayers.Count;

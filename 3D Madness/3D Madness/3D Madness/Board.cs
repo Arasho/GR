@@ -39,12 +39,15 @@ namespace _3D_Madness
         public VertexPositionTexture[] x4 { get; set; }
 
         public BasicEffect Effect { get; set; }
+        public BasicEffect Effect1 { get; set; }
 
         public Game1 mainGameClass { get; set; }
 
         public Texture2D NextBlock { get; set; }
 
         private int size = 1;
+
+        public List<Model3D> model = new List<Model3D>();
 
         public Texture2D txt1 { get; set; }
 
@@ -68,6 +71,9 @@ namespace _3D_Madness
         {
             mainGameClass = (Game1)g;
             Effect = new BasicEffect(g.GraphicsDevice);
+            Effect1 = new BasicEffect(g.GraphicsDevice);
+
+            Effect1 = Effect;
             rand_element = new XML_Parser();
             elements = rand_element.XDocParse();
             spriteBatch = new SpriteBatch(g.GraphicsDevice);
@@ -176,11 +182,7 @@ namespace _3D_Madness
                     mainGameClass.CanStone = false;
                     mainGameClass.CheckStone = false;
 
-                    mainGameClass.model3D.X = 10 + this.X + (xRay.Direction.X * 10);
-                    mainGameClass.model3D.Y = 10 + this.Y + (xRay.Direction.Y * 10);
-
-                    _board[X][Y].whereX = 10 + this.X + (xRay.Direction.X * 10);
-                    _board[X][Y].whereY = 10 + this.Y + (xRay.Direction.Y * 10);
+                    model.Add(new Model3D(mainGameClass, X, Y));
 
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     mainGameClass.Window.Title = "Lewa";
@@ -194,8 +196,6 @@ namespace _3D_Madness
                     mainGameClass.Window.Title = "Prawa";
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneRightEdge = 1;
-                    mainGameClass.model3D.X = 10 + this.X + (xRay.Direction.X * 10);
-                    mainGameClass.model3D.Y = 10 + this.Y + (xRay.Direction.Y * 10);
                     _board[X][Y].player = Round.NumberOfActivePlayer;
                     mainGameClass.CanStone = false;
                     mainGameClass.CheckStone = false;
@@ -208,8 +208,6 @@ namespace _3D_Madness
 
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneUpEdge = 1;
-                    mainGameClass.model3D.X = 10 + this.X + (xRay.Direction.X * 10);
-                    mainGameClass.model3D.Y = 10 + this.Y + (xRay.Direction.Y * 10);
                     _board[X][Y].player = Round.NumberOfActivePlayer;
                     mainGameClass.CanStone = false;
                     mainGameClass.CheckStone = false;
@@ -221,8 +219,6 @@ namespace _3D_Madness
                     mainGameClass.Window.Title = "Dol";
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneBottomEdge = 1;
-                    mainGameClass.model3D.X = 10 + this.X + (xRay.Direction.X * 10);
-                    mainGameClass.model3D.Y = 10 + this.Y + (xRay.Direction.Y * 10);
                     _board[X][Y].player = Round.NumberOfActivePlayer;
                     mainGameClass.CanStone = false;
                     mainGameClass.CheckStone = false;
@@ -411,6 +407,7 @@ namespace _3D_Madness
 
         public override void Draw(GameTime gameTime)
         {
+
             foreach (EffectPass pass in Effect.CurrentTechnique.Passes)
             {
                 for (int i = 0; i < 20; i++)
@@ -426,9 +423,12 @@ namespace _3D_Madness
                     }
                 }
 
+                foreach (var item in model)
+                {
+                    item.myModel.Draw(Matrix.CreateScale(4f) * Matrix.CreateRotationX(1.5f) * Matrix.CreateTranslation(item.modelPosition.X,item.modelPosition.Y,0) * Effect.World, Effect1.View, Effect1.Projection);
+                }
             }
 
-            mainGameClass.model3D.Draw(gameTime);
             mainGameClass.infoBar.Draw(gameTime);
             //spriteBatch.Begin();
             //if (elements.Count >= 1)
