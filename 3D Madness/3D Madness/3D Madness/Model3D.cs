@@ -27,7 +27,7 @@ namespace _3D_Madness
         // Set the position of the camera in world space, for our view matrix.
         Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 5000.0f);
 
-        public Model3D(Game game, int x, int y)
+        public Model3D(Game game, float x, float y)
         {
             mainGameClass = (Game1)game;
             myModel = mainGameClass.Content.Load<Model>(@"Models\Pionek");

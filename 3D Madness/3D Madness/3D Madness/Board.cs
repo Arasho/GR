@@ -182,7 +182,7 @@ namespace _3D_Madness
                     mainGameClass.CanStone = false;
                     mainGameClass.CheckStone = false;
 
-                    model.Add(new Model3D(mainGameClass, X, Y));
+                    model.Add(new Model3D(mainGameClass, X - 0.25f, Y + 0.5f));
 
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     mainGameClass.Window.Title = "Lewa";
@@ -195,7 +195,7 @@ namespace _3D_Madness
                 {
                     mainGameClass.Window.Title = "Prawa";
 
-                    model.Add(new Model3D(mainGameClass, X, Y));
+                    model.Add(new Model3D(mainGameClass, X + 0.75f, Y + 0.5f));
 
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneRightEdge = 1;
@@ -209,7 +209,7 @@ namespace _3D_Madness
                 {
                     mainGameClass.Window.Title = "Gora";
 
-                    model.Add(new Model3D(mainGameClass, X, Y));
+                    model.Add(new Model3D(mainGameClass, X + 0.25f, Y + 1));
 
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneUpEdge = 1;
@@ -223,7 +223,7 @@ namespace _3D_Madness
                 {
                     mainGameClass.Window.Title = "Dol";
 
-                    model.Add(new Model3D(mainGameClass, X, Y));
+                    model.Add(new Model3D(mainGameClass, X+ 0.25f, Y));
 
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneBottomEdge = 1;
@@ -433,7 +433,7 @@ namespace _3D_Madness
 
                 foreach (var item in model)
                 {
-                    item.myModel.Draw(Matrix.CreateScale(4f) * Matrix.CreateRotationX(1.5f) * Matrix.CreateTranslation(item.modelPosition.X,item.modelPosition.Y,0) * Effect.World, Effect1.View, Effect1.Projection);
+                    item.myModel.Draw(Matrix.CreateScale(2f) * Matrix.CreateRotationX(1.5f) * Matrix.CreateTranslation(item.modelPosition.X,item.modelPosition.Y,0) * Effect.World, Effect1.View, Effect1.Projection);
                 }
             }
 
