@@ -4,9 +4,6 @@ using Microsoft.Xna.Framework.Input;
 
 namespace _3D_Madness
 {
-    /// <summary>
-    /// This is a game component that implements IUpdateable.
-    /// </summary>
     public class Bar : Microsoft.Xna.Framework.DrawableGameComponent
     {
         private const int temporaryPlayerQuantity = 5;
