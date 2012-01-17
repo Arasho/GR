@@ -194,6 +194,9 @@ namespace _3D_Madness
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0), new Vector3((float)X + 1, (float)Y + 0.75f, 0))) > 0f)
                 {
                     mainGameClass.Window.Title = "Prawa";
+
+                    model.Add(new Model3D(mainGameClass, X, Y));
+
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneRightEdge = 1;
                     _board[X][Y].player = Round.NumberOfActivePlayer;
@@ -206,6 +209,8 @@ namespace _3D_Madness
                 {
                     mainGameClass.Window.Title = "Gora";
 
+                    model.Add(new Model3D(mainGameClass, X, Y));
+
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneUpEdge = 1;
                     _board[X][Y].player = Round.NumberOfActivePlayer;
@@ -217,6 +222,9 @@ namespace _3D_Madness
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y, 0), new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0))) > 0f)
                 {
                     mainGameClass.Window.Title = "Dol";
+
+                    model.Add(new Model3D(mainGameClass, X, Y));
+
                     Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                     _board[X][Y].stoneBottomEdge = 1;
                     _board[X][Y].player = Round.NumberOfActivePlayer;
