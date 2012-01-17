@@ -10,7 +10,7 @@ namespace _3D_Madness
     {
         public Model myModel;
 
-        private Game1 mainGameClass { get; set; }
+        public Game1 mainGameClass { get; set; }
 
         public float X { get; set; }
 

@@ -178,59 +178,87 @@ namespace _3D_Madness
               //  mainGameClass.CheckStone = false;
                 if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f, 0), new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f)
                 {
-                    SetUpVertices();
-                    mainGameClass.CanStone = false;
-                    mainGameClass.CheckStone = false;
+                    if (CanIPutStone(this.X, this.Y, 0))
+                    {
+                        SetUpVertices();
+                        mainGameClass.CanStone = false;
+                        mainGameClass.CheckStone = false;
 
-                    model.Add(new Model3D(mainGameClass, X - 0.25f, Y + 0.5f));
+                        model.Add(new Model3D(mainGameClass, X - 0.25f, Y + 0.5f));
 
-                    Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
-                    mainGameClass.Window.Title = "Lewa";
-                    _board[X][Y].stoneLeftEdge = 1;
-                    _board[X][Y].player = Round.NumberOfActivePlayer;
+                        Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                        mainGameClass.Window.Title = "Lewa";
+                        _board[X][Y].stoneLeftEdge = 1;
+                        _board[X][Y].player = Round.NumberOfActivePlayer;
 
-                    Round.NextTurn();
+                        Round.NextTurn();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[_board[X][Y].player].PlayerName);
+                    }
                 }
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0), new Vector3((float)X + 1, (float)Y + 0.75f, 0))) > 0f)
                 {
-                    mainGameClass.Window.Title = "Prawa";
+                    if (CanIPutStone(this.X, this.Y, 2))
+                    {
+                        mainGameClass.Window.Title = "Prawa";
 
-                    model.Add(new Model3D(mainGameClass, X + 0.75f, Y + 0.5f));
+                        model.Add(new Model3D(mainGameClass, X + 0.75f, Y + 0.5f));
 
-                    Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
-                    _board[X][Y].stoneRightEdge = 1;
-                    _board[X][Y].player = Round.NumberOfActivePlayer;
-                    mainGameClass.CanStone = false;
-                    mainGameClass.CheckStone = false;
-                    Round.NextTurn();
+                        Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                        _board[X][Y].stoneRightEdge = 1;
+                        _board[X][Y].player = Round.NumberOfActivePlayer;
+                        mainGameClass.CanStone = false;
+                        mainGameClass.CheckStone = false;
+                        Round.NextTurn();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[_board[X][Y].player].PlayerName);
+                    }
                 }
 
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0), new Vector3((float)X + 0.75f, (float)Y + 1, 0))) > 0f)
                 {
-                    mainGameClass.Window.Title = "Gora";
+                    if (CanIPutStone(this.X, this.Y, 1))
+                    {
+                        mainGameClass.Window.Title = "Gora";
 
-                    model.Add(new Model3D(mainGameClass, X + 0.25f, Y + 1));
+                        model.Add(new Model3D(mainGameClass, X + 0.25f, Y + 1));
 
-                    Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
-                    _board[X][Y].stoneUpEdge = 1;
-                    _board[X][Y].player = Round.NumberOfActivePlayer;
-                    mainGameClass.CanStone = false;
-                    mainGameClass.CheckStone = false;
-                    Round.NextTurn();
+                        Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                        _board[X][Y].stoneUpEdge = 1;
+                        _board[X][Y].player = Round.NumberOfActivePlayer;
+                        mainGameClass.CanStone = false;
+                        mainGameClass.CheckStone = false;
+                        Round.NextTurn();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[_board[X][Y].player].PlayerName);
+                    }
                 }
 
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y, 0), new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0))) > 0f)
                 {
-                    mainGameClass.Window.Title = "Dol";
+                    if (CanIPutStone(this.X, this.Y, 3))
+                    {
+                        mainGameClass.Window.Title = "Dol";
 
-                    model.Add(new Model3D(mainGameClass, X+ 0.25f, Y));
+                        model.Add(new Model3D(mainGameClass, X + 0.25f, Y));
 
-                    Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
-                    _board[X][Y].stoneBottomEdge = 1;
-                    _board[X][Y].player = Round.NumberOfActivePlayer;
-                    mainGameClass.CanStone = false;
-                    mainGameClass.CheckStone = false;
-                    Round.NextTurn();
+                        Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                        _board[X][Y].stoneBottomEdge = 1;
+                        _board[X][Y].player = Round.NumberOfActivePlayer;
+                        mainGameClass.CanStone = false;
+                        mainGameClass.CheckStone = false;
+                        Round.NextTurn();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[_board[X][Y].player].PlayerName);
+                    }
                 }
 
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y, 0), new Vector3((float)X + 1, (float)Y + 1, 0))) > 0f)
@@ -411,6 +439,26 @@ namespace _3D_Madness
             elements[textureIndex].rightEdge = elements[textureIndex].bottomEdge;
             elements[textureIndex].bottomEdge = elements[textureIndex].leftEdge;
             elements[textureIndex].leftEdge = tempRotation;
+        }
+
+
+        // Funkcja sprawdza czy można postawić pionek na danej krawędzi w przypadku, 
+        // gdy na elemenecie obok już stoi taki pionek na tej krawędzi
+        public bool CanIPutStone(int x, int y, int edge)
+        {
+            switch (edge)
+            {
+                /* Lewa krawędź */
+                case 0: if (x > 0 && x < 19) if (_board[x - 1][y].stoneRightEdge  == 0) return true; else return false; break;
+                /* Górna krawędź */
+                case 1: if (y > 0 && y < 19) if (_board[x][y + 1].stoneBottomEdge == 0) return true; else return false; break;
+                /* Prawa krawędź */
+                case 2: if (x > 0 && x < 19) if (_board[x + 1][y].stoneLeftEdge   == 0) return true; else return false; break;
+                /* Dolna krawędź */
+                case 3: if (x > 0 && x < 19) if (_board[x][y - 1].stoneUpEdge     == 0) return true; else return false; break;
+                default: return false;
+            }
+            return true;
         }
 
         public override void Draw(GameTime gameTime)
