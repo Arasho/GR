@@ -5,15 +5,16 @@ namespace _3D_Madness
     public class Element
     {
         public VertexPositionTexture[] verts { get; set; }
+
         public Texture2D Texture { get; set; }
 
         private string fileName;
+
         public string FileName
         {
             get { return fileName; }
             set { fileName = value; }
         }
-
 
         public enum Edges
         {
@@ -24,33 +25,39 @@ namespace _3D_Madness
             Field = 6,
         };
 
-        #region Pomoc do pionka 
+        #region Pomoc do pionka
 
         public int stoneLeftEdge = 0;
         public int stoneRightEdge = 0;
         public int stoneBottomEdge = 0;
         public int stoneUpEdge = 0;
+        public int stoneCenter = 0;
+
         public int player { get; set; }
 
         public float whereX { get; set; }
+
         public float whereY { get; set; }
-        #endregion 
+
+        #endregion Pomoc do pionka
 
         public int leftEdge { get; set; }
+
         public int rightEdge { get; set; }
+
         public int bottomEdge { get; set; }
+
         public int upEdge { get; set; }
+
         public int additional { get; set; }
 
-        
         public Element(VertexPositionTexture[] x, Texture2D texture)
         {
             verts = x;
             Texture = texture;
         }
 
-
-        public Element(string _fileName, string _leftEdge, string _rightEdge, string _bottomEdge,  string _upEdge, string  _additional)
+        public Element(string _fileName, string _leftEdge, string _rightEdge, string _bottomEdge, string _upEdge, string _additional)
         {
             fileName = _fileName;
 

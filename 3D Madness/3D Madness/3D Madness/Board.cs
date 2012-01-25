@@ -235,10 +235,37 @@ namespace _3D_Madness
                     }
                 }
 
-                else if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y, 0), new Vector3((float)X + 1, (float)Y + 1, 0))) > 0f)
+                //else if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y, 0), new Vector3((float)X + 1, (float)Y + 1, 0))) > 0f)
+                //{
+                //    MessageBox.Show("Nie klikaj w srodek ! Spróbuj położyc pionka bliżej którejś z krawędzi");
+                //}
+
+                //NOWA ZMIANA - SRODEK
+                else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y + 0.25f, 0), new Vector3((float)X + 0.75f, (float)Y + 0.75f, 0))) > 0f)
                 {
-                    MessageBox.Show("Nie klikaj w srodek ! Spróbuj położyc pionka bliżej którejś z krawędzi");
+                    if (CanIPutStone(this.X, this.Y, 4))
+                    {
+                        if (_board[X][Y].additional == 1)
+                        {
+                            model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+
+                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+
+                            _board[X][Y].stoneCenter = 1;
+                            _board[X][Y].player = Round.NumberOfActivePlayer;
+
+                            mainGameClass.CanStone = false;
+                            mainGameClass.CheckStone = false;
+                            Round.NextTurn();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Na srodku już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
+                    }
                 }
+
+                //NOWA ZMIANA
                 else
                 {
                     MessageBox.Show("Chcesz postawic pionka i kliknales po za krawedzia ? ;p");
@@ -358,6 +385,8 @@ namespace _3D_Madness
                 case 2: if (x > 0 && x < 19) if (_board[x + 1][y].stoneLeftEdge == 0) return true; else return false; break;
                 /* Dolna krawędź */
                 case 3: if (x > 0 && x < 19) if (_board[x][y - 1].stoneUpEdge == 0) return true; else return false; break;
+                /* Srodek */
+                case 4: if (x > 0 && x < 19) if (_board[x][y].stoneCenter == 0) return true; else return false; break;
                 default: return false;
             }
             return true;
