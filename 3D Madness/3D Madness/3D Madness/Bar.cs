@@ -34,7 +34,6 @@ namespace _3D_Madness
             for (int i = 0; i < temporaryPlayerQuantity; i++)
                 playerName[i] = game.Content.Load<Texture2D>("belkagracza");
 
-
             stoneArea = new Rectangle[temporaryPlayerQuantity];
             numberOfStone = new int[temporaryPlayerQuantity];
         }
@@ -88,11 +87,11 @@ namespace _3D_Madness
                     spritebatch.Draw(playerName[i], new Rectangle(10, 100 * (i + 1) + 100, wholeBar.Width - 20, playerName[i].Height), Color.White);
                     spritebatch.DrawString(font, Game1.listOfPlayers[i].PlayerName, new Vector2(15, 100 * (i + 1) + 105), Color.Black);
                 }
-                   
-                // pionki
-                spritebatch.DrawString(font, Game1.listOfPlayers[i].NumberOfLittlePowns.ToString(), new Vector2(15, 100 * (i + 1) + 135), Color.Black);
-            }
 
+                // pionki
+                spritebatch.DrawString(font, Game1.listOfPlayers[i].NumberOfLittlePowns.ToString() + " x ", new Vector2(15, 100 * (i + 1) + 145), Color.Black);
+                //spritebatch.Draw(
+            }
 
             spritebatch.End();
             base.Draw(gameTime);

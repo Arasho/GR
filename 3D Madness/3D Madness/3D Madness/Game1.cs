@@ -316,6 +316,11 @@ namespace _3D_Madness
                     }
                     else
                     {
+                        //if (Round.NumberOfActivePlayer < Round.NumberOfPlayers)
+                        //    listOfPlayers[board._board[board.X][board.Y].player].PlayerColor += 1;
+                        //else
+                        //    listOfPlayers[board._board[board.X][board.Y].player].PlayerColor = 1;
+
                         this.CanStone = true;
                     }
                 }

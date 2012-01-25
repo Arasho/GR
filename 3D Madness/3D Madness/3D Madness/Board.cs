@@ -26,8 +26,11 @@ namespace _3D_Madness
         public VertexPositionTexture[][][] x { get; set; }
 
         public VertexPositionTexture[] x1 { get; set; }
+
         public VertexPositionTexture[] x2 { get; set; }
+
         public VertexPositionTexture[] x3 { get; set; }
+
         public VertexPositionTexture[] x4 { get; set; }
 
         public BasicEffect Effect { get; set; }
@@ -50,10 +53,8 @@ namespace _3D_Madness
 
         private int tempRotation;
 
-       
-
-        int X = 0;
-        int Y = 0;
+        public int X = 0;
+        public int Y = 0;
 
         Random rand;
 
@@ -150,12 +151,13 @@ namespace _3D_Madness
 
             if (mainGameClass.CheckStone)
             {
-              //  mainGameClass.CheckStone = false;
+                //  mainGameClass.CheckStone = false;
                 if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f, 0), new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f)
                 {
                     if (CanIPutStone(this.X, this.Y, 0))
                     {
-                        model.Add(new Model3D(mainGameClass, X - 0.25f, Y + 0.5f));
+                        model.Add(new Model3D(mainGameClass, X - 0.25f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+
                         Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
 
                         _board[X][Y].stoneLeftEdge = 1;
@@ -167,14 +169,15 @@ namespace _3D_Madness
                     }
                     else
                     {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[_board[X][Y].player].PlayerName);
+                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
                     }
                 }
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0), new Vector3((float)X + 1, (float)Y + 0.75f, 0))) > 0f)
                 {
                     if (CanIPutStone(this.X, this.Y, 2))
                     {
-                        model.Add(new Model3D(mainGameClass, X + 0.75f, Y + 0.5f));
+                        model.Add(new Model3D(mainGameClass, X + 0.75f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+
                         Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
 
                         _board[X][Y].stoneRightEdge = 1;
@@ -186,7 +189,7 @@ namespace _3D_Madness
                     }
                     else
                     {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[_board[X][Y].player].PlayerName);
+                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
                     }
                 }
 
@@ -194,7 +197,8 @@ namespace _3D_Madness
                 {
                     if (CanIPutStone(this.X, this.Y, 1))
                     {
-                        model.Add(new Model3D(mainGameClass, X + 0.25f, Y + 1));
+                        model.Add(new Model3D(mainGameClass, X + 0.25f, Y + 1, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+
                         Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
 
                         _board[X][Y].stoneUpEdge = 1;
@@ -206,7 +210,7 @@ namespace _3D_Madness
                     }
                     else
                     {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[_board[X][Y].player].PlayerName);
+                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
                     }
                 }
 
@@ -214,7 +218,8 @@ namespace _3D_Madness
                 {
                     if (CanIPutStone(this.X, this.Y, 3))
                     {
-                        model.Add(new Model3D(mainGameClass, X + 0.25f, Y));
+                        model.Add(new Model3D(mainGameClass, X + 0.25f, Y, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+
                         Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
 
                         _board[X][Y].stoneBottomEdge = 1;
@@ -226,19 +231,17 @@ namespace _3D_Madness
                     }
                     else
                     {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[_board[X][Y].player].PlayerName);
+                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
                     }
                 }
 
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y, 0), new Vector3((float)X + 1, (float)Y + 1, 0))) > 0f)
                 {
                     MessageBox.Show("Nie klikaj w srodek ! Spróbuj położyc pionka bliżej którejś z krawędzi");
-       
                 }
                 else
                 {
                     MessageBox.Show("Chcesz postawic pionka i kliknales po za krawedzia ? ;p");
-         
                 }
             }
             else
@@ -341,20 +344,20 @@ namespace _3D_Madness
             elements[textureIndex].leftEdge = tempRotation;
         }
 
-        // Funkcja sprawdza czy można postawić pionek na danej krawędzi w przypadku, 
+        // Funkcja sprawdza czy można postawić pionek na danej krawędzi w przypadku,
         // gdy na elemenecie obok już stoi taki pionek na tej krawędzi
         public bool CanIPutStone(int x, int y, int edge)
         {
             switch (edge)
             {
                 /* Lewa krawędź */
-                case 0: if (x > 0 && x < 19) if (_board[x - 1][y].stoneRightEdge  == 0) return true; else return false; break;
+                case 0: if (x > 0 && x < 19) if (_board[x - 1][y].stoneRightEdge == 0) return true; else return false; break;
                 /* Górna krawędź */
                 case 1: if (y > 0 && y < 19) if (_board[x][y + 1].stoneBottomEdge == 0) return true; else return false; break;
                 /* Prawa krawędź */
-                case 2: if (x > 0 && x < 19) if (_board[x + 1][y].stoneLeftEdge   == 0) return true; else return false; break;
+                case 2: if (x > 0 && x < 19) if (_board[x + 1][y].stoneLeftEdge == 0) return true; else return false; break;
                 /* Dolna krawędź */
-                case 3: if (x > 0 && x < 19) if (_board[x][y - 1].stoneUpEdge     == 0) return true; else return false; break;
+                case 3: if (x > 0 && x < 19) if (_board[x][y - 1].stoneUpEdge == 0) return true; else return false; break;
                 default: return false;
             }
             return true;
@@ -379,7 +382,7 @@ namespace _3D_Madness
 
                 foreach (var item in model)
                 {
-                    item.myModel.Draw(Matrix.CreateScale(2f) * Matrix.CreateRotationX(1.5f) * Matrix.CreateTranslation(item.modelPosition.X,item.modelPosition.Y,0) * Effect.World, Effect.View, Effect.Projection);
+                    item.myModel.Draw(Matrix.CreateScale(2f) * Matrix.CreateRotationX(1.5f) * Matrix.CreateTranslation(item.modelPosition.X, item.modelPosition.Y, 0) * Effect.World, Effect.View, Effect.Projection);
                 }
             }
             base.Draw(gameTime);

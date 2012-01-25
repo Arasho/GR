@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace _3D_Madness
+﻿namespace _3D_Madness
 {
     public class Player
     {
-
         #region Properties & arguments
 
-
-
         private string playerName;
+
+        public int playerNr { get; set; }
+
         public string PlayerName
         {
             get { return playerName; }
@@ -20,6 +15,7 @@ namespace _3D_Madness
         }
 
         private int playerPoints;
+
         public int PlayerPoints
         {
             get { return playerPoints; }
@@ -36,14 +32,15 @@ namespace _3D_Madness
         }
 
         private int playerColor;
+
         public int PlayerColor
         {
             get { return playerColor; }
             set { playerColor = value; }
         }
 
-
         private int numberOfLittlePowns;
+
         public int NumberOfLittlePowns
         {
             get { return numberOfLittlePowns; }
@@ -51,20 +48,19 @@ namespace _3D_Madness
         }
 
         private int bigPown;
+
         public int BigPown
         {
             get { return bigPown; }
             set { bigPown = value; }
         }
 
-
-
         // arek cos mowil ze pisze ustawianie pionkow na planszy, to pewnie tutaj bedzie trzeba stworzyc jakas zmienna jego klasy odpowiadajaca za ilosc pionkow kazdego gracza
 
-        #endregion
+        #endregion Properties & arguments
 
         #region Constructors
-        
+
         public Player(string _playerName, int _color)
         {
             playerName = _playerName;
@@ -72,14 +68,13 @@ namespace _3D_Madness
             playerColor = _color;
             numberOfLittlePowns = 7;
             bigPown = 1;
+            playerNr = _color;
         }
 
-        #endregion
+        #endregion Constructors
 
         #region Methods
 
-
-        #endregion
-
+        #endregion Methods
     }
 }

@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace _3D_Madness
 {
-    class Round
+    internal class Round
     {
-        #region variables and properties 
+        #region variables and properties
 
         private static bool putPown;
+
         public static bool PutPown
         {
             get { return putPown; }
@@ -18,6 +15,7 @@ namespace _3D_Madness
         }
 
         private static bool putElement;
+
         public static bool PutElement
         {
             get { return putElement; }
@@ -25,6 +23,7 @@ namespace _3D_Madness
         }
 
         private static int numberOfActivePlayer;
+
         public static int NumberOfActivePlayer
         {
             get { return numberOfActivePlayer; }
@@ -32,6 +31,7 @@ namespace _3D_Madness
         }
 
         private static int numberOfPlayers;
+
         public static int NumberOfPlayers
         {
             get { return numberOfPlayers; }
@@ -39,18 +39,18 @@ namespace _3D_Madness
         }
 
         private static int counfOfTurn;
+
         public static int CountOfTurn
         {
             get { return counfOfTurn; }
             set { counfOfTurn = value; }
         }
-        
 
-       #endregion
+        #endregion variables and properties
 
         #region Constructors
 
-        #endregion
+        #endregion Constructors
 
         #region Methods
 
@@ -60,7 +60,6 @@ namespace _3D_Madness
             putPown = false;
             counfOfTurn++;
             numberOfActivePlayer = (counfOfTurn % numberOfPlayers) + 1;
-
         }
 
         public static void PuttingPowl()
@@ -97,6 +96,6 @@ namespace _3D_Madness
             }
         }
 
-        #endregion
+        #endregion Methods
     }
 }
