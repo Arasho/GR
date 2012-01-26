@@ -162,7 +162,7 @@ namespace _3D_Madness
 
                         if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].leftEdge) == false)
                         {
-                            model.Add(new Model3D(mainGameClass, X - 0.25f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                            model.Add(new Model3D(mainGameClass, X , Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
                             Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                             _board[X][Y].stoneLeftEdge = 1;
                             Round.PuttingPowl();
@@ -190,7 +190,7 @@ namespace _3D_Madness
                         //System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
                         if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].rightEdge) == false)
                         {
-                            model.Add(new Model3D(mainGameClass, X + 0.75f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                            model.Add(new Model3D(mainGameClass, X + 0.55f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
                             Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
                             _board[X][Y].stoneRightEdge = 1;
                             Round.PuttingPowl();
@@ -219,7 +219,7 @@ namespace _3D_Madness
                         System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
                         if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].upEdge) == false)
                         {
-                            model.Add(new Model3D(mainGameClass, X + 0.25f, Y + 1, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                            model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.9f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
                             Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
 
                             _board[X][Y].stoneUpEdge = 1;
@@ -249,7 +249,7 @@ namespace _3D_Madness
                         System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
                         if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].bottomEdge) == false)
                         {
-                            model.Add(new Model3D(mainGameClass, X + 0.25f, Y, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                            model.Add(new Model3D(mainGameClass, X + 0.30f, Y+0.2f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
                             Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
 
                             _board[X][Y].stoneBottomEdge = 1;
