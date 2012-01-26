@@ -6,6 +6,8 @@ namespace _3D_Madness
     {
         #region variables and properties
 
+
+        
         private static bool putPown;
 
         public static bool PutPown
@@ -72,7 +74,7 @@ namespace _3D_Madness
             putElement = true;
         }
 
-        public static bool EndRound()
+        public static bool EndRound(Game1 g)
         {
             if (putElement == false)
             {
@@ -83,15 +85,20 @@ namespace _3D_Madness
             {
                 if (MessageBox.Show("Nie wylozyłes zadnego pionka. Czy chesz wylozyc przed zakonczeniem swojej tury?", "Brak pionka", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    g.CanStone = true;
                     return false;
+
                 }
                 else
                 {
+                    
+                    g.CanStone = false;
                     return true;
                 }
             }
             else
             {
+                g.CanStone = false;
                 return true;
             }
         }

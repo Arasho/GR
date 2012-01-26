@@ -28,6 +28,7 @@ namespace _3D_Madness
 
         SpriteBatch spriteBatch;
         MouseState current, previous;
+        public KeyboardState kbprevious;
 
         public bool startNewGame { get; set; }
 
@@ -230,7 +231,8 @@ namespace _3D_Madness
                         if (Components.Contains(board))
                         {
                             board.MapMouseAndRandNewBlock(GraphicsDevice, board.Effect, camera);
-                            Round.PuttingElement();
+                            
+                            
                             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                             // tutaj warto by bylo jeszcze wyswietlic zamias nastepnego wylosowanego klocka rewers, a dopiero po rozpoczeciu tury przez nastepnego gracza wyswietlic nastepny klocek
                             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -241,14 +243,20 @@ namespace _3D_Madness
                         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
                         // tutaj trzeba dolozyc obsluge umieszczania pionka na planszy//
                         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
-                        if (CanStone) CheckStone = true;
-                        board.MapMouseAndRandNewBlock(GraphicsDevice, board.Effect, camera);
+                        if (CanStone)
+                        {
+                            CheckStone = true;
+                            board.MapMouseAndRandNewBlock(GraphicsDevice, board.Effect, camera);
+                            
+                            //this.CanStone = false;
+                            //CheckStone = false;
+                        }
                     }
                 }
 
                 if (current.RightButton == ButtonState.Pressed && previous.RightButton == ButtonState.Released)
                 {
-                    if (CanStone == false)
+                    if (Round.PutElement == false)
                         board.RotationBlock();
                 }
 
@@ -310,7 +318,7 @@ namespace _3D_Madness
                 if (keyboardState.IsKeyDown(Keys.Enter) == true)
                 {
                     putElement = false;
-                    if (Round.EndRound() == true)
+                    if (Round.EndRound(this) == true)
                     {
                         Round.NextTurn();
                     }
@@ -321,10 +329,11 @@ namespace _3D_Madness
                         //else
                         //    listOfPlayers[board._board[board.X][board.Y].player].PlayerColor = 1;
 
-                        this.CanStone = true;
+                        //this.CanStone = true;
                     }
                 }
-
+                /////////////////
+                
                 //putElement = true;
                 //this.CanStone = true;
                 //if (keyboardState.IsKeyDown(Keys.Enter) == true)

@@ -165,10 +165,10 @@ namespace _3D_Madness
 
                         _board[X][Y].stoneLeftEdge = 1;
                         _board[X][Y].player = Round.NumberOfActivePlayer;
-
+                        Round.PuttingPowl();
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        Round.NextTurn();
+                       // Round.NextTurn();
                     }
                     else
                     {
@@ -187,10 +187,10 @@ namespace _3D_Madness
 
                         _board[X][Y].stoneRightEdge = 1;
                         _board[X][Y].player = Round.NumberOfActivePlayer;
-
+                        Round.PuttingPowl();
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        Round.NextTurn();
+                        //Round.NextTurn();
                     }
                     else
                     {
@@ -210,10 +210,10 @@ namespace _3D_Madness
 
                         _board[X][Y].stoneUpEdge = 1;
                         _board[X][Y].player = Round.NumberOfActivePlayer;
-
+                        Round.PuttingPowl();
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        Round.NextTurn();
+                       // Round.NextTurn();
                     }
                     else
                     {
@@ -233,10 +233,10 @@ namespace _3D_Madness
 
                         _board[X][Y].stoneBottomEdge = 1;
                         _board[X][Y].player = Round.NumberOfActivePlayer;
-
-                        mainGameClass.CanStone = false;
+                        Round.PuttingPowl();
+                       mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        Round.NextTurn();
+                       // Round.NextTurn();
                     }
                     else
                     {
@@ -262,10 +262,10 @@ namespace _3D_Madness
 
                             _board[X][Y].stoneCenter = 1;
                             _board[X][Y].player = Round.NumberOfActivePlayer;
-
+                            Round.PuttingPowl();
                             mainGameClass.CanStone = false;
                             mainGameClass.CheckStone = false;
-                            Round.NextTurn();
+                          //  Round.NextTurn();
                         }
                     }
                     else
@@ -296,7 +296,7 @@ namespace _3D_Madness
                                     {
                                         if (CheckBounds(i, j, textureIndex))
                                         {
-                                            if (mainGameClass.putElement == true) Round.NextTurn();
+                                            //if (mainGameClass.putElement == true) //Round.NextTurn();
                                             mainGameClass.CanStone = false;
                                             this.X = i;
                                             this.Y = j;
@@ -338,6 +338,8 @@ namespace _3D_Madness
                                             numberOfRotation = 0;
 
                                             mainGameClass.putElement = true;
+                                            mainGameClass.CanStone = true;
+                                            Round.PuttingElement();
                                             //mainGameClass.CheckStone = true;
                                         }
                                     }
