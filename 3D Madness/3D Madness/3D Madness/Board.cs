@@ -158,14 +158,21 @@ namespace _3D_Madness
                     {
                         int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].leftEdge);
 
-                        System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
-                        model.Add(new Model3D(mainGameClass, X - 0.25f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                        //System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
 
-                        Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                        if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].leftEdge) == false)
+                        {
+                            model.Add(new Model3D(mainGameClass, X - 0.25f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                            _board[X][Y].stoneLeftEdge = 1;
+                            Round.PuttingPowl();
+                            _board[X][Y].player = Round.NumberOfActivePlayer;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
+                        }
 
-                        _board[X][Y].stoneLeftEdge = 1;
-                        _board[X][Y].player = Round.NumberOfActivePlayer;
-                        Round.PuttingPowl();
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
                         // Round.NextTurn();
@@ -180,14 +187,20 @@ namespace _3D_Madness
                     if (CanIPutStone(this.X, this.Y, 2))
                     {
                         int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].rightEdge);
-                        System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
-                        model.Add(new Model3D(mainGameClass, X + 0.75f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                        //System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
+                        if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].rightEdge) == false)
+                        {
+                            model.Add(new Model3D(mainGameClass, X + 0.75f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                            _board[X][Y].stoneRightEdge = 1;
+                            Round.PuttingPowl();
+                            _board[X][Y].player = Round.NumberOfActivePlayer;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
+                        }
 
-                        Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
-
-                        _board[X][Y].stoneRightEdge = 1;
-                        _board[X][Y].player = Round.NumberOfActivePlayer;
-                        Round.PuttingPowl();
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
                         //Round.NextTurn();
@@ -204,13 +217,20 @@ namespace _3D_Madness
                     {
                         int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].upEdge);
                         System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
-                        model.Add(new Model3D(mainGameClass, X + 0.25f, Y + 1, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                        if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].upEdge) == false)
+                        {
+                            model.Add(new Model3D(mainGameClass, X + 0.25f, Y + 1, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
 
-                        Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                            _board[X][Y].stoneUpEdge = 1;
+                            Round.PuttingPowl();
+                            _board[X][Y].player = Round.NumberOfActivePlayer;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
+                        }
 
-                        _board[X][Y].stoneUpEdge = 1;
-                        _board[X][Y].player = Round.NumberOfActivePlayer;
-                        Round.PuttingPowl();
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
                         // Round.NextTurn();
@@ -227,13 +247,20 @@ namespace _3D_Madness
                     {
                         int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].bottomEdge);
                         System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
-                        model.Add(new Model3D(mainGameClass, X + 0.25f, Y, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                        if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].bottomEdge) == false)
+                        {
+                            model.Add(new Model3D(mainGameClass, X + 0.25f, Y, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
 
-                        Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                            _board[X][Y].stoneBottomEdge = 1;
+                            Round.PuttingPowl();
+                            _board[X][Y].player = Round.NumberOfActivePlayer;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
+                        }
 
-                        _board[X][Y].stoneBottomEdge = 1;
-                        _board[X][Y].player = Round.NumberOfActivePlayer;
-                        Round.PuttingPowl();
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
                         // Round.NextTurn();
@@ -403,57 +430,6 @@ namespace _3D_Madness
             return true;
         }
 
-        /*private int FloodFill(Point node, int szukanaKrawedz)
-        {
-            Element target;
-            Queue<Point> Q = new Queue<Point>();
-            List<Point> policzone = new List<Point>();
-            Element tmp = _board[node.X][node.Y];
-
-            Q.Enqueue(node);
-            while (Q.Count != 0)
-            {
-                Point n = Q.Dequeue();
-                if (n.X < _board.Length - 1 && n.Y < _board[0].Length - 1 && n.X >= 1 && n.Y >= 1)
-                {
-                    //Liczenie pkt + dodanie do policzonych
-                    policzone.Add(n);
-                    target = _board[n.X][n.Y];
-                    if ((target.leftEdge == _board[n.X - 1][n.Y].rightEdge || target.leftEdge == _board[n.X - 1][n.Y].rightEdge + 1 || target.leftEdge == _board[n.X - 1][n.Y].rightEdge - 1))
-                    {
-                        if (!policzone.Contains(new Point(n.X - 1, n.Y)) && target.leftEdge == szukanaKrawedz)
-                        {
-                            Q.Enqueue(new Point(n.X - 1, n.Y));
-                        }
-                    }
-                    if ((target.rightEdge == _board[n.X + 1][n.Y].leftEdge || target.rightEdge == _board[n.X + 1][n.Y].leftEdge + 1 || target.rightEdge == _board[n.X + 1][n.Y].leftEdge - 1))
-                    {
-                        if (!policzone.Contains(new Point(n.X + 1, n.Y)) && target.rightEdge == szukanaKrawedz)
-                        {
-                            Q.Enqueue(new Point(n.X + 1, n.Y));
-                        }
-                    }
-                    if ((target.upEdge == _board[n.X][n.Y + 1].bottomEdge || target.upEdge == _board[n.X][n.Y + 1].bottomEdge + 1 || target.upEdge == _board[n.X][n.Y + 1].bottomEdge - 1))
-                    {
-                        if (!policzone.Contains(new Point(n.X, n.Y + 1)) && target.bottomEdge == szukanaKrawedz)
-                        {
-                            Q.Enqueue(new Point(n.X, n.Y + 1));
-                        }
-                    }
-                    if ((target.bottomEdge == _board[n.X][n.Y - 1].upEdge || target.bottomEdge == _board[n.X][n.Y - 1].upEdge + 1 || target.bottomEdge == _board[n.X][n.Y - 1].upEdge - 1))
-                    {
-                        if (!policzone.Contains(new Point(n.X, n.Y - 1)) && target.upEdge == szukanaKrawedz)
-                        {
-                            Q.Enqueue(new Point(n.X, n.Y - 1));
-                        }
-                    }
-                }
-            }
-
-            return policzone.Count;
-        }*/
-
-        //
         private int FloodFill(Point node, int szukanaKrawedz)
         {
             Element target;
@@ -529,7 +505,88 @@ namespace _3D_Madness
             return policzone.Count;
         }
 
-        //
+        private bool CheckIfModel(Point node, int szukanaKrawedz)
+        {
+            Element target;
+            bool first = true;
+            Queue<Point> Q = new Queue<Point>();
+            List<Point> policzone = new List<Point>();
+            Element tmp = _board[node.X][node.Y];
+            if (szukanaKrawedz == 1) szukanaKrawedz = 0;
+            if (szukanaKrawedz == 4) szukanaKrawedz = 3;
+
+            Q.Enqueue(node);
+            while (Q.Count != 0)
+            {
+                if (first)
+                {
+                    Point n = Q.Dequeue();
+                    if (n.X < _board.Length - 1 && n.Y < _board[0].Length - 1 && n.X >= 1 && n.Y >= 1)
+                    {
+                        policzone.Add(n);
+                        target = _board[n.X][n.Y];
+
+                        if (!policzone.Contains(new Point(n.X - 1, n.Y)) && (target.leftEdge == szukanaKrawedz || target.leftEdge == szukanaKrawedz + 1))
+                        {
+                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            Q.Enqueue(new Point(n.X - 1, n.Y));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X + 1, n.Y)) && (target.rightEdge == szukanaKrawedz || target.rightEdge == szukanaKrawedz + 1))
+                        {
+                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            Q.Enqueue(new Point(n.X + 1, n.Y));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X, n.Y + 1)) && (target.upEdge == szukanaKrawedz || target.upEdge == szukanaKrawedz + 1))
+                        {
+                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            Q.Enqueue(new Point(n.X, n.Y + 1));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X, n.Y - 1)) && (target.bottomEdge == szukanaKrawedz || target.bottomEdge == szukanaKrawedz + 1))
+                        {
+                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            Q.Enqueue(new Point(n.X, n.Y - 1));
+                        }
+                        first = false;
+                    }
+                }
+                else
+                {
+                    Point n = Q.Dequeue();
+                    if (n.X < _board.Length - 1 && n.Y < _board[0].Length - 1 && n.X >= 1 && n.Y >= 1)
+                    {
+                        policzone.Add(n);
+                        target = _board[n.X][n.Y];
+                        if (!policzone.Contains(new Point(n.X - 1, n.Y)) && (target.leftEdge == szukanaKrawedz))
+                        {
+                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            Q.Enqueue(new Point(n.X - 1, n.Y));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X + 1, n.Y)) && (target.rightEdge == szukanaKrawedz))
+                        {
+                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            Q.Enqueue(new Point(n.X + 1, n.Y));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X, n.Y + 1)) && (target.upEdge == szukanaKrawedz))
+                        {
+                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            Q.Enqueue(new Point(n.X, n.Y + 1));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X, n.Y - 1)) && (target.bottomEdge == szukanaKrawedz))
+                        {
+                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            Q.Enqueue(new Point(n.X, n.Y - 1));
+                        }
+                    }
+                }
+            }
+            return false;
+        }
 
         public override void Draw(GameTime gameTime)
         {
