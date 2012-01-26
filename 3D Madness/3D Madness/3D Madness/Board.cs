@@ -168,7 +168,7 @@ namespace _3D_Madness
                         Round.PuttingPowl();
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                       // Round.NextTurn();
+                        // Round.NextTurn();
                     }
                     else
                     {
@@ -213,7 +213,7 @@ namespace _3D_Madness
                         Round.PuttingPowl();
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                       // Round.NextTurn();
+                        // Round.NextTurn();
                     }
                     else
                     {
@@ -234,9 +234,9 @@ namespace _3D_Madness
                         _board[X][Y].stoneBottomEdge = 1;
                         _board[X][Y].player = Round.NumberOfActivePlayer;
                         Round.PuttingPowl();
-                       mainGameClass.CanStone = false;
+                        mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                       // Round.NextTurn();
+                        // Round.NextTurn();
                     }
                     else
                     {
@@ -265,7 +265,7 @@ namespace _3D_Madness
                             Round.PuttingPowl();
                             mainGameClass.CanStone = false;
                             mainGameClass.CheckStone = false;
-                          //  Round.NextTurn();
+                            //  Round.NextTurn();
                         }
                     }
                     else
@@ -403,7 +403,7 @@ namespace _3D_Madness
             return true;
         }
 
-        private int FloodFill(Point node, int szukanaKrawedz)
+        /*private int FloodFill(Point node, int szukanaKrawedz)
         {
             Element target;
             Queue<Point> Q = new Queue<Point>();
@@ -451,7 +451,85 @@ namespace _3D_Madness
             }
 
             return policzone.Count;
+        }*/
+
+        //
+        private int FloodFill(Point node, int szukanaKrawedz)
+        {
+            Element target;
+            bool first = true;
+            Queue<Point> Q = new Queue<Point>();
+            List<Point> policzone = new List<Point>();
+            Element tmp = _board[node.X][node.Y];
+            if (szukanaKrawedz == 1) szukanaKrawedz = 0;
+            if (szukanaKrawedz == 4) szukanaKrawedz = 3;
+
+            Q.Enqueue(node);
+            while (Q.Count != 0)
+            {
+                if (first)
+                {
+                    Point n = Q.Dequeue();
+                    if (n.X < _board.Length - 1 && n.Y < _board[0].Length - 1 && n.X >= 1 && n.Y >= 1)
+                    {
+                        policzone.Add(n);
+                        target = _board[n.X][n.Y];
+                        if (!policzone.Contains(new Point(n.X - 1, n.Y)) && (target.leftEdge == szukanaKrawedz || target.leftEdge == szukanaKrawedz + 1) && _board[n.X - 1][n.Y].rightEdge != -10)
+                        {
+                            Q.Enqueue(new Point(n.X - 1, n.Y));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X + 1, n.Y)) && (target.rightEdge == szukanaKrawedz || target.rightEdge == szukanaKrawedz + 1) && _board[n.X + 1][n.Y].leftEdge != -10)
+                        {
+                            Q.Enqueue(new Point(n.X + 1, n.Y));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X, n.Y + 1)) && (target.upEdge == szukanaKrawedz || target.upEdge == szukanaKrawedz + 1) && _board[n.X][n.Y + 1].bottomEdge != -10)
+                        {
+                            Q.Enqueue(new Point(n.X, n.Y + 1));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X, n.Y - 1)) && (target.bottomEdge == szukanaKrawedz || target.bottomEdge == szukanaKrawedz + 1) && _board[n.X][n.Y - 1].upEdge != -10)
+                        {
+                            Q.Enqueue(new Point(n.X, n.Y - 1));
+                        }
+                        first = false;
+                    }
+                }
+                else
+                {
+                    Point n = Q.Dequeue();
+                    if (n.X < _board.Length - 1 && n.Y < _board[0].Length - 1 && n.X >= 1 && n.Y >= 1)
+                    {
+                        policzone.Add(n);
+                        target = _board[n.X][n.Y];
+                        if (!policzone.Contains(new Point(n.X - 1, n.Y)) && (target.leftEdge == szukanaKrawedz) && _board[n.X - 1][n.Y].rightEdge != -10)
+                        {
+                            Q.Enqueue(new Point(n.X - 1, n.Y));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X + 1, n.Y)) && (target.rightEdge == szukanaKrawedz) && _board[n.X + 1][n.Y].leftEdge != -10)
+                        {
+                            Q.Enqueue(new Point(n.X + 1, n.Y));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X, n.Y + 1)) && (target.upEdge == szukanaKrawedz) && _board[n.X][n.Y + 1].bottomEdge != -10)
+                        {
+                            Q.Enqueue(new Point(n.X, n.Y + 1));
+                        }
+
+                        if (!policzone.Contains(new Point(n.X, n.Y - 1)) && (target.bottomEdge == szukanaKrawedz) && _board[n.X][n.Y - 1].upEdge != -10)
+                        {
+                            Q.Enqueue(new Point(n.X, n.Y - 1));
+                        }
+                    }
+                }
+            }
+
+            return policzone.Count;
         }
+
+        //
 
         public override void Draw(GameTime gameTime)
         {
