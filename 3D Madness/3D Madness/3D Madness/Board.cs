@@ -156,6 +156,9 @@ namespace _3D_Madness
                 {
                     if (CanIPutStone(this.X, this.Y, 0))
                     {
+                        int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].leftEdge);
+
+                        System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
                         model.Add(new Model3D(mainGameClass, X - 0.25f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
 
                         Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
@@ -176,6 +179,8 @@ namespace _3D_Madness
                 {
                     if (CanIPutStone(this.X, this.Y, 2))
                     {
+                        int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].rightEdge);
+                        System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
                         model.Add(new Model3D(mainGameClass, X + 0.75f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
 
                         Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
@@ -197,6 +202,8 @@ namespace _3D_Madness
                 {
                     if (CanIPutStone(this.X, this.Y, 1))
                     {
+                        int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].upEdge);
+                        System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
                         model.Add(new Model3D(mainGameClass, X + 0.25f, Y + 1, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
 
                         Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
@@ -218,6 +225,8 @@ namespace _3D_Madness
                 {
                     if (CanIPutStone(this.X, this.Y, 3))
                     {
+                        int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].bottomEdge);
+                        System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
                         model.Add(new Model3D(mainGameClass, X + 0.25f, Y, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
 
                         Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
@@ -390,6 +399,56 @@ namespace _3D_Madness
                 default: return false;
             }
             return true;
+        }
+
+        private int FloodFill(Point node, int szukanaKrawedz)
+        {
+            Element target;
+            Queue<Point> Q = new Queue<Point>();
+            List<Point> policzone = new List<Point>();
+            Element tmp = _board[node.X][node.Y];
+
+            Q.Enqueue(node);
+            while (Q.Count != 0)
+            {
+                Point n = Q.Dequeue();
+                if (n.X < _board.Length - 1 && n.Y < _board[0].Length - 1 && n.X >= 1 && n.Y >= 1)
+                {
+                    //Liczenie pkt + dodanie do policzonych
+                    policzone.Add(n);
+                    target = _board[n.X][n.Y];
+                    if ((target.leftEdge == _board[n.X - 1][n.Y].rightEdge || target.leftEdge == _board[n.X - 1][n.Y].rightEdge + 1 || target.leftEdge == _board[n.X - 1][n.Y].rightEdge - 1))
+                    {
+                        if (!policzone.Contains(new Point(n.X - 1, n.Y)) && target.leftEdge == szukanaKrawedz)
+                        {
+                            Q.Enqueue(new Point(n.X - 1, n.Y));
+                        }
+                    }
+                    if ((target.rightEdge == _board[n.X + 1][n.Y].leftEdge || target.rightEdge == _board[n.X + 1][n.Y].leftEdge + 1 || target.rightEdge == _board[n.X + 1][n.Y].leftEdge - 1))
+                    {
+                        if (!policzone.Contains(new Point(n.X + 1, n.Y)) && target.rightEdge == szukanaKrawedz)
+                        {
+                            Q.Enqueue(new Point(n.X + 1, n.Y));
+                        }
+                    }
+                    if ((target.upEdge == _board[n.X][n.Y + 1].bottomEdge || target.upEdge == _board[n.X][n.Y + 1].bottomEdge + 1 || target.upEdge == _board[n.X][n.Y + 1].bottomEdge - 1))
+                    {
+                        if (!policzone.Contains(new Point(n.X, n.Y + 1)) && target.bottomEdge == szukanaKrawedz)
+                        {
+                            Q.Enqueue(new Point(n.X, n.Y + 1));
+                        }
+                    }
+                    if ((target.bottomEdge == _board[n.X][n.Y - 1].upEdge || target.bottomEdge == _board[n.X][n.Y - 1].upEdge + 1 || target.bottomEdge == _board[n.X][n.Y - 1].upEdge - 1))
+                    {
+                        if (!policzone.Contains(new Point(n.X, n.Y - 1)) && target.upEdge == szukanaKrawedz)
+                        {
+                            Q.Enqueue(new Point(n.X, n.Y - 1));
+                        }
+                    }
+                }
+            }
+
+            return policzone.Count;
         }
 
         public override void Draw(GameTime gameTime)

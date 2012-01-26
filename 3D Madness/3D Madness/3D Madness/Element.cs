@@ -55,6 +55,10 @@ namespace _3D_Madness
         {
             verts = x;
             Texture = texture;
+            leftEdge = -10;
+            rightEdge = -10;
+            upEdge = -10;
+            bottomEdge = -10;
         }
 
         public Element(string _fileName, string _leftEdge, string _rightEdge, string _bottomEdge, string _upEdge, string _additional)
@@ -79,6 +83,8 @@ namespace _3D_Madness
                     leftEdge = 6;
                     break;
                 default:
+                    leftEdge = -10;
+
                     break;
             }
 
@@ -100,6 +106,7 @@ namespace _3D_Madness
                     rightEdge = 6;
                     break;
                 default:
+                    rightEdge = -10;
                     break;
             }
 
@@ -121,6 +128,7 @@ namespace _3D_Madness
                     bottomEdge = 6;
                     break;
                 default:
+                    bottomEdge = -10;
                     break;
             }
 
@@ -142,6 +150,7 @@ namespace _3D_Madness
                     upEdge = 6;
                     break;
                 default:
+                    upEdge = -10;
                     break;
             }
 

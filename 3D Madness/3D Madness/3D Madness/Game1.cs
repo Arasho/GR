@@ -324,6 +324,25 @@ namespace _3D_Madness
                         this.CanStone = true;
                     }
                 }
+
+                //putElement = true;
+                //this.CanStone = true;
+                //if (keyboardState.IsKeyDown(Keys.Enter) == true)
+                //{
+                //if (Round.EndRound() == true)
+                //{
+                //    Round.NextTurn();
+                //}
+                //else
+                //{
+                //    //if (Round.NumberOfActivePlayer < Round.NumberOfPlayers)
+                //    //    listOfPlayers[board._board[board.X][board.Y].player].PlayerColor += 1;
+                //    //else
+                //    //    listOfPlayers[board._board[board.X][board.Y].player].PlayerColor = 1;
+
+                //    this.CanStone = true;
+                //}
+                //}
                 /////////////////
                 base.Update(gameTime);
             }
