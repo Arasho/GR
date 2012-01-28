@@ -27,6 +27,7 @@ namespace _3D_Madness
         public static List<Player> listOfPlayers = new List<Player>();
 
         SpriteBatch spriteBatch;
+        KeyboardState previousKeyboard;
         MouseState current, previous;
         public KeyboardState kbprevious;
 
@@ -231,8 +232,6 @@ namespace _3D_Madness
                         if (Components.Contains(board))
                         {
                             board.MapMouseAndRandNewBlock(GraphicsDevice, board.Effect, camera);
-                            
-                            
                             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                             // tutaj warto by bylo jeszcze wyswietlic zamias nastepnego wylosowanego klocka rewers, a dopiero po rozpoczeciu tury przez nastepnego gracza wyswietlic nastepny klocek
                             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -315,9 +314,9 @@ namespace _3D_Madness
                 #endregion Przesuwanie kamery wzgledem myszy
 
                 // OBSLUGA TUR //
-                if (keyboardState.IsKeyDown(Keys.Enter) == true)
+                if (keyboardState.IsKeyDown(Keys.Space) == true && previousKeyboard.IsKeyDown(Keys.Space) != true )
                 {
-                    putElement = false;
+                    //putElement = false;
                     if (Round.EndRound(this) == true)
                     {
                         Round.NextTurn();
@@ -332,6 +331,8 @@ namespace _3D_Madness
                         //this.CanStone = true;
                     }
                 }
+
+                previousKeyboard = keyboardState;
                 /////////////////
                 
                 //putElement = true;
@@ -353,6 +354,9 @@ namespace _3D_Madness
                 //}
                 //}
                 /////////////////
+
+
+
                 base.Update(gameTime);
             }
         }

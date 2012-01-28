@@ -17,7 +17,6 @@ namespace _3D_Madness
         }
 
         private static bool putElement;
-
         public static bool PutElement
         {
             get { return putElement; }
@@ -81,7 +80,7 @@ namespace _3D_Madness
                 MessageBox.Show("Musisz wylozyc kafelke z elementem planszy");
                 return false;
             }
-            else if (putPown == false && (Game1.listOfPlayers[numberOfActivePlayer - 1].NumberOfLittlePowns > 0 || Game1.listOfPlayers[numberOfActivePlayer - 1].BigPown > 0))
+            else if (putPown == false && (Game1.listOfPlayers[numberOfActivePlayer - 1].NumberOfLittlePowns > 0))
             {
                 if (MessageBox.Show("Nie wylozyłes zadnego pionka. Czy chesz wylozyc przed zakonczeniem swojej tury?", "Brak pionka", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
