@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="Edge2PawnCollisionException.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="FormPlayers.cs">
       <SubType>Form</SubType>
@@ -101,6 +102,8 @@
     <Compile Include="Menu.cs" />
     <Compile Include="Bar.cs" />
     <Compile Include="Model3D.cs" />
+    <Compile Include="Pawn2PawnCollisionException.cs" />
+    <Compile Include="PawnCannotBePlacedHereException.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

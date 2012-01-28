@@ -165,10 +165,7 @@ namespace _3D_Madness
 
             if (mainGameClass.CheckStone)
             {
-                //  mainGameClass.CheckStone = false;
-                Player activePlayer = Game1.listOfPlayers[Round.NumberOfActivePlayer - 1];
-                Point cursorPos = new Point(this.X, this.Y);
-                Element activeBoard = _board[this.X][this.Y];
+
                 if(intersects(xRay,
                     X,         Y + 0.25f, 0, // Vector 1
                     X + 0.25f, Y + 0.75f, 0  // Vector 2
@@ -177,93 +174,35 @@ namespace _3D_Madness
                     if (CanIPutStone(this.X, this.Y, 0))
                     {
 
-
                         if (!CheckIfModel(cursorPos, activeBoard.leftEdge))
                         {
                             model.Add(new Model3D(mainGameClass, X , Y + 0.5f, activePlayer.PlayerColor));
                             activePlayer.NumberOfLittlePowns--; // decrease number of pawns
-                            activePlayer.Pawns.Add(new Pawn(X, Y,activeBoard.leftEdge)); // save Pawn position
+                            activePlayer.Pawns.Add(new Pawn(X, Y)); // save Pawn position
 
                             activeBoard.stoneLeftEdge = 1;
                             Round.PuttingPowl();
-                            activeBoard.player = Round.NumberOfActivePlayer;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                        }
 
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        // Round.NextTurn();
                     }
-                    else
-                    {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                    }
-                }
-                    //   xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f, 0),         new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f
-                else if(intersects(xRay,
-                    X + 0.75f, Y + 0.25f, 0, // Vector 1
-                    X + 1,     Y + 0.75f, 0  // Vector 2
-                )) {
-                    if (CanIPutStone(this.X, this.Y, 2))
-                    {
-                        if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].rightEdge) == false)
-                        {
-                            model.Add(new Model3D(mainGameClass, X + 0.55f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
-                            activePlayer.Pawns.Add(new Pawn(X, Y, activeBoard.rightEdge)); // save Pawn position
-                            activePlayer.NumberOfLittlePowns--;
-                            activeBoard.stoneRightEdge = 1;
-                            Round.PuttingPowl();
-                            activeBoard.player = Round.NumberOfActivePlayer;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                        }
 
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        //Round.NextTurn();
                     }
-                    else
-                    {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                    }
-                }
 
                       // xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f, 0),         new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0), new Vector3((float)X + 0.75f, (float)Y + 1, 0))) > 0f)
-                {
-                    if (CanIPutStone(this.X, this.Y, 1))
-                    {
-                        int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].upEdge);
-                        System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
-                        if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].upEdge) == false)
-                        {
-                            model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.9f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
-                            activePlayer.Pawns.Add(new Pawn(X, Y, activeBoard.upEdge)); // save Pawn position
-                            activePlayer.NumberOfLittlePowns--;
 
-                            activeBoard.stoneUpEdge = 1;
+                            _board[X][Y].stoneUpEdge = 1;
                             Round.PuttingPowl();
-                            activeBoard.player = Round.NumberOfActivePlayer;
+                            _board[X][Y].player = Round.NumberOfActivePlayer;
                         }
                         else
-                        {
-                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                        }
 
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        // Round.NextTurn();
                     }
-                    else
-                    {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                    }
-                }
 
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y, 0), new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0))) > 0f)
                 {
@@ -272,29 +211,13 @@ namespace _3D_Madness
                         int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].bottomEdge);
                         System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
                         if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].bottomEdge) == false)
-                        {
-                            model.Add(new Model3D(mainGameClass, X + 0.30f, Y+0.2f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
-                            activePlayer.Pawns.Add(new Pawn(X, Y, activeBoard.bottomEdge)); // save Pawn position
-                            activePlayer.NumberOfLittlePowns--;
 
-                            activeBoard.stoneBottomEdge = 1;
+                            _board[X][Y].stoneBottomEdge = 1;
                             Round.PuttingPowl();
-                            activeBoard.player = Round.NumberOfActivePlayer;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                        }
 
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        // Round.NextTurn();
                     }
-                    else
-                    {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                    }
-                }
 
                 //else if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y, 0), new Vector3((float)X + 1, (float)Y + 1, 0))) > 0f)
                 //{
@@ -303,12 +226,6 @@ namespace _3D_Madness
 
                 //NOWA ZMIANA - SRODEK
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y + 0.25f, 0), new Vector3((float)X + 0.75f, (float)Y + 0.75f, 0))) > 0f)
-                {
-                    if (CanIPutStone(this.X, this.Y, 4))
-                    {
-                        if (_board[X][Y].additional == 1)
-                        {
-                            model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
 
                             Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
 
@@ -317,7 +234,6 @@ namespace _3D_Madness
                             Round.PuttingPowl();
                             mainGameClass.CanStone = false;
                             mainGameClass.CheckStone = false;
-                            //  Round.NextTurn();
                         }
                     }
                     else
@@ -333,21 +249,6 @@ namespace _3D_Madness
                 }
             }
             else
-            {
-                if (!mainGameClass.infoBar.wholeBar.Contains(Mouse.GetState().X, Mouse.GetState().Y))
-                {
-                    for (int i = 0; i < sizeX; i++)
-                    {
-                        for (int j = 0; j < sizeY; j++)
-                        {
-                            if (this._board[i][j].Texture == txt1)
-                            {
-                                if (xRay.Intersects(new BoundingBox(new Vector3((float)i, (float)j, 0), new Vector3((float)i + 1, (float)j + 1, 0))) > 0f)
-                                {
-                                    if (elements.Count >= 1)
-                                    {
-                                        if (CheckBounds(i, j, textureIndex))
-                                        {
                                             //if (mainGameClass.putElement == true) //Round.NextTurn();
                                             mainGameClass.CanStone = false;
                                             this.X = i;
@@ -362,7 +263,6 @@ namespace _3D_Madness
 
                                             // ROTACJA TEKSTURY KLOCKA RYSOWANEGO NA PLANSZY
                                             if (numberOfRotation % 4 == 1)
-                                            {
                                                 _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 0));
                                                 _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(1, 1));
                                                 _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 0));
@@ -370,21 +270,19 @@ namespace _3D_Madness
                                             }
 
                                             if (numberOfRotation % 4 == 2)
-                                            {
                                                 _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 1));
                                                 _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 1));
                                                 _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 0));
                                                 _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 0));
                                             }
                                             if (numberOfRotation % 4 == 3)
-                                            {
                                                 _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(0, 1));
                                                 _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 0));
                                                 _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 1));
                                                 _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 0));
                                             }
 
-                                            elements.RemoveAt(textureIndex);                                            
+                                            elements.RemoveAt(textureIndex);
                                             textureIndex = rand.Next(0, elements.Count);
                                             NextBlock = elements[textureIndex].Texture;
                                             numberOfRotation = 0;
@@ -392,31 +290,9 @@ namespace _3D_Madness
                                             mainGameClass.putElement = true;
                                             mainGameClass.CanStone = true;
                                             Round.PuttingElement();
-
-
-                                            if (elements.Count < 60)
-                                            {
-                                                string wyniki = "Game Over\n";
-                                                for (int z = 0; z < Round.NumberOfPlayers; z++)
-                                                {
-                                                    foreach (Pawn pionek in Game1.listOfPlayers[z].Pawns)
-                                                    {
-                                                        Game1.listOfPlayers[z].PlayerPoints += FloodFill(new Point(pionek.x, pionek.y), pionek.krawedz);
-                                                    }
-                                                    wyniki += Game1.listOfPlayers[z].PlayerName + ": " + Game1.listOfPlayers[z].PlayerPoints + "pkt\n";
-                                                }
-                                                
-                                                if (DialogResult.OK == MessageBox.Show(wyniki))
-                                                { 
-                                                    
-                                                }
-
-                                            }
                                             //mainGameClass.CheckStone = true;
                                         }
                                     }
-                                    else
-                                    {
                                         NextBlock = txt1;
                                     }
                                 }
@@ -426,10 +302,6 @@ namespace _3D_Madness
                 }
                 else
                 {
-                    for (int i = 0; i < mainGameClass.infoBar.stoneArea.Length; i++)
-                    {
-                        if (mainGameClass.infoBar.stoneArea[i].Contains(Mouse.GetState().X, Mouse.GetState().Y))
-                        {
                             mainGameClass.CheckStone = false;
                             mainGameClass.infoBar.numberOfStone[i] -= 1;
                             break;
