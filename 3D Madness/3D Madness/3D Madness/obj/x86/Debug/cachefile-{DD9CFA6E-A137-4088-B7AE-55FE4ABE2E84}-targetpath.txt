@@ -92,6 +92,11 @@ Content\Models\flag.xnb
 Content\Models\Pionek.xnb
 Content\Models\tree.xnb
 Content\Models\Wieza.xnb
+Content\Models\blue.xnb
+Content\Models\green.xnb
+Content\Models\red.xnb
+Content\Models\yellow.xnb
+Content\Models\black.xnb
 Content\Models\Metal_Corrogated_Shiny_0.xnb
 Content\Models\Metal_Aluminum_Anodized_0.xnb
 Content\Models\Concrete_Aggregate_Stained_0.xnb
