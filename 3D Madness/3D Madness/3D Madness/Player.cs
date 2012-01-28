@@ -1,5 +1,8 @@
-﻿namespace _3D_Madness
+﻿using System.Collections.Generic;
+
+namespace _3D_Madness
 {
+
     public class Player
     {
         #region Properties & arguments
@@ -55,6 +58,13 @@
             set { bigPown = value; }
         }
 
+        private List<Pawn> pawns;
+
+        public List<Pawn> Pawns {
+            get { return pawns; }
+            set { pawns = value; }
+        }
+
         // arek cos mowil ze pisze ustawianie pionkow na planszy, to pewnie tutaj bedzie trzeba stworzyc jakas zmienna jego klasy odpowiadajaca za ilosc pionkow kazdego gracza
 
         #endregion Properties & arguments
@@ -63,6 +73,7 @@
 
         public Player(string _playerName, int _color)
         {
+            pawns = new List<Pawn>();
             playerName = _playerName;
             playerPoints = 0;
             playerColor = _color;

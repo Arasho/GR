@@ -138,6 +138,20 @@ namespace _3D_Madness
                 return true;
         }
 
+        // I don't have any idea what this does.
+        private Boolean intersects(Ray xRay, float vectorFirstX, float vectorFirstY, float vectorFirstZ, 
+                                    float vectorSecondX, float vectorSecondY, float vectorSecondZ) {
+            return
+                xRay.Intersects(
+                    new BoundingBox(
+                        new Vector3(
+                            vectorFirstX, vectorFirstY, vectorFirstZ),
+                        new Vector3(
+                            vectorSecondX, vectorSecondY, vectorSecondZ)
+                        )
+                   ) > 0f; 
+        }
+
         public void MapMouseAndRandNewBlock(GraphicsDevice g, BasicEffect effect, Camera camera)
         {
             Vector3 nearSource = new Vector3(Mouse.GetState().X, Mouse.GetState().Y, 0f);
@@ -152,21 +166,27 @@ namespace _3D_Madness
             if (mainGameClass.CheckStone)
             {
                 //  mainGameClass.CheckStone = false;
-                if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f, 0), new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f)
-                {
+
+                if(intersects(xRay,
+                    X,         Y + 0.25f, 0, // Vector 1
+                    X + 0.25f, Y + 0.75f, 0  // Vector 2
+                )) {
+
                     if (CanIPutStone(this.X, this.Y, 0))
                     {
-                        int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].leftEdge);
+                        Point cursorPos = new Point(this.X, this.Y);
+                        Player activePlayer = Game1.listOfPlayers[Round.NumberOfActivePlayer - 1];
+                        Element activeBoard = _board[this.X][this.Y];
 
-                        //System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
-
-                        if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].leftEdge) == false)
+                        if (!CheckIfModel(cursorPos, activeBoard.leftEdge))
                         {
-                            model.Add(new Model3D(mainGameClass, X , Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
-                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
-                            _board[X][Y].stoneLeftEdge = 1;
+                            model.Add(new Model3D(mainGameClass, X , Y + 0.5f, activePlayer.PlayerColor));
+                            activePlayer.NumberOfLittlePowns--; // decrease number of pawns
+                            activePlayer.Pawns.Add(new Pawn(X, Y)); // save Pawn position
+
+                            activeBoard.stoneLeftEdge = 1;
                             Round.PuttingPowl();
-                            _board[X][Y].player = Round.NumberOfActivePlayer;
+                            activeBoard.player = Round.NumberOfActivePlayer;
                         }
                         else
                         {
@@ -182,12 +202,13 @@ namespace _3D_Madness
                         MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
                     }
                 }
-                else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0), new Vector3((float)X + 1, (float)Y + 0.75f, 0))) > 0f)
-                {
+                    //   xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f, 0),         new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f
+                else if(intersects(xRay,
+                    X + 0.75f, Y + 0.25f, 0, // Vector 1
+                    X + 1,     Y + 0.75f, 0  // Vector 2
+                )) {
                     if (CanIPutStone(this.X, this.Y, 2))
                     {
-                        int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].rightEdge);
-                        //System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
                         if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].rightEdge) == false)
                         {
                             model.Add(new Model3D(mainGameClass, X + 0.55f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
@@ -211,6 +232,7 @@ namespace _3D_Madness
                     }
                 }
 
+                      // xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f, 0),         new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f
                 else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0), new Vector3((float)X + 0.75f, (float)Y + 1, 0))) > 0f)
                 {
                     if (CanIPutStone(this.X, this.Y, 1))
