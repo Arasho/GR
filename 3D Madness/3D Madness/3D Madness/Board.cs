@@ -49,6 +49,8 @@ namespace _3D_Madness
         private int textureIndex = 0;
         private SpriteBatch spriteBatch;
 
+        private const int GRASS = 6;
+
         public int numberOfRotation { get; set; }
 
         private int tempRotation;
@@ -180,7 +182,7 @@ namespace _3D_Madness
                         if (CheckIfModel(cursorPos, thisBoard.leftEdge))
                             throw new Edge2PawnCollisionException();
 
-                        if (thisBoard.leftEdge == 6) // pawn cannot be placed on grass
+                        if (thisBoard.leftEdge == GRASS) // pawn cannot be placed on grass
                             throw new PawnCannotBePlacedHereException();
 
                         model.Add(new Model3D(mainGameClass, X, Y + 0.5f, playerColor));
@@ -203,7 +205,7 @@ namespace _3D_Madness
                         if (CheckIfModel(cursorPos, thisBoard.rightEdge))
                             throw new Pawn2PawnCollisionException();
 
-                        if (thisBoard.rightEdge == 6)
+                        if (thisBoard.rightEdge == GRASS)
                             throw new PawnCannotBePlacedHereException();
 
                         model.Add(new Model3D(mainGameClass, X + 0.55f, Y + 0.5f, playerColor));
@@ -225,7 +227,7 @@ namespace _3D_Madness
                         if (CheckIfModel(cursorPos, thisBoard.upEdge))
                             throw new Pawn2PawnCollisionException();
 
-                        if (thisBoard.upEdge == 6)
+                        if (thisBoard.upEdge == GRASS)
                             throw new PawnCannotBePlacedHereException();
 
                         model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.9f, playerColor));
@@ -246,7 +248,7 @@ namespace _3D_Madness
                         if (CheckIfModel(cursorPos, thisBoard.bottomEdge))
                             throw new Pawn2PawnCollisionException();
 
-                        if (thisBoard.bottomEdge == 6)
+                        if (thisBoard.bottomEdge == GRASS)
                             throw new PawnCannotBePlacedHereException();
 
                         model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.2f, playerColor));
@@ -286,8 +288,7 @@ namespace _3D_Madness
                 } catch (Edge2PawnCollisionException e) {
                     MessageBox.Show("Kolizja pionka z krawędzią.");
                 } catch (PawnCannotBePlacedHereException e) {
-                    // do nothing. Pawn cannot be placed on grass
-                    return;
+                    return; // do nothing. Pawn cannot be placed on grass
                 }
             } else {
                 if (!mainGameClass.infoBar.wholeBar.Contains(Mouse.GetState().X, Mouse.GetState().Y)) {
