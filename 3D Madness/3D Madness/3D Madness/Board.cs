@@ -290,6 +290,22 @@ namespace _3D_Madness
                                             mainGameClass.putElement = true;
                                             mainGameClass.CanStone = true;
                                             Round.PuttingElement();
+                                            if (elements.Count < 60)
+                                            {
+                                                string wyniki = "Game Over\n";
+                                                for (int z = 0; z < Round.NumberOfPlayers; z++)
+                                                {
+                                                    foreach (Pawn pionek in Game1.listOfPlayers[z].Pawns)
+                                                    {
+                                                        Game1.listOfPlayers[z].PlayerPoints += FloodFill(new Point(pionek.x, pionek.y), pionek.krawedz);
+                                                    }
+                                                    wyniki += Game1.listOfPlayers[z].PlayerName + ": " + Game1.listOfPlayers[z].PlayerPoints + "pkt\n";
+                                                }
+                                                
+                                                if (DialogResult.OK == MessageBox.Show(wyniki))
+                                                { 
+                                                    
+                                                }
                                             //mainGameClass.CheckStone = true;
                                         }
                                     }
