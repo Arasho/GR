@@ -166,7 +166,9 @@ namespace _3D_Madness
             if (mainGameClass.CheckStone)
             {
                 //  mainGameClass.CheckStone = false;
-
+                Player activePlayer = Game1.listOfPlayers[Round.NumberOfActivePlayer - 1];
+                Point cursorPos = new Point(this.X, this.Y);
+                Element activeBoard = _board[this.X][this.Y];
                 if(intersects(xRay,
                     X,         Y + 0.25f, 0, // Vector 1
                     X + 0.25f, Y + 0.75f, 0  // Vector 2
@@ -174,15 +176,13 @@ namespace _3D_Madness
 
                     if (CanIPutStone(this.X, this.Y, 0))
                     {
-                        Point cursorPos = new Point(this.X, this.Y);
-                        Player activePlayer = Game1.listOfPlayers[Round.NumberOfActivePlayer - 1];
-                        Element activeBoard = _board[this.X][this.Y];
+
 
                         if (!CheckIfModel(cursorPos, activeBoard.leftEdge))
                         {
                             model.Add(new Model3D(mainGameClass, X , Y + 0.5f, activePlayer.PlayerColor));
                             activePlayer.NumberOfLittlePowns--; // decrease number of pawns
-                            activePlayer.Pawns.Add(new Pawn(X, Y)); // save Pawn position
+                            activePlayer.Pawns.Add(new Pawn(X, Y,activeBoard.leftEdge)); // save Pawn position
 
                             activeBoard.stoneLeftEdge = 1;
                             Round.PuttingPowl();
@@ -212,10 +212,11 @@ namespace _3D_Madness
                         if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].rightEdge) == false)
                         {
                             model.Add(new Model3D(mainGameClass, X + 0.55f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
-                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
-                            _board[X][Y].stoneRightEdge = 1;
+                            activePlayer.Pawns.Add(new Pawn(X, Y, activeBoard.rightEdge)); // save Pawn position
+                            activePlayer.NumberOfLittlePowns--;
+                            activeBoard.stoneRightEdge = 1;
                             Round.PuttingPowl();
-                            _board[X][Y].player = Round.NumberOfActivePlayer;
+                            activeBoard.player = Round.NumberOfActivePlayer;
                         }
                         else
                         {
@@ -242,11 +243,12 @@ namespace _3D_Madness
                         if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].upEdge) == false)
                         {
                             model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.9f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
-                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                            activePlayer.Pawns.Add(new Pawn(X, Y, activeBoard.upEdge)); // save Pawn position
+                            activePlayer.NumberOfLittlePowns--;
 
-                            _board[X][Y].stoneUpEdge = 1;
+                            activeBoard.stoneUpEdge = 1;
                             Round.PuttingPowl();
-                            _board[X][Y].player = Round.NumberOfActivePlayer;
+                            activeBoard.player = Round.NumberOfActivePlayer;
                         }
                         else
                         {
@@ -272,11 +274,12 @@ namespace _3D_Madness
                         if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].bottomEdge) == false)
                         {
                             model.Add(new Model3D(mainGameClass, X + 0.30f, Y+0.2f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
-                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                            activePlayer.Pawns.Add(new Pawn(X, Y, activeBoard.bottomEdge)); // save Pawn position
+                            activePlayer.NumberOfLittlePowns--;
 
-                            _board[X][Y].stoneBottomEdge = 1;
+                            activeBoard.stoneBottomEdge = 1;
                             Round.PuttingPowl();
-                            _board[X][Y].player = Round.NumberOfActivePlayer;
+                            activeBoard.player = Round.NumberOfActivePlayer;
                         }
                         else
                         {
@@ -381,7 +384,7 @@ namespace _3D_Madness
                                                 _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 0));
                                             }
 
-                                            elements.RemoveAt(textureIndex);
+                                            elements.RemoveAt(textureIndex);                                            
                                             textureIndex = rand.Next(0, elements.Count);
                                             NextBlock = elements[textureIndex].Texture;
                                             numberOfRotation = 0;
@@ -389,6 +392,26 @@ namespace _3D_Madness
                                             mainGameClass.putElement = true;
                                             mainGameClass.CanStone = true;
                                             Round.PuttingElement();
+
+
+                                            if (elements.Count < 60)
+                                            {
+                                                string wyniki = "Game Over\n";
+                                                for (int z = 0; z < Round.NumberOfPlayers; z++)
+                                                {
+                                                    foreach (Pawn pionek in Game1.listOfPlayers[z].Pawns)
+                                                    {
+                                                        Game1.listOfPlayers[z].PlayerPoints += FloodFill(new Point(pionek.x, pionek.y), pionek.krawedz);
+                                                    }
+                                                    wyniki += Game1.listOfPlayers[z].PlayerName + ": " + Game1.listOfPlayers[z].PlayerPoints + "pkt\n";
+                                                }
+                                                
+                                                if (DialogResult.OK == MessageBox.Show(wyniki))
+                                                { 
+                                                    
+                                                }
+
+                                            }
                                             //mainGameClass.CheckStone = true;
                                         }
                                     }
