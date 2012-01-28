@@ -103,6 +103,7 @@
     <Compile Include="Bar.cs" />
     <Compile Include="Model3D.cs" />
     <Compile Include="Pawn2PawnCollisionException.cs" />
+    <Compile Include="PawnCannotBePlacedHereException.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

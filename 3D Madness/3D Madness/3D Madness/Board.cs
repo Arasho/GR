@@ -172,105 +172,109 @@ namespace _3D_Madness
                     Element thisBoard = _board[this.X][this.Y];
 
                     // LEFT EDGE
-                    if (intersects(xRay,
-                        X, Y + 0.25f, 0, // Vector 1
-                        X + 0.25f, Y + 0.75f, 0  // Vector 2
-                    )) {
+                    if ( intersects(xRay, X, Y + 0.25f, 0, X + 0.25f, Y + 0.75f, 0 )) {
 
-                        if (CanIPutStone(this.X, this.Y, 0)) {
-                            if (!CheckIfModel(cursorPos, thisBoard.leftEdge)) {
-                                model.Add(new Model3D(mainGameClass, X, Y + 0.5f, playerColor));
-                                activePlayer.NumberOfLittlePowns--; // decrease number of pawns
-                                activePlayer.Pawns.Add(new Pawn(X, Y)); // save Pawn position
-                                thisBoard.stoneLeftEdge = 1;
-                                Round.PuttingPowl();
-                                thisBoard.player = Round.NumberOfActivePlayer;
-                            } else throw new Edge2PawnCollisionException();
+                        if (!CanIPutStone(this.X, this.Y, 0)) 
+                            throw new Edge2PawnCollisionException();
+                        
+                        if (CheckIfModel(cursorPos, thisBoard.leftEdge))
+                            throw new Edge2PawnCollisionException();
 
-                            mainGameClass.CanStone = false;
-                            mainGameClass.CheckStone = false;
+                        if (thisBoard.leftEdge == 6) // pawn cannot be placed on grass
+                            throw new PawnCannotBePlacedHereException();
 
-                        } else throw new Edge2PawnCollisionException();
+                        model.Add(new Model3D(mainGameClass, X, Y + 0.5f, playerColor));
+                        activePlayer.NumberOfLittlePowns--; // decrease number of pawns
+                        activePlayer.Pawns.Add(new Pawn(X, Y)); // save Pawn position
+                        thisBoard.stoneLeftEdge = 1;
+                        Round.PuttingPowl();
+                        thisBoard.player = Round.NumberOfActivePlayer;
+                            
+                        mainGameClass.CanStone = false;
+                        mainGameClass.CheckStone = false;
                     }
 
                     // RIGHT EDGE
-                    else if (intersects(xRay,
-                        X + 0.75f, Y + 0.25f, 0, // Vector 1
-                        X + 1, Y + 0.75f, 0  // Vector 2
-                    )) {
-                        if (CanIPutStone(this.X, this.Y, 2)) {
-                            if (!CheckIfModel(cursorPos, thisBoard.rightEdge)) {
-                                model.Add(new Model3D(mainGameClass, X + 0.55f, Y + 0.5f, playerColor));
-                                activePlayer.NumberOfLittlePowns--;
-                                thisBoard.stoneRightEdge = 1;
-                                Round.PuttingPowl();
-                                thisBoard.player = Round.NumberOfActivePlayer;
-                            } else throw new Pawn2PawnCollisionException();
+                    else if (intersects(xRay, X + 0.75f, Y + 0.25f, 0, X + 1, Y + 0.75f, 0)) {
 
-                            mainGameClass.CanStone = false;
-                            mainGameClass.CheckStone = false;
+                        if (!CanIPutStone(this.X, this.Y, 2))
+                            throw new Pawn2PawnCollisionException();
 
-                        } else throw new Pawn2PawnCollisionException();
+                        if (CheckIfModel(cursorPos, thisBoard.rightEdge))
+                            throw new Pawn2PawnCollisionException();
+
+                        if (thisBoard.rightEdge == 6)
+                            throw new PawnCannotBePlacedHereException();
+
+                        model.Add(new Model3D(mainGameClass, X + 0.55f, Y + 0.5f, playerColor));
+                        activePlayer.NumberOfLittlePowns--;
+                        thisBoard.stoneRightEdge = 1;
+                        Round.PuttingPowl();
+                        thisBoard.player = Round.NumberOfActivePlayer;
+
+                        mainGameClass.CanStone = false;
+                        mainGameClass.CheckStone = false;                        
                     }
 
                     // TOP (UP) EDGE
-                    else if (intersects(xRay,
-                        X + 0.25f, Y + 0.75f, 0, // Vector 1
-                        X + 0.75f, Y + 1, 0  // Vector 2
-                    )) {
-                        if (CanIPutStone(this.X, this.Y, 1)) {
-                            if (!CheckIfModel(cursorPos, thisBoard.upEdge)) {
-                                model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.9f, playerColor));
-                                activePlayer.NumberOfLittlePowns--;
+                    else if (intersects(xRay, X + 0.25f, Y + 0.75f, 0, X + 0.75f, Y + 1, 0)) {
 
-                                thisBoard.stoneUpEdge = 1;
-                                Round.PuttingPowl();
-                                thisBoard.player = Round.NumberOfActivePlayer;
-                            } else throw new Pawn2PawnCollisionException();
+                        if (!CanIPutStone(this.X, this.Y, 1)) 
+                            throw new Pawn2PawnCollisionException();
+                            
+                        if (CheckIfModel(cursorPos, thisBoard.upEdge))
+                            throw new Pawn2PawnCollisionException();
 
-                            mainGameClass.CanStone = false;
-                            mainGameClass.CheckStone = false;
+                        if (thisBoard.upEdge == 6)
+                            throw new PawnCannotBePlacedHereException();
 
-                        } else throw new Pawn2PawnCollisionException();
+                        model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.9f, playerColor));
+                        activePlayer.NumberOfLittlePowns--;
+                        thisBoard.stoneUpEdge = 1;
+                        Round.PuttingPowl();
+                        thisBoard.player = Round.NumberOfActivePlayer;
+                        
+                        mainGameClass.CanStone = false;
+                        mainGameClass.CheckStone = false;
                     }
 
                     // BOTTOM (DOWN) EDGE
-                    else if (intersects(xRay,
-                        X + 0.25f, Y, 0, // Vector 1
-                        X + 0.75f, Y + 0.25f, 0  // Vector 2
-                    )) {
-                        if (CanIPutStone(this.X, this.Y, 3)) {
-                            if (!CheckIfModel(cursorPos, thisBoard.bottomEdge)) {
-                                model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.2f, playerColor));
-                                activePlayer.NumberOfLittlePowns--;
-                                thisBoard.stoneBottomEdge = 1;
-                                Round.PuttingPowl();
-                                thisBoard.player = Round.NumberOfActivePlayer;
-                            } else throw new Pawn2PawnCollisionException();
+                    else if (intersects(xRay, X + 0.25f, Y, 0, X + 0.75f, Y + 0.25f, 0)) {
+                        if (!CanIPutStone(this.X, this.Y, 3))
+                            throw new Pawn2PawnCollisionException();
+                           
+                        if (CheckIfModel(cursorPos, thisBoard.bottomEdge))
+                            throw new Pawn2PawnCollisionException();
 
-                            mainGameClass.CanStone = false;
-                            mainGameClass.CheckStone = false;
-                        } else throw new Pawn2PawnCollisionException();
+                        if (thisBoard.bottomEdge == 6)
+                            throw new PawnCannotBePlacedHereException();
+
+                        model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.2f, playerColor));
+                        activePlayer.NumberOfLittlePowns--;
+                        thisBoard.stoneBottomEdge = 1;
+                        Round.PuttingPowl();
+                        thisBoard.player = Round.NumberOfActivePlayer;
+                            
+                        mainGameClass.CanStone = false;
+                        mainGameClass.CheckStone = false;
                     }
 
                     //NOWA ZMIANA - SRODEK
-                    else if (intersects(xRay,
-                        X + 0.25f, Y + 0.25f, 0, // Vector 1
-                        X + 0.75f, Y + 0.75f, 0  // Vector 2
-                    )) {
-                        if (CanIPutStone(this.X, this.Y, 4)) {
-                            if (thisBoard.additional == 1) {
-                                model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.5f, playerColor));
+                    else if (intersects(xRay, X + 0.25f, Y + 0.25f, 0, X + 0.75f, Y + 0.75f, 0)) {
+                        if (!CanIPutStone(this.X, this.Y, 4))
+                            throw new Pawn2PawnCollisionException();
 
-                                activePlayer.NumberOfLittlePowns--;
+                        if (thisBoard.additional == 1) {
+                            model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.5f, playerColor));
 
-                                thisBoard.stoneCenter = 1;
-                                thisBoard.player = Round.NumberOfActivePlayer;
-                                Round.PuttingPowl();
-                                mainGameClass.CanStone = false;
-                                mainGameClass.CheckStone = false;
-                            }
-                        } else throw new Pawn2PawnCollisionException();
+                            activePlayer.NumberOfLittlePowns--;
+
+                            thisBoard.stoneCenter = 1;
+                            thisBoard.player = Round.NumberOfActivePlayer;
+                            Round.PuttingPowl();
+                            mainGameClass.CanStone = false;
+                            mainGameClass.CheckStone = false;
+                        }
                     }
 
                     //NOWA ZMIANA
@@ -281,6 +285,9 @@ namespace _3D_Madness
                     MessageBox.Show("Kolizja z pionkiem innego gracza.");
                 } catch (Edge2PawnCollisionException e) {
                     MessageBox.Show("Kolizja pionka z krawędzią.");
+                } catch (PawnCannotBePlacedHereException e) {
+                    // do nothing. Pawn cannot be placed on grass
+                    return;
                 }
             } else {
                 if (!mainGameClass.infoBar.wholeBar.Contains(Mouse.GetState().X, Mouse.GetState().Y)) {
