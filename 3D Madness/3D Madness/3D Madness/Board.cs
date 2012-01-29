@@ -71,7 +71,7 @@ namespace _3D_Madness
             spriteBatch = new SpriteBatch(g.GraphicsDevice);
             numberOfRotation = 0;
 
-            for (int i = 0; i < 70; i++)
+            for (int i = 0; i < 57; i++)
             {
                 elements[i].Texture = (mainGameClass.Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName));
             }
@@ -369,7 +369,7 @@ namespace _3D_Madness
                                             mainGameClass.CanStone = true;
                                             Round.PuttingElement();
 
-                                            if (elements.Count < 67)
+                                            if (elements.Count < 50)
                                             {
                                                 string wyniki = "Game Over\n";
                                                 for (int z = 0; z < Round.NumberOfPlayers; z++)
@@ -462,7 +462,6 @@ namespace _3D_Madness
             switch (kierunek)
             {
                 case Element.Direction.Left:
-
                     break;
                 case Element.Direction.Right:
                     break;
