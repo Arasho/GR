@@ -487,7 +487,6 @@ D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block68.x
 D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block69.xnb
 D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block7.xnb
 D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block70.xnb
-D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block71.xnb
 D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block8.xnb
 D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block9.xnb
 D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\tlo.xnb
@@ -534,3 +533,8 @@ D:\GR\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\GenerateResource.read.1.
 D:\GR\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\GR\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.exe
 D:\GR\GR\3D Madness\3D Madness\3D Madness\obj\x86\Debug\3D Madness.pdb
+D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\czerwonaminiatura.xnb
+D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\czarnaminiatura.xnb
+D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\niebieskaminiatura.xnb
+D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\zielonaminiatura.xnb
+D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\zoltaminiatura.xnb

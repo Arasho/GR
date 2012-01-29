@@ -62,8 +62,14 @@ namespace _3D_Madness
             spritebatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
             spritebatch.Draw(playerName[0], wholeBar, Color.White);
 
-            if (mainGameClass.board.NextBlock != mainGameClass.board.txt1)
-            {
+            if (mainGameClass.board.NextBlock == null) {
+
+                // next block has not been initialized 
+                // why?
+                throw new System.SystemException();
+
+            }  else if (mainGameClass.board.NextBlock != mainGameClass.board.txt1) {
+
                 origin.X = mainGameClass.board.NextBlock.Width / 2;
                 origin.Y = mainGameClass.board.NextBlock.Height / 2;
 
