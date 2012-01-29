@@ -6,8 +6,6 @@ namespace _3D_Madness
     {
         #region variables and properties
 
-
-        
         private static bool putPown;
 
         public static bool PutPown
@@ -56,8 +54,7 @@ namespace _3D_Madness
         #region Methods
 
         public static void NextTurn()
-        {
-            
+        {            
             putElement = false;
             putPown = false;
             counfOfTurn++;
@@ -83,15 +80,17 @@ namespace _3D_Madness
             }
             else if (putPown == false && (Game1.listOfPlayers[numberOfActivePlayer - 1].NumberOfLittlePowns > 0))
             {
-                if (MessageBox.Show("Nie wylozyłes zadnego pionka. Czy chesz wylozyc przed zakonczeniem swojej tury?", "Brak pionka", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                DialogResult respone = MessageBox.Show(
+                    "Nie wylozyłes zadnego pionka. Czy chesz wylozyc przed zakonczeniem swojej tury?",
+                    "Brak pionka", MessageBoxButtons.YesNo);
+
+                if (respone == DialogResult.Yes)
                 {
                     g.CanStone = true;
                     return false;
-
                 }
                 else
-                {
-                    
+                {                    
                     g.CanStone = false;
                     return true;
                 }

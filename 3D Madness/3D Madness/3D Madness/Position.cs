@@ -7,7 +7,6 @@ namespace _3D_Madness {
 
     public class Pawn {
 
-
         /// <summary>
         /// Creates new Pawn
         /// </summary>
