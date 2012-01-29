@@ -47,16 +47,32 @@ namespace _3D_Madness
             mainGameClass = (Game1)g;
             Effect = new BasicEffect(g.GraphicsDevice);
 
-            rand_element = new XML_Parser();            
+            rand_element = new XML_Parser();
+            elements = rand_element.XDocParse();
             spriteBatch = new SpriteBatch(g.GraphicsDevice);
             numberOfRotation = 0;
 
-            loadTextures();
+            for (int i = 0; i < 57; i++)
+            {
+                elements[i].Texture = (mainGameClass.Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName));
+            }
 
+            _board = new Element[20][];
 
+            x = new VertexPositionTexture[sizeX][][];
+            for (int i = 0; i < sizeX; i++)
+            {
+                x[i] = new VertexPositionTexture[sizeY][];
+                _board[i] = new Element[20];
+
+                for (int j = 0; j < sizeY; j++)
+                {
+                    x[i][j] = new VertexPositionTexture[4];
+                }
+            }
             GenerateBoard();
 
-            _board[10][10].Texture = elements[0].Texture;
+            this._board[10][10].Texture = elements[0].Texture;
             _board[10][10].leftEdge = elements[textureIndex].leftEdge;
             _board[10][10].rightEdge = elements[textureIndex].rightEdge;
             _board[10][10].upEdge = elements[textureIndex].upEdge;
@@ -68,26 +84,8 @@ namespace _3D_Madness
             NextBlock = elements[textureIndex].Texture;
         }
 
-        private void loadTextures() {
-            elements = rand_element.XDocParse();
-            for (int i = 0; i < 70; i++) {
-                elements[i].Texture = (mainGameClass.Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName));
-            }
-        }
-
         private void GenerateBoard()
         {
-            _board = new Element[20][];
-
-            x = new VertexPositionTexture[sizeX][][];
-            for (int i = 0; i < sizeX; i++) {
-                x[i] = new VertexPositionTexture[sizeY][];
-                _board[i] = new Element[20];
-
-                for (int j = 0; j < sizeY; j++) {
-                    x[i][j] = new VertexPositionTexture[4];
-                }
-            }
             for (int i = 0; i < sizeX; i++)
             {
                 for (int j = 0; j < sizeY; j++)
@@ -172,7 +170,7 @@ namespace _3D_Madness
 
                         model.Add(new Model3D(mainGameClass, X, Y + 0.5f, playerColor));
                         activePlayer.NumberOfLittlePowns--; // decrease number of pawns
-                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.leftEdge)); // save Pawn position
+                        activePlayer.Pawns.Add(new Pawn(X, Y, Element.Direction.Left,thisBoard.leftEdge)); // save Pawn position
                         thisBoard.stoneLeftEdge = 1;
                         Round.PuttingPowl();
                         thisBoard.player = Round.NumberOfActivePlayer;
@@ -195,7 +193,7 @@ namespace _3D_Madness
                             throw new PawnCannotBePlacedHereException();
 
                         model.Add(new Model3D(mainGameClass, X + 0.55f, Y + 0.5f, playerColor));
-                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.rightEdge)); // save Pawn position
+                        activePlayer.Pawns.Add(new Pawn(X, Y, Element.Direction.Right, thisBoard.rightEdge)); // save Pawn position
                         activePlayer.NumberOfLittlePowns--;
                         thisBoard.stoneRightEdge = 1;
                         Round.PuttingPowl();
@@ -219,7 +217,7 @@ namespace _3D_Madness
                             throw new PawnCannotBePlacedHereException();
 
                         model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.9f, playerColor));
-                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.upEdge)); // save Pawn position
+                        activePlayer.Pawns.Add(new Pawn(X, Y, Element.Direction.Up, thisBoard.upEdge)); // save Pawn position
                         activePlayer.NumberOfLittlePowns--;
                         thisBoard.stoneUpEdge = 1;
                         Round.PuttingPowl();
@@ -242,7 +240,7 @@ namespace _3D_Madness
                             throw new PawnCannotBePlacedHereException();
 
                         model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.2f, playerColor));
-                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.bottomEdge)); // save Pawn position
+                        activePlayer.Pawns.Add(new Pawn(X, Y, Element.Direction.Down, thisBoard.bottomEdge)); // save Pawn position
                         activePlayer.NumberOfLittlePowns--;
                         thisBoard.stoneBottomEdge = 1;
                         Round.PuttingPowl();
@@ -350,14 +348,14 @@ namespace _3D_Madness
                                             mainGameClass.CanStone = true;
                                             Round.PuttingElement();
 
-                                            if (elements.Count < 67)
+                                            if (elements.Count < 50)
                                             {
                                                 string wyniki = "Game Over\n";
                                                 for (int z = 0; z < Round.NumberOfPlayers; z++)
                                                 {
                                                     foreach (Pawn pionek in Game1.listOfPlayers[z].Pawns)
                                                     {
-                                                        Game1.listOfPlayers[z].PlayerPoints += FloodFill(new Point(pionek.x, pionek.y), pionek.krawedz);
+                                                        Game1.listOfPlayers[z].PlayerPoints += FloodFill(new Point(pionek.x, pionek.y), pionek.krawedz, pionek.wartosc);
                                                     }
                                                     wyniki += Game1.listOfPlayers[z].PlayerName + ": " + Game1.listOfPlayers[z].PlayerPoints + "pkt\n";
                                                 }
@@ -430,15 +428,30 @@ namespace _3D_Madness
             return true;
         }
 
-        private int FloodFill(Point node, int szukanaKrawedz)
+        private int FloodFill(Point node, Element.Direction kierunek, int szukanaKrawedz)
         {
-            Element target;
+            Element target = _board[node.X][node.Y]; ;
             bool first = true;
             Queue<Point> Q = new Queue<Point>();
             List<Point> policzone = new List<Point>();
-            Element tmp = _board[node.X][node.Y];
-            if (szukanaKrawedz == 1) szukanaKrawedz = 0;
-            if (szukanaKrawedz == 4) szukanaKrawedz = 3;
+          
+            if (szukanaKrawedz == (int)Element.Edges.EndRoad) szukanaKrawedz = (int)Element.Edges.Road;
+            if (szukanaKrawedz == (int)Element.Edges.EndTown) szukanaKrawedz = (int)Element.Edges.Town;
+
+            switch (kierunek)
+            {
+                case Element.Direction.Left:
+                    break;
+                case Element.Direction.Right:
+                    break;
+                case Element.Direction.Up:
+                    break;
+                case Element.Direction.Down:
+                    break;
+                default:
+                    break;
+            }
+
 
             Q.Enqueue(node);
             while (Q.Count != 0)

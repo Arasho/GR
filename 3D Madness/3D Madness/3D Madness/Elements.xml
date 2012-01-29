@@ -48,16 +48,8 @@
     <up>Field</up>
     <additional></additional>
   </Element>
-  <Element>
-    <filename>block6</filename>
-    <left>EndRoad</left>
-    <right>EndTown</right>
-    <bottom>EndRoad</bottom>
-    <up>EndRoad</up>
-    <additional></additional>
-  </Element>
   <Element> 
-    <filename>block7</filename>
+    <filename>block6</filename>
     <left>Road</left>
     <right>Field</right>
     <bottom>Road</bottom>
@@ -65,7 +57,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block8</filename>
+    <filename>block7</filename>
     <left>Town</left>
     <right>Field</right>
     <bottom>Field</bottom>
@@ -73,7 +65,7 @@
     <additional>Shield</additional>
   </Element>
   <Element> 
-    <filename>block9</filename>
+    <filename>block8</filename>
     <left>Field</left>
     <right>Field</right>
     <bottom>Town</bottom>
@@ -81,7 +73,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block10</filename>
+    <filename>block9</filename>
     <left>Road</left>
     <right>Field</right>
     <bottom>Road</bottom>
@@ -89,39 +81,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block11</filename>
-    <left>EndRoad</left>
-    <right>EndRoad</right>
-    <bottom>EndRoad</bottom>
-    <up>Field</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block12</filename>
-    <left>EndRoad</left>
-    <right>EndRoad</right>
-    <bottom>EndRoad</bottom>
-    <up>Field</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block13</filename>
-    <left>EndTown</left>
-    <right>EndTown</right>
-    <bottom>Field</bottom>
-    <up>Field</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block14</filename>
-    <left>Field</left>
-    <right>EndTown</right>
-    <bottom>EndTown</bottom>
-    <up>Field</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block15</filename>
+    <filename>block10</filename>
     <left>Field</left>
     <right>Field</right>
     <bottom>Field</bottom>
@@ -129,7 +89,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block16</filename>
+    <filename>block11</filename>
     <left>Field</left>
     <right>Field</right>
     <bottom>Road</bottom>
@@ -137,7 +97,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block17</filename>
+    <filename>block12</filename>
     <left>Field</left>
     <right>EndTown</right>
     <bottom>Field</bottom>
@@ -145,7 +105,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block18</filename>
+    <filename>block13</filename>
     <left>Town</left>
     <right>Town</right>
     <bottom>Field</bottom>
@@ -153,7 +113,7 @@
     <additional>Shield</additional>
   </Element>
   <Element> 
-    <filename>block19</filename>
+    <filename>block14</filename>
     <left>Road</left>
     <right>EndTown</right>
     <bottom>Field</bottom>
@@ -161,7 +121,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block20</filename>
+    <filename>block15</filename>
     <left>Field</left>
     <right>EndTown</right>
     <bottom>Road</bottom>
@@ -169,7 +129,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block21</filename>
+    <filename>block16</filename>
     <left>Town</left>
     <right>Town</right>
     <bottom>Field</bottom>
@@ -177,7 +137,7 @@
     <additional>Shield</additional>
   </Element>
   <Element> 
-    <filename>block22</filename>
+    <filename>block17</filename>
     <left>EndTown</left>
     <right>Field</right>
     <bottom>Road</bottom>
@@ -185,7 +145,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block23</filename>
+    <filename>block18</filename>
     <left>Road</left>
     <right>EndTown</right>
     <bottom>Road</bottom>
@@ -193,7 +153,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block24</filename>
+    <filename>block19</filename>
     <left>Town</left>
     <right>Town</right>
     <bottom>Field</bottom>
@@ -201,7 +161,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block25</filename>
+    <filename>block20</filename>
     <left>Field</left>
     <right>Field</right>
     <bottom>EndRoad</bottom>
@@ -209,7 +169,7 @@
     <additional>Cathedral</additional>
   </Element>
   <Element> 
-    <filename>block26</filename>
+    <filename>block21</filename>
     <left>Town</left>
     <right>Road</right>
     <bottom>Road</bottom>
@@ -217,7 +177,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block27</filename>
+    <filename>block22</filename>
     <left>Field</left>
     <right>Road</right>
     <bottom>Road</bottom>
@@ -225,7 +185,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block28</filename>
+    <filename>block23</filename>
     <left>Field</left>
     <right>Road</right>
     <bottom>Road</bottom>
@@ -233,11 +193,51 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block29</filename>
+    <filename>block24</filename>
     <left>Field</left>
     <right>Road</right>
     <bottom>Field</bottom>
     <up>Road</up>
+    <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block25</filename>
+    <left>Field</left>
+    <right>Field</right>
+    <bottom>Field</bottom>
+    <up>EndTown</up>
+    <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block26</filename>
+    <left>Road</left>
+    <right>Road</right>
+    <bottom>Field</bottom>
+    <up>EndTown</up>
+    <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block27</filename>
+    <left>Field</left>
+    <right>Field</right>
+    <bottom>Field</bottom>
+    <up>Field</up>
+    <additional>Cathedral</additional>
+  </Element>
+  <Element> 
+    <filename>block28</filename>
+    <left>Field</left>
+    <right>Field</right>
+    <bottom>Road</bottom>
+    <up>Road</up>
+    <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block29</filename>
+    <left>Town</left>
+    <right>Field</right>
+    <bottom>Town</bottom>
+    <up>Field</up>
     <additional></additional>
   </Element>
   <Element> 
@@ -245,64 +245,64 @@
     <left>Field</left>
     <right>Field</right>
     <bottom>Field</bottom>
-    <up>EndTown</up>
-    <additional></additional>
+    <up>Field</up>
+    <additional>Cathedral</additional>
   </Element>
   <Element> 
     <filename>block31</filename>
-    <left>Road</left>
-    <right>Road</right>
-    <bottom>Field</bottom>
-    <up>EndTown</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block32</filename>
-    <left>Field</left>
-    <right>Field</right>
-    <bottom>Field</bottom>
-    <up>Field</up>
-    <additional>Cathedral</additional>
-  </Element>
-  <Element> 
-    <filename>block33</filename>
-    <left>Field</left>
-    <right>Field</right>
-    <bottom>Road</bottom>
-    <up>Road</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block34</filename>
-    <left>EndRoad</left>
-    <right>EndRoad</right>
-    <bottom>EndRoad</bottom>
-    <up>EndTown</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block35</filename>
-    <left>Town</left>
-    <right>Field</right>
-    <bottom>Town</bottom>
-    <up>Field</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block36</filename>
-    <left>Field</left>
-    <right>Field</right>
-    <bottom>Field</bottom>
-    <up>Field</up>
-    <additional>Cathedral</additional>
-  </Element>
-  <Element> 
-    <filename>block37</filename>
     <left>Road</left>
     <right>Town</right>
     <bottom>Road</bottom>
     <up>Town</up>
     <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block32</filename>
+    <left>Road</left>
+    <right>Field</right>
+    <bottom>Road</bottom>
+    <up>Field</up>
+    <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block33</filename>
+    <left>Town</left>
+    <right>Town</right>
+    <bottom>Field</bottom>
+    <up>Town</up>
+    <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block34</filename>
+    <left>Field</left>
+    <right>Town</right>
+    <bottom>Town</bottom>
+    <up>Town</up>
+    <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block35</filename>
+    <left>EndRoad</left>
+    <right>Town</right>
+    <bottom>Town</bottom>
+    <up>Town</up>
+    <additional>Shield</additional>
+  </Element>
+  <Element> 
+    <filename>block36</filename>
+    <left>Road</left>
+    <right>EndTown</right>
+    <bottom>Road</bottom>
+    <up>Field</up>
+    <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block37</filename>
+    <left>Field</left>
+    <right>Field</right>
+    <bottom>Field</bottom>
+    <up>Field</up>
+    <additional>Cathedral</additional>
   </Element>
   <Element> 
     <filename>block38</filename>
@@ -314,238 +314,142 @@
   </Element>
   <Element> 
     <filename>block39</filename>
-    <left>Town</left>
-    <right>Town</right>
-    <bottom>Field</bottom>
-    <up>Town</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block40</filename>
-    <left>EndTown</left>
+    <left>Road</left>
     <right>Field</right>
-    <bottom>EndTown</bottom>
+    <bottom>Road</bottom>
     <up>Field</up>
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block41</filename>
+    <filename>block40</filename>
     <left>Field</left>
-    <right>Town</right>
-    <bottom>Town</bottom>
-    <up>Town</up>
+    <right>Road</right>
+    <bottom>EndTown</bottom>
+    <up>Road</up>
+    <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block41</filename>
+    <left>Road</left>
+    <right>Road</right>
+    <bottom>Field</bottom>
+    <up>Field</up>
     <additional></additional>
   </Element>
   <Element> 
     <filename>block42</filename>
-    <left>EndRoad</left>
-    <right>Town</right>
-    <bottom>Town</bottom>
-    <up>Town</up>
-    <additional>Shield</additional>
+    <left>Road</left>
+    <right>Road</right>
+    <bottom>Field</bottom>
+    <up>Field</up>
+    <additional></additional>
   </Element>
   <Element> 
     <filename>block43</filename>
-    <left>Field</left>
-    <right>Field</right>
-    <bottom>EndTown</bottom>
-    <up>EndTown</up>
+    <left>Road</left>
+    <right>Road</right>
+    <bottom>Field</bottom>
+    <up>Field</up>
     <additional></additional>
   </Element>
   <Element> 
     <filename>block44</filename>
-    <left>Road</left>
-    <right>EndTown</right>
+    <left>Field</left>
+    <right>Road</right>
     <bottom>Road</bottom>
     <up>Field</up>
     <additional></additional>
   </Element>
   <Element> 
     <filename>block45</filename>
-    <left>Field</left>
-    <right>Field</right>
-    <bottom>Field</bottom>
-    <up>Field</up>
-    <additional>Cathedral</additional>
+    <left>Town</left>
+    <right>Road</right>
+    <bottom>Road</bottom>
+    <up>Town</up>
+    <additional>Shield</additional>
   </Element>
   <Element> 
     <filename>block46</filename>
-    <left>Road</left>
-    <right>Field</right>
+    <left>Town</left>
+    <right>Road</right>
     <bottom>Road</bottom>
-    <up>Field</up>
-    <additional></additional>
+    <up>Town</up>
+    <additional>Shield</additional>
   </Element>
   <Element> 
     <filename>block47</filename>
-    <left>EndRoad</left>
-    <right>EndRoad</right>
-    <bottom>EndRoad</bottom>
-    <up>EndRoad</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block48</filename>
-    <left>Road</left>
+    <left>Field</left>
     <right>Field</right>
     <bottom>Road</bottom>
-    <up>Field</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block49</filename>
-    <left>Field</left>
-    <right>Road</right>
-    <bottom>EndTown</bottom>
     <up>Road</up>
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block50</filename>
+    <filename>block48</filename>
+    <left>Field</left>
+    <right>Town</right>
+    <bottom>Town</bottom>
+    <up>Town</up>
+    <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block49</filename>
     <left>Road</left>
-    <right>Road</right>
-    <bottom>Field</bottom>
+    <right>EndTown</right>
+    <bottom>Road</bottom>
     <up>Field</up>
+    <additional></additional>
+  </Element>
+  <Element> 
+    <filename>block50</filename>
+    <left>Town</left>
+    <right>EndRoad</right>
+    <bottom>Field</bottom>
+    <up>Town</up>
     <additional></additional>
   </Element>
   <Element> 
     <filename>block51</filename>
-    <left>Road</left>
-    <right>Road</right>
-    <bottom>Field</bottom>
-    <up>Field</up>
-    <additional></additional>
+    <left>Town</left>
+    <right>Town</right>
+    <bottom>Town</bottom>
+    <up>Town</up>
+    <additional>Shield</additional>
   </Element>
   <Element> 
     <filename>block52</filename>
-    <left>Road</left>
-    <right>Road</right>
-    <bottom>Field</bottom>
-    <up>Field</up>
-    <additional></additional>
+    <left>Town</left>
+    <right>EndRoad</right>
+    <bottom>Town</bottom>
+    <up>Town</up>
+    <additional>Shield</additional>
   </Element>
   <Element> 
     <filename>block53</filename>
-    <left>Field</left>
-    <right>Road</right>
-    <bottom>Road</bottom>
-    <up>Field</up>
+    <left>EndRoad</left>
+    <right>Town</right>
+    <bottom>Town</bottom>
+    <up>Town</up>
     <additional></additional>
   </Element>
   <Element> 
     <filename>block54</filename>
     <left>Town</left>
     <right>Road</right>
-    <bottom>Road</bottom>
-    <up>Town</up>
+    <bottom>Town</bottom>
+    <up>Road</up>
     <additional>Shield</additional>
   </Element>
   <Element> 
     <filename>block55</filename>
     <left>Town</left>
-    <right>Road</right>
-    <bottom>Road</bottom>
+    <right>Field</right>
+    <bottom>Field</bottom>
     <up>Town</up>
     <additional>Shield</additional>
   </Element>
   <Element> 
     <filename>block56</filename>
-    <left>EndTown</left>
-    <right>EndRoad</right>
-    <bottom>EndRoad</bottom>
-    <up>EndRoad</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block57</filename>
-    <left>Field</left>
-    <right>Field</right>
-    <bottom>EndTown</bottom>
-    <up>EndTown</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block58</filename>
-    <left>Field</left>
-    <right>Field</right>
-    <bottom>Road</bottom>
-    <up>Road</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block59</filename>
-    <left>Field</left>
-    <right>Town</right>
-    <bottom>Town</bottom>
-    <up>Town</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block60</filename>
-    <left>Road</left>
-    <right>EndTown</right>
-    <bottom>Road</bottom>
-    <up>Field</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block61</filename>
-    <left>Town</left>
-    <right>EndRoad</right>
-    <bottom>Field</bottom>
-    <up>Town</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block62</filename>
-    <left>Town</left>
-    <right>Town</right>
-    <bottom>Town</bottom>
-    <up>Town</up>
-    <additional>Shield</additional>
-  </Element>
-  <Element> 
-    <filename>block63</filename>
-    <left>Town</left>
-    <right>EndRoad</right>
-    <bottom>Town</bottom>
-    <up>Town</up>
-    <additional>Shield</additional>
-  </Element>
-  <Element> 
-    <filename>block64</filename>
-    <left>EndRoad</left>
-    <right>Town</right>
-    <bottom>Town</bottom>
-    <up>Town</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block65</filename>
-    <left>EndTown</left>
-    <right>EndTown</right>
-    <bottom>EndTown</bottom>
-    <up>EndTown</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block66</filename>
-    <left>Town</left>
-    <right>Road</right>
-    <bottom>Town</bottom>
-    <up>Road</up>
-    <additional>Shield</additional>
-  </Element>
-  <Element> 
-    <filename>block67</filename>
-    <left>Town</left>
-    <right>Field</right>
-    <bottom>Field</bottom>
-    <up>Town</up>
-    <additional>Shield</additional>
-  </Element>
-  <Element> 
-    <filename>block68</filename>
     <left>Field</left>
     <right>Field</right>
     <bottom>EndRoad</bottom>
@@ -553,15 +457,7 @@
     <additional>Cathedral</additional>
   </Element>
   <Element> 
-    <filename>block69</filename>
-    <left>EndRoad</left>
-    <right>EndRoad</right>
-    <bottom>EndRoad</bottom>
-    <up>EndRoad</up>
-    <additional></additional>
-  </Element>
-  <Element> 
-    <filename>block70</filename>
+    <filename>block57</filename>
     <left>Field</left>
     <right>EndTown</right>
     <bottom>Field</bottom>
