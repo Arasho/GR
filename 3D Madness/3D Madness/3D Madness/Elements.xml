@@ -245,7 +245,7 @@
     <left>Field</left>
     <right>Field</right>
     <bottom>Field</bottom>
-    <up>EndRoad</up>
+    <up>EndTown</up>
     <additional></additional>
   </Element>
   <Element> 
@@ -491,21 +491,13 @@
   <Element> 
     <filename>block61</filename>
     <left>Town</left>
-    <right>Field</right>
-    <bottom>EndTown</bottom>
-    <up>Town</up>
-    <additional>Shield</additional>
-  </Element>
-  <Element> 
-    <filename>block62</filename>
-    <left>Town</left>
     <right>EndRoad</right>
     <bottom>Field</bottom>
     <up>Town</up>
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block63</filename>
+    <filename>block62</filename>
     <left>Town</left>
     <right>Town</right>
     <bottom>Town</bottom>
@@ -513,7 +505,7 @@
     <additional>Shield</additional>
   </Element>
   <Element> 
-    <filename>block64</filename>
+    <filename>block63</filename>
     <left>Town</left>
     <right>EndRoad</right>
     <bottom>Town</bottom>
@@ -521,7 +513,7 @@
     <additional>Shield</additional>
   </Element>
   <Element> 
-    <filename>block65</filename>
+    <filename>block64</filename>
     <left>EndRoad</left>
     <right>Town</right>
     <bottom>Town</bottom>
@@ -529,7 +521,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block66</filename>
+    <filename>block65</filename>
     <left>EndTown</left>
     <right>EndTown</right>
     <bottom>EndTown</bottom>
@@ -537,7 +529,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block67</filename>
+    <filename>block66</filename>
     <left>Town</left>
     <right>Road</right>
     <bottom>Town</bottom>
@@ -545,7 +537,7 @@
     <additional>Shield</additional>
   </Element>
   <Element> 
-    <filename>block68</filename>
+    <filename>block67</filename>
     <left>Town</left>
     <right>Field</right>
     <bottom>Field</bottom>
@@ -553,7 +545,7 @@
     <additional>Shield</additional>
   </Element>
   <Element> 
-    <filename>block69</filename>
+    <filename>block68</filename>
     <left>Field</left>
     <right>Field</right>
     <bottom>EndRoad</bottom>
@@ -561,7 +553,7 @@
     <additional>Cathedral</additional>
   </Element>
   <Element> 
-    <filename>block70</filename>
+    <filename>block69</filename>
     <left>EndRoad</left>
     <right>EndRoad</right>
     <bottom>EndRoad</bottom>
@@ -569,7 +561,7 @@
     <additional></additional>
   </Element>
   <Element> 
-    <filename>block71</filename>
+    <filename>block70</filename>
     <left>Field</left>
     <right>EndTown</right>
     <bottom>Field</bottom>

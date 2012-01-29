@@ -59,7 +59,7 @@ namespace _3D_Madness
 
         public override void Draw(GameTime gameTime)
         {
-            spritebatch.Begin();
+            spritebatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
             spritebatch.Draw(playerName[0], wholeBar, Color.White);
 
             if (mainGameClass.board.NextBlock != mainGameClass.board.txt1)
@@ -90,7 +90,15 @@ namespace _3D_Madness
 
                 // pionki
                 spritebatch.DrawString(font, Game1.listOfPlayers[i].NumberOfLittlePowns.ToString() + " x ", new Vector2(15, 100 * (i + 1) + 145), Color.Black);
-                //spritebatch.Draw(
+                // kolka kolorowe
+                switch (Game1.listOfPlayers[i].PlayerColor)
+                {
+                    case 1: spritebatch.Draw(mainGameClass.zoltymodel, new Rectangle(60, 100 * (i + 1) + 145, 20, 20), Color.White); break;
+                    case 2: spritebatch.Draw(mainGameClass.czerwonymodel, new Rectangle(60, 100 * (i + 1) + 145, 20, 20), Color.White); break;
+                    case 3: spritebatch.Draw(mainGameClass.niebieskimodel, new Rectangle(60, 100 * (i + 1) + 145, 20, 20), Color.White); break;
+                    case 4: spritebatch.Draw(mainGameClass.zielonymodel, new Rectangle(60, 100 * (i + 1) + 145, 20, 20), Color.White); break;
+                    case 5: spritebatch.Draw(mainGameClass.czarnymodel, new Rectangle(60, 100 * (i + 1) + 145, 20, 20), Color.White); break;
+                }
             }
 
             spritebatch.End();
