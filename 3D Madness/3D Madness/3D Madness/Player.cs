@@ -65,8 +65,6 @@ namespace _3D_Madness
             set { pawns = value; }
         }
 
-        // arek cos mowil ze pisze ustawianie pionkow na planszy, to pewnie tutaj bedzie trzeba stworzyc jakas zmienna jego klasy odpowiadajaca za ilosc pionkow kazdego gracza
-
         #endregion Properties & arguments
 
         #region Constructors

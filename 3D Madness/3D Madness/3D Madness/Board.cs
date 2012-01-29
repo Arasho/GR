@@ -13,56 +13,37 @@ namespace _3D_Madness
     public class Board : Microsoft.Xna.Framework.DrawableGameComponent
     {
         public List<Element> elements { get; set; }       //Board
-
         XML_Parser rand_element;
-
         const int sizeX = 20;
         const int sizeY = 20;
-
-        public List<Element> element = new List<Element>();
-
-        public Element[][] _board;
-
-        public VertexPositionTexture[][][] x { get; set; }
-
-        public VertexPositionTexture[] x1 { get; set; }
-
-        public VertexPositionTexture[] x2 { get; set; }
-
-        public VertexPositionTexture[] x3 { get; set; }
-
-        public VertexPositionTexture[] x4 { get; set; }
-
-        public BasicEffect Effect { get; set; }
-
-        public Game1 mainGameClass { get; set; }
-
-        public Texture2D NextBlock { get; set; }
-
         private int size = 1;
-
+        public int numberOfRotation { get; set; }
+        private int tempRotation;
+        public int X = 0;
+        public int Y = 0;
+        public List<Element> element = new List<Element>();
+        public Element[][] _board;
+        public VertexPositionTexture[][][] x { get; set; }
+        public VertexPositionTexture[] x1 { get; set; }
+        public VertexPositionTexture[] x2 { get; set; }
+        public VertexPositionTexture[] x3 { get; set; }
+        public VertexPositionTexture[] x4 { get; set; }
+        public BasicEffect Effect { get; set; }
+        public Game1 mainGameClass { get; set; }
+        public Texture2D NextBlock { get; set; }        
         public List<Model3D> model = new List<Model3D>();
-
         public Texture2D txt1 { get; set; }
-
         private Texture2D txt2;
         private int textureIndex = 0;
         private SpriteBatch spriteBatch;
-
         private const int GRASS = 6;
-
-        public int numberOfRotation { get; set; }
-
-        private int tempRotation;
-
-        public int X = 0;
-        public int Y = 0;
-
         Random rand;
 
-        public Board(Game g, Texture2D _txt1, Texture2D _txt2)
+        public Board(Game g, Texture2D txt1, Texture2D txt2)
             : base(g)
         {
+            this.txt1 = txt1;
+            this.txt2 = txt2;
             mainGameClass = (Game1)g;
             Effect = new BasicEffect(g.GraphicsDevice);
 
@@ -75,8 +56,6 @@ namespace _3D_Madness
             {
                 elements[i].Texture = (mainGameClass.Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName));
             }
-            txt1 = _txt1;
-            txt2 = _txt2;
 
             _board = new Element[20][];
 
@@ -105,7 +84,7 @@ namespace _3D_Madness
             NextBlock = elements[textureIndex].Texture;
         }
 
-        public void GenerateBoard()
+        private void GenerateBoard()
         {
             for (int i = 0; i < sizeX; i++)
             {
