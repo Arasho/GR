@@ -326,6 +326,7 @@ namespace _3D_Madness
                     if (Round.EndRound(this) == true)
                     {
                         Round.NextTurn();
+                        CheckStone = false; // nie sprawdzaj pionka gracza pierwszego przy turze gracza drugiego!
                     }
                     else
                     {

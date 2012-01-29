@@ -271,7 +271,7 @@ namespace _3D_Madness
                         mainGameClass.CheckStone = false;
                     }
 
-                    //NOWA ZMIANA - SRODEK
+                    //SRODEK
                     else if (intersects(xRay, X + 0.25f, Y + 0.25f, 0, X + 0.75f, Y + 0.75f, 0))
                     {
                         if (!CanIPutStone(this.X, this.Y, 4))
@@ -290,14 +290,9 @@ namespace _3D_Madness
                             mainGameClass.CheckStone = false;
                         }
                     }
-
-                    //NOWA ZMIANA
                     else
                     {
-                        // BUG:: bywa ze po zmianie tury CheckStone nie wraca do normy. 
-                        MessageBox.Show("Chcesz postawic pionka i kliknales po za krawedzia ? ;p CheckStone: "+mainGameClass.CheckStone +" zostanie ustawiony na false;");
-                        // WORKAROUND:: 
-                        mainGameClass.CheckStone = false;
+                        MessageBox.Show("Pionek nie może zostać postawiony we wskazane miejsce.");
                     }
                 }
                 catch (Pawn2PawnCollisionException e)
