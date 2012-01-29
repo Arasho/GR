@@ -13,9 +13,10 @@ namespace _3D_Madness {
         /// </summary>
         /// <param name="x">position x of a pawn</param>
         /// <param name="y">position y of a pawn</param>
-        public Pawn(int x, int y, int krawedz) {
+        public Pawn(int x, int y, Element.Direction krawedz, int wartosc) {
             this.x = x;
             this.y = y;
+            this.wartosc = wartosc;
             this.krawedz = krawedz;
         }
 
@@ -28,8 +29,7 @@ namespace _3D_Madness {
         /// position y setter & getter
         /// </summary>
         public int y { get; set; }
-        public int krawedz {get; set;}
-
-
+        public int wartosc {get; set;}
+        public Element.Direction krawedz { get; set; }
     }
 }

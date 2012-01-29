@@ -191,7 +191,7 @@ namespace _3D_Madness
 
                         model.Add(new Model3D(mainGameClass, X, Y + 0.5f, playerColor));
                         activePlayer.NumberOfLittlePowns--; // decrease number of pawns
-                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.leftEdge)); // save Pawn position
+                        activePlayer.Pawns.Add(new Pawn(X, Y, Element.Direction.Left,thisBoard.leftEdge)); // save Pawn position
                         thisBoard.stoneLeftEdge = 1;
                         Round.PuttingPowl();
                         thisBoard.player = Round.NumberOfActivePlayer;
@@ -214,7 +214,7 @@ namespace _3D_Madness
                             throw new PawnCannotBePlacedHereException();
 
                         model.Add(new Model3D(mainGameClass, X + 0.55f, Y + 0.5f, playerColor));
-                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.rightEdge)); // save Pawn position
+                        activePlayer.Pawns.Add(new Pawn(X, Y, Element.Direction.Right, thisBoard.rightEdge)); // save Pawn position
                         activePlayer.NumberOfLittlePowns--;
                         thisBoard.stoneRightEdge = 1;
                         Round.PuttingPowl();
@@ -238,7 +238,7 @@ namespace _3D_Madness
                             throw new PawnCannotBePlacedHereException();
 
                         model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.9f, playerColor));
-                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.upEdge)); // save Pawn position
+                        activePlayer.Pawns.Add(new Pawn(X, Y, Element.Direction.Up, thisBoard.upEdge)); // save Pawn position
                         activePlayer.NumberOfLittlePowns--;
                         thisBoard.stoneUpEdge = 1;
                         Round.PuttingPowl();
@@ -261,7 +261,7 @@ namespace _3D_Madness
                             throw new PawnCannotBePlacedHereException();
 
                         model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.2f, playerColor));
-                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.bottomEdge)); // save Pawn position
+                        activePlayer.Pawns.Add(new Pawn(X, Y, Element.Direction.Down, thisBoard.bottomEdge)); // save Pawn position
                         activePlayer.NumberOfLittlePowns--;
                         thisBoard.stoneBottomEdge = 1;
                         Round.PuttingPowl();
@@ -378,7 +378,7 @@ namespace _3D_Madness
                                                 {
                                                     foreach (Pawn pionek in Game1.listOfPlayers[z].Pawns)
                                                     {
-                                                        Game1.listOfPlayers[z].PlayerPoints += FloodFill(new Point(pionek.x, pionek.y), pionek.krawedz);
+                                                        Game1.listOfPlayers[z].PlayerPoints += FloodFill(new Point(pionek.x, pionek.y), pionek.krawedz, pionek.wartosc);
                                                     }
                                                     wyniki += Game1.listOfPlayers[z].PlayerName + ": " + Game1.listOfPlayers[z].PlayerPoints + "pkt\n";
                                                 }
@@ -451,15 +451,31 @@ namespace _3D_Madness
             return true;
         }
 
-        private int FloodFill(Point node, int szukanaKrawedz)
+        private int FloodFill(Point node, Element.Direction kierunek, int szukanaKrawedz)
         {
-            Element target;
+            Element target = _board[node.X][node.Y]; ;
             bool first = true;
             Queue<Point> Q = new Queue<Point>();
             List<Point> policzone = new List<Point>();
-            Element tmp = _board[node.X][node.Y];
-            if (szukanaKrawedz == 1) szukanaKrawedz = 0;
-            if (szukanaKrawedz == 4) szukanaKrawedz = 3;
+          
+            if (szukanaKrawedz == (int)Element.Edges.EndRoad) szukanaKrawedz = (int)Element.Edges.Road;
+            if (szukanaKrawedz == (int)Element.Edges.EndTown) szukanaKrawedz = (int)Element.Edges.Town;
+
+            switch (kierunek)
+            {
+                case Element.Direction.Left:
+
+                    break;
+                case Element.Direction.Right:
+                    break;
+                case Element.Direction.Up:
+                    break;
+                case Element.Direction.Down:
+                    break;
+                default:
+                    break;
+            }
+
 
             Q.Enqueue(node);
             while (Q.Count != 0)
