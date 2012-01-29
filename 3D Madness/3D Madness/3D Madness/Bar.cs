@@ -66,7 +66,7 @@ namespace _3D_Madness
 
                 // next block has not been initialized 
                 // why?
-                throw new System.SystemException();
+                //throw new System.SystemException();
 
             }  else if (mainGameClass.board.NextBlock != mainGameClass.board.txt1) {
 

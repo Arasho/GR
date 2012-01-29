@@ -80,7 +80,7 @@ namespace _3D_Madness
             _board[10][10].additional = elements[textureIndex].additional;
             elements.RemoveAt(textureIndex);
             rand = new Random();
-            textureIndex = rand.Next(0, elements.Count);
+            textureIndex = rand.Next(0, elements.Count-1);
             NextBlock = elements[textureIndex].Texture;
         }
 
@@ -261,7 +261,7 @@ namespace _3D_Madness
                             model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.5f, playerColor));
 
                             activePlayer.NumberOfLittlePowns--;
-
+                            activePlayer.Pawns.Add(new Pawn(X, Y, Element.Direction.Down, thisBoard.bottomEdge)); // save Pawn position
                             thisBoard.stoneCenter = 1;
                             thisBoard.player = Round.NumberOfActivePlayer;
                             Round.PuttingPowl();
@@ -340,7 +340,7 @@ namespace _3D_Madness
                                             }
 
                                             elements.RemoveAt(textureIndex);
-                                            textureIndex = rand.Next(0, elements.Count);
+                                            textureIndex = rand.Next(0, elements.Count-1);
                                             NextBlock = elements[textureIndex].Texture;
                                             numberOfRotation = 0;
 
@@ -348,7 +348,7 @@ namespace _3D_Madness
                                             mainGameClass.CanStone = true;
                                             Round.PuttingElement();
 
-                                            if (elements.Count < 50)
+                                            if (elements.Count < 1 )
                                             {
                                                 string wyniki = "Game Over\n";
                                                 for (int z = 0; z < Round.NumberOfPlayers; z++)
@@ -362,7 +362,20 @@ namespace _3D_Madness
 
                                                 if (DialogResult.OK == MessageBox.Show(wyniki))
                                                 {
+                                                    for (int z = 0; z < Round.NumberOfPlayers; z++)
+                                                    {
+                                                            Game1.listOfPlayers[z].PlayerPoints = 0;   
+                                                    }
 
+                                                    if (MessageBox.Show("Czy chcesz zacząć nową grę?", "Carcassonne", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                                    {
+                                                        //((Game1)parrentGame).NewGameForm = new FormPlayers();
+                                                        //((Game1)parrentGame).NewGameForm.Show();
+                                                    }
+                                                    else
+                                                    {
+                                                        Application.Exit();
+                                                    }
                                                 }
                                             }
                                             //mainGameClass.CheckStone = true;
@@ -430,35 +443,27 @@ namespace _3D_Madness
 
         private int FloodFill(Point node, Element.Direction kierunek, int szukanaKrawedz)
         {
-            Element target = _board[node.X][node.Y]; ;
+            int numberOfShield = 0;
+            Element target = _board[node.X][node.Y];
+            if (target.additional == 1) // jesli jest katedrą
+                return 5;
+
             bool first = true;
             Queue<Point> Q = new Queue<Point>();
             List<Point> policzone = new List<Point>();
-          
+            
             if (szukanaKrawedz == (int)Element.Edges.EndRoad) szukanaKrawedz = (int)Element.Edges.Road;
             if (szukanaKrawedz == (int)Element.Edges.EndTown) szukanaKrawedz = (int)Element.Edges.Town;
-
-            switch (kierunek)
-            {
-                case Element.Direction.Left:
-                    break;
-                case Element.Direction.Right:
-                    break;
-                case Element.Direction.Up:
-                    break;
-                case Element.Direction.Down:
-                    break;
-                default:
-                    break;
-            }
-
-
+            
             Q.Enqueue(node);
             while (Q.Count != 0)
             {
+                Point n = Q.Dequeue();
+                if (_board[n.X][n.Y].additional == 2 && !policzone.Contains(new Point(n.X, n.Y)))
+                    numberOfShield += 1; 
                 if (first)
                 {
-                    Point n = Q.Dequeue();
+                    
                     if (n.X < _board.Length - 1 && n.Y < _board[0].Length - 1 && n.X >= 1 && n.Y >= 1)
                     {
                         policzone.Add(n);
@@ -487,7 +492,7 @@ namespace _3D_Madness
                 }
                 else
                 {
-                    Point n = Q.Dequeue();
+                    
                     if (n.X < _board.Length - 1 && n.Y < _board[0].Length - 1 && n.X >= 1 && n.Y >= 1)
                     {
                         policzone.Add(n);
@@ -514,8 +519,14 @@ namespace _3D_Madness
                     }
                 }
             }
-
-            return policzone.Count;
+            if (numberOfShield != 0)
+            {
+                int sum = 0;
+                sum = policzone.Count * (numberOfShield *2);
+                return sum;
+            }
+            else
+                return policzone.Count;
         }
 
         private bool CheckIfModel(Point node, int szukanaKrawedz)
@@ -525,8 +536,8 @@ namespace _3D_Madness
             Queue<Point> Q = new Queue<Point>();
             List<Point> policzone = new List<Point>();
             Element tmp = _board[node.X][node.Y];
-            if (szukanaKrawedz == 1) szukanaKrawedz = 0;
-            if (szukanaKrawedz == 4) szukanaKrawedz = 3;
+            if (szukanaKrawedz == (int)Element.Edges.EndRoad) szukanaKrawedz = (int)Element.Edges.Road;
+            if (szukanaKrawedz == (int)Element.Edges.EndTown) szukanaKrawedz = (int)Element.Edges.Town;
 
             Q.Enqueue(node);
             while (Q.Count != 0)
@@ -541,25 +552,45 @@ namespace _3D_Madness
 
                         if (!policzone.Contains(new Point(n.X - 1, n.Y)) && (target.leftEdge == szukanaKrawedz || target.leftEdge == szukanaKrawedz + 1))
                         {
-                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+
+                            //if (target.stoneLeftEdge == 1) return true;
+                              if (((target.stoneLeftEdge == 1) && (target.leftEdge == szukanaKrawedz)) || 
+                                ((target.stoneRightEdge == 1) && (target.rightEdge == szukanaKrawedz)) ||
+                                ((target.stoneUpEdge == 1) && (target.upEdge == szukanaKrawedz)) ||
+                                ((target.stoneBottomEdge == 1) && (target.bottomEdge == szukanaKrawedz))) return true;
                             Q.Enqueue(new Point(n.X - 1, n.Y));
                         }
 
                         if (!policzone.Contains(new Point(n.X + 1, n.Y)) && (target.rightEdge == szukanaKrawedz || target.rightEdge == szukanaKrawedz + 1))
                         {
-                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            //if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            //if (target.stoneRightEdge == 1) return true;
+                            if (((target.stoneLeftEdge == 1) && (target.leftEdge == szukanaKrawedz)) ||
+                                ((target.stoneRightEdge == 1) && (target.rightEdge == szukanaKrawedz)) ||
+                                ((target.stoneUpEdge == 1) && (target.upEdge == szukanaKrawedz)) ||
+                                ((target.stoneBottomEdge == 1) && (target.bottomEdge == szukanaKrawedz))) return true;
                             Q.Enqueue(new Point(n.X + 1, n.Y));
                         }
 
                         if (!policzone.Contains(new Point(n.X, n.Y + 1)) && (target.upEdge == szukanaKrawedz || target.upEdge == szukanaKrawedz + 1))
                         {
-                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            //if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                          //  if (target.stoneUpEdge == 1) return true;
+                            if (((target.stoneLeftEdge == 1) && (target.leftEdge == szukanaKrawedz)) ||
+                                ((target.stoneRightEdge == 1) && (target.rightEdge == szukanaKrawedz)) ||
+                                ((target.stoneUpEdge == 1) && (target.upEdge == szukanaKrawedz)) ||
+                                ((target.stoneBottomEdge == 1) && (target.bottomEdge == szukanaKrawedz))) return true;
                             Q.Enqueue(new Point(n.X, n.Y + 1));
                         }
 
                         if (!policzone.Contains(new Point(n.X, n.Y - 1)) && (target.bottomEdge == szukanaKrawedz || target.bottomEdge == szukanaKrawedz + 1))
                         {
-                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            //if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                           // if (target.stoneBottomEdge == 1) return true;
+                            if (((target.stoneLeftEdge == 1) && (target.leftEdge == szukanaKrawedz)) ||
+                                ((target.stoneRightEdge == 1) && (target.rightEdge == szukanaKrawedz)) ||
+                                ((target.stoneUpEdge == 1) && (target.upEdge == szukanaKrawedz)) ||
+                                ((target.stoneBottomEdge == 1) && (target.bottomEdge == szukanaKrawedz))) return true;
                             Q.Enqueue(new Point(n.X, n.Y - 1));
                         }
                         first = false;
@@ -574,25 +605,45 @@ namespace _3D_Madness
                         target = _board[n.X][n.Y];
                         if (!policzone.Contains(new Point(n.X - 1, n.Y)) && (target.leftEdge == szukanaKrawedz))
                         {
-                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            //if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            //if (target.stoneLeftEdge == 1) return true;
+                            if (((target.stoneLeftEdge == 1) && (target.leftEdge == szukanaKrawedz)) ||
+                                ((target.stoneRightEdge == 1) && (target.rightEdge == szukanaKrawedz)) ||
+                                ((target.stoneUpEdge == 1) && (target.upEdge == szukanaKrawedz)) ||
+                                ((target.stoneBottomEdge == 1) && (target.bottomEdge == szukanaKrawedz))) return true;
                             Q.Enqueue(new Point(n.X - 1, n.Y));
                         }
 
                         if (!policzone.Contains(new Point(n.X + 1, n.Y)) && (target.rightEdge == szukanaKrawedz))
                         {
-                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            //if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                           // if (target.stoneRightEdge == 1) return true;
+                            if (((target.stoneLeftEdge == 1) && (target.leftEdge == szukanaKrawedz)) ||
+                                ((target.stoneRightEdge == 1) && (target.rightEdge == szukanaKrawedz)) ||
+                                ((target.stoneUpEdge == 1) && (target.upEdge == szukanaKrawedz)) ||
+                                ((target.stoneBottomEdge == 1) && (target.bottomEdge == szukanaKrawedz))) return true;
                             Q.Enqueue(new Point(n.X + 1, n.Y));
                         }
 
                         if (!policzone.Contains(new Point(n.X, n.Y + 1)) && (target.upEdge == szukanaKrawedz))
                         {
-                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            //if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                            //if (target.stoneUpEdge == 1) return true;
+                            if (((target.stoneLeftEdge == 1) && (target.leftEdge == szukanaKrawedz)) ||
+                                ((target.stoneRightEdge == 1) && (target.rightEdge == szukanaKrawedz)) ||
+                                ((target.stoneUpEdge == 1) && (target.upEdge == szukanaKrawedz)) ||
+                                ((target.stoneBottomEdge == 1) && (target.bottomEdge == szukanaKrawedz))) return true;
                             Q.Enqueue(new Point(n.X, n.Y + 1));
                         }
 
                         if (!policzone.Contains(new Point(n.X, n.Y - 1)) && (target.bottomEdge == szukanaKrawedz))
                         {
-                            if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                           // if ((target.stoneLeftEdge == 1) || (target.stoneRightEdge == 1) || (target.stoneUpEdge == 1) || (target.stoneBottomEdge == 1)) return true;
+                           // if (target.stoneBottomEdge == 1) return true;
+                            if (((target.stoneLeftEdge == 1) && (target.leftEdge == szukanaKrawedz)) ||
+                                ((target.stoneRightEdge == 1) && (target.rightEdge == szukanaKrawedz)) ||
+                                ((target.stoneUpEdge == 1) && (target.upEdge == szukanaKrawedz)) ||
+                                ((target.stoneBottomEdge == 1) && (target.bottomEdge == szukanaKrawedz))) return true;
                             Q.Enqueue(new Point(n.X, n.Y - 1));
                         }
                     }
