@@ -47,32 +47,16 @@ namespace _3D_Madness
             mainGameClass = (Game1)g;
             Effect = new BasicEffect(g.GraphicsDevice);
 
-            rand_element = new XML_Parser();
-            elements = rand_element.XDocParse();
+            rand_element = new XML_Parser();            
             spriteBatch = new SpriteBatch(g.GraphicsDevice);
             numberOfRotation = 0;
 
-            for (int i = 0; i < 70; i++)
-            {
-                elements[i].Texture = (mainGameClass.Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName));
-            }
+            loadTextures();
 
-            _board = new Element[20][];
 
-            x = new VertexPositionTexture[sizeX][][];
-            for (int i = 0; i < sizeX; i++)
-            {
-                x[i] = new VertexPositionTexture[sizeY][];
-                _board[i] = new Element[20];
-
-                for (int j = 0; j < sizeY; j++)
-                {
-                    x[i][j] = new VertexPositionTexture[4];
-                }
-            }
             GenerateBoard();
 
-            this._board[10][10].Texture = elements[0].Texture;
+            _board[10][10].Texture = elements[0].Texture;
             _board[10][10].leftEdge = elements[textureIndex].leftEdge;
             _board[10][10].rightEdge = elements[textureIndex].rightEdge;
             _board[10][10].upEdge = elements[textureIndex].upEdge;
@@ -84,8 +68,26 @@ namespace _3D_Madness
             NextBlock = elements[textureIndex].Texture;
         }
 
+        private void loadTextures() {
+            elements = rand_element.XDocParse();
+            for (int i = 0; i < 70; i++) {
+                elements[i].Texture = (mainGameClass.Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName));
+            }
+        }
+
         private void GenerateBoard()
         {
+            _board = new Element[20][];
+
+            x = new VertexPositionTexture[sizeX][][];
+            for (int i = 0; i < sizeX; i++) {
+                x[i] = new VertexPositionTexture[sizeY][];
+                _board[i] = new Element[20];
+
+                for (int j = 0; j < sizeY; j++) {
+                    x[i][j] = new VertexPositionTexture[4];
+                }
+            }
             for (int i = 0; i < sizeX; i++)
             {
                 for (int j = 0; j < sizeY; j++)

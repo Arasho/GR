@@ -5,11 +5,8 @@ namespace _3D_Madness
     public class Element
     {
         public VertexPositionTexture[] verts { get; set; }
-
         public Texture2D Texture { get; set; }
-
         private string fileName;
-
         public string FileName
         {
             get { return fileName; }
@@ -32,23 +29,16 @@ namespace _3D_Madness
         public int stoneBottomEdge = 0;
         public int stoneUpEdge = 0;
         public int stoneCenter = 0;
-
         public int player { get; set; }
-
         public float whereX { get; set; }
-
         public float whereY { get; set; }
 
         #endregion Pomoc do pionka
 
         public int leftEdge { get; set; }
-
         public int rightEdge { get; set; }
-
         public int bottomEdge { get; set; }
-
         public int upEdge { get; set; }
-
         public int additional { get; set; }
 
         public Element(VertexPositionTexture[] x, Texture2D texture)
