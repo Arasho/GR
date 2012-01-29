@@ -47,91 +47,50 @@ namespace _3D_Madness
             mainGameClass = (Game1)g;
             Effect = new BasicEffect(g.GraphicsDevice);
 
-            rand_element = new XML_Parser();
-            elements = rand_element.XDocParse();
+            rand_element = new XML_Parser();            
             spriteBatch = new SpriteBatch(g.GraphicsDevice);
             numberOfRotation = 0;
 
-            for (int i = 0; i < 57; i++)
-            {
-                elements[i].Texture = (mainGameClass.Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName));
-            }
+            loadTexturesAt(@"Blocks\");
 
-            _board = new Element[20][];
-
-            x = new VertexPositionTexture[sizeX][][];
-            for (int i = 0; i < sizeX; i++)
-            {
-                x[i] = new VertexPositionTexture[sizeY][];
-                _board[i] = new Element[20];
-
-                for (int j = 0; j < sizeY; j++)
-                {
-                    x[i][j] = new VertexPositionTexture[4];
-                }
-            }
+            initBoard();
             GenerateBoard();
 
-            this._board[10][10].Texture = elements[0].Texture;
+            _board[10][10].Texture = elements[0].Texture;
             _board[10][10].leftEdge = elements[textureIndex].leftEdge;
             _board[10][10].rightEdge = elements[textureIndex].rightEdge;
             _board[10][10].upEdge = elements[textureIndex].upEdge;
             _board[10][10].bottomEdge = elements[textureIndex].bottomEdge;
             _board[10][10].additional = elements[textureIndex].additional;
             elements.RemoveAt(textureIndex);
+
             rand = new Random();
             textureIndex = rand.Next(0, elements.Count-1);
             NextBlock = elements[textureIndex].Texture;
         }
 
-        private void GenerateBoard()
-        {
-            for (int i = 0; i < sizeX; i++)
-            {
-                for (int j = 0; j < sizeY; j++)
-                {
-                    x[i][j][0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(0, 0));
-                    x[i][j][1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(1, 0));
-                    x[i][j][2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 1));
-                    x[i][j][3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 1));
+        public override void Update(GameTime gameTime) {
+            base.Update(gameTime);
+        }
 
-                    _board[i][j] = new Element(x[i][j], txt1);
+        public override void Draw(GameTime gameTime) {
+            foreach (EffectPass pass in Effect.CurrentTechnique.Passes) {
+                for (int i = 0; i < 20; i++) {
+                    for (int j = 0; j < 20; j++) {
+                        Effect.Texture = _board[i][j].Texture;
+                        pass.Apply();
+
+                        GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
+                        GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
+                       (PrimitiveType.TriangleStrip, _board[i][j].verts, 0, 2);
+                    }
+                }
+
+                foreach (var item in model) {
+                    item.myModel.Draw(Matrix.CreateScale(2f) * Matrix.CreateRotationX(1.5f) * Matrix.CreateTranslation(item.modelPosition.X, item.modelPosition.Y, 0) * Effect.World, Effect.View, Effect.Projection);
                 }
             }
-        }
-
-        private bool CheckBounds(int x, int y, int textInd)
-        {
-            Element next = elements[textInd];
-            if (x > 1 && x < 19 && y > 1 && y < 19)
-            {
-                if (_board[x - 1][y].Texture == txt1 && _board[x + 1][y].Texture == txt1 && _board[x][y - 1].Texture == txt1 && _board[x][y + 1].Texture == txt1)
-                    return false;
-                if ((next.leftEdge == _board[x - 1][y].rightEdge || _board[x - 1][y].Texture == txt1 || (next.leftEdge == _board[x - 1][y].rightEdge + 1) || (next.leftEdge == _board[x - 1][y].rightEdge - 1)) &&
-                    (next.rightEdge == _board[x + 1][y].leftEdge || _board[x + 1][y].Texture == txt1 || next.rightEdge == _board[x + 1][y].leftEdge + 1 || next.rightEdge == _board[x + 1][y].leftEdge - 1) &&
-                    (next.upEdge == _board[x][y + 1].bottomEdge || _board[x][y + 1].Texture == txt1 || next.upEdge == _board[x][y + 1].bottomEdge + 1 || next.upEdge == _board[x][y + 1].bottomEdge - 1) &&
-                    (next.bottomEdge == _board[x][y - 1].upEdge || _board[x][y - 1].Texture == txt1 || next.bottomEdge == _board[x][y - 1].upEdge + 1 || next.bottomEdge == _board[x][y - 1].upEdge - 1))
-                    return true;
-                else
-                    return false;
-            }
-            else
-                return true;
-        }
-
-        // I don't have any idea what this does.
-        private Boolean intersects(Ray xRay, float vectorFirstX, float vectorFirstY, float vectorFirstZ,
-                                    float vectorSecondX, float vectorSecondY, float vectorSecondZ)
-        {
-            return
-                xRay.Intersects(
-                    new BoundingBox(
-                        new Vector3(
-                            vectorFirstX, vectorFirstY, vectorFirstZ),
-                        new Vector3(
-                            vectorSecondX, vectorSecondY, vectorSecondZ)
-                        )
-                   ) > 0f;
+            base.Draw(gameTime);
         }
 
         public void MapMouseAndRandNewBlock(GraphicsDevice g, BasicEffect effect, Camera camera)
@@ -147,14 +106,13 @@ namespace _3D_Madness
 
             if (mainGameClass.CheckStone)
             {
+                Point cursorPos = new Point(this.X, this.Y);
+                Player activePlayer = Game1.listOfPlayers[Round.NumberOfActivePlayer - 1];
+                int playerColor = activePlayer.PlayerColor;
+                Element thisBoard = _board[this.X][this.Y];
+
                 try
                 {
-
-                    Point cursorPos = new Point(this.X, this.Y);
-                    Player activePlayer = Game1.listOfPlayers[Round.NumberOfActivePlayer - 1];
-                    int playerColor = activePlayer.PlayerColor;
-                    Element thisBoard = _board[this.X][this.Y];
-
                     // LEFT EDGE
                     if (intersects(xRay, X, Y + 0.25f, 0, X + 0.25f, Y + 0.75f, 0))
                     {
@@ -276,7 +234,7 @@ namespace _3D_Madness
                 }
                 catch (Pawn2PawnCollisionException e)
                 {
-                    MessageBox.Show("Kolizja z pionkiem innego gracza.");
+                    MessageBox.Show("Kolizja z innym pionkiem.");
                 }
                 catch (Edge2PawnCollisionException e)
                 {
@@ -295,48 +253,46 @@ namespace _3D_Madness
                     {
                         for (int j = 0; j < sizeY; j++)
                         {
-                            if (this._board[i][j].Texture == txt1)
+                            Element thisBoard = _board[i][j];
+
+                            if (thisBoard.Texture == txt1)
                             {
-                                if (xRay.Intersects(new BoundingBox(new Vector3((float)i, (float)j, 0), new Vector3((float)i + 1, (float)j + 1, 0))) > 0f)
+                                if(intersects(xRay, i, j, 0, i+1, j+1, 0))
                                 {
                                     if (elements.Count >= 1)
                                     {
                                         if (CheckBounds(i, j, textureIndex))
                                         {
-                                            //if (mainGameClass.putElement == true) //Round.NextTurn();
                                             mainGameClass.CanStone = false;
                                             this.X = i;
                                             this.Y = j;
 
-                                            this._board[i][j].Texture = elements[textureIndex].Texture;
-                                            _board[i][j].leftEdge = elements[textureIndex].leftEdge;
-                                            _board[i][j].rightEdge = elements[textureIndex].rightEdge;
-                                            _board[i][j].upEdge = elements[textureIndex].upEdge;
-                                            _board[i][j].bottomEdge = elements[textureIndex].bottomEdge;
-                                            _board[i][j].additional = elements[textureIndex].additional;
+                                            thisBoard.Texture = elements[textureIndex].Texture;
+                                            thisBoard.leftEdge = elements[textureIndex].leftEdge;
+                                            thisBoard.rightEdge = elements[textureIndex].rightEdge;
+                                            thisBoard.upEdge = elements[textureIndex].upEdge;
+                                            thisBoard.bottomEdge = elements[textureIndex].bottomEdge;
+                                            thisBoard.additional = elements[textureIndex].additional;
 
                                             // ROTACJA TEKSTURY KLOCKA RYSOWANEGO NA PLANSZY
                                             if (numberOfRotation % 4 == 1)
                                             {
-                                                _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 0));
-                                                _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(1, 1));
-                                                _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 0));
-                                                _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 1));
+                                                rotateTexture( i, j,
+                                                    new Point(1,0), new Point(1,1), new Point(0,0), new Point(0,1)
+                                                );
                                             }
 
                                             if (numberOfRotation % 4 == 2)
                                             {
-                                                _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(1, 1));
-                                                _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 1));
-                                                _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 0));
-                                                _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(0, 0));
+                                                rotateTexture(i, j,
+                                                    new Point(1, 1), new Point(0, 1), new Point(1, 0), new Point(0, 0)
+                                                );
                                             }
                                             if (numberOfRotation % 4 == 3)
                                             {
-                                                _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(0, 1));
-                                                _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(0, 0));
-                                                _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(1, 1));
-                                                _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 0));
+                                                rotateTexture(i, j,
+                                                    new Point(0, 1), new Point(0, 0), new Point(1, 1), new Point(1, 0)
+                                                );
                                             }
 
                                             elements.RemoveAt(textureIndex);
@@ -405,11 +361,6 @@ namespace _3D_Madness
             }
         }
 
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
-        }
-
         public void RotationBlock()
         {
             numberOfRotation++;
@@ -419,9 +370,15 @@ namespace _3D_Madness
             elements[textureIndex].bottomEdge = elements[textureIndex].leftEdge;
             elements[textureIndex].leftEdge = tempRotation;
         }
-
-        // Funkcja sprawdza czy można postawić pionek na danej krawędzi w przypadku,
-        // gdy na elemenecie obok już stoi taki pionek na tej krawędzi
+        
+        /// <summary>
+        /// Funkcja sprawdza czy można postawić pionek na danej krawędzi w przypadku,
+        /// gdy na elemenecie obok już stoi taki pionek na tej krawędzi
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="edge"></param>
+        /// <returns></returns>
         public bool CanIPutStone(int x, int y, int edge)
         {
             switch (edge)
@@ -439,6 +396,66 @@ namespace _3D_Madness
                 default: return false;
             }
             return true;
+        }
+
+        private void initBoard() {
+            _board = new Element[20][];
+            x = new VertexPositionTexture[sizeX][][];
+            for (int i = 0; i < sizeX; i++) {
+                x[i] = new VertexPositionTexture[sizeY][];
+                _board[i] = new Element[20];
+
+                for (int j = 0; j < sizeY; j++) {
+                    x[i][j] = new VertexPositionTexture[4];
+                }
+            }
+        }
+
+        private void loadTexturesAt(String folder) {
+            elements = rand_element.XDocParse();
+            for (int i = 0; i < 57; i++) {
+                elements[i].Texture = (mainGameClass.Content.Load<Texture2D>(folder + elements[i].FileName));
+            }
+        }
+
+        private void GenerateBoard() {
+            for (int i = 0; i < sizeX; i++) {
+                for (int j = 0; j < sizeY; j++) {
+                    x[i][j][0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(0, 0));
+                    x[i][j][1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(1, 0));
+                    x[i][j][2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(0, 1));
+                    x[i][j][3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(1, 1));
+
+                    _board[i][j] = new Element(x[i][j], txt1);
+                }
+            }
+        }
+
+        private bool CheckBounds(int x, int y, int textInd) {
+            Element next = elements[textInd];
+            if (x > 1 && x < 19 && y > 1 && y < 19) {
+                if (_board[x - 1][y].Texture == txt1 && _board[x + 1][y].Texture == txt1 && _board[x][y - 1].Texture == txt1 && _board[x][y + 1].Texture == txt1)
+                    return false;
+                if ((next.leftEdge == _board[x - 1][y].rightEdge || _board[x - 1][y].Texture == txt1 || (next.leftEdge == _board[x - 1][y].rightEdge + 1) || (next.leftEdge == _board[x - 1][y].rightEdge - 1)) &&
+                    (next.rightEdge == _board[x + 1][y].leftEdge || _board[x + 1][y].Texture == txt1 || next.rightEdge == _board[x + 1][y].leftEdge + 1 || next.rightEdge == _board[x + 1][y].leftEdge - 1) &&
+                    (next.upEdge == _board[x][y + 1].bottomEdge || _board[x][y + 1].Texture == txt1 || next.upEdge == _board[x][y + 1].bottomEdge + 1 || next.upEdge == _board[x][y + 1].bottomEdge - 1) &&
+                    (next.bottomEdge == _board[x][y - 1].upEdge || _board[x][y - 1].Texture == txt1 || next.bottomEdge == _board[x][y - 1].upEdge + 1 || next.bottomEdge == _board[x][y - 1].upEdge - 1))
+                    return true;
+                else
+                    return false;
+            } else
+                return true;
+        }
+
+        private Boolean intersects(Ray xRay, float vectorFirstX, float vectorFirstY, float vectorFirstZ,
+                                    float vectorSecondX, float vectorSecondY, float vectorSecondZ) {
+            return
+                xRay.Intersects(
+                    new BoundingBox(
+                        new Vector3(vectorFirstX, vectorFirstY, vectorFirstZ),
+                        new Vector3(vectorSecondX, vectorSecondY, vectorSecondZ)
+                    )
+                ) > 0f;
         }
 
         private int FloodFill(Point node, Element.Direction kierunek, int szukanaKrawedz)
@@ -527,6 +544,29 @@ namespace _3D_Madness
             }
             else
                 return policzone.Count;
+        }
+
+        private void checkForGameOver() {
+            if (elements.Count < 50) {
+                string wyniki = "Game Over\n";
+                for (int z = 0; z < Round.NumberOfPlayers; z++) {
+                    foreach (Pawn pionek in Game1.listOfPlayers[z].Pawns) {
+                        Game1.listOfPlayers[z].PlayerPoints += FloodFill(new Point(pionek.x, pionek.y), pionek.krawedz, pionek.wartosc);
+                    }
+                    wyniki += Game1.listOfPlayers[z].PlayerName + ": " + Game1.listOfPlayers[z].PlayerPoints + "pkt\n";
+                }
+
+                if (DialogResult.OK == MessageBox.Show(wyniki)) {
+
+                }
+            }
+        }
+
+        private void rotateTexture(int i, int j, Point a, Point b, Point c, Point d) {
+            _board[i][j].verts[0] = new VertexPositionTexture(new Vector3(i, j + size, 0), new Vector2(a.X, a.Y));
+            _board[i][j].verts[1] = new VertexPositionTexture(new Vector3(i + size, j + size, 0), new Vector2(b.X, b.Y));
+            _board[i][j].verts[2] = new VertexPositionTexture(new Vector3(i, j, 0), new Vector2(c.X, c.Y));
+            _board[i][j].verts[3] = new VertexPositionTexture(new Vector3(i + size, j, 0), new Vector2(d.X, d.Y));
         }
 
         private bool CheckIfModel(Point node, int szukanaKrawedz)
@@ -650,31 +690,6 @@ namespace _3D_Madness
                 }
             }
             return false;
-        }
-
-        public override void Draw(GameTime gameTime)
-        {
-            foreach (EffectPass pass in Effect.CurrentTechnique.Passes)
-            {
-                for (int i = 0; i < 20; i++)
-                {
-                    for (int j = 0; j < 20; j++)
-                    {
-                        Effect.Texture = _board[i][j].Texture;
-                        pass.Apply();
-
-                        GraphicsDevice.SamplerStates[0] = SamplerState.LinearClamp;
-                        GraphicsDevice.DrawUserPrimitives<VertexPositionTexture>
-                       (PrimitiveType.TriangleStrip, _board[i][j].verts, 0, 2);
-                    }
-                }
-
-                foreach (var item in model)
-                {
-                    item.myModel.Draw(Matrix.CreateScale(2f) * Matrix.CreateRotationX(1.5f) * Matrix.CreateTranslation(item.modelPosition.X, item.modelPosition.Y, 0) * Effect.World, Effect.View, Effect.Projection);
-                }
-            }
-            base.Draw(gameTime);
         }
     }
 }
