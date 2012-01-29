@@ -17,7 +17,7 @@ namespace _3D_Madness
 
         Texture2D txt1;
         Texture2D txt2;
-
+        public Texture2D czarnymodel, zoltymodel, czerwonymodel, zielonymodel, niebieskimodel;
         public bool putElement = false;
 
         public float whereIam = 0.0f;
@@ -25,6 +25,7 @@ namespace _3D_Madness
         public GraphicsDeviceManager graphics { get; set; }
 
         public static List<Player> listOfPlayers = new List<Player>();
+        public static List<String> wyniki = new List<string>(listOfPlayers.Count);
 
         SpriteBatch spriteBatch;
         KeyboardState previousKeyboard;
@@ -86,6 +87,11 @@ namespace _3D_Madness
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            czerwonymodel = Content.Load<Texture2D>(@"Models\czerwonaminiatura");
+            czarnymodel = Content.Load<Texture2D>(@"Models\czarnaminiatura");
+            zoltymodel = Content.Load<Texture2D>(@"Models\zoltaminiatura");
+            zielonymodel = Content.Load<Texture2D>(@"Models\zielonaminiatura");
+            niebieskimodel = Content.Load<Texture2D>(@"Models\niebieskaminiatura");
 
             txt1 = Content.Load<Texture2D>(@"Textures\empty");
             txt2 = Content.Load<Texture2D>(@"Textures\Trees");
