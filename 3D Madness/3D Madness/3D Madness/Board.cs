@@ -71,7 +71,7 @@ namespace _3D_Madness
             spriteBatch = new SpriteBatch(g.GraphicsDevice);
             numberOfRotation = 0;
 
-            for (int i = 0; i < 72; i++)
+            for (int i = 0; i < 70; i++)
             {
                 elements[i].Texture = (mainGameClass.Content.Load<Texture2D>(@"Blocks\" + elements[i].FileName));
             }
@@ -294,7 +294,10 @@ namespace _3D_Madness
                     //NOWA ZMIANA
                     else
                     {
-                        MessageBox.Show("Chcesz postawic pionka i kliknales po za krawedzia ? ;p");
+                        // BUG:: bywa ze po zmianie tury CheckStone nie wraca do normy. 
+                        MessageBox.Show("Chcesz postawic pionka i kliknales po za krawedzia ? ;p CheckStone: "+mainGameClass.CheckStone +" zostanie ustawiony na false;");
+                        // WORKAROUND:: 
+                        mainGameClass.CheckStone = false;
                     }
                 }
                 catch (Pawn2PawnCollisionException e)

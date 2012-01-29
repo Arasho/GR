@@ -69,7 +69,6 @@ Content\Blocks\block68.xnb
 Content\Blocks\block69.xnb
 Content\Blocks\block7.xnb
 Content\Blocks\block70.xnb
-Content\Blocks\block71.xnb
 Content\Blocks\block8.xnb
 Content\Blocks\block9.xnb
 Content\tlo.xnb
@@ -107,4 +106,9 @@ Content\Models\RooftilesSlate0051_3_S[1]_0.xnb
 Content\Models\BrickOldRounded0028_5_S[1]_0.xnb
 Content\Models\BrickOldRounded0046_12_S[1]_0.xnb
 Content\Models\BrickOldRounded0048_2_S[1]_0.xnb
+Content\Models\czerwonaminiatura.xnb
+Content\Models\czarnaminiatura.xnb
+Content\Models\niebieskaminiatura.xnb
+Content\Models\zielonaminiatura.xnb
+Content\Models\zoltaminiatura.xnb
 Elements.xml

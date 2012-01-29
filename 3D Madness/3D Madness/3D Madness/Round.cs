@@ -57,6 +57,7 @@ namespace _3D_Madness
 
         public static void NextTurn()
         {
+            
             putElement = false;
             putPown = false;
             counfOfTurn++;
