@@ -4,3 +4,4 @@ C:\Users\kkurylek\Documents\Visual Studio 2010\Projects\Carcassone\GR\3D Madness
 D:\Politechnika\VII semestr\Grafika ruchoma\Projekt\ProjektGrafika + grafiki i XML\ProjektGrafika\eCarcassone\GR\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Projekt\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Repo\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\GR\GR\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\ResolveAssemblyReference.cache

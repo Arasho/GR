@@ -49,6 +49,8 @@ namespace _3D_Madness
         private int textureIndex = 0;
         private SpriteBatch spriteBatch;
 
+        private const int GRASS = 6;
+
         public int numberOfRotation { get; set; }
 
         private int tempRotation;
@@ -138,6 +140,21 @@ namespace _3D_Madness
                 return true;
         }
 
+        // I don't have any idea what this does.
+        private Boolean intersects(Ray xRay, float vectorFirstX, float vectorFirstY, float vectorFirstZ,
+                                    float vectorSecondX, float vectorSecondY, float vectorSecondZ)
+        {
+            return
+                xRay.Intersects(
+                    new BoundingBox(
+                        new Vector3(
+                            vectorFirstX, vectorFirstY, vectorFirstZ),
+                        new Vector3(
+                            vectorSecondX, vectorSecondY, vectorSecondZ)
+                        )
+                   ) > 0f;
+        }
+
         public void MapMouseAndRandNewBlock(GraphicsDevice g, BasicEffect effect, Camera camera)
         {
             Vector3 nearSource = new Vector3(Mouse.GetState().X, Mouse.GetState().Y, 0f);
@@ -151,160 +168,146 @@ namespace _3D_Madness
 
             if (mainGameClass.CheckStone)
             {
-                //  mainGameClass.CheckStone = false;
-                if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y + 0.25f, 0), new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0))) > 0f)
+                try
                 {
-                    if (CanIPutStone(this.X, this.Y, 0))
+
+                    Point cursorPos = new Point(this.X, this.Y);
+                    Player activePlayer = Game1.listOfPlayers[Round.NumberOfActivePlayer - 1];
+                    int playerColor = activePlayer.PlayerColor;
+                    Element thisBoard = _board[this.X][this.Y];
+
+                    // LEFT EDGE
+                    if (intersects(xRay, X, Y + 0.25f, 0, X + 0.25f, Y + 0.75f, 0))
                     {
-                        int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].leftEdge);
 
-                        //System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
+                        if (!CanIPutStone(this.X, this.Y, 0))
+                            throw new Edge2PawnCollisionException();
 
-                        if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].leftEdge) == false)
-                        {
-                            model.Add(new Model3D(mainGameClass, X , Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
-                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
-                            _board[X][Y].stoneLeftEdge = 1;
-                            Round.PuttingPowl();
-                            _board[X][Y].player = Round.NumberOfActivePlayer;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                        }
+                        if (CheckIfModel(cursorPos, thisBoard.leftEdge))
+                            throw new Edge2PawnCollisionException();
+
+                        if (thisBoard.leftEdge == GRASS) // pawn cannot be placed on grass
+                            throw new PawnCannotBePlacedHereException();
+
+                        model.Add(new Model3D(mainGameClass, X, Y + 0.5f, playerColor));
+                        activePlayer.NumberOfLittlePowns--; // decrease number of pawns
+                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.leftEdge)); // save Pawn position
+                        thisBoard.stoneLeftEdge = 1;
+                        Round.PuttingPowl();
+                        thisBoard.player = Round.NumberOfActivePlayer;
 
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        // Round.NextTurn();
                     }
-                    else
+
+                    // RIGHT EDGE
+                    else if (intersects(xRay, X + 0.75f, Y + 0.25f, 0, X + 1, Y + 0.75f, 0))
                     {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                    }
-                }
-                else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0), new Vector3((float)X + 1, (float)Y + 0.75f, 0))) > 0f)
-                {
-                    if (CanIPutStone(this.X, this.Y, 2))
-                    {
-                        int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].rightEdge);
-                        //System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
-                        if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].rightEdge) == false)
-                        {
-                            model.Add(new Model3D(mainGameClass, X + 0.55f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
-                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
-                            _board[X][Y].stoneRightEdge = 1;
-                            Round.PuttingPowl();
-                            _board[X][Y].player = Round.NumberOfActivePlayer;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                        }
+
+                        if (!CanIPutStone(this.X, this.Y, 2))
+                            throw new Pawn2PawnCollisionException();
+
+                        if (CheckIfModel(cursorPos, thisBoard.rightEdge))
+                            throw new Pawn2PawnCollisionException();
+
+                        if (thisBoard.rightEdge == GRASS)
+                            throw new PawnCannotBePlacedHereException();
+
+                        model.Add(new Model3D(mainGameClass, X + 0.55f, Y + 0.5f, playerColor));
+                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.rightEdge)); // save Pawn position
+                        activePlayer.NumberOfLittlePowns--;
+                        thisBoard.stoneRightEdge = 1;
+                        Round.PuttingPowl();
+                        thisBoard.player = Round.NumberOfActivePlayer;
 
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        //Round.NextTurn();
                     }
-                    else
-                    {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                    }
-                }
 
-                else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y + 0.75f, 0), new Vector3((float)X + 0.75f, (float)Y + 1, 0))) > 0f)
-                {
-                    if (CanIPutStone(this.X, this.Y, 1))
+                    // TOP (UP) EDGE
+                    else if (intersects(xRay, X + 0.25f, Y + 0.75f, 0, X + 0.75f, Y + 1, 0))
                     {
-                        int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].upEdge);
-                        System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
-                        if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].upEdge) == false)
-                        {
-                            model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.9f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
-                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
 
-                            _board[X][Y].stoneUpEdge = 1;
-                            Round.PuttingPowl();
-                            _board[X][Y].player = Round.NumberOfActivePlayer;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                        }
+                        if (!CanIPutStone(this.X, this.Y, 1))
+                            throw new Pawn2PawnCollisionException();
+
+                        if (CheckIfModel(cursorPos, thisBoard.upEdge))
+                            throw new Pawn2PawnCollisionException();
+
+                        if (thisBoard.upEdge == GRASS)
+                            throw new PawnCannotBePlacedHereException();
+
+                        model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.9f, playerColor));
+                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.upEdge)); // save Pawn position
+                        activePlayer.NumberOfLittlePowns--;
+                        thisBoard.stoneUpEdge = 1;
+                        Round.PuttingPowl();
+                        thisBoard.player = Round.NumberOfActivePlayer;
 
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        // Round.NextTurn();
                     }
-                    else
-                    {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                    }
-                }
 
-                else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y, 0), new Vector3((float)X + 0.75f, (float)Y + 0.25f, 0))) > 0f)
-                {
-                    if (CanIPutStone(this.X, this.Y, 3))
+                    // BOTTOM (DOWN) EDGE
+                    else if (intersects(xRay, X + 0.25f, Y, 0, X + 0.75f, Y + 0.25f, 0))
                     {
-                        int punkty = FloodFill(new Point(this.X, this.Y), _board[this.X][this.Y].bottomEdge);
-                        System.Diagnostics.Debug.WriteLine("To nasze punkty: " + punkty.ToString());
-                        if (CheckIfModel(new Point(this.X, this.Y), _board[this.X][this.Y].bottomEdge) == false)
-                        {
-                            model.Add(new Model3D(mainGameClass, X + 0.30f, Y+0.2f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
-                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                        if (!CanIPutStone(this.X, this.Y, 3))
+                            throw new Pawn2PawnCollisionException();
 
-                            _board[X][Y].stoneBottomEdge = 1;
-                            Round.PuttingPowl();
-                            _board[X][Y].player = Round.NumberOfActivePlayer;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                        }
+                        if (CheckIfModel(cursorPos, thisBoard.bottomEdge))
+                            throw new Pawn2PawnCollisionException();
+
+                        if (thisBoard.bottomEdge == GRASS)
+                            throw new PawnCannotBePlacedHereException();
+
+                        model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.2f, playerColor));
+                        activePlayer.Pawns.Add(new Pawn(X, Y, thisBoard.bottomEdge)); // save Pawn position
+                        activePlayer.NumberOfLittlePowns--;
+                        thisBoard.stoneBottomEdge = 1;
+                        Round.PuttingPowl();
+                        thisBoard.player = Round.NumberOfActivePlayer;
 
                         mainGameClass.CanStone = false;
                         mainGameClass.CheckStone = false;
-                        // Round.NextTurn();
                     }
-                    else
-                    {
-                        MessageBox.Show("Na tej krawędzi już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
-                    }
-                }
 
-                //else if (xRay.Intersects(new BoundingBox(new Vector3((float)X, (float)Y, 0), new Vector3((float)X + 1, (float)Y + 1, 0))) > 0f)
-                //{
-                //    MessageBox.Show("Nie klikaj w srodek ! Spróbuj położyc pionka bliżej którejś z krawędzi");
-                //}
-
-                //NOWA ZMIANA - SRODEK
-                else if (xRay.Intersects(new BoundingBox(new Vector3((float)X + 0.25f, (float)Y + 0.25f, 0), new Vector3((float)X + 0.75f, (float)Y + 0.75f, 0))) > 0f)
-                {
-                    if (CanIPutStone(this.X, this.Y, 4))
+                    //NOWA ZMIANA - SRODEK
+                    else if (intersects(xRay, X + 0.25f, Y + 0.25f, 0, X + 0.75f, Y + 0.75f, 0))
                     {
-                        if (_board[X][Y].additional == 1)
+                        if (!CanIPutStone(this.X, this.Y, 4))
+                            throw new Pawn2PawnCollisionException();
+
+                        if (thisBoard.additional == 1)
                         {
-                            model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.5f, Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerColor));
+                            model.Add(new Model3D(mainGameClass, X + 0.30f, Y + 0.5f, playerColor));
 
-                            Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].NumberOfLittlePowns--;
+                            activePlayer.NumberOfLittlePowns--;
 
-                            _board[X][Y].stoneCenter = 1;
-                            _board[X][Y].player = Round.NumberOfActivePlayer;
+                            thisBoard.stoneCenter = 1;
+                            thisBoard.player = Round.NumberOfActivePlayer;
                             Round.PuttingPowl();
                             mainGameClass.CanStone = false;
                             mainGameClass.CheckStone = false;
-                            //  Round.NextTurn();
                         }
                     }
+
+                    //NOWA ZMIANA
                     else
                     {
-                        MessageBox.Show("Na srodku już stoi pionek gracza " + Game1.listOfPlayers[Round.NumberOfActivePlayer - 1].PlayerName);
+                        MessageBox.Show("Chcesz postawic pionka i kliknales po za krawedzia ? ;p");
                     }
                 }
-
-                //NOWA ZMIANA
-                else
+                catch (Pawn2PawnCollisionException e)
                 {
-                    MessageBox.Show("Chcesz postawic pionka i kliknales po za krawedzia ? ;p");
+                    MessageBox.Show("Kolizja z pionkiem innego gracza.");
+                }
+                catch (Edge2PawnCollisionException e)
+                {
+                    MessageBox.Show("Kolizja pionka z krawędzią.");
+                }
+                catch (PawnCannotBePlacedHereException e)
+                {
+                    return; // do nothing. Pawn cannot be placed on grass
                 }
             }
             else
@@ -367,6 +370,24 @@ namespace _3D_Madness
                                             mainGameClass.putElement = true;
                                             mainGameClass.CanStone = true;
                                             Round.PuttingElement();
+
+                                            if (elements.Count < 67)
+                                            {
+                                                string wyniki = "Game Over\n";
+                                                for (int z = 0; z < Round.NumberOfPlayers; z++)
+                                                {
+                                                    foreach (Pawn pionek in Game1.listOfPlayers[z].Pawns)
+                                                    {
+                                                        Game1.listOfPlayers[z].PlayerPoints += FloodFill(new Point(pionek.x, pionek.y), pionek.krawedz);
+                                                    }
+                                                    wyniki += Game1.listOfPlayers[z].PlayerName + ": " + Game1.listOfPlayers[z].PlayerPoints + "pkt\n";
+                                                }
+
+                                                if (DialogResult.OK == MessageBox.Show(wyniki))
+                                                {
+
+                                                }
+                                            }
                                             //mainGameClass.CheckStone = true;
                                         }
                                     }

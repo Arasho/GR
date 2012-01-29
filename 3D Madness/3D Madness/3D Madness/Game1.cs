@@ -320,7 +320,7 @@ namespace _3D_Madness
                 #endregion Przesuwanie kamery wzgledem myszy
 
                 // OBSLUGA TUR //
-                if (keyboardState.IsKeyDown(Keys.Space) == true && previousKeyboard.IsKeyDown(Keys.Space) != true )
+                if (keyboardState.IsKeyDown(Keys.Space) == true && previousKeyboard.IsKeyDown(Keys.Space) != true  && NewGameForm.IsDisposed)
                 {
                     //putElement = false;
                     if (Round.EndRound(this) == true)

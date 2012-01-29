@@ -92,6 +92,11 @@ Content\Models\flag.xnb
 Content\Models\Pionek.xnb
 Content\Models\tree.xnb
 Content\Models\Wieza.xnb
+Content\Models\blue.xnb
+Content\Models\green.xnb
+Content\Models\red.xnb
+Content\Models\yellow.xnb
+Content\Models\black.xnb
 Content\Models\Metal_Corrogated_Shiny_0.xnb
 Content\Models\Metal_Aluminum_Anodized_0.xnb
 Content\Models\Concrete_Aggregate_Stained_0.xnb
@@ -102,9 +107,4 @@ Content\Models\RooftilesSlate0051_3_S[1]_0.xnb
 Content\Models\BrickOldRounded0028_5_S[1]_0.xnb
 Content\Models\BrickOldRounded0046_12_S[1]_0.xnb
 Content\Models\BrickOldRounded0048_2_S[1]_0.xnb
-Content\Models\blue.xnb
-Content\Models\green.xnb
-Content\Models\red.xnb
-Content\Models\yellow.xnb
-Content\Models\black.xnb
 Elements.xml
