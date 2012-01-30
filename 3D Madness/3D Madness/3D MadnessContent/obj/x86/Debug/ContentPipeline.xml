@@ -2,31 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Textures\Trees.jpg</Source>
-      <Name>Textures\Trees</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\Trees.xnb</Output>
-      <Time>2012-01-28T19:53:15.5351143+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Textures\empty.png</Source>
-      <Name>Textures\empty</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\empty.xnb</Output>
-      <Time>2012-01-28T19:53:15.5351143+01:00</Time>
-    </Item>
-    <Item>
       <Source>Blocks\block0.jpg</Source>
       <Name>Blocks\block0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block0.xnb</Output>
-      <Time>2012-01-28T19:53:15.3241022+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block0.xnb</Output>
+      <Time>2011-12-06T17:26:35.5183684+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block1.jpg</Source>
@@ -34,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block1.xnb</Output>
-      <Time>2012-01-28T19:53:15.3251023+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block1.xnb</Output>
+      <Time>2011-12-06T17:26:35.5339685+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block10.jpg</Source>
@@ -43,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block10.xnb</Output>
-      <Time>2012-01-28T19:53:15.3271024+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block10.xnb</Output>
+      <Time>2012-01-29T23:05:31.2711629+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block11.jpg</Source>
@@ -52,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block11.xnb</Output>
-      <Time>2012-01-28T19:53:15.3291025+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block11.xnb</Output>
+      <Time>2012-01-29T23:05:31.3041647+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block12.jpg</Source>
@@ -61,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block12.xnb</Output>
-      <Time>2012-01-28T19:53:15.3311026+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block12.xnb</Output>
+      <Time>2012-01-29T23:05:31.3221658+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block13.jpg</Source>
@@ -70,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block13.xnb</Output>
-      <Time>2012-01-28T19:53:15.3321027+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block13.xnb</Output>
+      <Time>2012-01-29T23:05:31.344167+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block14.jpg</Source>
@@ -79,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block14.xnb</Output>
-      <Time>2012-01-28T19:53:15.3341028+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block14.xnb</Output>
+      <Time>2012-01-29T23:05:31.3581678+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block15.jpg</Source>
@@ -88,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block15.xnb</Output>
-      <Time>2012-01-28T19:53:15.3361029+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block15.xnb</Output>
+      <Time>2012-01-29T23:05:31.3701685+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block16.jpg</Source>
@@ -97,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block16.xnb</Output>
-      <Time>2012-01-28T19:53:15.3391031+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block16.xnb</Output>
+      <Time>2012-01-29T23:05:31.3901697+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block17.jpg</Source>
@@ -106,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block17.xnb</Output>
-      <Time>2012-01-28T19:53:15.3411032+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block17.xnb</Output>
+      <Time>2012-01-29T23:05:31.4061706+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block18.jpg</Source>
@@ -115,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block18.xnb</Output>
-      <Time>2012-01-28T19:53:15.3431033+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block18.xnb</Output>
+      <Time>2012-01-29T23:05:31.413171+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block19.jpg</Source>
@@ -124,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block19.xnb</Output>
-      <Time>2012-01-28T19:53:15.3451034+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block19.xnb</Output>
+      <Time>2012-01-29T23:05:31.4241716+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block2.jpg</Source>
@@ -133,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block2.xnb</Output>
-      <Time>2012-01-28T19:53:15.3471035+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block2.xnb</Output>
+      <Time>2011-12-06T17:26:35.5651685+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block20.jpg</Source>
@@ -142,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block20.xnb</Output>
-      <Time>2012-01-28T19:53:15.3491036+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block20.xnb</Output>
+      <Time>2012-01-29T23:05:31.4721743+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block21.jpg</Source>
@@ -151,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block21.xnb</Output>
-      <Time>2012-01-28T19:53:15.3511038+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block21.xnb</Output>
+      <Time>2012-01-29T23:05:31.4951757+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block22.jpg</Source>
@@ -160,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block22.xnb</Output>
-      <Time>2012-01-28T19:53:15.3531039+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block22.xnb</Output>
+      <Time>2012-01-29T23:05:31.5141768+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block23.jpg</Source>
@@ -169,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block23.xnb</Output>
-      <Time>2012-01-28T19:53:15.355104+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block23.xnb</Output>
+      <Time>2012-01-29T23:05:31.5311777+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block24.jpg</Source>
@@ -178,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block24.xnb</Output>
-      <Time>2012-01-28T19:53:15.3571041+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block24.xnb</Output>
+      <Time>2012-01-29T23:05:31.5421784+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block25.jpg</Source>
@@ -187,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block25.xnb</Output>
-      <Time>2012-01-28T19:53:15.3601043+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block25.xnb</Output>
+      <Time>2012-01-29T23:05:31.5681798+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block26.jpg</Source>
@@ -196,8 +178,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block26.xnb</Output>
-      <Time>2012-01-28T19:53:15.3611043+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block26.xnb</Output>
+      <Time>2012-01-29T23:05:31.588181+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block27.jpg</Source>
@@ -205,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block27.xnb</Output>
-      <Time>2012-01-28T19:53:15.3631044+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block27.xnb</Output>
+      <Time>2012-01-29T23:05:31.5961814+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block28.jpg</Source>
@@ -214,8 +196,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block28.xnb</Output>
-      <Time>2012-01-28T19:53:15.3651046+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block28.xnb</Output>
+      <Time>2012-01-29T23:05:31.6081821+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block29.jpg</Source>
@@ -223,8 +205,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block29.xnb</Output>
-      <Time>2012-01-28T19:53:15.3671047+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block29.xnb</Output>
+      <Time>2012-01-29T23:05:31.6341836+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block3.jpg</Source>
@@ -232,8 +214,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block3.xnb</Output>
-      <Time>2012-01-28T19:53:15.3691048+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block3.xnb</Output>
+      <Time>2011-12-06T17:26:35.5651685+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block30.jpg</Source>
@@ -241,8 +223,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block30.xnb</Output>
-      <Time>2012-01-28T19:53:15.3701048+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block30.xnb</Output>
+      <Time>2012-01-29T23:05:31.640184+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block31.jpg</Source>
@@ -250,8 +232,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block31.xnb</Output>
-      <Time>2012-01-28T19:53:15.372105+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block31.xnb</Output>
+      <Time>2012-01-29T23:05:31.6871866+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block32.jpg</Source>
@@ -259,8 +241,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block32.xnb</Output>
-      <Time>2012-01-28T19:53:15.3741051+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block32.xnb</Output>
+      <Time>2012-01-29T23:05:31.6961872+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block33.jpg</Source>
@@ -268,8 +250,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block33.xnb</Output>
-      <Time>2012-01-28T19:53:15.3761052+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block33.xnb</Output>
+      <Time>2012-01-29T23:05:31.7031876+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block34.jpg</Source>
@@ -277,8 +259,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block34.xnb</Output>
-      <Time>2012-01-28T19:53:15.3771052+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block34.xnb</Output>
+      <Time>2012-01-29T23:05:31.7201885+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block35.jpg</Source>
@@ -286,8 +268,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block35.xnb</Output>
-      <Time>2012-01-28T19:53:15.3791054+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block35.xnb</Output>
+      <Time>2012-01-29T23:05:31.7431899+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block36.jpg</Source>
@@ -295,8 +277,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block36.xnb</Output>
-      <Time>2012-01-28T19:53:15.3811055+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block36.xnb</Output>
+      <Time>2012-01-29T23:05:31.7701914+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block37.jpg</Source>
@@ -304,8 +286,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block37.xnb</Output>
-      <Time>2012-01-28T19:53:15.3821055+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block37.xnb</Output>
+      <Time>2012-01-29T23:05:31.8061935+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block38.jpg</Source>
@@ -313,8 +295,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block38.xnb</Output>
-      <Time>2012-01-28T19:53:15.3841056+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block38.xnb</Output>
+      <Time>2012-01-29T23:05:31.8271947+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block39.jpg</Source>
@@ -322,8 +304,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block39.xnb</Output>
-      <Time>2012-01-28T19:53:15.3861058+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block39.xnb</Output>
+      <Time>2012-01-29T23:05:31.8441956+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block4.jpg</Source>
@@ -331,8 +313,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block4.xnb</Output>
-      <Time>2012-01-28T19:53:15.3891059+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block4.xnb</Output>
+      <Time>2011-12-06T17:26:35.5963686+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block40.jpg</Source>
@@ -340,8 +322,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block40.xnb</Output>
-      <Time>2012-01-28T19:53:15.390106+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block40.xnb</Output>
+      <Time>2012-01-29T23:05:31.850196+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block41.jpg</Source>
@@ -349,8 +331,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block41.xnb</Output>
-      <Time>2012-01-28T19:53:15.3921061+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block41.xnb</Output>
+      <Time>2012-01-29T23:05:31.8651968+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block42.jpg</Source>
@@ -358,8 +340,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block42.xnb</Output>
-      <Time>2012-01-28T19:53:15.3951063+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block42.xnb</Output>
+      <Time>2012-01-29T23:05:31.8731973+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block43.jpg</Source>
@@ -367,8 +349,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block43.xnb</Output>
-      <Time>2012-01-28T19:53:15.3971064+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block43.xnb</Output>
+      <Time>2012-01-29T23:05:31.8841979+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block44.jpg</Source>
@@ -376,8 +358,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block44.xnb</Output>
-      <Time>2012-01-28T19:53:15.3991065+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block44.xnb</Output>
+      <Time>2012-01-29T23:05:31.9041991+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block45.jpg</Source>
@@ -385,8 +367,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block45.xnb</Output>
-      <Time>2012-01-28T19:53:15.4001066+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block45.xnb</Output>
+      <Time>2012-01-29T23:05:31.9212+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block46.jpg</Source>
@@ -394,8 +376,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block46.xnb</Output>
-      <Time>2012-01-28T19:53:15.4021067+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block46.xnb</Output>
+      <Time>2012-01-29T23:05:31.9322007+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block47.jpg</Source>
@@ -403,8 +385,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block47.xnb</Output>
-      <Time>2012-01-28T19:53:15.4041068+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block47.xnb</Output>
+      <Time>2012-01-29T23:05:31.9432013+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block48.jpg</Source>
@@ -412,8 +394,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block48.xnb</Output>
-      <Time>2012-01-28T19:53:15.4051068+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block48.xnb</Output>
+      <Time>2012-01-29T23:05:31.9822035+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block49.jpg</Source>
@@ -421,8 +403,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block49.xnb</Output>
-      <Time>2012-01-28T19:53:15.407107+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block49.xnb</Output>
+      <Time>2012-01-29T23:05:32.0052048+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block5.jpg</Source>
@@ -430,8 +412,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block5.xnb</Output>
-      <Time>2012-01-28T19:53:15.408107+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block5.xnb</Output>
+      <Time>2011-12-06T17:26:36.8755708+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block50.jpg</Source>
@@ -439,8 +421,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block50.xnb</Output>
-      <Time>2012-01-28T19:53:15.4101071+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block50.xnb</Output>
+      <Time>2012-01-29T23:05:32.0222058+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block51.jpg</Source>
@@ -448,8 +430,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block51.xnb</Output>
-      <Time>2012-01-28T19:53:15.4121072+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block51.xnb</Output>
+      <Time>2012-01-29T23:05:32.0332064+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block52.jpg</Source>
@@ -457,8 +439,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block52.xnb</Output>
-      <Time>2012-01-28T19:53:15.4131073+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block52.xnb</Output>
+      <Time>2012-01-29T23:05:32.0472072+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block53.jpg</Source>
@@ -466,8 +448,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block53.xnb</Output>
-      <Time>2012-01-28T19:53:15.4151074+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block53.xnb</Output>
+      <Time>2012-01-29T23:05:32.0622081+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block54.jpg</Source>
@@ -475,8 +457,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block54.xnb</Output>
-      <Time>2012-01-28T19:53:15.4161075+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block54.xnb</Output>
+      <Time>2012-01-29T23:05:32.078209+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block55.jpg</Source>
@@ -484,8 +466,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block55.xnb</Output>
-      <Time>2012-01-28T19:53:15.4181076+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block55.xnb</Output>
+      <Time>2012-01-29T23:05:32.09521+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block56.jpg</Source>
@@ -493,8 +475,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block56.xnb</Output>
-      <Time>2012-01-28T19:53:15.4201077+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block56.xnb</Output>
+      <Time>2012-01-29T23:05:32.0972101+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block57.jpg</Source>
@@ -502,26 +484,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block57.xnb</Output>
-      <Time>2012-01-28T19:53:15.4231079+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block58.jpg</Source>
-      <Name>Blocks\block58</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block58.xnb</Output>
-      <Time>2012-01-28T19:53:15.425108+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block59.jpg</Source>
-      <Name>Blocks\block59</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block59.xnb</Output>
-      <Time>2012-01-28T19:53:15.4271081+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block57.xnb</Output>
+      <Time>2012-01-29T23:05:32.1212115+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block6.jpg</Source>
@@ -529,98 +493,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block6.xnb</Output>
-      <Time>2012-01-28T19:53:15.4291082+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block60.jpg</Source>
-      <Name>Blocks\block60</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block60.xnb</Output>
-      <Time>2012-01-28T19:53:15.4311083+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block61.jpg</Source>
-      <Name>Blocks\block61</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block61.xnb</Output>
-      <Time>2012-01-29T14:34:50.2506952+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block62.jpg</Source>
-      <Name>Blocks\block62</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block62.xnb</Output>
-      <Time>2012-01-29T14:34:50.2506952+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block63.jpg</Source>
-      <Name>Blocks\block63</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block63.xnb</Output>
-      <Time>2012-01-29T14:34:50.2506952+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block64.jpg</Source>
-      <Name>Blocks\block64</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block64.xnb</Output>
-      <Time>2012-01-29T14:34:50.2506952+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block65.jpg</Source>
-      <Name>Blocks\block65</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block65.xnb</Output>
-      <Time>2012-01-29T14:34:50.2606952+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block66.jpg</Source>
-      <Name>Blocks\block66</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block66.xnb</Output>
-      <Time>2012-01-29T14:34:50.2606952+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block67.jpg</Source>
-      <Name>Blocks\block67</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block67.xnb</Output>
-      <Time>2012-01-29T14:34:50.2606952+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block68.jpg</Source>
-      <Name>Blocks\block68</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block68.xnb</Output>
-      <Time>2012-01-29T14:34:50.2606952+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block69.jpg</Source>
-      <Name>Blocks\block69</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block69.xnb</Output>
-      <Time>2012-01-29T14:34:50.2606952+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block6.xnb</Output>
+      <Time>2012-01-29T23:05:32.1342122+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block7.jpg</Source>
@@ -628,17 +502,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block7.xnb</Output>
-      <Time>2012-01-28T19:53:15.4391088+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Blocks\block70.jpg</Source>
-      <Name>Blocks\block70</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block70.xnb</Output>
-      <Time>2012-01-29T14:34:50.2606952+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block7.xnb</Output>
+      <Time>2012-01-29T23:05:32.218217+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block8.jpg</Source>
@@ -646,8 +511,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block8.xnb</Output>
-      <Time>2012-01-28T19:53:15.4411089+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block8.xnb</Output>
+      <Time>2012-01-29T23:05:32.2252174+01:00</Time>
     </Item>
     <Item>
       <Source>Blocks\block9.jpg</Source>
@@ -655,8 +520,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block9.xnb</Output>
-      <Time>2012-01-28T19:53:15.443109+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Blocks\block9.xnb</Output>
+      <Time>2012-01-29T23:05:32.2472187+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\Trees.jpg</Source>
+      <Name>Textures\Trees</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\Trees.xnb</Output>
+      <Time>2011-11-29T17:49:50.1821621+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\empty.png</Source>
+      <Name>Textures\empty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\empty.xnb</Output>
+      <Time>2011-12-05T21:50:43.0724372+01:00</Time>
     </Item>
     <Item>
       <Source>tlo.jpg</Source>
@@ -664,8 +547,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\tlo.xnb</Output>
-      <Time>2012-01-28T19:53:15.5451148+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\tlo.xnb</Output>
+      <Time>2011-12-07T21:01:04.138293+01:00</Time>
     </Item>
     <Item>
       <Source>nowagra.png</Source>
@@ -673,8 +556,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\nowagra.xnb</Output>
-      <Time>2012-01-28T19:53:15.5391145+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\nowagra.xnb</Output>
+      <Time>2011-12-07T21:01:04.1332927+01:00</Time>
     </Item>
     <Item>
       <Source>koniec.png</Source>
@@ -682,8 +565,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\koniec.xnb</Output>
-      <Time>2012-01-28T19:53:15.5371144+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\koniec.xnb</Output>
+      <Time>2011-12-07T21:01:04.1322927+01:00</Time>
     </Item>
     <Item>
       <Source>wyniki.png</Source>
@@ -691,8 +574,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\wyniki.xnb</Output>
-      <Time>2012-01-28T19:53:15.5461149+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\wyniki.xnb</Output>
+      <Time>2011-12-07T21:01:04.1412932+01:00</Time>
     </Item>
     <Item>
       <Source>belkagracza.png</Source>
@@ -700,8 +583,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\belkagracza.xnb</Output>
-      <Time>2012-01-29T14:34:50.2706953+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\belkagracza.xnb</Output>
+      <Time>2012-01-29T23:05:32.2502189+01:00</Time>
     </Item>
     <Item>
       <Source>Models\BrickOldMixedSize0012_3_S[1].jpg</Source>
@@ -709,8 +592,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldMixedSize0012_3_S[1].xnb</Output>
-      <Time>2012-01-28T19:53:15.4451091+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldMixedSize0012_3_S[1].xnb</Output>
+      <Time>2012-01-16T14:15:36.6428808+01:00</Time>
     </Item>
     <Item>
       <Source>Models\BrickOldRounded0028_5_S[1].jpg</Source>
@@ -718,8 +601,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0028_5_S[1].xnb</Output>
-      <Time>2012-01-28T19:53:15.4471092+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0028_5_S[1].xnb</Output>
+      <Time>2012-01-16T14:15:36.645881+01:00</Time>
     </Item>
     <Item>
       <Source>Models\BrickOldRounded0032_5_S[1].jpg</Source>
@@ -727,8 +610,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0032_5_S[1].xnb</Output>
-      <Time>2012-01-28T19:53:15.4501094+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0032_5_S[1].xnb</Output>
+      <Time>2012-01-16T14:15:36.6488811+01:00</Time>
     </Item>
     <Item>
       <Source>Models\BrickOldRounded0046_12_S[1].jpg</Source>
@@ -736,8 +619,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0046_12_S[1].xnb</Output>
-      <Time>2012-01-28T19:53:15.4711106+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0046_12_S[1].xnb</Output>
+      <Time>2012-01-16T14:15:36.6538814+01:00</Time>
     </Item>
     <Item>
       <Source>Models\BrickOldRounded0048_2_S[1].jpg</Source>
@@ -745,8 +628,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0048_2_S[1].xnb</Output>
-      <Time>2012-01-28T19:53:15.4761109+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0048_2_S[1].xnb</Output>
+      <Time>2012-01-16T14:15:36.6568816+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Concrete_Aggregate_Stained.jpg</Source>
@@ -754,8 +637,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Concrete_Aggregate_Stained.xnb</Output>
-      <Time>2012-01-28T19:53:15.4761109+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Concrete_Aggregate_Stained.xnb</Output>
+      <Time>2012-01-16T14:15:36.6578817+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Metal_Aluminum_Anodized.jpg</Source>
@@ -763,8 +646,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Aluminum_Anodized.xnb</Output>
-      <Time>2012-01-28T19:53:15.477111+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Aluminum_Anodized.xnb</Output>
+      <Time>2012-01-16T14:15:36.6588817+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Metal_Corrogated_Shiny.jpg</Source>
@@ -772,8 +655,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Corrogated_Shiny.xnb</Output>
-      <Time>2012-01-28T19:53:15.477111+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Corrogated_Shiny.xnb</Output>
+      <Time>2012-01-16T14:15:36.6588817+01:00</Time>
     </Item>
     <Item>
       <Source>Models\RoofingInside0017_2_S[1].jpg</Source>
@@ -781,8 +664,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RoofingInside0017_2_S[1].xnb</Output>
-      <Time>2012-01-28T19:53:15.4791111+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RoofingInside0017_2_S[1].xnb</Output>
+      <Time>2012-01-16T14:15:36.6618819+01:00</Time>
     </Item>
     <Item>
       <Source>Models\RooftilesSlate0051_3_S[1].jpg</Source>
@@ -790,8 +673,53 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RooftilesSlate0051_3_S[1].xnb</Output>
-      <Time>2012-01-28T19:53:15.4841114+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RooftilesSlate0051_3_S[1].xnb</Output>
+      <Time>2012-01-16T14:15:36.6678822+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\czerwonaminiatura.png</Source>
+      <Name>Models\czerwonaminiatura</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\czerwonaminiatura.xnb</Output>
+      <Time>2012-01-29T23:05:32.2482187+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\czarnaminiatura.png</Source>
+      <Name>Models\czarnaminiatura</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\czarnaminiatura.xnb</Output>
+      <Time>2012-01-29T23:05:32.2472187+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\niebieskaminiatura.png</Source>
+      <Name>Models\niebieskaminiatura</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\niebieskaminiatura.xnb</Output>
+      <Time>2012-01-29T23:05:32.2492188+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\zielonaminiatura.png</Source>
+      <Name>Models\zielonaminiatura</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\zielonaminiatura.xnb</Output>
+      <Time>2012-01-29T23:05:32.2502189+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\zoltaminiatura.png</Source>
+      <Name>Models\zoltaminiatura</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\zoltaminiatura.xnb</Output>
+      <Time>2012-01-29T23:05:32.2502189+01:00</Time>
     </Item>
     <Item>
       <Source>font.spritefont</Source>
@@ -799,8 +727,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\font.xnb</Output>
-      <Time>2012-01-28T19:53:15.5361143+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\font.xnb</Output>
+      <Time>2011-12-10T15:28:17.1323251+01:00</Time>
     </Item>
     <Item>
       <Source>Models\flag.x</Source>
@@ -808,14 +736,14 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\flag.xnb</Output>
-      <Time>2012-01-28T19:53:15.4991122+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\flag.xnb</Output>
+      <Time>2012-01-16T14:15:36.6748826+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\flag_0.xml</Key>
-        <Value>2012-01-28T20:03:42.1579551+01:00</Value>
+        <Value>2012-01-30T00:19:25.967813+01:00</Value>
       </Dependency>
-      <Request>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Corrogated_Shiny_0.xnb</Request>
-      <Request>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Aluminum_Anodized_0.xnb</Request>
+      <Request>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Corrogated_Shiny_0.xnb</Request>
+      <Request>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Aluminum_Anodized_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Pionek.x</Source>
@@ -823,11 +751,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Pionek.xnb</Output>
-      <Time>2012-01-28T19:53:15.478111+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Pionek.xnb</Output>
+      <Time>2012-01-16T14:15:36.6598818+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Pionek_0.xml</Key>
-        <Value>2012-01-28T20:03:42.365967+01:00</Value>
+        <Value>2012-01-30T00:19:26.0958203+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -836,13 +764,13 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\tree.xnb</Output>
-      <Time>2012-01-28T19:53:15.531114+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\tree.xnb</Output>
+      <Time>2012-01-16T14:15:36.7148849+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\tree_0.xml</Key>
-        <Value>2012-01-28T20:03:42.7699901+01:00</Value>
+        <Value>2012-01-30T00:19:26.5888485+01:00</Value>
       </Dependency>
-      <Request>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Concrete_Aggregate_Stained_0.xnb</Request>
+      <Request>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Concrete_Aggregate_Stained_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Wieza.x</Source>
@@ -850,19 +778,19 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Wieza.xnb</Output>
-      <Time>2012-01-28T19:53:15.4921118+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Wieza.xnb</Output>
+      <Time>2012-01-16T14:15:36.6718825+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Wieza_0.xml</Key>
-        <Value>2012-01-28T20:03:42.9460001+01:00</Value>
+        <Value>2012-01-30T00:19:26.8388628+01:00</Value>
       </Dependency>
-      <Request>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldMixedSize0012_3_S[1]_0.xnb</Request>
-      <Request>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0032_5_S[1]_0.xnb</Request>
-      <Request>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RoofingInside0017_2_S[1]_0.xnb</Request>
-      <Request>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RooftilesSlate0051_3_S[1]_0.xnb</Request>
-      <Request>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0028_5_S[1]_0.xnb</Request>
-      <Request>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0046_12_S[1]_0.xnb</Request>
-      <Request>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0048_2_S[1]_0.xnb</Request>
+      <Request>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldMixedSize0012_3_S[1]_0.xnb</Request>
+      <Request>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0032_5_S[1]_0.xnb</Request>
+      <Request>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RoofingInside0017_2_S[1]_0.xnb</Request>
+      <Request>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RooftilesSlate0051_3_S[1]_0.xnb</Request>
+      <Request>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0028_5_S[1]_0.xnb</Request>
+      <Request>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0046_12_S[1]_0.xnb</Request>
+      <Request>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0048_2_S[1]_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\blue.x</Source>
@@ -870,11 +798,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\blue.xnb</Output>
-      <Time>2012-01-28T19:53:15.4941119+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\blue.xnb</Output>
+      <Time>2012-01-25T22:20:37.3379248+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\blue_0.xml</Key>
-        <Value>2012-01-28T20:03:44.0860653+01:00</Value>
+        <Value>2012-01-30T00:19:28.2029408+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -883,11 +811,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\green.xnb</Output>
-      <Time>2012-01-28T19:53:15.4991122+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\green.xnb</Output>
+      <Time>2012-01-25T22:20:37.3389248+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\green_0.xml</Key>
-        <Value>2012-01-28T20:03:44.1120668+01:00</Value>
+        <Value>2012-01-30T00:19:28.2269422+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -896,11 +824,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\red.xnb</Output>
-      <Time>2012-01-28T19:53:15.5001123+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\red.xnb</Output>
+      <Time>2012-01-25T22:20:37.3399249+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\red_0.xml</Key>
-        <Value>2012-01-28T20:03:44.1370683+01:00</Value>
+        <Value>2012-01-30T00:19:28.2509436+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -909,11 +837,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\yellow.xnb</Output>
-      <Time>2012-01-28T19:53:15.5331142+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\yellow.xnb</Output>
+      <Time>2012-01-25T22:20:37.3409249+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\yellow_0.xml</Key>
-        <Value>2012-01-28T20:03:44.1640698+01:00</Value>
+        <Value>2012-01-30T00:19:28.2739449+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -922,11 +850,11 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\black.xnb</Output>
-      <Time>2012-01-28T19:53:15.4931119+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\black.xnb</Output>
+      <Time>2012-01-25T22:20:37.3189237+01:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\black_0.xml</Key>
-        <Value>2012-01-28T20:03:44.1920714+01:00</Value>
+        <Value>2012-01-30T00:19:28.2959462+01:00</Value>
       </Dependency>
     </Item>
     <Item>
@@ -934,7 +862,7 @@
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\flag_0.xml</Output>
-      <Time>2012-01-28T19:53:15.4991122+01:00</Time>
+      <Time>2012-01-16T14:15:36.6748826+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Metal_Corrogated_Shiny.jpg</Source>
@@ -949,8 +877,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Corrogated_Shiny_0.xnb</Output>
-      <Time>2012-01-28T19:53:15.477111+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Corrogated_Shiny_0.xnb</Output>
+      <Time>2012-01-16T14:15:36.6588817+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Metal_Aluminum_Anodized.jpg</Source>
@@ -965,22 +893,22 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Aluminum_Anodized_0.xnb</Output>
-      <Time>2012-01-28T19:53:15.477111+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Metal_Aluminum_Anodized_0.xnb</Output>
+      <Time>2012-01-16T14:15:36.6588817+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Pionek.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Pionek_0.xml</Output>
-      <Time>2012-01-28T19:53:15.478111+01:00</Time>
+      <Time>2012-01-16T14:15:36.6598818+01:00</Time>
     </Item>
     <Item>
       <Source>Models\tree.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\tree_0.xml</Output>
-      <Time>2012-01-28T19:53:15.531114+01:00</Time>
+      <Time>2012-01-16T14:15:36.7148849+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Concrete_Aggregate_Stained.jpg</Source>
@@ -995,15 +923,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Concrete_Aggregate_Stained_0.xnb</Output>
-      <Time>2012-01-28T19:53:15.4761109+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\Concrete_Aggregate_Stained_0.xnb</Output>
+      <Time>2012-01-16T14:15:36.6578817+01:00</Time>
     </Item>
     <Item>
       <Source>Models\Wieza.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Wieza_0.xml</Output>
-      <Time>2012-01-28T19:53:15.4921118+01:00</Time>
+      <Time>2012-01-16T14:15:36.6718825+01:00</Time>
     </Item>
     <Item>
       <Source>Models\BrickOldMixedSize0012_3_S[1].jpg</Source>
@@ -1018,8 +946,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldMixedSize0012_3_S[1]_0.xnb</Output>
-      <Time>2012-01-28T19:53:15.4451091+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldMixedSize0012_3_S[1]_0.xnb</Output>
+      <Time>2012-01-16T14:15:36.6428808+01:00</Time>
     </Item>
     <Item>
       <Source>Models\BrickOldRounded0032_5_S[1].jpg</Source>
@@ -1034,8 +962,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0032_5_S[1]_0.xnb</Output>
-      <Time>2012-01-28T19:53:15.4501094+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0032_5_S[1]_0.xnb</Output>
+      <Time>2012-01-16T14:15:36.6488811+01:00</Time>
     </Item>
     <Item>
       <Source>Models\RoofingInside0017_2_S[1].jpg</Source>
@@ -1050,8 +978,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RoofingInside0017_2_S[1]_0.xnb</Output>
-      <Time>2012-01-28T19:53:15.4791111+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RoofingInside0017_2_S[1]_0.xnb</Output>
+      <Time>2012-01-16T14:15:36.6618819+01:00</Time>
     </Item>
     <Item>
       <Source>Models\RooftilesSlate0051_3_S[1].jpg</Source>
@@ -1066,8 +994,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RooftilesSlate0051_3_S[1]_0.xnb</Output>
-      <Time>2012-01-28T19:53:15.4841114+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\RooftilesSlate0051_3_S[1]_0.xnb</Output>
+      <Time>2012-01-16T14:15:36.6678822+01:00</Time>
     </Item>
     <Item>
       <Source>Models\BrickOldRounded0028_5_S[1].jpg</Source>
@@ -1082,8 +1010,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0028_5_S[1]_0.xnb</Output>
-      <Time>2012-01-28T19:53:15.4471092+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0028_5_S[1]_0.xnb</Output>
+      <Time>2012-01-16T14:15:36.645881+01:00</Time>
     </Item>
     <Item>
       <Source>Models\BrickOldRounded0046_12_S[1].jpg</Source>
@@ -1098,8 +1026,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0046_12_S[1]_0.xnb</Output>
-      <Time>2012-01-28T19:53:15.4711106+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0046_12_S[1]_0.xnb</Output>
+      <Time>2012-01-16T14:15:36.6538814+01:00</Time>
     </Item>
     <Item>
       <Source>Models\BrickOldRounded0048_2_S[1].jpg</Source>
@@ -1114,88 +1042,61 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0048_2_S[1]_0.xnb</Output>
-      <Time>2012-01-28T19:53:15.4761109+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\BrickOldRounded0048_2_S[1]_0.xnb</Output>
+      <Time>2012-01-16T14:15:36.6568816+01:00</Time>
     </Item>
     <Item>
       <Source>Models\blue.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\blue_0.xml</Output>
-      <Time>2012-01-28T19:53:15.4941119+01:00</Time>
+      <Time>2012-01-25T22:20:37.3379248+01:00</Time>
     </Item>
     <Item>
       <Source>Models\green.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\green_0.xml</Output>
-      <Time>2012-01-28T19:53:15.4991122+01:00</Time>
+      <Time>2012-01-25T22:20:37.3389248+01:00</Time>
     </Item>
     <Item>
       <Source>Models\red.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\red_0.xml</Output>
-      <Time>2012-01-28T19:53:15.5001123+01:00</Time>
+      <Time>2012-01-25T22:20:37.3399249+01:00</Time>
     </Item>
     <Item>
       <Source>Models\yellow.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\yellow_0.xml</Output>
-      <Time>2012-01-28T19:53:15.5331142+01:00</Time>
+      <Time>2012-01-25T22:20:37.3409249+01:00</Time>
     </Item>
     <Item>
       <Source>Models\black.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\black_0.xml</Output>
-      <Time>2012-01-28T19:53:15.4931119+01:00</Time>
+      <Time>2012-01-25T22:20:37.3189237+01:00</Time>
     </Item>
     <Item>
-      <Source>Models\czerwonaminiatura.png</Source>
-      <Name>Models\czerwonaminiatura</Name>
+      <Source>Textures\background_results.jpg</Source>
+      <Name>Textures\background_results</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\czerwonaminiatura.xnb</Output>
-      <Time>2012-01-29T14:34:50.2706953+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Textures\background_results.xnb</Output>
+      <Time>2012-01-30T01:44:48.568809+01:00</Time>
     </Item>
     <Item>
-      <Source>Models\czarnaminiatura.png</Source>
-      <Name>Models\czarnaminiatura</Name>
+      <Source>back.png</Source>
+      <Name>back</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\czarnaminiatura.xnb</Output>
-      <Time>2012-01-29T14:34:50.2606952+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\niebieskaminiatura.png</Source>
-      <Name>Models\niebieskaminiatura</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\niebieskaminiatura.xnb</Output>
-      <Time>2012-01-29T14:34:50.2706953+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\zielonaminiatura.png</Source>
-      <Name>Models\zielonaminiatura</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\zielonaminiatura.xnb</Output>
-      <Time>2012-01-29T14:34:50.2706953+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\zoltaminiatura.png</Source>
-      <Name>Models\zoltaminiatura</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\Models\zoltaminiatura.xnb</Output>
-      <Time>2012-01-29T14:34:50.2706953+01:00</Time>
+      <Output>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\back.xnb</Output>
+      <Time>2012-01-30T01:57:23.9630151+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -1203,10 +1104,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>D:\GR\GR\3D Madness\3D Madness\3D MadnessContent\</RootDirectory>
-      <LoggerRootDirectory>D:\GR\GR\3D Madness\3D Madness\3D Madness\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\GR\GR\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>D:\GR\GR\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Projekt\3D Madness\3D Madness\3D MadnessContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Projekt\3D Madness\3D Madness\3D Madness\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Projekt\3D Madness\3D Madness\3D MadnessContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Projekt\3D Madness\3D Madness\3D Madness\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -1235,7 +1136,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-01-28T20:01:28.0432841+01:00</Value>
+        <Value>2011-11-19T13:24:00.4842205+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

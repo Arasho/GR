@@ -29,14 +29,17 @@ namespace _3D_Madness
         public bool startNewGame { get; set; }
         public bool playersSetings { get; set; }
         public bool pressedNewGame { get; set; }
+        public bool pressedResults { get; set; }
         public bool pressedTheEnd { get; set; }
+        public bool pressedBackFromResults { get; set; }
 
         // Game camera
         public Camera camera { get; set; }
         public Board board { get; set; }
-        private Menu menu;
+        public Menu menu { get; set; }
         public Bar infoBar { get; set; }
         public Model3D model3D { get; set; }
+        public Results results { get; set; }
         public bool CheckStone = false;
         public bool CanStone = false;
 
@@ -47,7 +50,9 @@ namespace _3D_Madness
             IsMouseVisible = true;
             Window.AllowUserResizing = true;
             pressedNewGame = false;
+            pressedResults = false;
             pressedTheEnd = false;
+            pressedBackFromResults = false;
             startNewGame = false;
             playersSetings = false;
             time = 0;
@@ -84,6 +89,7 @@ namespace _3D_Madness
             // Zaladowanie pustej planszy
             board = new Board(this, txt1, txt2);
             infoBar = new Bar(this);
+            results = new Results(this);
 
             Components.Add(menu);
         }
@@ -100,6 +106,12 @@ namespace _3D_Madness
             
                 if (pressedNewGame)
                     initializeGame();
+
+                if (pressedResults)
+                    initializeResults();
+
+                if (pressedBackFromResults)
+                    backFromResults();
 
                 checkForExit();                
 
@@ -266,6 +278,20 @@ namespace _3D_Madness
                 Components.Add(infoBar);
                 pressedNewGame = false;
             }
+        }
+
+        private void initializeResults()
+        {
+            Components.Remove(menu);
+            Components.Add(results);
+            pressedResults = false;
+        }
+
+        private void backFromResults()
+        {
+            Components.Remove(results);
+            Components.Add(menu);
+            pressedBackFromResults = false;
         }
 
         /// <summary>

@@ -47,6 +47,8 @@ namespace _3D_Madness
             {
                 if (rNewGame.Intersects(rMouse))
                     mainGameClass.pressedNewGame = true;
+                if(rScores.Intersects(rMouse))
+                    mainGameClass.pressedResults = true;
                 if (rEnd.Intersects(rMouse))
                     mainGameClass.pressedTheEnd = true;     
             }

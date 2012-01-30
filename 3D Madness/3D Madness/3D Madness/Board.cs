@@ -304,20 +304,27 @@ namespace _3D_Madness
                                             mainGameClass.CanStone = true;
                                             Round.PuttingElement();
 
-                                            if (elements.Count < 1 )
+                                            if (elements.Count < 1)
                                             {
                                                 string wyniki = "Game Over\n";
+                                                string wyniki1 ="";
                                                 for (int z = 0; z < Round.NumberOfPlayers; z++)
                                                 {
                                                     foreach (Pawn pionek in Game1.listOfPlayers[z].Pawns)
                                                     {
                                                         Game1.listOfPlayers[z].PlayerPoints += FloodFill(new Point(pionek.x, pionek.y), pionek.krawedz, pionek.wartosc);
                                                     }
-                                                    wyniki += Game1.listOfPlayers[z].PlayerName + ": " + Game1.listOfPlayers[z].PlayerPoints + "pkt\n";
+                                                    wyniki += Game1.listOfPlayers[z].PlayerName + ":" + Game1.listOfPlayers[z].PlayerPoints + " " + "pkt\n";
+                                                    wyniki1 += Game1.listOfPlayers[z].PlayerName + ":" + Game1.listOfPlayers[z].PlayerPoints + " ";                                                 
                                                 }
 
                                                 if (DialogResult.OK == MessageBox.Show(wyniki))
                                                 {
+                                                    //Zapis wyników 
+                                                    System.IO.StreamWriter file = new System.IO.StreamWriter("wyniki.txt", true);
+                                                    file.WriteLine(DateTime.Now.ToString() + " " + wyniki1);
+                                                    file.Close();
+
                                                     for (int z = 0; z < Round.NumberOfPlayers; z++)
                                                     {
                                                             Game1.listOfPlayers[z].PlayerPoints = 0;   
@@ -325,8 +332,17 @@ namespace _3D_Madness
 
                                                     if (MessageBox.Show("Czy chcesz zacząć nową grę?", "Carcassonne", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                                     {
-                                                        //((Game1)parrentGame).NewGameForm = new FormPlayers();
-                                                        //((Game1)parrentGame).NewGameForm.Show();
+
+
+                                                        //mainGameClass.board.Dispose();
+                                                        //mainGameClass.Components.Remove(mainGameClass.board);
+                                                        //mainGameClass.Components.Add(mainGameClass.menu);
+
+                                              
+                                                        //  Game1
+                                                     //   Application.Restart();
+                                                     
+
                                                     }
                                                     else
                                                     {
